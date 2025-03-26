@@ -7361,20 +7361,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SzymonS\\.nuget\\packages\\": {}
+    "C:\\Users\\Kornel\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
       "projectName": "PtasieRadio.Tests",
-      "projectPath": "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
-      "packagesPath": "C:\\Users\\SzymonS\\.nuget\\packages\\",
-      "outputPath": "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio.Tests\\obj\\",
+      "projectPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
+      "packagesPath": "C:\\Users\\Kornel\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "centralPackageVersionsManagementEnabled": true,
       "configFilePaths": [
-        "C:\\Users\\SzymonS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Kornel\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -7387,8 +7387,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
-              "projectPath": "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj"
+            "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
+              "projectPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj"
             }
           }
         }
@@ -7467,26 +7467,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.13, 8.0.13]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.13, 8.0.13]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[8.0.13, 8.0.13]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
