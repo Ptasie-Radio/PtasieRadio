@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>UIAppFonts</key>
+  <array>
+    <string>Uno.Fonts.Fluent\Fonts\uno-fluentui-assets.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans-Bold.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans-BoldItalic.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans-ExtraBold.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans-ExtraBoldItalic.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans-Italic.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans-Light.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans-LightItalic.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans-Medium.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans-MediumItalic.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans-Regular.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans-SemiBold.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans-SemiBoldItalic.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_Condensed-Bold.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_Condensed-BoldItalic.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_Condensed-ExtraBold.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_Condensed-ExtraBoldItalic.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_Condensed-Italic.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_Condensed-Light.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_Condensed-LightItalic.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_Condensed-Medium.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_Condensed-MediumItalic.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_Condensed-Regular.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_Condensed-SemiBold.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_Condensed-SemiBoldItalic.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_SemiCondensed-Bold.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_SemiCondensed-BoldItalic.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_SemiCondensed-ExtraBold.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_SemiCondensed-ExtraBoldItalic.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_SemiCondensed-Italic.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_SemiCondensed-Light.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_SemiCondensed-LightItalic.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_SemiCondensed-Medium.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_SemiCondensed-MediumItalic.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_SemiCondensed-Regular.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_SemiCondensed-SemiBold.ttf</string>
+    <string>Uno.Fonts.OpenSans\Fonts\OpenSans_SemiCondensed-SemiBoldItalic.ttf</string>
+    <string>Uno.Fonts.Roboto\Fonts\Roboto-Light.ttf</string>
+    <string>Uno.Fonts.Roboto\Fonts\Roboto-Medium.ttf</string>
+    <string>Uno.Fonts.Roboto\Fonts\Roboto-Regular.ttf</string>
+  </array>
+</dict>
+</plist>

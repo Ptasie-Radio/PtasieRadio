@@ -85,6 +85,11 @@
               "version": "[8.0.1, )",
               "autoReferenced": true
             },
+            "NAudio": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
+            },
             "SkiaSharp.Skottie": {
               "target": "Package",
               "version": "[2.88.9, )",
@@ -229,6 +234,7 @@
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
             "Microsoft.NET.Test.Sdk": "17.9.0",
+            "NAudio": "2.1.0",
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
@@ -266,6 +272,11 @@
               "target": "Package",
               "version": "[8.0.14, )",
               "autoReferenced": true
+            },
+            "NAudio": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
             },
             "SkiaSharp.Skottie": {
               "target": "Package",
@@ -456,6 +467,7 @@
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
             "Microsoft.NET.Test.Sdk": "17.9.0",
+            "NAudio": "2.1.0",
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
@@ -523,6 +535,11 @@
               "target": "Package",
               "version": "[8.0.13, )",
               "autoReferenced": true
+            },
+            "NAudio": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
             },
             "Uno.Dsp.Tasks": {
               "target": "Package",
@@ -688,6 +705,7 @@
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
             "Microsoft.NET.Test.Sdk": "17.9.0",
+            "NAudio": "2.1.0",
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
@@ -719,6 +737,11 @@
               "target": "Package",
               "version": "[8.0.1, )",
               "autoReferenced": true
+            },
+            "NAudio": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
             },
             "SkiaSharp.Skottie": {
               "target": "Package",
@@ -894,6 +917,7 @@
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
             "Microsoft.NET.Test.Sdk": "17.9.0",
+            "NAudio": "2.1.0",
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
@@ -931,6 +955,11 @@
               "target": "Package",
               "version": "[8.0.14, )",
               "autoReferenced": true
+            },
+            "NAudio": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
             },
             "SkiaSharp.Skottie": {
               "target": "Package",
@@ -1086,6 +1115,7 @@
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
             "Microsoft.NET.Test.Sdk": "17.9.0",
+            "NAudio": "2.1.0",
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
@@ -1137,6 +1167,11 @@
               "version": "[8.0.14, )",
               "autoReferenced": true
             },
+            "NAudio": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
+            },
             "SkiaSharp.Skottie": {
               "target": "Package",
               "version": "[2.88.9, )",
@@ -1291,6 +1326,7 @@
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
             "Microsoft.NET.Test.Sdk": "17.9.0",
+            "NAudio": "2.1.0",
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
@@ -1346,6 +1382,11 @@
               "target": "Package",
               "version": "[1.6.250205002, )",
               "autoReferenced": true
+            },
+            "NAudio": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
             },
             "Uno.Core.Extensions.Logging.Singleton": {
               "target": "Package",
@@ -1481,6 +1522,7 @@
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
             "Microsoft.NET.Test.Sdk": "17.9.0",
+            "NAudio": "2.1.0",
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qMADjDu0p0w=",
+  "dgSpecHash": "MUcI4D6hjgs=",
   "success": true,
   "projectFilePath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj",
   "expectedPackageFiles": [
@@ -85,5 +85,12 @@
     "C:\\Users\\Kornel\\.nuget\\packages\\uno.uitest.xamarin\\1.1.0-dev.70\\uno.uitest.xamarin.1.1.0-dev.70.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\xamarin.uitest\\4.3.4\\xamarin.uitest.4.3.4.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.UITests\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

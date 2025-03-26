@@ -1,0 +1,32 @@
+{
+  "background_color": "#ffffff",
+  "description": "PtasieRadio",
+  "display": "standalone",
+  "name": "PtasieRadio",
+  "short_name": "PtasieRadio",
+  "start_url": "/index.html",
+  "theme_color": "#ffffff",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "package_f11e4a136703f67635732a420524b3cd8052f87e/icon-16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "package_f11e4a136703f67635732a420524b3cd8052f87e/icon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "package_f11e4a136703f67635732a420524b3cd8052f87e/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "package_f11e4a136703f67635732a420524b3cd8052f87e/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
