@@ -37,6 +37,15 @@
     <AppxPackagedFile Include="D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\apphost.exe">
       <PackagePath>PtasieRadio.exe</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\Assets\Images\image.png">
+      <PackagePath>Assets\Images\image.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\Assets\Images\play.webp">
+      <PackagePath>Assets\Images\play.webp</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\Assets\Images\stop.webp">
+      <PackagePath>Assets\Images\stop.webp</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\Assets\SharedAssets.md">
       <PackagePath>Assets\SharedAssets.md</PackagePath>
     </AppxPackagedFile>

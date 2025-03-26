@@ -1,3 +1,6 @@
+Assets/Images/image.png
+Assets/Images/play.webp
+Assets/Images/stop.webp
 Assets/SharedAssets.md
 Assets/Icons/icon_foreground.png
 Assets/Icons/icon_foreground.scale-100.png

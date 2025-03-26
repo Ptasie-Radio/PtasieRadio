@@ -1,6 +1,9 @@
 runtimes\win-arm64\native\WebView2Loader.dll
 runtimes\win-x64\native\WebView2Loader.dll
 runtimes\win-x86\native\WebView2Loader.dll
+Assets\Images\image.png
+Assets\Images\play.webp
+Assets\Images\stop.webp
 Assets\SharedAssets.md
 Assets\Icons\icon_foreground.png
 Assets\Icons\icon_foreground.scale-100.png

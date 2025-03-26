@@ -21,7 +21,11 @@
             Spacing="16">
         <TextBox Text="{Binding Name, Mode=TwoWay}"
             PlaceholderText="Enter your name:" />
-       <Button x:ConnectionId='2' Content="Odtwórz radio"                      />
+      <Button x:ConnectionId='2'                      Name="playButton">
+        <Button.Content>
+           <Image Source="ms-appx:///Assets/Images/play.webp"/>
+        </Button.Content>
+      </Button>
       </StackPanel>
     </Grid>
   </ScrollViewer>

@@ -9,10 +9,10 @@ namespace PtasieRadio.Presentation;
 
 public sealed partial class MainPage : Page
 {
-    private WaveOutEvent waveOut;
-    private MediaFoundationReader reader;
+    private WaveOutEvent? waveOut;//Znak zapytania, aby warning nie dawało
+    private MediaFoundationReader? reader;
     public MainPage()
-    {
+    {  
         this.InitializeComponent();
     }
 
@@ -31,13 +31,15 @@ public sealed partial class MainPage : Page
 
     private async void radioOnClick(object sender, RoutedEventArgs e)
     {
+        playButton.IsEnabled = false;
         string url = "https://playerservices.streamtheworld.com/api/livestream-redirect/WUAL_HD3.mp3";
 
         try
         {
             //Tutaj bierze zatrzymuje jeśli coś już nam gra, inaczej się psuło
 
-            await StopAudioAsync();//
+           
+            await StopAudioAsync();
             
             await Task.Run(//Tutaj się robi osobny wątek, dzięki czemu nie wiesza całej aplikacji
             () =>
@@ -52,6 +54,10 @@ public sealed partial class MainPage : Page
         catch (Exception ex)
         {
             Console.WriteLine($"Błąd odtwarzania: {ex.Message}");
+        }
+        finally
+        {
+            playButton.IsEnabled = true;
         }
     }
 }
