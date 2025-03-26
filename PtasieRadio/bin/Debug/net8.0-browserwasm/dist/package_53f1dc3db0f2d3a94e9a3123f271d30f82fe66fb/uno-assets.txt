@@ -68,4 +68,6 @@ Uno.Fonts.Roboto/Fonts/Roboto-Medium.ttf
 Uno.Fonts.Roboto/Fonts/Roboto-Regular.ttf
 staticwebapp.config.json
 web.config
+PtasieRadio.staticwebassets.runtime.json
+PtasieRadio.staticwebassets.endpoints.json
 PtasieRadio.exe

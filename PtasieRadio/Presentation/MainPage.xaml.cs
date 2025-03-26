@@ -16,7 +16,20 @@ public sealed partial class MainPage : Page
         this.InitializeComponent();
     }
 
-    private void radioOnClick(object sender, RoutedEventArgs e)
+    public async Task StopAudioAsync()
+{
+    await Task.Run(() =>
+    {
+        if (waveOut?.PlaybackState != PlaybackState.Stopped)
+        {
+            waveOut?.Stop();
+            waveOut?.Dispose();
+            reader?.Dispose();
+        }
+    });
+}
+
+    private async void radioOnClick(object sender, RoutedEventArgs e)
     {
         string url = "https://playerservices.streamtheworld.com/api/livestream-redirect/WUAL_HD3.mp3";
 
@@ -24,14 +37,16 @@ public sealed partial class MainPage : Page
         {
             //Tutaj bierze zatrzymuje jeśli coś już nam gra, inaczej się psuło
 
-            waveOut?.Stop();// ?. To operator warunkowego dostępu, nie wywala błędu jak NULL
-            waveOut?.Dispose();
-            reader?.Dispose();
-
-            reader = new MediaFoundationReader(url);//Czyta z tego url'a
-            waveOut = new WaveOutEvent();
-            waveOut.Init(reader);
-            waveOut.Play();
+            await StopAudioAsync();//
+            
+            await Task.Run(//Tutaj się robi osobny wątek, dzięki czemu nie wiesza całej aplikacji
+            () =>
+            {
+                reader = new MediaFoundationReader(url);
+                waveOut = new WaveOutEvent();
+                waveOut.Init(reader);
+                waveOut.Play();
+            });
         }
 
         catch (Exception ex)
