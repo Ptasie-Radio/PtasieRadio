@@ -102,15 +102,18 @@
 
       <!-- Przycisk odtwarzania z obrazem -->
       <Button Style="{StaticResource MaterialIconButtonStyle}"
+              Click="RadioOnClick"
+              Name="playButton" 
               Width="96"
               Height="96"
               HorizontalAlignment="Center"
               Command="{Binding PlayCommand}">
         <Button.Content>
+                <!-- bind chyba -->
           <Image Source="ms-appx:///Assets/play.png"
-                 Width="48"
-                 Height="48"
-                 Stretch="Uniform" />
+                Width="48"
+                Height="48"
+                Stretch="Uniform" />
         </Button.Content>
       </Button>
     </StackPanel>

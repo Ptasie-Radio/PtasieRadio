@@ -29,7 +29,7 @@ public sealed partial class MainPage : Page
     });
 }
 
-    private async void radioOnClick(object sender, RoutedEventArgs e)
+    private async void RadioOnClick(object sender, RoutedEventArgs e)
     {
         playButton.IsEnabled = false;
         string url = "https://playerservices.streamtheworld.com/api/livestream-redirect/WUAL_HD3.mp3";
