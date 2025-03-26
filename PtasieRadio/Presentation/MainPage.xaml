@@ -7,25 +7,113 @@
       xmlns:um="using:Uno.Material"
       NavigationCacheMode="Required"
       Background="{ThemeResource BackgroundBrush}">
-  <ScrollViewer>
-    <Grid utu:SafeArea.Insets="VisibleBounds">
-      <Grid.RowDefinitions>
-        <RowDefinition Height="Auto" />
-        <RowDefinition />
-      </Grid.RowDefinitions>
-      <utu:NavigationBar Content="{Binding Title}" />
-      <StackPanel Grid.Row="1"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Spacing="16">
-        <TextBox Text="{Binding Name, Mode=TwoWay}"
-            PlaceholderText="Enter your name:" />
-      <Button Click="radioOnClick" Name="playButton">
+
+  <Grid utu:SafeArea.Insets="VisibleBounds">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" /> <!-- Nagłówek -->
+      <RowDefinition Height="*" /> <!-- Główna zawartość -->
+      <RowDefinition Height="Auto" /> <!-- Nawigacja na dole -->
+    </Grid.RowDefinitions>
+
+    <!-- Nagłówek -->
+    <Grid Grid.Row="0"
+          Background="#0B048DFF"
+          Padding="16">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" /> <!-- Strzałka w dół -->
+        <ColumnDefinition Width="*" /> <!-- Tekst i flaga (wycentrowane) -->
+        <ColumnDefinition Width="Auto" /> <!-- Trzy kropki -->
+      </Grid.ColumnDefinitions>
+
+      <!-- Strzałka w dół (obraz PNG) -->
+      <Button Grid.Column="0"
+              Style="{StaticResource MaterialIconButtonStyle}"
+              Width="40"
+              Height="40"
+              Padding="0">
+        <Image Source="ms-appx:///Assets/arrow_down.png"
+               Width="20"
+               Height="20"
+               Stretch="Uniform" />
+      </Button>
+
+      <!-- Tekst i flaga (wycentrowane) -->
+      <StackPanel Grid.Column="1"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  Spacing="4">
+        <TextBlock Text="Nazwa radia"
+                   Style="{StaticResource MaterialSubtitle1Style}"
+                   Foreground="White"
+                   HorizontalAlignment="Center" />
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Spacing="8">
+          <Image Source="ms-appx:///Assets/flag.png"
+                 Width="16"
+                 Height="16"
+                 Stretch="Uniform" />
+          <TextBlock Text="Kraj pochodzenia"
+                     Style="{StaticResource MaterialCaptionStyle}"
+                     Foreground="LightGray"
+                     VerticalAlignment="Center" />
+        </StackPanel>
+      </StackPanel>
+
+      <!-- Trzy kropki (ikona menu) -->
+      <Button Grid.Column="2"
+              Style="{StaticResource MaterialIconButtonStyle}"
+              Width="40"
+              Height="40"
+              Padding="0">
+        <FontIcon Glyph="" 
+                  FontFamily="Segoe MDL2 Assets"
+                  FontSize="20"
+                  Foreground="White" />
+      </Button>
+    </Grid>
+
+    <!-- Główna zawartość -->
+    <StackPanel Grid.Row="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Spacing="24">
+      <!-- Placeholder na obraz -->
+      <Border Width="200"
+              Height="200"
+              Background="{ThemeResource SurfaceBrush}"
+              Margin="0,75,0,0"
+              CornerRadius="8">
+        <Image Source="ms-appx:///Assets/placeholder.png" 
+               Stretch="UniformToFill" />
+      </Border>
+
+      <!-- GIF -->
+      <Image Source="ms-appx:///Assets/animation.gif"
+             Width="100"
+             Height="100"
+             Stretch="Uniform" />
+
+      <!-- Tekst z zespołem i tytułem -->
+      <TextBlock Text="Zespół - Tytuł"
+                 Style="{StaticResource MaterialBody1Style}"
+                 HorizontalAlignment="Center"
+                 Margin="0,16,0,0" />
+
+      <!-- Przycisk odtwarzania z obrazem -->
+      <Button Style="{StaticResource MaterialIconButtonStyle}"
+              Width="96"
+              Height="96"
+              HorizontalAlignment="Center"
+              Command="{Binding PlayCommand}">
         <Button.Content>
-           <Image Source="ms-appx:///Assets/Images/play.webp"/>
+          <Image Source="ms-appx:///Assets/play.png"
+                 Width="48"
+                 Height="48"
+                 Stretch="Uniform" />
         </Button.Content>
       </Button>
-      </StackPanel>
-    </Grid>
-  </ScrollViewer>
+    </StackPanel>
+
+  </Grid>
 </Page>
