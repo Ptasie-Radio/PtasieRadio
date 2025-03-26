@@ -4,11 +4,15 @@ using System.IO;
 using NAudio.Wave;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Uno;
 
 namespace PtasieRadio.Presentation;
 
 public sealed partial class MainPage : Page
 {
+
+    //Dobra, w teori możemy zrobić taką tablicę gdzie będziemy przechowywać kilka stacji po przycisku, tylko ta nasza current by się odpalała
+    //Ale to już na inny sprint
     private bool start;
     private bool test;
     private WaveOutEvent? waveOut;//Znak zapytania, aby warning nie dawało
@@ -51,16 +55,15 @@ public sealed partial class MainPage : Page
                 () =>
                 {
                     //waveOut?.Dispose();//Przy dodaniu startowania z innych, umieścić to tam
-                    //reader?.Dispose();
+                    //reader?.Dispose();//To też. Na razie przy jednym nie potrzeba, ale przy więcej dodać
                     
-                    if(test)//To trzeba dać do przycisku zmieniającego radia
+                    if(test || waveOut == null || reader == null)//To trzeba dać do przycisku zmieniającego radia
                     {
                         reader = new MediaFoundationReader(url);
                         waveOut = new WaveOutEvent();
                         waveOut.Init(reader);
                         test = false;
                     }
-
                     
                     waveOut?.Play();
                     start = true;
