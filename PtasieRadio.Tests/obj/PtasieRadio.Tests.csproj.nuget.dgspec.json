@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj": {}
+    "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj": {}
   },
   "projects": {
-    "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj": {
+    "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
+        "projectUniqueName": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
         "projectName": "PtasieRadio.Tests",
-        "projectPath": "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
-        "packagesPath": "C:\\Users\\SzymonS\\.nuget\\packages\\",
-        "outputPath": "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio.Tests\\obj\\",
+        "projectPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
+        "packagesPath": "C:\\Users\\Fabian\\.nuget\\packages\\",
+        "outputPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "centralPackageVersionsManagementEnabled": true,
         "configFilePaths": [
-          "C:\\Users\\SzymonS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Fabian\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -28,8 +28,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
-                "projectPath": "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj"
+              "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
+                "projectPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj"
               }
             }
           }
@@ -91,6 +91,7 @@
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
             "Microsoft.NET.Test.Sdk": "17.9.0",
+            "NAudio": "2.1.0",
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
@@ -131,19 +132,19 @@
         }
       }
     },
-    "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
+    "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj",
+        "projectUniqueName": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj",
         "projectName": "PtasieRadio",
-        "projectPath": "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj",
-        "packagesPath": "C:\\Users\\SzymonS\\.nuget\\packages\\",
-        "outputPath": "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio\\obj\\",
+        "projectPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj",
+        "packagesPath": "C:\\Users\\Fabian\\.nuget\\packages\\",
+        "outputPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "centralPackageVersionsManagementEnabled": true,
         "configFilePaths": [
-          "C:\\Users\\SzymonS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Fabian\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0",
@@ -211,6 +212,11 @@
               "target": "Package",
               "version": "[8.0.1, )",
               "autoReferenced": true
+            },
+            "NAudio": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
             },
             "SkiaSharp.Skottie": {
               "target": "Package",
@@ -356,6 +362,7 @@
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
             "Microsoft.NET.Test.Sdk": "17.9.0",
+            "NAudio": "2.1.0",
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
@@ -407,6 +414,11 @@
               "target": "Package",
               "version": "[8.0.13, )",
               "autoReferenced": true
+            },
+            "NAudio": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
             },
             "SkiaSharp.Skottie": {
               "target": "Package",
@@ -597,6 +609,7 @@
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
             "Microsoft.NET.Test.Sdk": "17.9.0",
+            "NAudio": "2.1.0",
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
@@ -644,6 +657,22 @@
               "version": "[8.0.13, 8.0.13]"
             },
             {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.android-arm",
+              "version": "[8.0.13, 8.0.13]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.android-arm64",
+              "version": "[8.0.13, 8.0.13]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.android-x64",
+              "version": "[8.0.13, 8.0.13]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.android-x86",
+              "version": "[8.0.13, 8.0.13]"
+            },
+            {
               "name": "Microsoft.WindowsDesktop.App.Ref",
               "version": "[8.0.13, 8.0.13]"
             }
@@ -676,6 +705,11 @@
               "target": "Package",
               "version": "[8.0.13, )",
               "autoReferenced": true
+            },
+            "NAudio": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
             },
             "Uno.Dsp.Tasks": {
               "target": "Package",
@@ -841,6 +875,7 @@
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
             "Microsoft.NET.Test.Sdk": "17.9.0",
+            "NAudio": "2.1.0",
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
@@ -890,6 +925,11 @@
               "target": "Package",
               "version": "[8.0.1, )",
               "autoReferenced": true
+            },
+            "NAudio": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
             },
             "SkiaSharp.Skottie": {
               "target": "Package",
@@ -1065,6 +1105,7 @@
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
             "Microsoft.NET.Test.Sdk": "17.9.0",
+            "NAudio": "2.1.0",
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
@@ -1121,6 +1162,11 @@
               "version": "[8.0.13, )",
               "autoReferenced": true
             },
+            "NAudio": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
+            },
             "SkiaSharp.Skottie": {
               "target": "Package",
               "version": "[2.88.9, )",
@@ -1275,6 +1321,7 @@
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
             "Microsoft.NET.Test.Sdk": "17.9.0",
+            "NAudio": "2.1.0",
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
@@ -1310,6 +1357,10 @@
               "version": "[8.0.13, 8.0.13]"
             },
             {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.iossimulator-x64",
+              "version": "[8.0.13, 8.0.13]"
+            },
+            {
               "name": "Microsoft.WindowsDesktop.App.Ref",
               "version": "[8.0.13, 8.0.13]"
             }
@@ -1337,6 +1388,11 @@
               "target": "Package",
               "version": "[8.0.13, )",
               "autoReferenced": true
+            },
+            "NAudio": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
             },
             "SkiaSharp.Skottie": {
               "target": "Package",
@@ -1492,6 +1548,7 @@
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
             "Microsoft.NET.Test.Sdk": "17.9.0",
+            "NAudio": "2.1.0",
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
@@ -1528,6 +1585,10 @@
               "version": "[8.0.13, 8.0.13]"
             },
             {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.maccatalyst-x64",
+              "version": "[8.0.13, 8.0.13]"
+            },
+            {
               "name": "Microsoft.WindowsDesktop.App.Ref",
               "version": "[8.0.13, 8.0.13]"
             }
@@ -1559,6 +1620,11 @@
               "target": "Package",
               "version": "[1.6.250205002, )",
               "autoReferenced": true
+            },
+            "NAudio": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
             },
             "Uno.Core.Extensions.Logging.Singleton": {
               "target": "Package",
@@ -1694,6 +1760,7 @@
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
             "Microsoft.NET.Test.Sdk": "17.9.0",
+            "NAudio": "2.1.0",
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",

@@ -21,9 +21,7 @@
             Spacing="16">
         <TextBox Text="{Binding Name, Mode=TwoWay}"
             PlaceholderText="Enter your name:" />
-        <Button Content="Go to Second Page"
-            AutomationProperties.AutomationId="SecondPageButton"
-            Command="{Binding GoToSecond}" />
+       <Button Content="Odtwórz radio" Click="radioOnClick" />
       </StackPanel>
     </Grid>
   </ScrollViewer>

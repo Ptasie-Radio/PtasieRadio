@@ -4,7 +4,6 @@
 
     <OutputType>Exe</OutputType>
     <UnoSingleProject>true</UnoSingleProject>
-
     <!-- Display name -->
     <ApplicationTitle>PtasieRadio</ApplicationTitle>
     <!-- App Identifier -->
@@ -53,5 +52,9 @@
     <IsUiAutomationMappingEnabled>True</IsUiAutomationMappingEnabled>
     <DefineConstants>$(DefineConstants);USE_UITESTS</DefineConstants>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NAudio" />
+  </ItemGroup>
 
 </Project>
