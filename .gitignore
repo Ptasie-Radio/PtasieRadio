@@ -1,5 +1,8 @@
 *.dll
 *.Tests
+.cache
+obj/
+bin/
 PtasieRadio/obj/Debug/net8.0-android/build.props
 PtasieRadio/obj/Debug/net8.0-android/environment.hotreload.conf
 PtasieRadio/obj/Debug/net8.0-android/PtasieRadio.dtrue-bfalse.GeneratedMSBuildEditorConfig.editorconfig
