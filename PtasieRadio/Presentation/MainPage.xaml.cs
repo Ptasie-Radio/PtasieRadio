@@ -1,9 +1,12 @@
-﻿namespace PtasieRadio.Presentation;
+﻿using Microsoft.UI.Xaml.Controls;
 
-public sealed partial class MainPage : Page
+namespace PtasieRadio.Presentation
 {
-    public MainPage()
+    public sealed partial class MainPage : Page
     {
-        this.InitializeComponent();
+        public MainPage()
+        {
+            this.InitializeComponent();
+        }
     }
 }
