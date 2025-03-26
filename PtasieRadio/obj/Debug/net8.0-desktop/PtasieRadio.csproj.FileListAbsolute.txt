@@ -1447,3 +1447,9 @@ C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-d
 C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\PtasieRa.223AC2D5.Up2Date
 C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\PtasieRadio.genruntimeconfig.cache
 C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\ref\PtasieRadio.dll
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\animation.gif
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\arrow_down.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\flag.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\pause.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\placeholder.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\play.png

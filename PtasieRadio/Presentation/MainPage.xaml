@@ -111,6 +111,7 @@
         <Button.Content>
                 <!-- bind chyba -->
           <Image Source="ms-appx:///Assets/play.png"
+                Name="playButtonImage"
                 Width="48"
                 Height="48"
                 Stretch="Uniform" />
