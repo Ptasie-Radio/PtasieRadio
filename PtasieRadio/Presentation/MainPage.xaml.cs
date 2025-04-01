@@ -35,8 +35,8 @@ public sealed partial class MainPage : Page
     private async void RadioOnClick(object sender, RoutedEventArgs e)
     {
         playButton.IsEnabled = false;
-        string url = "https://playerservices.streamtheworld.com/api/livestream-redirect/WUAL_HD3.mp3";
-
+        //string url = "https://playerservices.streamtheworld.com/api/livestream-redirect/WUAL_HD3.mp3";
+        string url = "http://chi.cdn.eurozet.pl/chi-net.mp3";
         try
         {
             //Tutaj bierze zatrzymuje jeśli coś już nam gra, inaczej się psuło

@@ -1,4 +1,4 @@
-import { config } from "/package_f11e4a136703f67635732a420524b3cd8052f87e/uno-config.js";
+import { config } from "/package_f22e2d3c308de3b3004273297f3d3618b5f20a9c/uno-config.js";
 
 if (config.environmentVariables["UNO_BOOTSTRAP_DEBUGGER_ENABLED"] !== "True") {
     console.debug("[ServiceWorker] Initializing");
@@ -6,7 +6,7 @@ if (config.environmentVariables["UNO_BOOTSTRAP_DEBUGGER_ENABLED"] !== "True") {
     self.addEventListener('install', function (e) {
         console.debug('[ServiceWorker] Installing offline worker');
         e.waitUntil(
-            caches.open('package_f11e4a136703f67635732a420524b3cd8052f87e').then(async function (cache) {
+            caches.open('package_f22e2d3c308de3b3004273297f3d3618b5f20a9c').then(async function (cache) {
                 console.debug('[ServiceWorker] Caching app binaries and content');
 
                 // Add files one by one to avoid failed downloads to prevent the
