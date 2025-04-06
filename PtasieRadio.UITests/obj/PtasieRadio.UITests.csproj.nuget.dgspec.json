@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "A:\\KODOWANIE\\PROJEKT_PtasieRadio\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj": {}
+    "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj": {}
   },
   "projects": {
-    "A:\\KODOWANIE\\PROJEKT_PtasieRadio\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj": {
+    "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "A:\\KODOWANIE\\PROJEKT_PtasieRadio\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj",
+        "projectUniqueName": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj",
         "projectName": "PtasieRadio.UITests",
-        "projectPath": "A:\\KODOWANIE\\PROJEKT_PtasieRadio\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj",
-        "packagesPath": "C:\\Users\\SzymonS\\.nuget\\packages\\",
-        "outputPath": "A:\\KODOWANIE\\PROJEKT_PtasieRadio\\PtasieRadio.UITests\\obj\\",
+        "projectPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj",
+        "packagesPath": "C:\\Users\\Fabian\\.nuget\\packages\\",
+        "outputPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.UITests\\obj\\",
         "projectStyle": "PackageReference",
         "centralPackageVersionsManagementEnabled": true,
         "configFilePaths": [
-          "C:\\Users\\SzymonS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Fabian\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"

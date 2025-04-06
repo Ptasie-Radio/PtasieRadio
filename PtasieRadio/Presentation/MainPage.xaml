@@ -187,7 +187,7 @@
 </ScrollViewer>
 
         <!-- Dolny pasek odtwarzacza (zmieniony) -->
-        <Grid Grid.Row="2" Background="#1B2029" Padding="10">
+        <Grid x:Name="MiniPlayer" Grid.Row="2" Background="#1B2029" Padding="10" Tapped="MiniPlayerTapped">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
@@ -208,8 +208,8 @@
                 <Button Background="Transparent">
                     <Image Source="ms-appx:///Assets/Images/shuffle.png" Stretch="Uniform" Width="20" Height="20"/>
                 </Button>
-                <Button Background="Transparent">
-                    <Image Source="ms-appx:///Assets/Images/mini_play.png" Stretch="Uniform" Width="20" Height="20"/>
+                <Button Background="Transparent" Name="playButton" Tapped="PlayPauseButtonTappedEvent">
+                    <Image Source="ms-appx:///Assets/Images/mini_play.png" Stretch="Uniform" Width="20" Height="20" Name="playButtonImage"/>
                 </Button>
                 <Button Background="Transparent">
                     <Image Source="ms-appx:///Assets/Images/heart.png" Stretch="Uniform" Width="20" Height="20"/>

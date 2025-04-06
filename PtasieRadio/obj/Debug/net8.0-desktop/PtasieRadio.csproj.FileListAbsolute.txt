@@ -756,7 +756,6 @@ D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupo
 D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Uno.Fonts.Roboto\Fonts\Roboto-Medium.ttf
 D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Uno.Fonts.Roboto\Fonts\Roboto-Regular.ttf
 D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\PtasieRadio.exe
-D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\SharedAssets.md
 D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Icons\iconLargeTile.scale-100.png
 D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Icons\iconLargeTile.scale-125.png
 D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Icons\iconLargeTile.scale-150.png
@@ -1076,7 +1075,6 @@ D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupo
 D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\ref\PtasieRadio.dll
 D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\play.webp
 D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\stop.webp
-D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\image.png
 C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\g\ResourcesGenerator\Strings\en\Resources.upri
 C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\g\ResourcesGenerator\Strings\es\Resources.upri
 C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\g\ResourcesGenerator\Strings\fr\Resources.upri
@@ -1869,3 +1867,63 @@ A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Ima
 A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\left-arrow.png
 A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\right-arrow.png
 A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\heart_followed.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\animation.gif
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\arrow_down.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\close.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\flag.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\hamburger.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\heart.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\heart_followed.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\left-arrow.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\mini_play.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\pause.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\placeholder.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\play-button.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\play.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\right-arrow.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\search.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\setting.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\SharedAssets.md
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\shuffle.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Icons\old\icon.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Icons\old\icon.scale-100.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Icons\old\icon.scale-125.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Icons\old\icon.scale-150.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Icons\old\icon.scale-200.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Icons\old\icon.scale-300.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Icons\old\icon.scale-400.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Icons\old\icon_foreground.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Icons\old\icon_foreground.scale-100.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Icons\old\icon_foreground.scale-125.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Icons\old\icon_foreground.scale-150.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Icons\old\icon_foreground.scale-200.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Icons\old\icon_foreground.scale-300.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Icons\old\icon_foreground.scale-400.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Splash\old\splash_screen.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Splash\old\splash_screen.scale-100.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Splash\old\splash_screen.scale-125.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Splash\old\splash_screen.scale-150.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Splash\old\splash_screen.scale-200.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Splash\old\splash_screen.scale-300.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Splash\old\splash_screen.scale-400.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Icons\old\icon.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Icons\old\icon.scale-100.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Icons\old\icon.scale-125.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Icons\old\icon.scale-150.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Icons\old\icon.scale-200.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Icons\old\icon.scale-300.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Icons\old\icon.scale-400.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Icons\old\icon_foreground.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Icons\old\icon_foreground.scale-100.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Icons\old\icon_foreground.scale-125.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Icons\old\icon_foreground.scale-150.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Icons\old\icon_foreground.scale-200.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Icons\old\icon_foreground.scale-300.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Icons\old\icon_foreground.scale-400.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Splash\old\splash_screen.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Splash\old\splash_screen.scale-100.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Splash\old\splash_screen.scale-125.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Splash\old\splash_screen.scale-150.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Splash\old\splash_screen.scale-200.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Splash\old\splash_screen.scale-300.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Splash\old\splash_screen.scale-400.png
