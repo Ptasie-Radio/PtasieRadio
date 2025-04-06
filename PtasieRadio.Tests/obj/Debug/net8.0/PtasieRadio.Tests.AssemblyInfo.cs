@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PtasieRadio.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+79076f39c5c40ecb6c0f17a82f40a2fed8e7a9c3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8fa17f3a9881643069f7f6f5ceede205fac6b50b")]
 [assembly: System.Reflection.AssemblyProductAttribute("PtasieRadio.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PtasieRadio.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
