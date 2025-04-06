@@ -65,7 +65,7 @@ public sealed partial class MainPage : Page
             }
             else
             {
-                playButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/pause.png"));
+                playButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/mini_pause.png"));
                 await Task.Run(
                 () =>
                 {

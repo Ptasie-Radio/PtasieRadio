@@ -1488,8 +1488,6 @@ A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Uno.Fonts.
 A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Uno.Fonts.Roboto\Fonts\Roboto-Medium.ttf
 A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Uno.Fonts.Roboto\Fonts\Roboto-Regular.ttf
 A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\PtasieRadio.exe
-A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\play.webp
-A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\stop.webp
 A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Icons\iconLargeTile.scale-100.png
 A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Icons\iconLargeTile.scale-125.png
 A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Icons\iconLargeTile.scale-150.png
@@ -1855,15 +1853,10 @@ A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Ima
 A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\flag.png
 A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\hamburger.png
 A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\mini_play.png
-A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\pause.png
-A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\placeholder.png
-A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\play-button.png
-A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\play.png
 A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\search.png
 A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\setting.png
 A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\SharedAssets.md
 A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\shuffle.png
-A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\heart.png
 A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\left-arrow.png
 A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\right-arrow.png
 A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\heart_followed.png
@@ -1927,3 +1920,8 @@ D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupo
 D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Splash\old\splash_screen.scale-200.png
 D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Splash\old\splash_screen.scale-300.png
 D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Splash\old\splash_screen.scale-400.png
+A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\pause_round.png
+A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\placeholder.png
+A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\play_round.png
+A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\heart.png
+A:\KODOWANIE\PROJEKT_PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\mini_pause.png

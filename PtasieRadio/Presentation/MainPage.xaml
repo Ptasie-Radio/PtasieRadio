@@ -181,6 +181,30 @@
             </Border>
             <TextBlock Text="Radio J" TextAlignment="Center" FontSize="12" Foreground="White"/>
         </StackPanel>
+        <StackPanel Width="100" Background="Transparent" Spacing="5">
+            <Border Background="#cccccc" CornerRadius="20" Width="100" Height="100">
+                <Image Width="60" Height="60" Stretch="Uniform" Source="ms-appx:///Assets/Images/placeholder.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <TextBlock Text="Radio K" TextAlignment="Center" FontSize="12" Foreground="White"/>
+        </StackPanel>
+        <StackPanel Width="100" Background="Transparent" Spacing="5">
+            <Border Background="#cccccc" CornerRadius="20" Width="100" Height="100">
+                <Image Width="60" Height="60" Stretch="Uniform" Source="ms-appx:///Assets/Images/placeholder.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <TextBlock Text="Radio L" TextAlignment="Center" FontSize="12" Foreground="White"/>
+        </StackPanel>
+        <StackPanel Width="100" Background="Transparent" Spacing="5">
+            <Border Background="#cccccc" CornerRadius="20" Width="100" Height="100">
+                <Image Width="60" Height="60" Stretch="Uniform" Source="ms-appx:///Assets/Images/placeholder.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <TextBlock Text="Radio M" TextAlignment="Center" FontSize="12" Foreground="White"/>
+        </StackPanel>
+        <StackPanel Width="100" Background="Transparent" Spacing="5">
+            <Border Background="#cccccc" CornerRadius="20" Width="100" Height="100">
+                <Image Width="60" Height="60" Stretch="Uniform" Source="ms-appx:///Assets/Images/placeholder.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <TextBlock Text="Radio N" TextAlignment="Center" FontSize="12" Foreground="White"/>
+        </StackPanel>
       </StackPanel>
     </ScrollViewer>
   </StackPanel>
@@ -204,7 +228,7 @@
                 </StackPanel>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="2" Spacing="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="2" Spacing="1">
                 <Button Background="Transparent">
                     <Image Source="ms-appx:///Assets/Images/shuffle.png" Stretch="Uniform" Width="20" Height="20"/>
                 </Button>
@@ -212,7 +236,7 @@
                     <Image Source="ms-appx:///Assets/Images/mini_play.png" Stretch="Uniform" Width="20" Height="20" Name="playButtonImage"/>
                 </Button>
                 <Button Background="Transparent">
-                    <Image Source="ms-appx:///Assets/Images/heart.png" Stretch="Uniform" Width="20" Height="20"/>
+                    <Image Source="ms-appx:///Assets/Images/heart.png" Stretch="Uniform" Width="22" Height="22"/>
                 </Button>
             </StackPanel>
         </Grid>
