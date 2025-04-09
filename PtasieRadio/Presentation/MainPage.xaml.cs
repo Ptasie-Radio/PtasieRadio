@@ -3,10 +3,12 @@ using System.Net;
 using System.IO;
 using System.Threading.Tasks;
 using NAudio.Wave;
+using Uno;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Controls;
-using Uno;
+using Microsoft.UI.Xaml.Media.Animation;
+using Windows.Devices.Radios;
 
 namespace PtasieRadio.Presentation;
 
@@ -31,7 +33,72 @@ public sealed partial class MainPage : Page
         test = true;//Zmienna test na czas pierwszego sprinta. Zmienić później na przycisk zmieniający radia
         this.InitializeComponent();
     }
+
+private void ArrowTapped(object s, TappedRoutedEventArgs e)
+{
+    e.Handled = true;
+
+    if(Microsoft.UI.Xaml.Window.Current == null)return;//Musi tak być, inaczej warning
+    double windowHeight = Microsoft.UI.Xaml.Window.Current.Bounds.Height;
+
+    double time = windowHeight > 300 ? 0.25:0.1;
+    //Animacja przed zniknięciem
+    var slideOutAnimation = new Microsoft.UI.Xaml.Media.Animation.DoubleAnimation
+    {
+        From = 0,
+        To = windowHeight,
+        Duration = new Microsoft.UI.Xaml.Duration(TimeSpan.FromSeconds(time))
+    };
+    RadioMainPage.Visibility = Visibility.Visible;
+    // Uruchom animację dla TranslateTransform
+    Storyboard.SetTarget(slideOutAnimation, RadioOverlayTransform);
+    Storyboard.SetTargetProperty(slideOutAnimation, "Y");
+
+    var storyboard = new Storyboard();
+    storyboard.Children.Add(slideOutAnimation);
+    storyboard.Completed += (sender, args) =>
+    {
+        RadioOverlay.Visibility = Visibility.Collapsed;
+    };
+
+    storyboard.Begin();
+}
+
+private void MiniPlayerTapped(object sender, TappedRoutedEventArgs e)
+{
+    e.Handled = true;
+
+    RadioOverlay.Visibility = Visibility.Visible;
     
+    if(Microsoft.UI.Xaml.Window.Current == null)return;//Musi tak być, inaczej warning
+    double windowHeight = Microsoft.UI.Xaml.Window.Current.Bounds.Height;
+    double time = windowHeight > 300 ? 0.25:0.1;
+
+    RadioOverlayTransform.Y = windowHeight;
+    var slideInAnimation = new Microsoft.UI.Xaml.Media.Animation.DoubleAnimation
+    {
+        From = windowHeight,  // Pozycja z dołu
+        To = 0,      // Końcowa Pozycja
+        Duration = new Microsoft.UI.Xaml.Duration(TimeSpan.FromSeconds(time))  //Czas trwania
+    };
+
+    Storyboard.SetTarget(slideInAnimation, RadioOverlayTransform);
+    Storyboard.SetTargetProperty(slideInAnimation, "Y");
+
+    var storyboard = new Storyboard();
+    storyboard.Children.Add(slideInAnimation);
+    storyboard.Begin();
+    storyboard.Completed += (sender, args) =>
+    {
+        RadioMainPage.Visibility = Visibility.Collapsed;
+    };
+}
+
+    private void ShuffleButtonTappedEvent(object sender, TappedRoutedEventArgs e)
+    {
+        e.Handled=true;
+    }
+
     public async Task StopAudioAsync() // Dodane słowo kluczowe async
     {
         await Task.Run(() =>
@@ -39,17 +106,12 @@ public sealed partial class MainPage : Page
             waveOut?.Stop();
         });
     }
-
-    private void MiniPlayerTapped(object sender, TappedRoutedEventArgs e)
-    {
-        MiniPlayer.Visibility = Visibility.Collapsed;
-    }
-
-
      private async void PlayPauseButtonTappedEvent(object sender, TappedRoutedEventArgs e)
      {
         
         e.Handled=true;
+
+        if(sender is not Button playButton){return;}
         playButton.IsEnabled = false;
         //string url = "https://playerservices.streamtheworld.com/api/livestream-redirect/WUAL_HD3.mp3";
         string url = "http://chi.cdn.eurozet.pl/chi-net.mp3";
@@ -59,13 +121,17 @@ public sealed partial class MainPage : Page
           
             if(start == true) 
             {
-                playButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/mini_play.png"));
+                //Zmieniamy obydwa przyciski, bo użyszkodnik może powiększyć w trakcie pauzy/playu
+                PlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/play.png"));
+                MiniPlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/mini_play.png"));
                 await StopAudioAsync();
                 start = false;
             }
             else
             {
-                playButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/mini_pause.png"));
+                //Zmieniamy obydwa przyciski, bo użyszkodnik może powiększyć w trakcie pauzy/playu
+                PlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/pause.png"));
+                MiniPlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/mini_pause.png"));
                 await Task.Run(
                 () =>
                 {
@@ -96,5 +162,9 @@ public sealed partial class MainPage : Page
             playButton.IsEnabled = true;
         }
      }
-}
 
+        private void HeartButtonTappedEvent(object sender, TappedRoutedEventArgs e)
+     {
+        e.Handled=true;
+     }
+}

@@ -1,4 +1,9 @@
-﻿<Page x:Class="PtasieRadio.Presentation.MainPage"
+﻿<!--
+Zrobić by po kliknięciu minipage wysuwało się to, co jest teraz w komencie
+-->
+
+
+<Page x:Class="PtasieRadio.Presentation.MainPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:local="using:PtasieRadio.Presentation"
@@ -8,107 +13,111 @@
       NavigationCacheMode="Required"
       Background="{ThemeResource BackgroundBrush}">
 
-<Grid Background="#1C1B1F">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+    <Grid Background="#1C1B1F">
+        <Grid
+            x:Name="RadioMainPage"
+            Visibility="Visible"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
-        <!-- Górny pasek wyszukiwania -->
-<Grid Grid.Row="0" Background="#1B2029" Padding="10">
-    <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="Auto"/>
-        <ColumnDefinition Width="*"/>
-        <ColumnDefinition Width="Auto"/>
-    </Grid.ColumnDefinitions>
+            <!-- Górny pasek wyszukiwania -->
+    <Grid Grid.Row="0" Background="#1B2029" Padding="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
 
-    <!-- Hamburger Menu z podświetleniem -->
-    <Button Width="40" Height="40" Background="Transparent">
-        <Button.Template>
-            <ControlTemplate TargetType="Button">
-                <Grid>
-                    <Ellipse x:Name="ellipse" Fill="Transparent" Width="40" Height="40"/>
-                    <Image Source="ms-appx:///Assets/Images/hamburger.png" Stretch="Uniform" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                </Grid>
-                <ControlTemplate.Triggers>
-                    <Trigger Property="IsPointerOver" Value="True">
-                        <Setter TargetName="ellipse" Property="Fill" Value="#A494F9"/>
-                    </Trigger>
-                </ControlTemplate.Triggers>
-            </ControlTemplate>
-        </Button.Template>
-    </Button>
+        <!-- Hamburger Menu z podświetleniem -->
+        <Button Width="40" Height="40" Background="Transparent">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Ellipse x:Name="ellipse" Fill="Transparent" Width="40" Height="40"/>
+                        <Image Source="ms-appx:///Assets/Images/hamburger.png" Stretch="Uniform" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPointerOver" Value="True">
+                            <Setter TargetName="ellipse" Property="Fill" Value="#A494F9"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
 
-    <!-- Wyszukiwarka -->
-    <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
+        <!-- Wyszukiwarka -->
+        <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
 
-            <TextBox Width="600"
-                     Height="40"
-                     CornerRadius="20"
-                     Background="#1C1B1F"
-                     BorderThickness="0"
-                     PlaceholderText="Wyszukaj..."
-                     Foreground="White"
-                     FontWeight="SemiBold"
-                     Padding="20,11,0,0"
-                     HorizontalContentAlignment="Left"
-                     VerticalContentAlignment="Center">
-                <TextBox.Resources>
-                    <Style TargetType="TextBox">
-                        <Setter Property="FocusVisualPrimaryBrush" Value="Transparent"/>
-                        <Setter Property="FocusVisualSecondaryBrush" Value="Transparent"/>
-                    </Style>
-                </TextBox.Resources>
-            </TextBox>
+                <TextBox Width="600"
+                         Height="40"
+                         CornerRadius="20"
+                         Background="#1C1B1F"
+                         BorderThickness="0"
+                         PlaceholderText="Wyszukaj..."
+                         Foreground="White"
+                         FontWeight="SemiBold"
+                         Padding="20,11,0,0"
+                         HorizontalContentAlignment="Left"
+                         VerticalContentAlignment="Center">
+                    <TextBox.Resources>
+                        <Style TargetType="TextBox">
+                            <Setter Property="FocusVisualPrimaryBrush" Value="Transparent"/>
+                            <Setter Property="FocusVisualSecondaryBrush" Value="Transparent"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
 
-            <Button Grid.Column="1"
-                    Width="40"
-                    Height="40"
-                    Background="#2a2a2e"
-                    BorderThickness="0"
-                    Padding="0"
-                    CornerRadius="20">
-                <Image Source="ms-appx:///Assets/Images/search.png" Stretch="Uniform" Width="20" Height="20"/>
-            </Button>
+                <Button Grid.Column="1"
+                        Width="40"
+                        Height="40"
+                        Background="#2a2a2e"
+                        BorderThickness="0"
+                        Padding="0"
+                        CornerRadius="20">
+                    <Image Source="ms-appx:///Assets/Images/search.png" Stretch="Uniform" Width="20" Height="20"/>
+                </Button>
+            </Grid>
         </Grid>
+
+        <!-- Ikona zębatki -->
+        <Button Grid.Column="2" Width="40" Height="40" Background="Transparent">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Ellipse x:Name="ellipse" Fill="Transparent" Width="40" Height="40"/>
+                        <Image Source="ms-appx:///Assets/Images/setting.png" Stretch="Uniform" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPointerOver" Value="True">
+                            <Setter TargetName="ellipse" Property="Fill" Value="#12101DFF"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
     </Grid>
 
-    <!-- Ikona zębatki -->
-    <Button Grid.Column="2" Width="40" Height="40" Background="Transparent">
-        <Button.Template>
-            <ControlTemplate TargetType="Button">
-                <Grid>
-                    <Ellipse x:Name="ellipse" Fill="Transparent" Width="40" Height="40"/>
-                    <Image Source="ms-appx:///Assets/Images/setting.png" Stretch="Uniform" Width="24" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                </Grid>
-                <ControlTemplate.Triggers>
-                    <Trigger Property="IsPointerOver" Value="True">
-                        <Setter TargetName="ellipse" Property="Fill" Value="#12101DFF"/>
-                    </Trigger>
-                </ControlTemplate.Triggers>
-            </ControlTemplate>
-        </Button.Template>
-    </Button>
-</Grid>
+    <!-- Pasek kategorii -->
 
-<!-- Pasek kategorii -->
+    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10" Spacing="30">
+        <TextBlock Text="Główna" Foreground="White" FontSize="16" FontWeight="Bold"/>
+        <TextBlock Text="Gatunek" Foreground="Gray" FontSize="16"/>
+        <TextBlock Text="Kraj" Foreground="Gray" FontSize="16"/>
+    </StackPanel>
 
-<StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10" Spacing="30">
-    <TextBlock Text="Główna" Foreground="White" FontSize="16" FontWeight="Bold"/>
-    <TextBlock Text="Gatunek" Foreground="Gray" FontSize="16"/>
-    <TextBlock Text="Kraj" Foreground="Gray" FontSize="16"/>
-</StackPanel>
-
-                <!-- Sekcje główne -->
-        <ScrollViewer Grid.Row="1">
-            <StackPanel Padding="10" Spacing="20">
-                <!-- Sekcja: Najczęściej Grane -->
+                    <!-- Sekcje główne -->
+            <ScrollViewer Grid.Row="1">
+                <StackPanel Padding="10" Spacing="20">
+                    <!-- Sekcja: Najczęściej Grane -->>
 <TextBlock Text="Najczęściej Grane" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0,0,0,10"/>
 <ScrollViewer x:Name="NajczesciejGraneScroll" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled" HorizontalScrollMode="Enabled" VerticalScrollMode="Disabled" ZoomMode="Disabled">
     <StackPanel Orientation="Horizontal" Spacing="20" Padding="20,0,0,0">
@@ -210,161 +219,160 @@
   </StackPanel>
 </ScrollViewer>
 
-        <!-- Dolny pasek odtwarzacza (zmieniony) -->
-        <Grid x:Name="MiniPlayer" Grid.Row="2" Background="#1B2029" Padding="10" Tapped="MiniPlayerTapped">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
+            <!-- Dolny pasek odtwarzacza (zmieniony) -->
+            <Grid x:Name="MiniPlayer" Grid.Row="2" Background="#1B2029" Padding="10" Tapped="MiniPlayerTapped">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
 
-            <StackPanel Orientation="Horizontal">
-                <Border Width="40" Height="40" Background="#cccccc" CornerRadius="5">
-                    <Image Width="30" Height="30" Stretch="Uniform" Source="ms-appx:///Assets/Images/placeholder.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </Border>
-                <StackPanel Margin="10,0">
-                    <TextBlock Text="SomaFM - PopTron" Foreground="White" FontSize="14"/>
-                    <TextBlock Text="somafm.com, US" Foreground="Gray" FontSize="12"/>
+                <StackPanel Orientation="Horizontal">
+                    <Border Width="40" Height="40" Background="#cccccc" CornerRadius="5">
+                        <Image Width="30" Height="30" Stretch="Uniform" Source="ms-appx:///Assets/Images/placeholder.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <StackPanel Margin="10,0">
+                        <TextBlock Text="SomaFM - PopTron" Foreground="White" FontSize="14"/>
+                        <TextBlock Text="somafm.com, US" Foreground="Gray" FontSize="12"/>
+                    </StackPanel>
                 </StackPanel>
-            </StackPanel>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="2" Spacing="1">
-                <Button Background="Transparent">
-                    <Image Source="ms-appx:///Assets/Images/shuffle.png" Stretch="Uniform" Width="20" Height="20"/>
-                </Button>
-                <Button Background="Transparent" Name="playButton" Tapped="PlayPauseButtonTappedEvent">
-                    <Image Source="ms-appx:///Assets/Images/mini_play.png" Stretch="Uniform" Width="20" Height="20" Name="playButtonImage"/>
-                </Button>
-                <Button Background="Transparent">
-                    <Image Source="ms-appx:///Assets/Images/heart.png" Stretch="Uniform" Width="22" Height="22"/>
-                </Button>
-            </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="2" Spacing="10">
+                    <Button Background="Transparent" Name="MiniShuffleButton" Tapped="ShuffleButtonTappedEvent">
+                        <Image Source="ms-appx:///Assets/Images/shuffle.png" Stretch="Uniform" Width="20" Height="20"/>
+                    </Button>
+                    <Button Background="Transparent" Name="MiniPlayButton" Tapped="PlayPauseButtonTappedEvent">
+                        <Image Source="ms-appx:///Assets/Images/mini_play.png" Stretch="Uniform" Width="20" Height="20" Name="MiniPlayButtonImage"/>
+                    </Button>
+                    <Button Background="Transparent" Name="MiniHeartButton" Tapped="HeartButtonTappedEvent">
+                        <Image Source="ms-appx:///Assets/Images/heart.png" Stretch="Uniform" Width="20" Height="20"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
         </Grid>
-    </Grid>
-</Page>
+    <!--Koniec Kontenera z Mini Radiem-->
 
 
+    <!--Kontener na FullPage Radio-->
+    <Grid utu:SafeArea.Insets="VisibleBounds"
+          x:Name="RadioOverlay"
+          Visibility="Collapsed"
+            Background="#1C1B1F">
 
-<!-- <Page x:Class="PtasieRadio.Presentation.MainPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:local="using:PtasieRadio.Presentation"
-      xmlns:uen="using:Uno.Extensions.Navigation.UI"
-      xmlns:utu="using:Uno.Toolkit.UI"
-      xmlns:um="using:Uno.Material"
-      NavigationCacheMode="Required"
-      Background="{ThemeResource BackgroundBrush}">
 
-  <Grid utu:SafeArea.Insets="VisibleBounds">
-    <Grid.RowDefinitions>
-      <RowDefinition Height="Auto" /> <!-- Nagłówek -->
-      <RowDefinition Height="*" /> <!-- Główna zawartość -->
-      <RowDefinition Height="Auto" /> <!-- Nawigacja na dole -->
-    </Grid.RowDefinitions>
+      <Grid.RenderTransform>
+        <TranslateTransform x:Name="RadioOverlayTransform" Y="700"/>
+      </Grid.RenderTransform>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" /> <!-- Nagłówek -->
+        <RowDefinition Height="*" />    <!-- Główna zawartość -->
+        <RowDefinition Height="Auto" /> <!-- Nawigacja na dole -->
+      </Grid.RowDefinitions>
 
-    <!-- Nagłówek -->
-    <Grid Grid.Row="0"
-          Background="#0B048DFF"
-          Padding="16">
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="Auto" /> <!-- Strzałka w dół -->
-        <ColumnDefinition Width="*" /> <!-- Tekst i flaga (wycentrowane) -->
-        <ColumnDefinition Width="Auto" /> <!-- Trzy kropki -->
-      </Grid.ColumnDefinitions>
+      <!-- 🔧 NAGŁÓWEK -->
+      <Grid Grid.Row="0"
+            Background="#1B2029"
+            Padding="16">
+        <Grid.ColumnDefinitions><!--Nie usuwać. Wygląda jak niepotrzebne, ale jest potrzebne-->
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
 
-      <!-- Strzałka w dół (obraz PNG) -->
-      <Button Grid.Column="0"
-              Style="{StaticResource MaterialIconButtonStyle}"
-              Width="40"
-              Height="40"
-              Padding="0">
-        <Image Source="ms-appx:///Assets/Images/arrow_down.png"
-               Width="20"
-               Height="20"
-               Stretch="Uniform" />
-      </Button>
+        <!-- Strzałka w dół -->
+        <Button Grid.Column="0"
+                Style="{StaticResource MaterialIconButtonStyle}"
+                Width="40"
+                Height="40"
+                Padding="0"
+                Tapped="ArrowTapped">
+          <Image Source="ms-appx:///Assets/Images/arrow_down.png"
+                 Width="20"
+                 Height="20"
+                 Stretch="Uniform" />
+        </Button>
 
-      <!-- Tekst i flaga (wycentrowane) -->
-      <StackPanel Grid.Column="1"
+        <!-- Tekst i flaga -->
+        <StackPanel Grid.Column="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Spacing="4">
+          <TextBlock Text="Nazwa radia"
+                     Style="{StaticResource MaterialSubtitle1Style}"
+                     Foreground="White"
+                     HorizontalAlignment="Center" />
+          <StackPanel Orientation="Horizontal"
+                      HorizontalAlignment="Center"
+                      Spacing="8">
+            <Image Source="ms-appx:///Assets/Images/flag.png"
+                   Width="16"
+                   Height="16"
+                   Stretch="Uniform" />
+            <TextBlock Text="Kraj pochodzenia"
+                       Style="{StaticResource MaterialCaptionStyle}"
+                       Foreground="LightGray"
+                       VerticalAlignment="Center" />
+          </StackPanel>
+        </StackPanel>
+
+        <!-- Trzy kropki -->
+        <Button Grid.Column="2"
+                Style="{StaticResource MaterialIconButtonStyle}"
+                Width="40"
+                Height="40"
+                Padding="0">
+          <FontIcon Glyph="" 
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="20"
+                    Foreground="White" />
+        </Button>
+      </Grid>
+
+      <!-- 🔧 GŁÓWNA ZAWARTOŚĆ -->
+      <StackPanel Grid.Row="1"
                   HorizontalAlignment="Center"
                   VerticalAlignment="Center"
-                  Spacing="4">
-        <TextBlock Text="Nazwa radia"
-                   Style="{StaticResource MaterialSubtitle1Style}"
-                   Foreground="White"
-                   HorizontalAlignment="Center" />
-        <StackPanel Orientation="Horizontal"
-                    HorizontalAlignment="Center"
-                    Spacing="8">
-          <Image Source="ms-appx:///Assets/Images/flag.png"
-                 Width="16"
-                 Height="16"
-                 Stretch="Uniform" />
-          <TextBlock Text="Kraj pochodzenia"
-                     Style="{StaticResource MaterialCaptionStyle}"
-                     Foreground="LightGray"
-                     VerticalAlignment="Center" />
-        </StackPanel>
-      </StackPanel>
+                  Spacing="24">
 
-      <!-- Trzy kropki (ikona menu) -->
-      <Button Grid.Column="2"
-              Style="{StaticResource MaterialIconButtonStyle}"
-              Width="40"
-              Height="40"
-              Padding="0">
-        <FontIcon Glyph="" 
-                  FontFamily="Segoe MDL2 Assets"
-                  FontSize="20"
-                  Foreground="White" />
-      </Button>
-    </Grid>
+        <!-- Placeholder -->
+        <Border Width="200"
+                Height="200"
+                Background="{ThemeResource SurfaceBrush}"
+                Margin="0,75,0,0"
+                CornerRadius="8">
+          <Image Source="ms-appx:///Assets/Images/placeholder.png" 
+                 Stretch="UniformToFill" />
+        </Border>
 
-    <!-- Główna zawartość -->
-    <StackPanel Grid.Row="1"
+        <!-- GIF -->
+        <Image Source="ms-appx:///Assets/Images/animation.gif"
+               Width="100"
+               Height="100"
+               Stretch="Uniform" />
+
+        <!-- Tekst -->
+        <TextBlock Text="Zespół - Tytuł"
+                   Style="{StaticResource MaterialBody1Style}"
+                   HorizontalAlignment="Center"
+                   Margin="0,16,0,0" />
+
+        <!-- Przycisk odtwarzania -->
+        <Button Style="{StaticResource MaterialIconButtonStyle}"
+                Tapped="PlayPauseButtonTappedEvent"
+                Name="MiniPlayButton" 
+                Width="96"
+                Height="96"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Spacing="24">
-      <!-- Placeholder na obraz -->
-      <Border Width="200"
-              Height="200"
-              Background="{ThemeResource SurfaceBrush}"
-              Margin="0,75,0,0"
-              CornerRadius="8">
-        <Image Source="ms-appx:///Assets/Images/placeholder.png" 
-               Stretch="UniformToFill" />
-      </Border>
-
-      <!-- GIF -->
-      <Image Source="ms-appx:///Assets/Images/animation.gif"
-             Width="100"
-             Height="100"
-             Stretch="Uniform" />
-
-      <!-- Tekst z zespołem i tytułem -->
-      <TextBlock Text="Zespół - Tytuł"
-                 Style="{StaticResource MaterialBody1Style}"
-                 HorizontalAlignment="Center"
-                 Margin="0,16,0,0" />
-
-      <!-- Przycisk odtwarzania z obrazem -->
-      <Button Style="{StaticResource MaterialIconButtonStyle}"
-              Click="RadioOnClick"
-              Name="playButton" 
-              Width="96"
-              Height="96"
-              HorizontalAlignment="Center"
-              Command="{Binding PlayCommand}">
-        <Button.Content>
-                <!-- bind chyba -->
-          <Image Source="ms-appx:///Assets/Images/play.png"
-                Name="playButtonImage"
-                Width="48"
-                Height="48"
-                Stretch="Uniform" />
-        </Button.Content>
-      </Button>
-    </StackPanel>
-
-  </Grid>
-</Page> -->
+                Command="{Binding PlayCommand}">
+          <Button.Content>
+            <Image Source="ms-appx:///Assets/Images/play.png"
+                   Name="PlayButtonImage"
+                   Width="48"
+                   Height="48"
+                   Stretch="Uniform" />
+          </Button.Content>
+        </Button>
+      </StackPanel>
+    </Grid>
+    </Grid>
+</Page>
