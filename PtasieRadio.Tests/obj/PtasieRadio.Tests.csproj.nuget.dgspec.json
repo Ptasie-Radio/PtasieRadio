@@ -1,26 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj": {}
+    "C:\\Users\\mikim\\source\\repos\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj": {}
   },
   "projects": {
-    "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj": {
+    "C:\\Users\\mikim\\source\\repos\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\mikim\\source\\repos\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
         "projectName": "PtasieRadio.Tests",
-        "projectPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
-        "packagesPath": "C:\\Users\\Fabian\\.nuget\\packages\\",
-        "outputPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.Tests\\obj\\",
+        "projectPath": "C:\\Users\\mikim\\source\\repos\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
+        "packagesPath": "C:\\Users\\mikim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mikim\\source\\repos\\PtasieRadio\\PtasieRadio.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "centralPackageVersionsManagementEnabled": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Fabian\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\mikim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -28,8 +34,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
-                "projectPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj"
+              "C:\\Users\\mikim\\source\\repos\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
+                "projectPath": "C:\\Users\\mikim\\source\\repos\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj"
               }
             }
           }
@@ -109,42 +115,33 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
+    "C:\\Users\\mikim\\source\\repos\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj",
+        "projectUniqueName": "C:\\Users\\mikim\\source\\repos\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj",
         "projectName": "PtasieRadio",
-        "projectPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj",
-        "packagesPath": "C:\\Users\\Fabian\\.nuget\\packages\\",
-        "outputPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\obj\\",
+        "projectPath": "C:\\Users\\mikim\\source\\repos\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj",
+        "packagesPath": "C:\\Users\\mikim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mikim\\source\\repos\\PtasieRadio\\PtasieRadio\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "centralPackageVersionsManagementEnabled": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Fabian\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\mikim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0",
@@ -156,6 +153,7 @@
           "net8.0-windows10.0.26100"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -380,26 +378,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         },
         "net8.0-android34.0": {
           "targetAlias": "net8.0-android",
@@ -412,7 +396,7 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.13, )",
+              "version": "[8.0.15, )",
               "autoReferenced": true
             },
             "NAudio": {
@@ -649,14 +633,6 @@
               "version": "[34.0.147, 34.0.147]"
             },
             {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
               "name": "Microsoft.NETCore.App.Runtime.Mono.android-arm",
               "version": "[8.0.13, 8.0.13]"
             },
@@ -671,10 +647,6 @@
             {
               "name": "Microsoft.NETCore.App.Runtime.Mono.android-x86",
               "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
             }
           ],
           "frameworkReferences": {
@@ -685,7 +657,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         },
         "net8.0-browserwasm1.0": {
           "targetAlias": "net8.0-browserwasm",
@@ -698,7 +670,7 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.13, )",
+              "version": "[8.0.15, )",
               "autoReferenced": true
             },
             "Microsoft.Windows.Compatibility": {
@@ -893,30 +865,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         },
         "net8.0-desktop1.0": {
           "targetAlias": "net8.0-desktop",
@@ -1123,30 +1077,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         },
         "net8.0-ios18.0": {
           "targetAlias": "net8.0-ios",
@@ -1159,7 +1095,7 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.13, )",
+              "version": "[8.0.15, )",
               "autoReferenced": true
             },
             "NAudio": {
@@ -1341,10 +1277,6 @@
           "warn": true,
           "downloadDependencies": [
             {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
               "name": "Microsoft.iOS.Ref.net8.0_18.0",
               "version": "[18.0.8319, 18.0.8319]"
             },
@@ -1353,15 +1285,7 @@
               "version": "[18.0.8319, 18.0.8319]"
             },
             {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
               "name": "Microsoft.NETCore.App.Runtime.Mono.iossimulator-x64",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
               "version": "[8.0.13, 8.0.13]"
             }
           ],
@@ -1373,7 +1297,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         },
         "net8.0-maccatalyst18.0": {
           "targetAlias": "net8.0-maccatalyst",
@@ -1386,7 +1310,7 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.13, )",
+              "version": "[8.0.15, )",
               "autoReferenced": true
             },
             "NAudio": {
@@ -1569,10 +1493,6 @@
           "warn": true,
           "downloadDependencies": [
             {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
               "name": "Microsoft.MacCatalyst.Ref.net8.0_18.0",
               "version": "[18.0.8319, 18.0.8319]"
             },
@@ -1581,15 +1501,7 @@
               "version": "[18.0.8319, 18.0.8319]"
             },
             {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
               "name": "Microsoft.NETCore.App.Runtime.Mono.maccatalyst-x64",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
               "version": "[8.0.13, 8.0.13]"
             }
           ],
@@ -1601,7 +1513,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         },
         "net8.0-windows10.0.26100": {
           "targetAlias": "net8.0-windows10.0.26100",
@@ -1780,68 +1692,44 @@
           "warn": true,
           "downloadDependencies": [
             {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
               "name": "Microsoft.AspNetCore.App.Runtime.win-arm64",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-arm64",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x86",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.NETCore.App.Runtime.win-arm64",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.NETCore.App.Runtime.win-x64",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.NETCore.App.Runtime.win-x86",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.Windows.SDK.NET.Ref",
               "version": "[10.0.26100.57, 10.0.26100.57]"
             },
             {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
               "name": "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             }
           ],
           "frameworkReferences": {
@@ -1852,7 +1740,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

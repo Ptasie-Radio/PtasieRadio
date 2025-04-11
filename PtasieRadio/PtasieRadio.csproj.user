@@ -1,14 +1,21 @@
 <Project>
-	<PropertyGroup Condition="'$(UnoForceSingleTFM)'=='true'">
-		<TargetFramework>net8.0-android</TargetFramework>
-		<Configuration>Debug</Configuration>
-	</PropertyGroup>
-	<PropertyGroup>
-		<UnoPlatformIDE>vscode</UnoPlatformIDE>
-		<UnoPlatformIDEVersion>1.98.2</UnoPlatformIDEVersion>
-		<UnoPlatformExtension>unoplatform.vscode 0.19.22</UnoPlatformExtension>
-		<UnoRemoteControlPort>49799</UnoRemoteControlPort>
-		<UnoVSCodeCSharpExtension>ms-dotnettools.csharp 2.63.32</UnoVSCodeCSharpExtension>
-		<UnoVSCodeCSharpDevKitExtension>ms-dotnettools.csdevkit 1.16.6</UnoVSCodeCSharpDevKitExtension>
-	</PropertyGroup>
+  <PropertyGroup Condition="'$(UnoForceSingleTFM)'=='true'">
+    <TargetFramework>net8.0-android</TargetFramework>
+    <Configuration>Debug</Configuration>
+  </PropertyGroup>
+  <PropertyGroup>
+    <UnoPlatformIDE>vscode</UnoPlatformIDE>
+    <UnoPlatformIDEVersion>1.98.2</UnoPlatformIDEVersion>
+    <UnoPlatformExtension>unoplatform.vscode 0.19.22</UnoPlatformExtension>
+    <UnoRemoteControlPort>49799</UnoRemoteControlPort>
+    <UnoVSCodeCSharpExtension>ms-dotnettools.csharp 2.63.32</UnoVSCodeCSharpExtension>
+    <UnoVSCodeCSharpDevKitExtension>ms-dotnettools.csdevkit 1.16.6</UnoVSCodeCSharpDevKitExtension>
+    <IsFirstTimeProjectOpen>False</IsFirstTimeProjectOpen>
+    <ActiveDebugFramework>net8.0-desktop</ActiveDebugFramework>
+    <ActiveDebugProfile>PtasieRadio (Desktop)</ActiveDebugProfile>
+    <_UnoSelectedTargetFramework>net8.0-desktop</_UnoSelectedTargetFramework>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+  </PropertyGroup>
 </Project>
