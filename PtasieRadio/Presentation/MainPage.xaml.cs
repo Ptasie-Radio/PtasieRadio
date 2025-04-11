@@ -9,6 +9,7 @@ using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Animation;
 using Windows.Devices.Radios;
+using Microsoft.UI.Xaml.Controls.Primitives;
 
 namespace PtasieRadio.Presentation;
 
@@ -122,7 +123,7 @@ private void MiniPlayerTapped(object sender, TappedRoutedEventArgs e)
             if(start == true) 
             {
                 //Zmieniamy obydwa przyciski, bo użyszkodnik może powiększyć w trakcie pauzy/playu
-                PlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/play.png"));
+                PlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/play_round.png"));
                 MiniPlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/mini_play.png"));
                 await StopAudioAsync();
                 start = false;
@@ -130,8 +131,8 @@ private void MiniPlayerTapped(object sender, TappedRoutedEventArgs e)
             else
             {
                 //Zmieniamy obydwa przyciski, bo użyszkodnik może powiększyć w trakcie pauzy/playu
-                PlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/pause.png"));
-                MiniPlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/mini_pause.png"));
+                PlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/pause_round.png"));
+                MiniPlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/mini_pause_round.png"));
                 await Task.Run(
                 () =>
                 {
@@ -167,4 +168,10 @@ private void MiniPlayerTapped(object sender, TappedRoutedEventArgs e)
      {
         e.Handled=true;
      }
+
+    private async void OnSoundLevelSliderValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+    {
+	
+
+	}
 }

@@ -1091,3 +1091,26 @@ D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupo
 D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-windows10.0.26100\Assets\Images\image.png
 D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-windows10.0.26100\Assets\Images\play.webp
 D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-windows10.0.26100\Assets\Images\stop.webp
+C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\PtasieRadio.csproj.AssemblyReference.cache
+C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\UnoImage.inputs
+C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\Unosplash.inputs
+C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\Unomanifest.stamp
+C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\App.g.i.cs
+C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\App.g.cs
+C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\Presentation\MainPage.g.i.cs
+C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\Presentation\MainPage.g.cs
+C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\Presentation\SecondPage.g.i.cs
+C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\Presentation\SecondPage.g.cs
+C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\Presentation\Shell.g.i.cs
+C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\Presentation\Shell.g.cs
+C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\App.xaml
+C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\Presentation\MainPage.xaml
+C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\Presentation\SecondPage.xaml
+C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\Presentation\Shell.xaml
+C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\Styles\ColorPaletteOverride.xaml
+C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\App.xbf
+C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\Presentation\MainPage.xbf
+C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\Presentation\SecondPage.xbf
+C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\Presentation\Shell.xbf
+C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\Styles\ColorPaletteOverride.xbf
+C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-windows10.0.26100\PtasieRadio.pdb
