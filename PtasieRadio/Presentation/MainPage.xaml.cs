@@ -50,7 +50,7 @@ private void ArrowTapped(object s, TappedRoutedEventArgs e)
         Duration = new Microsoft.UI.Xaml.Duration(TimeSpan.FromSeconds(time)),
         EasingFunction = new CircleEase
         {
-            EasingMode = EasingMode.EaseOut
+            EasingMode = EasingMode.EaseInOut
         }
     };
     RadioMainPage.Visibility = Visibility.Visible;
