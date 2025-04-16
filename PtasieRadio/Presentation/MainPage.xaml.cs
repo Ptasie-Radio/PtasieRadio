@@ -41,14 +41,17 @@ private void ArrowTapped(object s, TappedRoutedEventArgs e)
     if(Microsoft.UI.Xaml.Window.Current == null)return;//Musi tak być, inaczej warning
     double windowHeight = Microsoft.UI.Xaml.Window.Current.Bounds.Height;
 
-    double time = windowHeight > 300 ? 0.5:0.1;
+    double time = windowHeight > 300 ? 0.7:0.1;
     //Animacja przed zniknięciem
     var slideOutAnimation = new Microsoft.UI.Xaml.Media.Animation.DoubleAnimation
     {
         From = 0,
-        To = windowHeight+100,
+        To = windowHeight,
         Duration = new Microsoft.UI.Xaml.Duration(TimeSpan.FromSeconds(time)),
-        EasingFunction = new CircleEase { EasingMode = EasingMode.EaseIn }
+        EasingFunction = new CircleEase
+        {
+            EasingMode = EasingMode.EaseOut
+        }
     };
     RadioMainPage.Visibility = Visibility.Visible;
     // Uruchom animację dla TranslateTransform
@@ -73,7 +76,7 @@ private void MiniPlayerTapped(object sender, TappedRoutedEventArgs e)
     
     if(Microsoft.UI.Xaml.Window.Current == null)return;//Musi tak być, inaczej warning
     double windowHeight = Microsoft.UI.Xaml.Window.Current.Bounds.Height;
-    double time = windowHeight > 300 ? 0.5:0.1;
+    double time = windowHeight > 300 ? 0.7:0.1;
 
     RadioOverlayTransform.Y = windowHeight;
     var slideInAnimation = new Microsoft.UI.Xaml.Media.Animation.DoubleAnimation
@@ -81,7 +84,10 @@ private void MiniPlayerTapped(object sender, TappedRoutedEventArgs e)
         From = windowHeight,
         To = 0,
         Duration = new Microsoft.UI.Xaml.Duration(TimeSpan.FromSeconds(time)),
-        EasingFunction = new SineEase { EasingMode = EasingMode.EaseOut }
+        EasingFunction = new CircleEase
+        {
+            EasingMode = EasingMode.EaseOut
+        }
     };
 
     Storyboard.SetTarget(slideInAnimation, RadioOverlayTransform);
