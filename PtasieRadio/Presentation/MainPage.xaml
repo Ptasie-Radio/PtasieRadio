@@ -340,6 +340,7 @@ Zrobić by po kliknięciu minipage wysuwało się to, co jest teraz w komencie
             <Slider Orientation="Vertical"
                     Width="20"
                     Height="200"
+                    Margin="0, 0, 0, -20"
                     Name="SoundLevelSlider"
                     HorizontalAlignment="Center"
                     Value="100"
@@ -349,18 +350,19 @@ Zrobić by po kliknięciu minipage wysuwało się to, co jest teraz w komencie
             <!-- mute/unmute button -->
             <Button Style="{StaticResource MaterialIconButtonStyle}"
                     Name="MuteUnmuteButton"
-                    Width="50"
-                    Height="50"
-                    HorizontalAlignment="Center">
+                    Width="96"
+                    Height="96"
+                    HorizontalAlignment="Center"
+                    Tapped="OnMuteUnmuteButtonClick">
                 <Button.Content>
                     <Image Source="ms-appx:///Assets/Images/speaker_round.png"
-                    Name="MuteUnmuteButtonImage"
-                    Width="50"
-                    Height="50"
-                    Stretch="Uniform" />
+                            Name="MuteUnmuteButtonImage"
+                            Width="48"
+                            Height="48"
+                            Stretch="Uniform" />
                 </Button.Content>
             </Button>
-                
+
         </StackPanel>
         
       <!-- 🔧 GŁÓWNA ZAWARTOŚĆ -->

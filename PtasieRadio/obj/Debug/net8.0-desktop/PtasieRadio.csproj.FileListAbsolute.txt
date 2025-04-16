@@ -2303,3 +2303,5 @@ C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\Pta
 C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\ref\PtasieRadio.dll
 C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\speaker_round.png
 C:\Users\mikim\source\repos\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\speaker_muted_round.png
+C:\Users\mikim\Source\Repos\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\AudioSwitcher.AudioApi.dll
+C:\Users\mikim\Source\Repos\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\AudioSwitcher.AudioApi.CoreAudio.dll

@@ -2,6 +2,27 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "AudioSwitcher.AudioApi/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/AudioSwitcher.AudioApi.dll": {}
+        },
+        "runtime": {
+          "lib/net40/AudioSwitcher.AudioApi.dll": {}
+        }
+      },
+      "AudioSwitcher.AudioApi.CoreAudio/3.0.3": {
+        "type": "package",
+        "dependencies": {
+          "AudioSwitcher.AudioApi": "3.0.0"
+        },
+        "compile": {
+          "lib/net452/AudioSwitcher.AudioApi.CoreAudio.dll": {}
+        },
+        "runtime": {
+          "lib/net452/AudioSwitcher.AudioApi.CoreAudio.dll": {}
+        }
+      },
       "CommonServiceLocator/2.0.5": {
         "type": "package",
         "compile": {
@@ -2683,6 +2704,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
           "Microsoft.Extensions.Logging.Console": "8.0.1",
           "NAudio": "2.1.0",
           "SkiaSharp.Skottie": "2.88.9",
@@ -2720,6 +2742,33 @@
     }
   },
   "libraries": {
+    "AudioSwitcher.AudioApi/3.0.0": {
+      "sha512": "AiYO8fCawsu/v6rZgDWta55GYzh9vs/FocW9xKhEGF3xsUJIgPaVsWeeBwoexMttueW6E8RS0Vp0o8w8dodjyQ==",
+      "type": "package",
+      "path": "audioswitcher.audioapi/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "audioswitcher.audioapi.3.0.0.nupkg.sha512",
+        "audioswitcher.audioapi.nuspec",
+        "lib/net40/AudioSwitcher.AudioApi.dll"
+      ]
+    },
+    "AudioSwitcher.AudioApi.CoreAudio/3.0.3": {
+      "sha512": "O0XrFLuND0Ti/UmW24PvX36Tfhify6jOBpuIKw0wmWemzKQ6fS1uH36a+bNRny9LdqPGIQnFfDyieLo1otb/Lw==",
+      "type": "package",
+      "path": "audioswitcher.audioapi.coreaudio/3.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "audioswitcher.audioapi.coreaudio.3.0.3.nupkg.sha512",
+        "audioswitcher.audioapi.coreaudio.nuspec",
+        "lib/net40/AudioSwitcher.AudioApi.CoreAudio.dll",
+        "lib/net452/AudioSwitcher.AudioApi.CoreAudio.dll",
+        "lib/net472/AudioSwitcher.AudioApi.CoreAudio.dll",
+        "lib/net48/AudioSwitcher.AudioApi.CoreAudio.dll"
+      ]
+    },
     "CommonServiceLocator/2.0.5": {
       "sha512": "Md2q9f6hAuUAm6IWTybQbYvxhDAs2dqmsudVDghpg0Q+C0M2KkmiTDjeGx1PsYhnZPvp+hy1Cx99v0VPW9W6/g==",
       "type": "package",
@@ -7757,11 +7806,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mikim\\source\\repos\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\mikim\\Source\\Repos\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
       "projectName": "PtasieRadio.Tests",
-      "projectPath": "C:\\Users\\mikim\\source\\repos\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
+      "projectPath": "C:\\Users\\mikim\\Source\\Repos\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
       "packagesPath": "C:\\Users\\mikim\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mikim\\source\\repos\\PtasieRadio\\PtasieRadio.Tests\\obj\\",
+      "outputPath": "C:\\Users\\mikim\\Source\\Repos\\PtasieRadio\\PtasieRadio.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "centralPackageVersionsManagementEnabled": true,
       "fallbackFolders": [
@@ -7784,8 +7833,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\mikim\\source\\repos\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
-              "projectPath": "C:\\Users\\mikim\\source\\repos\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj"
+            "C:\\Users\\mikim\\Source\\Repos\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
+              "projectPath": "C:\\Users\\mikim\\Source\\Repos\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj"
             }
           }
         }
@@ -7843,6 +7892,7 @@
           }
         },
         "centralPackageVersions": {
+          "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
           "coverlet.collector": "6.0.2",
           "FluentAssertions": "6.12.0",
           "GitHubActionsTestLogger": "2.3.3",
@@ -7873,5 +7923,27 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Pakiet „AudioSwitcher.AudioApi 3.0.0” został przywrócony przy użyciu elementu „.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1” zamiast platformy docelowej projektu „net8.0”. Ten pakiet może nie być w pełni kompatybilny z Twoim projektem.",
+      "libraryId": "AudioSwitcher.AudioApi",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Pakiet „AudioSwitcher.AudioApi.CoreAudio 3.0.3” został przywrócony przy użyciu elementu „.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1” zamiast platformy docelowej projektu „net8.0”. Ten pakiet może nie być w pełni kompatybilny z Twoim projektem.",
+      "libraryId": "AudioSwitcher.AudioApi.CoreAudio",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

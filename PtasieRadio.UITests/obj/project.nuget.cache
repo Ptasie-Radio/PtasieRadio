@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/kBmMGYztds=",
+  "dgSpecHash": "5shBCHVjA7Y=",
   "success": true,
-  "projectFilePath": "C:\\Users\\mikim\\source\\repos\\PtasieRadio\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj",
+  "projectFilePath": "C:\\Users\\mikim\\Source\\Repos\\PtasieRadio\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mikim\\.nuget\\packages\\docopt.net\\0.8.1\\docopt.net.0.8.1.nupkg.sha512",
     "C:\\Users\\mikim\\.nuget\\packages\\fluentassertions\\6.12.0\\fluentassertions.6.12.0.nupkg.sha512",

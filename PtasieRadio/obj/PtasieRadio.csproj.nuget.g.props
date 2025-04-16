@@ -85,17 +85,6 @@
     <Import Project="$(NuGetPackageRoot)refit\7.2.22\buildTransitive\netstandard2.0\refit.props" Condition="Exists('$(NuGetPackageRoot)refit\7.2.22\buildTransitive\netstandard2.0\refit.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.net.illink.tasks\8.0.15\build\Microsoft.NET.ILLink.Tasks.props" Condition="Exists('$(NuGetPackageRoot)microsoft.net.illink.tasks\8.0.15\build\Microsoft.NET.ILLink.Tasks.props')" />
   </ImportGroup>
-  <ImportGroup Condition=" '$(TargetFramework)' == 'net8.0-windows10.0.26100' AND '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\microsoft.windows.sdk.buildtools\10.0.26100.1742\buildTransitive\Microsoft.Windows.SDK.BuildTools.props" Condition="Exists('C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\microsoft.windows.sdk.buildtools\10.0.26100.1742\buildTransitive\Microsoft.Windows.SDK.BuildTools.props')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.windowsappsdk\1.6.250205002\buildTransitive\Microsoft.WindowsAppSDK.props" Condition="Exists('$(NuGetPackageRoot)microsoft.windowsappsdk\1.6.250205002\buildTransitive\Microsoft.WindowsAppSDK.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.winui\5.6.81\buildTransitive\net8.0\uno.winui.props" Condition="Exists('$(NuGetPackageRoot)uno.winui\5.6.81\buildTransitive\net8.0\uno.winui.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.winui.devserver\5.6.81\buildTransitive\Uno.WinUI.DevServer.props" Condition="Exists('$(NuGetPackageRoot)uno.winui.devserver\5.6.81\buildTransitive\Uno.WinUI.DevServer.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.ui.hotdesign\1.6.4\build\Uno.UI.HotDesign.props" Condition="Exists('$(NuGetPackageRoot)uno.ui.hotdesign\1.6.4\build\Uno.UI.HotDesign.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.sdk.extras\5.6.3\buildTransitive\Uno.Sdk.Extras.props" Condition="Exists('$(NuGetPackageRoot)uno.sdk.extras\5.6.3\buildTransitive\Uno.Sdk.Extras.props')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.extensions.configuration.usersecrets\8.0.0\buildTransitive\net6.0\Microsoft.Extensions.Configuration.UserSecrets.props" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.configuration.usersecrets\8.0.0\buildTransitive\net6.0\Microsoft.Extensions.Configuration.UserSecrets.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.extensions.core\5.2.7\buildTransitive\Uno.Extensions.Core.props" Condition="Exists('$(NuGetPackageRoot)uno.extensions.core\5.2.7\buildTransitive\Uno.Extensions.Core.props')" />
-    <Import Project="$(NuGetPackageRoot)refit\7.2.22\buildTransitive\netstandard2.0\refit.props" Condition="Exists('$(NuGetPackageRoot)refit\7.2.22\buildTransitive\netstandard2.0\refit.props')" />
-  </ImportGroup>
   <PropertyGroup Condition=" '$(TargetFramework)' == 'net8.0' AND '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgUno_WinUI Condition=" '$(PkgUno_WinUI)' == '' ">C:\Users\mikim\.nuget\packages\uno.winui\5.6.81</PkgUno_WinUI>
     <PkgUno_WinUI_DevServer Condition=" '$(PkgUno_WinUI_DevServer)' == '' ">C:\Users\mikim\.nuget\packages\uno.winui.devserver\5.6.81</PkgUno_WinUI_DevServer>
@@ -143,14 +132,5 @@
     <PkgUno_Settings_DevServer Condition=" '$(PkgUno_Settings_DevServer)' == '' ">C:\Users\mikim\.nuget\packages\uno.settings.devserver\1.2.18</PkgUno_Settings_DevServer>
     <PkgUno_Dsp_Tasks Condition=" '$(PkgUno_Dsp_Tasks)' == '' ">C:\Users\mikim\.nuget\packages\uno.dsp.tasks\1.4.0</PkgUno_Dsp_Tasks>
     <PkgMicrosoft_NET_ILLink_Tasks Condition=" '$(PkgMicrosoft_NET_ILLink_Tasks)' == '' ">C:\Users\mikim\.nuget\packages\microsoft.net.illink.tasks\8.0.15</PkgMicrosoft_NET_ILLink_Tasks>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net8.0-windows10.0.26100' AND '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgMicrosoft_Web_WebView2 Condition=" '$(PkgMicrosoft_Web_WebView2)' == '' ">C:\Users\mikim\.nuget\packages\microsoft.web.webview2\1.0.2651.64</PkgMicrosoft_Web_WebView2>
-    <PkgMicrosoft_WindowsAppSDK Condition=" '$(PkgMicrosoft_WindowsAppSDK)' == '' ">C:\Users\mikim\.nuget\packages\microsoft.windowsappsdk\1.6.250205002</PkgMicrosoft_WindowsAppSDK>
-    <PkgUno_WinUI Condition=" '$(PkgUno_WinUI)' == '' ">C:\Users\mikim\.nuget\packages\uno.winui\5.6.81</PkgUno_WinUI>
-    <PkgUno_WinUI_DevServer Condition=" '$(PkgUno_WinUI_DevServer)' == '' ">C:\Users\mikim\.nuget\packages\uno.winui.devserver\5.6.81</PkgUno_WinUI_DevServer>
-    <PkgUno_UI_HotDesign Condition=" '$(PkgUno_UI_HotDesign)' == '' ">C:\Users\mikim\.nuget\packages\uno.ui.hotdesign\1.6.4</PkgUno_UI_HotDesign>
-    <PkgUno_Settings_DevServer Condition=" '$(PkgUno_Settings_DevServer)' == '' ">C:\Users\mikim\.nuget\packages\uno.settings.devserver\1.2.18</PkgUno_Settings_DevServer>
-    <PkgUno_Dsp_Tasks Condition=" '$(PkgUno_Dsp_Tasks)' == '' ">C:\Users\mikim\.nuget\packages\uno.dsp.tasks\1.4.0</PkgUno_Dsp_Tasks>
   </PropertyGroup>
 </Project>
