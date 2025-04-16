@@ -365,7 +365,7 @@ Zrobić by po kliknięciu minipage wysuwało się to, co jest teraz w komencie
                 HorizontalAlignment="Center"
                 Command="{Binding PlayCommand}">
           <Button.Content>
-            <Image Source="ms-appx:///Assets/Images/play.png"
+            <Image Source="ms-appx:///Assets/Images/play_round.png"
                    Name="PlayButtonImage"
                    Width="48"
                    Height="48"

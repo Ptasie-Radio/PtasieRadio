@@ -41,13 +41,14 @@ private void ArrowTapped(object s, TappedRoutedEventArgs e)
     if(Microsoft.UI.Xaml.Window.Current == null)return;//Musi tak być, inaczej warning
     double windowHeight = Microsoft.UI.Xaml.Window.Current.Bounds.Height;
 
-    double time = windowHeight > 300 ? 0.25:0.1;
+    double time = windowHeight > 300 ? 0.5:0.1;
     //Animacja przed zniknięciem
     var slideOutAnimation = new Microsoft.UI.Xaml.Media.Animation.DoubleAnimation
     {
         From = 0,
-        To = windowHeight,
-        Duration = new Microsoft.UI.Xaml.Duration(TimeSpan.FromSeconds(time))
+        To = windowHeight+100,
+        Duration = new Microsoft.UI.Xaml.Duration(TimeSpan.FromSeconds(time)),
+        EasingFunction = new CircleEase { EasingMode = EasingMode.EaseIn }
     };
     RadioMainPage.Visibility = Visibility.Visible;
     // Uruchom animację dla TranslateTransform
@@ -72,14 +73,15 @@ private void MiniPlayerTapped(object sender, TappedRoutedEventArgs e)
     
     if(Microsoft.UI.Xaml.Window.Current == null)return;//Musi tak być, inaczej warning
     double windowHeight = Microsoft.UI.Xaml.Window.Current.Bounds.Height;
-    double time = windowHeight > 300 ? 0.25:0.1;
+    double time = windowHeight > 300 ? 0.5:0.1;
 
     RadioOverlayTransform.Y = windowHeight;
     var slideInAnimation = new Microsoft.UI.Xaml.Media.Animation.DoubleAnimation
     {
-        From = windowHeight,  // Pozycja z dołu
-        To = 0,      // Końcowa Pozycja
-        Duration = new Microsoft.UI.Xaml.Duration(TimeSpan.FromSeconds(time))  //Czas trwania
+        From = windowHeight,
+        To = 0,
+        Duration = new Microsoft.UI.Xaml.Duration(TimeSpan.FromSeconds(time)),
+        EasingFunction = new SineEase { EasingMode = EasingMode.EaseOut }
     };
 
     Storyboard.SetTarget(slideInAnimation, RadioOverlayTransform);
@@ -122,7 +124,7 @@ private void MiniPlayerTapped(object sender, TappedRoutedEventArgs e)
             if(start == true) 
             {
                 //Zmieniamy obydwa przyciski, bo użyszkodnik może powiększyć w trakcie pauzy/playu
-                PlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/play.png"));
+                PlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/play_round.png"));
                 MiniPlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/mini_play.png"));
                 await StopAudioAsync();
                 start = false;
@@ -130,7 +132,7 @@ private void MiniPlayerTapped(object sender, TappedRoutedEventArgs e)
             else
             {
                 //Zmieniamy obydwa przyciski, bo użyszkodnik może powiększyć w trakcie pauzy/playu
-                PlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/pause.png"));
+                PlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/pause_round.png"));
                 MiniPlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/mini_pause.png"));
                 await Task.Run(
                 () =>
