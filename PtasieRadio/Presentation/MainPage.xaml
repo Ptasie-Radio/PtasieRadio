@@ -8,116 +8,247 @@
       NavigationCacheMode="Required"
       Background="{ThemeResource BackgroundBrush}">
 
-  <Grid utu:SafeArea.Insets="VisibleBounds">
-    <Grid.RowDefinitions>
-      <RowDefinition Height="Auto" /> <!-- Nagłówek -->
-      <RowDefinition Height="*" /> <!-- Główna zawartość -->
-      <RowDefinition Height="Auto" /> <!-- Nawigacja na dole -->
-    </Grid.RowDefinitions>
+    <!-- Zakladamy ze minimalne okno to 230x200 i w Q3 2025 zmienimy kod jak UNO zacznie to obslugiwac xD -->
 
-    <!-- Nagłówek -->
-    <Grid Grid.Row="0"
-          Background="#0B048DFF"
-          Padding="16">
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="Auto" /> <!-- Strzałka w dół -->
-        <ColumnDefinition Width="*" /> <!-- Tekst i flaga (wycentrowane) -->
-        <ColumnDefinition Width="Auto" /> <!-- Trzy kropki -->
-      </Grid.ColumnDefinitions>
+    <Grid utu:SafeArea.Insets="VisibleBounds">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Nagłówek -->
+            <RowDefinition Height="*"/>
+            <!-- Główna zawartość -->
+            <RowDefinition Height="Auto"/>
+            <!-- Nawigacja na dole -->
+        </Grid.RowDefinitions>
 
-      <!-- Strzałka w dół (obraz PNG) -->
-      <Button Grid.Column="0"
-              Style="{StaticResource MaterialIconButtonStyle}"
-              Width="40"
-              Height="40"
-              Padding="0">
-        <Image Source="ms-appx:///Assets/arrow_down.png"
-               Width="20"
-               Height="20"
-               Stretch="Uniform" />
-      </Button>
+        <!-- Nagłówek -->
+        <Grid Grid.Row="0"
+            x:Name="RootGrid"
+              Background="#0B048DFF"
+              Padding="16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <!-- Strzałka w dół -->
+                <ColumnDefinition Width="*"/>
+                <!-- Tekst i flaga (wycentrowane) -->
+                <ColumnDefinition Width="Auto"/>
+                <!-- Trzy kropki -->
+            </Grid.ColumnDefinitions>
 
-      <!-- Tekst i flaga (wycentrowane) -->
-      <StackPanel Grid.Column="1"
-                  HorizontalAlignment="Center"
-                  VerticalAlignment="Center"
-                  Spacing="4">
-        <TextBlock Text="Nazwa radia"
-                   Style="{StaticResource MaterialSubtitle1Style}"
-                   Foreground="White"
-                   HorizontalAlignment="Center" />
-        <StackPanel Orientation="Horizontal"
+
+
+            <!-- Strzałka w dół (obraz PNG) -->
+            <Button x:Name="DownArrow"
+                    Grid.Column="0"
+                    Style="{StaticResource MaterialIconButtonStyle}"
+                    Width="40"
+                    Height="40"
+                    Padding="0">
+                <Image Source="ms-appx:///Assets/arrow_down.png"
+                       Width="20"
+                       Height="20"
+                       Stretch="Uniform"/>
+            </Button>
+
+            <!-- Tekst i flaga (wycentrowane) -->
+            <StackPanel Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Spacing="4">
+                <TextBlock x:Name="RadioName"
+                           Text="Nazwa radia"
+                           Style="{StaticResource MaterialSubtitle1Style}"
+                           Foreground="White"
+                           HorizontalAlignment="Center"/>
+                <StackPanel x:Name="CountryPanel"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Spacing="8">
+                    <Image x:Name="CountryFlag"
+                           Source="ms-appx:///Assets/flag.png"
+                           Width="16"
+                           Height="16"
+                           Stretch="Uniform"/>
+                    <TextBlock x:Name="CountryName"
+                               Text="Kraj pochodzenia"
+                               Style="{StaticResource MaterialCaptionStyle}"
+                               Foreground="LightGray"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+
+            <!-- Trzy kropki (ikona menu) -->
+            <Button x:Name="MenuIcon"
+                    Grid.Column="2"
+                    Style="{StaticResource MaterialIconButtonStyle}"
+                    Width="40"
+                    Height="40"
+                    Padding="0">
+                <FontIcon Glyph=""
+                          FontFamily="Segoe MDL2 Assets"
+                          FontSize="20"
+                          Foreground="White"/>
+            </Button>
+        </Grid>
+
+        <!-- Główna zawartość -->
+        <StackPanel Grid.Row="1"
                     HorizontalAlignment="Center"
-                    Spacing="8">
-          <Image Source="ms-appx:///Assets/flag.png"
-                 Width="16"
-                 Height="16"
-                 Stretch="Uniform" />
-          <TextBlock Text="Kraj pochodzenia"
-                     Style="{StaticResource MaterialCaptionStyle}"
-                     Foreground="LightGray"
-                     VerticalAlignment="Center" />
+                    VerticalAlignment="Center"
+                    Spacing="24">
+
+            
+
+            <!-- Placeholder na obraz -->
+            <Border x:Name="PlaceholderBorder"
+                    Width="70"
+                    Height="70"
+                    Background="{ThemeResource SurfaceBrush}"
+                    Margin="0,20,0,0"
+                    CornerRadius="8">
+                <Image Source="ms-appx:///Assets/placeholder.png"
+                       Stretch="UniformToFill"/>
+            </Border>
+
+            <!-- GIF -->
+            <Image x:Name="Gif"
+                   Source="ms-appx:///Assets/animation.gif"
+                   Width="50"
+                   Height="50"
+                   Stretch="Uniform"/>
+
         </StackPanel>
-      </StackPanel>
+        <StackPanel x:Name="BottomBar"
+                Grid.Row="2">
+            <!-- Tekst z zespołem i tytułem -->
+            <TextBlock Text="Zespół - Tytuł"
+                       Style="{StaticResource MaterialBody1Style}"
+                       HorizontalAlignment="Center"
+                       Margin="0,16,0,16"/>
 
-      <!-- Trzy kropki (ikona menu) -->
-      <Button Grid.Column="2"
-              Style="{StaticResource MaterialIconButtonStyle}"
-              Width="40"
-              Height="40"
-              Padding="0">
-        <FontIcon Glyph="" 
-                  FontFamily="Segoe MDL2 Assets"
-                  FontSize="20"
-                  Foreground="White" />
-      </Button>
+            <!-- Przycisk odtwarzania z obrazem -->
+            <Button Style="{StaticResource MaterialIconButtonStyle}"
+                    Click="RadioOnClick"
+                    x:Name="playButton"
+                    Width="96"
+                    Height="96"
+                    HorizontalAlignment="Center"
+                    Command="{Binding PlayCommand}">
+                <Button.Content>
+                    <!-- bind chyba -->
+                    <Image Source="ms-appx:///Assets/play.png"
+                           x:Name="playButtonImage"
+                           Width="48"
+                           Height="48"
+                           Stretch="Uniform"/>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+<VisualStateManager.VisualStateGroups>
+    <!-- Grupa dla zmian wysokości -->
+    <VisualStateGroup x:Name="HeightGroup">
+        <VisualState x:Name="ShortHeight">
+            <VisualState.StateTriggers>
+                <AdaptiveTrigger MinWindowHeight="0"/>
+            </VisualState.StateTriggers>
+            <VisualState.Setters>
+                <Setter Target="PlaceholderBorder.Visibility" Value="Collapsed"/>
+                <Setter Target="Gif.Visibility" Value="Collapsed"/>
+            </VisualState.Setters>
+        </VisualState>
+        
+        <VisualState x:Name="MediumHeight">
+            <VisualState.StateTriggers>
+                <AdaptiveTrigger MinWindowHeight="360"/>
+            </VisualState.StateTriggers>
+            <VisualState.Setters>
+                <Setter Target="PlaceholderBorder.Visibility" Value="Visible"/>
+                <Setter Target="Gif.Visibility" Value="Collapsed"/>
+            </VisualState.Setters>
+        </VisualState>
+        <VisualState x:Name="DefaultHeight">
+            <VisualState.StateTriggers>
+                <AdaptiveTrigger MinWindowHeight="600"/>
+            </VisualState.StateTriggers>
+            <VisualState.Setters>
+                <!-- <Setter Target="PlaceholderBorder.Width" Value="Visible"/> -->
+                <Setter Target="Gif.Width" Value="60"/>
+                <Setter Target="Gif.Height" Value="60"/>
+            </VisualState.Setters>
+        </VisualState>
+    </VisualStateGroup>
+
+    <!-- Grupa dla zmian szerokości - reszta właściwości -->
+    <VisualStateGroup x:Name="WidthGroup">
+        <VisualState x:Name="LargeWindow">
+            <VisualState.StateTriggers>
+                <AdaptiveTrigger MinWindowWidth="1600"/>
+            </VisualState.StateTriggers>
+            <VisualState.Setters>
+                <Setter Target="PlaceholderBorder.Width" Value="200"/>
+                <Setter Target="PlaceholderBorder.Height" Value="200"/>
+                <!-- <Setter Target="Gif.Width" Value="150"/>
+                <Setter Target="Gif.Height" Value="150"/> -->
+            </VisualState.Setters>
+        </VisualState>
+
+        <VisualState x:Name="DefaultWindow">
+            <VisualState.StateTriggers>
+                <AdaptiveTrigger MinWindowWidth="1000"/>
+            </VisualState.StateTriggers>
+            <VisualState.Setters>
+                <Setter Target="PlaceholderBorder.Width" Value="250"/>
+                <Setter Target="PlaceholderBorder.Height" Value="250"/>
+                <!-- <Setter Target="Gif.Width" Value="100"/>
+                <Setter Target="Gif.Height" Value="100"/> -->
+            </VisualState.Setters>
+        </VisualState>
+
+        <VisualState x:Name="NarrowWindow">
+            <VisualState.StateTriggers>
+                <AdaptiveTrigger MinWindowWidth="400"/>
+            </VisualState.StateTriggers>
+            <VisualState.Setters>
+                <Setter Target="PlaceholderBorder.Width" Value="150"/>
+                <Setter Target="PlaceholderBorder.Height" Value="150"/>
+                <!-- <Setter Target="Gif.Width" Value="70"/>
+                <Setter Target="Gif.Height" Value="70"/> -->
+            </VisualState.Setters>
+        </VisualState>
+
+        <VisualState x:Name="SmallTallWindow">
+            <VisualState.StateTriggers>
+                <AdaptiveTrigger MinWindowWidth="230"/>
+            </VisualState.StateTriggers>
+            <VisualState.Setters>
+                <Setter Target="PlaceholderBorder.Width" Value="150"/>
+                <Setter Target="PlaceholderBorder.Height" Value="150"/>
+                <!-- <Setter Target="Gif.Width" Value="60"/>
+                <Setter Target="Gif.Height" Value="60"/> -->
+                <Setter Target="CountryName.Visibility" Value="Collapsed"/>
+            </VisualState.Setters>
+        </VisualState>
+
+        <VisualState x:Name="SmallWindow">
+            <VisualState.StateTriggers>
+                <AdaptiveTrigger MinWindowWidth="230"/>
+            </VisualState.StateTriggers>
+            <VisualState.Setters>
+                <Setter Target="PlaceholderBorder.Width" Value="70"/>
+                <Setter Target="PlaceholderBorder.Height" Value="70"/>
+                <Setter Target="PlaceholderBorder.Margin" Value="0,20,0,0"/>
+                <Setter Target="CountryName.Visibility" Value="Collapsed"/>
+            </VisualState.Setters>
+        </VisualState>
+
+        <VisualState x:Name="SmallestWindow">
+            <VisualState.StateTriggers>
+                <AdaptiveTrigger MinWindowWidth="0"/>
+            </VisualState.StateTriggers>
+            <VisualState.Setters>
+                <Setter Target="CountryName.Visibility" Value="Collapsed"/>
+            </VisualState.Setters>
+        </VisualState>
+    </VisualStateGroup>
+</VisualStateManager.VisualStateGroups>
     </Grid>
-
-    <!-- Główna zawartość -->
-    <StackPanel Grid.Row="1"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Spacing="24">
-      <!-- Placeholder na obraz -->
-      <Border Width="200"
-              Height="200"
-              Background="{ThemeResource SurfaceBrush}"
-              Margin="0,75,0,0"
-              CornerRadius="8">
-        <Image Source="ms-appx:///Assets/placeholder.png" 
-               Stretch="UniformToFill" />
-      </Border>
-
-      <!-- GIF -->
-      <Image Source="ms-appx:///Assets/animation.gif"
-             Width="100"
-             Height="100"
-             Stretch="Uniform" />
-
-      <!-- Tekst z zespołem i tytułem -->
-      <TextBlock Text="Zespół - Tytuł"
-                 Style="{StaticResource MaterialBody1Style}"
-                 HorizontalAlignment="Center"
-                 Margin="0,16,0,0" />
-
-      <!-- Przycisk odtwarzania z obrazem -->
-      <Button Style="{StaticResource MaterialIconButtonStyle}"
-              Click="RadioOnClick"
-              Name="playButton" 
-              Width="96"
-              Height="96"
-              HorizontalAlignment="Center"
-              Command="{Binding PlayCommand}">
-        <Button.Content>
-                <!-- bind chyba -->
-          <Image Source="ms-appx:///Assets/play.png"
-                Name="playButtonImage"
-                Width="48"
-                Height="48"
-                Stretch="Uniform" />
-        </Button.Content>
-      </Button>
-    </StackPanel>
-
-  </Grid>
 </Page>

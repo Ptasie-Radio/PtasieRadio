@@ -9,7 +9,6 @@ drawable\assets_images_image;drawable\Assets_Images_image
 drawable\assets_pause;drawable\Assets_pause
 drawable\assets_placeholder;drawable\Assets_placeholder
 drawable\assets_play;drawable\Assets_play
-drawable\assets_splash_icon_foreground;drawable\Assets_Splash_icon_foreground
 drawable\assets_splash_old_splash_screen;drawable\Assets_Splash_old_splash_screen
 drawable\splash_screen;drawable\splash_screen
 values\strings;values\Strings
