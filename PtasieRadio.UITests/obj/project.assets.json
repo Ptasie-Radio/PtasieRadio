@@ -4873,6 +4873,7 @@
           }
         },
         "centralPackageVersions": {
+          "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
           "coverlet.collector": "6.0.2",
           "FluentAssertions": "6.12.0",
           "GitHubActionsTestLogger": "2.3.3",
@@ -4917,5 +4918,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.UITests\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

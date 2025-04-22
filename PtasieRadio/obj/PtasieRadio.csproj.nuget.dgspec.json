@@ -24,8 +24,7 @@
           "net8.0-browserwasm",
           "net8.0-desktop",
           "net8.0-ios",
-          "net8.0-maccatalyst",
-          "net8.0-windows10.0.26100"
+          "net8.0-maccatalyst"
         ],
         "sources": {
           "C:\\Program Files\\dotnet\\library-packs": {},
@@ -55,10 +54,6 @@
           "net8.0-maccatalyst18.0": {
             "targetAlias": "net8.0-maccatalyst",
             "projectReferences": {}
-          },
-          "net8.0-windows10.0.26100": {
-            "targetAlias": "net8.0-windows10.0.26100",
-            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -80,6 +75,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AudioSwitcher.AudioApi.CoreAudio": {
+              "target": "Package",
+              "version": "[3.0.3, )",
+              "versionCentrallyManaged": true
+            },
             "Microsoft.Extensions.Logging.Console": {
               "target": "Package",
               "version": "[8.0.1, )",
@@ -230,6 +230,7 @@
             }
           },
           "centralPackageVersions": {
+            "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
             "coverlet.collector": "6.0.2",
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
@@ -276,6 +277,11 @@
         "net8.0-android34.0": {
           "targetAlias": "net8.0-android",
           "dependencies": {
+            "AudioSwitcher.AudioApi.CoreAudio": {
+              "target": "Package",
+              "version": "[3.0.3, )",
+              "versionCentrallyManaged": true
+            },
             "Microsoft.Extensions.Logging.Console": {
               "target": "Package",
               "version": "[8.0.1, )",
@@ -477,6 +483,7 @@
             }
           },
           "centralPackageVersions": {
+            "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
             "coverlet.collector": "6.0.2",
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
@@ -546,6 +553,11 @@
         "net8.0-browserwasm1.0": {
           "targetAlias": "net8.0-browserwasm",
           "dependencies": {
+            "AudioSwitcher.AudioApi.CoreAudio": {
+              "target": "Package",
+              "version": "[3.0.3, )",
+              "versionCentrallyManaged": true
+            },
             "Microsoft.Extensions.Logging.Console": {
               "target": "Package",
               "version": "[8.0.1, )",
@@ -727,6 +739,7 @@
             }
           },
           "centralPackageVersions": {
+            "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
             "coverlet.collector": "6.0.2",
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
@@ -777,6 +790,11 @@
         "net8.0-desktop1.0": {
           "targetAlias": "net8.0-desktop",
           "dependencies": {
+            "AudioSwitcher.AudioApi.CoreAudio": {
+              "target": "Package",
+              "version": "[3.0.3, )",
+              "versionCentrallyManaged": true
+            },
             "Microsoft.Extensions.Logging.Console": {
               "target": "Package",
               "version": "[8.0.1, )",
@@ -957,6 +975,7 @@
             }
           },
           "centralPackageVersions": {
+            "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
             "coverlet.collector": "6.0.2",
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
@@ -1007,6 +1026,11 @@
         "net8.0-ios18.0": {
           "targetAlias": "net8.0-ios",
           "dependencies": {
+            "AudioSwitcher.AudioApi.CoreAudio": {
+              "target": "Package",
+              "version": "[3.0.3, )",
+              "versionCentrallyManaged": true
+            },
             "Microsoft.Extensions.Logging.Console": {
               "target": "Package",
               "version": "[8.0.1, )",
@@ -1173,6 +1197,7 @@
             }
           },
           "centralPackageVersions": {
+            "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
             "coverlet.collector": "6.0.2",
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
@@ -1230,6 +1255,11 @@
         "net8.0-maccatalyst18.0": {
           "targetAlias": "net8.0-maccatalyst",
           "dependencies": {
+            "AudioSwitcher.AudioApi.CoreAudio": {
+              "target": "Package",
+              "version": "[3.0.3, )",
+              "versionCentrallyManaged": true
+            },
             "Microsoft.Extensions.Logging.Console": {
               "target": "Package",
               "version": "[8.0.1, )",
@@ -1396,6 +1426,7 @@
             }
           },
           "centralPackageVersions": {
+            "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
             "coverlet.collector": "6.0.2",
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
@@ -1450,257 +1481,6 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
-        },
-        "net8.0-windows10.0.26100": {
-          "targetAlias": "net8.0-windows10.0.26100",
-          "dependencies": {
-            "Microsoft.Extensions.Logging.Console": {
-              "target": "Package",
-              "version": "[8.0.1, )",
-              "autoReferenced": true
-            },
-            "Microsoft.Windows.SDK.BuildTools": {
-              "target": "Package",
-              "version": "[10.0.26100.1742, )",
-              "autoReferenced": true
-            },
-            "Microsoft.WindowsAppSDK": {
-              "target": "Package",
-              "version": "[1.6.250205002, )",
-              "autoReferenced": true
-            },
-            "NAudio": {
-              "target": "Package",
-              "version": "[2.1.0, )",
-              "versionCentrallyManaged": true
-            },
-            "Uno.Core.Extensions.Logging.Singleton": {
-              "target": "Package",
-              "version": "[4.1.1, )",
-              "autoReferenced": true
-            },
-            "Uno.Dsp.Tasks": {
-              "target": "Package",
-              "version": "[1.4.0, )",
-              "autoReferenced": true
-            },
-            "Uno.Extensions.Configuration": {
-              "target": "Package",
-              "version": "[5.2.7, )",
-              "autoReferenced": true
-            },
-            "Uno.Extensions.Core.WinUI": {
-              "target": "Package",
-              "version": "[5.2.7, )",
-              "autoReferenced": true
-            },
-            "Uno.Extensions.Hosting.WinUI": {
-              "target": "Package",
-              "version": "[5.2.7, )",
-              "autoReferenced": true
-            },
-            "Uno.Extensions.Http.Refit": {
-              "target": "Package",
-              "version": "[5.2.7, )",
-              "autoReferenced": true
-            },
-            "Uno.Extensions.Http.WinUI": {
-              "target": "Package",
-              "version": "[5.2.7, )",
-              "autoReferenced": true
-            },
-            "Uno.Extensions.Localization.WinUI": {
-              "target": "Package",
-              "version": "[5.2.7, )",
-              "autoReferenced": true
-            },
-            "Uno.Extensions.Logging.WinUI": {
-              "target": "Package",
-              "version": "[5.2.7, )",
-              "autoReferenced": true
-            },
-            "Uno.Extensions.Navigation.Toolkit.WinUI": {
-              "target": "Package",
-              "version": "[5.2.7, )",
-              "autoReferenced": true
-            },
-            "Uno.Extensions.Navigation.WinUI": {
-              "target": "Package",
-              "version": "[5.2.7, )",
-              "autoReferenced": true
-            },
-            "Uno.Extensions.Reactive.Messaging": {
-              "target": "Package",
-              "version": "[5.2.7, )",
-              "autoReferenced": true
-            },
-            "Uno.Extensions.Reactive.WinUI": {
-              "target": "Package",
-              "version": "[5.2.7, )",
-              "autoReferenced": true
-            },
-            "Uno.Extensions.Serialization.Http": {
-              "target": "Package",
-              "version": "[5.2.7, )",
-              "autoReferenced": true
-            },
-            "Uno.Extensions.Serialization.Refit": {
-              "target": "Package",
-              "version": "[5.2.7, )",
-              "autoReferenced": true
-            },
-            "Uno.Material.WinUI": {
-              "target": "Package",
-              "version": "[5.4.0, )",
-              "autoReferenced": true
-            },
-            "Uno.Resizetizer": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[1.7.0, )",
-              "autoReferenced": true
-            },
-            "Uno.Sdk.Extras": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[5.6.3, )",
-              "autoReferenced": true
-            },
-            "Uno.Settings.DevServer": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[1.2.18, )",
-              "autoReferenced": true
-            },
-            "Uno.Toolkit.WinUI": {
-              "target": "Package",
-              "version": "[6.4.3, )",
-              "autoReferenced": true
-            },
-            "Uno.Toolkit.WinUI.Material": {
-              "target": "Package",
-              "version": "[6.4.3, )",
-              "autoReferenced": true
-            },
-            "Uno.UI.Adapter.Microsoft.Extensions.Logging": {
-              "target": "Package",
-              "version": "[5.6.81, )",
-              "autoReferenced": true
-            },
-            "Uno.UI.HotDesign": {
-              "target": "Package",
-              "version": "[1.6.4, )",
-              "autoReferenced": true
-            },
-            "Uno.WinUI": {
-              "target": "Package",
-              "version": "[5.6.81, )",
-              "autoReferenced": true
-            },
-            "Uno.WinUI.DevServer": {
-              "target": "Package",
-              "version": "[5.6.81, )",
-              "autoReferenced": true
-            }
-          },
-          "centralPackageVersions": {
-            "coverlet.collector": "6.0.2",
-            "FluentAssertions": "6.12.0",
-            "GitHubActionsTestLogger": "2.3.3",
-            "Microsoft.NET.Test.Sdk": "17.9.0",
-            "NAudio": "2.1.0",
-            "Newtonsoft.Json": "13.0.3",
-            "NUnit": "4.1.0",
-            "NUnit3TestAdapter": "4.5.0",
-            "Uno.UITest.Helpers": "1.1.0-dev.70",
-            "Xamarin.UITest": "4.3.4"
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.15, 8.0.15]"
-            },
-            {
-              "name": "Microsoft.AspNetCore.App.Runtime.win-arm64",
-              "version": "[8.0.15, 8.0.15]"
-            },
-            {
-              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[8.0.15, 8.0.15]"
-            },
-            {
-              "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
-              "version": "[8.0.15, 8.0.15]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-arm64",
-              "version": "[8.0.15, 8.0.15]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[8.0.15, 8.0.15]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x86",
-              "version": "[8.0.15, 8.0.15]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.15, 8.0.15]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.win-arm64",
-              "version": "[8.0.15, 8.0.15]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.win-x64",
-              "version": "[8.0.15, 8.0.15]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.win-x86",
-              "version": "[8.0.15, 8.0.15]"
-            },
-            {
-              "name": "Microsoft.Windows.SDK.NET.Ref",
-              "version": "[10.0.26100.57, 10.0.26100.57]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.15, 8.0.15]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-              "version": "[8.0.15, 8.0.15]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-              "version": "[8.0.15, 8.0.15]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-              "version": "[8.0.15, 8.0.15]"
-            }
-          ],
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            },
-            "Microsoft.Windows.SDK.NET.Ref.Windows": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -1720,15 +1500,6 @@
           "#import": []
         },
         "maccatalyst-x64": {
-          "#import": []
-        },
-        "win-arm64": {
-          "#import": []
-        },
-        "win-x64": {
-          "#import": []
-        },
-        "win-x86": {
           "#import": []
         }
       }
