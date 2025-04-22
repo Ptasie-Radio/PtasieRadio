@@ -35,54 +35,13 @@ public sealed partial class MainPage : Page
         this.muted = false;
         test = true;//Zmienna test na czas pierwszego sprinta. Zmienić później na przycisk zmieniający radia
         this.InitializeComponent();
-        this.SizeChanged += MainPage_SizeChanged;
+        this.SizeChanged += MainPage_SizeChanged; // element wymagany do debugowania rozmiaru okna
     }
-   private void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
-{
-    double width = e.NewSize.Width;
-    double height = e.NewSize.Height;
-    string stateHeight = "ShortHeight"; // Domyślnie ShortHeight (MinWindowHeight=0)
-    string stateWidth = "SmallestWindow"; // Domyślnie SmallestWindow (MinWindowWidth=0)
-
-    // Sprawdź stany HeightGroup (wysokość)
-    if (height >= 600)
+    
+    private void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
     {
-        stateHeight = "DefaultHeight";
+        System.Diagnostics.Debug.WriteLine($"Width: {this.ActualWidth}, Height: {this.ActualHeight}");        
     }
-    else if (height >= 340)
-    {
-        stateHeight = "MediumHeight";
-    }
-
-    // Sprawdź stany WidthGroup (szerokość)
-    if (width >= 1600)
-    {
-        stateWidth = "LargeWindow";
-    }
-    else if (width >= 1000)
-    {
-        stateWidth = "DefaultWindow";
-    }
-    else if (width >= 400)
-    {
-        stateWidth = "NarrowWindow";
-    }
-    else if (width >= 230)
-    {
-        stateWidth = "SmallTallWindow";
-    }
-    else
-    {
-        stateWidth = "SmallestWindow";
-    }
-
-    System.Diagnostics.Debug.WriteLine($"[VisualState] HeightGroup: {stateHeight}, WidthGroup: {stateWidth}");
-}
-//             private void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
-//         {
-// System.Diagnostics.Debug.WriteLine($"Width: {this.ActualWidth}, Height: {this.ActualHeight}");        
-
-// }
 
 private void ArrowTapped(object s, TappedRoutedEventArgs e)
 {
@@ -182,7 +141,7 @@ private void MiniPlayerTapped(object sender, TappedRoutedEventArgs e)
 				{
 					//Zmieniamy obydwa przyciski, bo użyszkodnik może powiększyć w trakcie pauzy/playu
 					PlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/pause_round.png"));
-					MiniPlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/mini_pause_round.png"));
+					MiniPlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/mini_pause.png"));
 					await Task.Run(
 					() =>
 					{

@@ -238,13 +238,13 @@ Zrobić by po kliknięciu minipage wysuwało się to, co jest teraz w komencie
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="2" Spacing="10">
-                    <Button Background="Transparent" Name="MiniShuffleButton" Tapped="ShuffleButtonTappedEvent">
+                    <Button Background="Transparent" x:Name="MiniShuffleButton" Tapped="ShuffleButtonTappedEvent">
                         <Image Source="ms-appx:///Assets/Images/shuffle.png" Stretch="Uniform" Width="20" Height="20"/>
                     </Button>
-                    <Button Background="Transparent" Name="MiniPlayButton" Tapped="PlayPauseButtonTappedEvent">
-                        <Image Source="ms-appx:///Assets/Images/mini_play.png" Stretch="Uniform" Width="20" Height="20" Name="MiniPlayButtonImage"/>
+                    <Button Background="Transparent" x:Name="MiniPlayButton" Tapped="PlayPauseButtonTappedEvent">
+                        <Image Source="ms-appx:///Assets/Images/mini_play.png" Stretch="Uniform" Width="20" Height="20" x:Name="MiniPlayButtonImage"/>
                     </Button>
-                    <Button Background="Transparent" Name="MiniHeartButton" Tapped="HeartButtonTappedEvent">
+                    <Button Background="Transparent" x:Name="MiniHeartButton" Tapped="HeartButtonTappedEvent">
                         <Image Source="ms-appx:///Assets/Images/heart.png" Stretch="Uniform" Width="20" Height="20"/>
                     </Button>
                 </StackPanel>
@@ -353,7 +353,7 @@ Zrobić by po kliknięciu minipage wysuwało się to, co jest teraz w komencie
                     Width="20"
                     Height="200"
                     Margin="0, 0, 0, -20"
-                    Name="SoundLevelSlider"
+                    x:Name="SoundLevelSlider"
                     HorizontalAlignment="Center"
                     Value="100"
                     ValueChanged="OnSoundLevelSliderValueChanged">
@@ -361,14 +361,14 @@ Zrobić by po kliknięciu minipage wysuwało się to, co jest teraz w komencie
 
             <!-- mute/unmute button -->
             <Button Style="{StaticResource MaterialIconButtonStyle}"
-                    Name="MuteUnmuteButton"
+                    x:Name="MuteUnmuteButton"
                     Width="96"
                     Height="96"
                     HorizontalAlignment="Center"
                     Tapped="OnMuteUnmuteButtonClick">
                 <Button.Content>
                     <Image Source="ms-appx:///Assets/Images/speaker_round.png"
-                            Name="MuteUnmuteButtonImage"
+                            x:Name="MuteUnmuteButtonImage"
                             Width="48"
                             Height="48"
                             Stretch="Uniform" />
@@ -414,7 +414,7 @@ Zrobić by po kliknięciu minipage wysuwało się to, co jest teraz w komencie
               <!-- Przycisk odtwarzania -->
               <Button Style="{StaticResource MaterialIconButtonStyle}"
                       Tapped="PlayPauseButtonTappedEvent"
-                      x:Name="MiniPlayButton"
+                      x:Name="PlayButton"
                       Width="96"
                       Height="96"
                       HorizontalAlignment="Center"
@@ -428,8 +428,8 @@ Zrobić by po kliknięciu minipage wysuwało się to, co jest teraz w komencie
                   </Button.Content>
               </Button>
           </StackPanel>
-<VisualStateManager.VisualStateGroups>
-    <!-- Grupa dla zmian wysokości -->
+<!-- <VisualStateManager.VisualStateGroups>
+    Grupa dla zmian wysokości
     <VisualStateGroup x:Name="HeightGroup">
         <VisualState x:Name="ShortHeight">
             <VisualState.StateTriggers>
@@ -439,101 +439,8 @@ Zrobić by po kliknięciu minipage wysuwało się to, co jest teraz w komencie
                 <Setter Target="PlaceholderBorder.Visibility" Value="Collapsed"/>
                 <Setter Target="Gif.Visibility" Value="Collapsed"/>
             </VisualState.Setters>
-        </VisualState>
+        </VisualState> -->
         
-        <VisualState x:Name="MediumHeight">
-            <VisualState.StateTriggers>
-                <AdaptiveTrigger MinWindowHeight="360"/>
-            </VisualState.StateTriggers>
-            <VisualState.Setters>
-                <Setter Target="PlaceholderBorder.Visibility" Value="Visible"/>
-                <Setter Target="Gif.Visibility" Value="Collapsed"/>
-            </VisualState.Setters>
-        </VisualState>
-        <VisualState x:Name="DefaultHeight">
-            <VisualState.StateTriggers>
-                <AdaptiveTrigger MinWindowHeight="600"/>
-            </VisualState.StateTriggers>
-            <VisualState.Setters>
-                <!-- <Setter Target="PlaceholderBorder.Width" Value="Visible"/> -->
-                <Setter Target="Gif.Width" Value="60"/>
-                <Setter Target="Gif.Height" Value="60"/>
-            </VisualState.Setters>
-        </VisualState>
-    </VisualStateGroup>
-
-    <!-- Grupa dla zmian szerokości - reszta właściwości -->
-    <VisualStateGroup x:Name="WidthGroup">
-        <VisualState x:Name="LargeWindow">
-            <VisualState.StateTriggers>
-                <AdaptiveTrigger MinWindowWidth="1600"/>
-            </VisualState.StateTriggers>
-            <VisualState.Setters>
-                <Setter Target="PlaceholderBorder.Width" Value="200"/>
-                <Setter Target="PlaceholderBorder.Height" Value="200"/>
-                <!-- <Setter Target="Gif.Width" Value="150"/>
-                <Setter Target="Gif.Height" Value="150"/> -->
-            </VisualState.Setters>
-        </VisualState>
-
-        <VisualState x:Name="DefaultWindow">
-            <VisualState.StateTriggers>
-                <AdaptiveTrigger MinWindowWidth="1000"/>
-            </VisualState.StateTriggers>
-            <VisualState.Setters>
-                <Setter Target="PlaceholderBorder.Width" Value="250"/>
-                <Setter Target="PlaceholderBorder.Height" Value="250"/>
-                <!-- <Setter Target="Gif.Width" Value="100"/>
-                <Setter Target="Gif.Height" Value="100"/> -->
-            </VisualState.Setters>
-        </VisualState>
-
-        <VisualState x:Name="NarrowWindow">
-            <VisualState.StateTriggers>
-                <AdaptiveTrigger MinWindowWidth="400"/>
-            </VisualState.StateTriggers>
-            <VisualState.Setters>
-                <Setter Target="PlaceholderBorder.Width" Value="150"/>
-                <Setter Target="PlaceholderBorder.Height" Value="150"/>
-                <!-- <Setter Target="Gif.Width" Value="70"/>
-                <Setter Target="Gif.Height" Value="70"/> -->
-            </VisualState.Setters>
-        </VisualState>
-
-        <VisualState x:Name="SmallTallWindow">
-            <VisualState.StateTriggers>
-                <AdaptiveTrigger MinWindowWidth="230"/>
-            </VisualState.StateTriggers>
-            <VisualState.Setters>
-                <Setter Target="PlaceholderBorder.Width" Value="150"/>
-                <Setter Target="PlaceholderBorder.Height" Value="150"/>
-                <!-- <Setter Target="Gif.Width" Value="60"/>
-                <Setter Target="Gif.Height" Value="60"/> -->
-                <Setter Target="CountryName.Visibility" Value="Collapsed"/>
-            </VisualState.Setters>
-        </VisualState>
-
-        <VisualState x:Name="SmallWindow">
-            <VisualState.StateTriggers>
-                <AdaptiveTrigger MinWindowWidth="230"/>
-            </VisualState.StateTriggers>
-            <VisualState.Setters>
-                <Setter Target="PlaceholderBorder.Width" Value="70"/>
-                <Setter Target="PlaceholderBorder.Height" Value="70"/>
-                <Setter Target="PlaceholderBorder.Margin" Value="0,20,0,0"/>
-                <Setter Target="CountryName.Visibility" Value="Collapsed"/>
-            </VisualState.Setters>
-        </VisualState>
-
-        <VisualState x:Name="SmallestWindow">
-            <VisualState.StateTriggers>
-                <AdaptiveTrigger MinWindowWidth="0"/>
-            </VisualState.StateTriggers>
-            <VisualState.Setters>
-                <Setter Target="CountryName.Visibility" Value="Collapsed"/>
-            </VisualState.Setters>
-        </VisualState>
-    </VisualStateGroup>
-</VisualStateManager.VisualStateGroups>    </Grid>
+        </Grid>
       </Grid>
 </Page>
