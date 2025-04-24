@@ -1,6 +1,4 @@
 drawable\assets_icons_icon_foreground;drawable\Assets_Icons_icon_foreground
-drawable\assets_icons_old_icon;drawable\Assets_Icons_old_icon
-drawable\assets_icons_old_icon_foreground;drawable\Assets_Icons_old_icon_foreground
 drawable\assets_images_animation;drawable\Assets_Images_animation
 drawable\assets_images_arrow_down;drawable\Assets_Images_arrow_down
 drawable\assets_images_back;drawable\Assets_Images_back
@@ -19,7 +17,6 @@ drawable\assets_images_right_arrow;drawable\Assets_Images_right_arrow
 drawable\assets_images_search;drawable\Assets_Images_search
 drawable\assets_images_setting;drawable\Assets_Images_setting
 drawable\assets_images_shuffle;drawable\Assets_Images_shuffle
-drawable\assets_splash_old_splash_screen;drawable\Assets_Splash_old_splash_screen
 drawable\splash_screen;drawable\splash_screen
 values\strings;values\Strings
 values\styles;values\Styles

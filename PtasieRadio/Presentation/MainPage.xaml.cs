@@ -24,13 +24,17 @@ public sealed partial class MainPage : Page
     //Ale to już na inny sprint
     private bool start;
     private bool test;
+    
+    private double pageAnimationTime;
     private WaveOutEvent? waveOut;//Znak zapytania, aby warning nie dawało
     private MediaFoundationReader? reader;
     
     public MainPage()
     {  
+        pageAnimationTime = 0.5;
         start = false;
         test = true;//Zmienna test na czas pierwszego sprinta. Zmienić później na przycisk zmieniający radia
+        
         this.InitializeComponent();
     }
 
@@ -41,7 +45,7 @@ private void ArrowTapped(object s, TappedRoutedEventArgs e)
     if(Microsoft.UI.Xaml.Window.Current == null)return;//Musi tak być, inaczej warning
     double windowHeight = Microsoft.UI.Xaml.Window.Current.Bounds.Height;
 
-    double time = windowHeight > 300 ? 0.7:0.1;
+    double time = windowHeight > 300 ? pageAnimationTime:0.1;
     //Animacja przed zniknięciem
     var slideOutAnimation = new Microsoft.UI.Xaml.Media.Animation.DoubleAnimation
     {
@@ -76,7 +80,7 @@ private void MiniPlayerTapped(object sender, TappedRoutedEventArgs e)
     
     if(Microsoft.UI.Xaml.Window.Current == null)return;//Musi tak być, inaczej warning
     double windowHeight = Microsoft.UI.Xaml.Window.Current.Bounds.Height;
-    double time = windowHeight > 300 ? 0.7:0.1;
+    double time = windowHeight > 300 ? pageAnimationTime:0.1;
 
     RadioOverlayTransform.Y = windowHeight;
     var slideInAnimation = new Microsoft.UI.Xaml.Media.Animation.DoubleAnimation
@@ -86,7 +90,7 @@ private void MiniPlayerTapped(object sender, TappedRoutedEventArgs e)
         Duration = new Microsoft.UI.Xaml.Duration(TimeSpan.FromSeconds(time)),
         EasingFunction = new CircleEase
         {
-            EasingMode = EasingMode.EaseOut
+            EasingMode = EasingMode.EaseInOut
         }
     };
 
