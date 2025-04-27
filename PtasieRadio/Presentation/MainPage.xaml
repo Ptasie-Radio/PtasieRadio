@@ -1,9 +1,4 @@
-﻿<!--
-Zrobić by po kliknięciu minipage wysuwało się to, co jest teraz w komencie
--->
-
-
-<Page x:Class="PtasieRadio.Presentation.MainPage"
+﻿<Page x:Class="PtasieRadio.Presentation.MainPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:local="using:PtasieRadio.Presentation"
@@ -760,12 +755,12 @@ Zrobić by po kliknięciu minipage wysuwało się to, co jest teraz w komencie
                                     Y="700"/>
             </Grid.RenderTransform>
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
                 <!-- Nagłówek -->
-                <RowDefinition Height="Auto"/>
-                <!-- Główna zawartość -->
                 <RowDefinition Height="*"/>
-                <!-- Nawigacja na dole -->
+                <!-- Główna zawartość -->
                 <RowDefinition Height="Auto"/>
+                <!-- Nawigacja na dole -->
             </Grid.RowDefinitions>
 
             <!-- Nagłówek -->
@@ -930,8 +925,6 @@ Zrobić by po kliknięciu minipage wysuwało się to, co jest teraz w komencie
                     </Button.Content>
                 </Button>
             </StackPanel>
-
-
         </Grid>
     </Grid>
 </Page>
