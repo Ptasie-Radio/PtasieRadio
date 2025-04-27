@@ -2,6 +2,9 @@
   "format": 1,
   "restore": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> SCRUM-34-responsywnosc-play-pagea
     "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj": {}
   },
   "projects": {
@@ -13,6 +16,7 @@
         "projectPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
         "packagesPath": "C:\\Users\\Kornel\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\obj\\",
+<<<<<<< HEAD
 =======
     "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj": {}
   },
@@ -26,6 +30,8 @@
         "packagesPath": "C:\\Users\\Fabian\\.nuget\\packages\\",
         "outputPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio.Tests\\obj\\",
 >>>>>>> origin/Mini_lista
+=======
+>>>>>>> SCRUM-34-responsywnosc-play-pagea
         "projectStyle": "PackageReference",
         "centralPackageVersionsManagementEnabled": true,
         "configFilePaths": [
@@ -43,12 +49,17 @@
             "targetAlias": "net8.0",
             "projectReferences": {
 <<<<<<< HEAD
+<<<<<<< HEAD
               "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
                 "projectPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj"
 =======
               "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio\\PtasieRadio.csproj": {
                 "projectPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio\\PtasieRadio.csproj"
 >>>>>>> origin/Mini_lista
+=======
+              "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
+                "projectPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj"
+>>>>>>> SCRUM-34-responsywnosc-play-pagea
               }
             }
           }
@@ -153,6 +164,9 @@
       }
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> SCRUM-34-responsywnosc-play-pagea
     "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -161,6 +175,7 @@
         "projectPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj",
         "packagesPath": "C:\\Users\\Kornel\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\obj\\",
+<<<<<<< HEAD
 =======
     "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio\\PtasieRadio.csproj": {
       "version": "1.0.0",
@@ -171,6 +186,8 @@
         "packagesPath": "C:\\Users\\Fabian\\.nuget\\packages\\",
         "outputPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio\\obj\\",
 >>>>>>> origin/Mini_lista
+=======
+>>>>>>> SCRUM-34-responsywnosc-play-pagea
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "centralPackageVersionsManagementEnabled": true,

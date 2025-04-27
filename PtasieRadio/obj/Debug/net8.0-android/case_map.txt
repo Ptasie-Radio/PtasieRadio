@@ -1,4 +1,6 @@
 drawable\assets_icons_icon_foreground;drawable\Assets_Icons_icon_foreground
+drawable\assets_icons_old_icon;drawable\Assets_Icons_old_icon
+drawable\assets_icons_old_icon_foreground;drawable\Assets_Icons_old_icon_foreground
 drawable\assets_images_animation;drawable\Assets_Images_animation
 drawable\assets_images_arrow_down;drawable\Assets_Images_arrow_down
 drawable\assets_images_close;drawable\Assets_Images_close
@@ -19,9 +21,13 @@ drawable\assets_images_shuffle;drawable\Assets_Images_shuffle
 drawable\assets_images_speaker_muted_round;drawable\Assets_Images_speaker_muted_round
 drawable\assets_images_speaker_round;drawable\Assets_Images_speaker_round
 <<<<<<< HEAD
+<<<<<<< HEAD
 drawable\assets_splash_old_splash_screen;drawable\Assets_Splash_old_splash_screen
 =======
 >>>>>>> origin/Mini_lista
+=======
+drawable\assets_splash_old_splash_screen;drawable\Assets_Splash_old_splash_screen
+>>>>>>> SCRUM-34-responsywnosc-play-pagea
 drawable\splash_screen;drawable\splash_screen
 values\strings;values\Strings
 values\styles;values\Styles
