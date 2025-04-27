@@ -4787,11 +4787,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj",
       "projectName": "PtasieRadio.UITests",
       "projectPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj",
       "packagesPath": "C:\\Users\\Kornel\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.UITests\\obj\\",
+=======
+      "projectUniqueName": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj",
+      "projectName": "PtasieRadio.UITests",
+      "projectPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj",
+      "packagesPath": "C:\\Users\\Fabian\\.nuget\\packages\\",
+      "outputPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio.UITests\\obj\\",
+>>>>>>> origin/Mini_lista
       "projectStyle": "PackageReference",
       "centralPackageVersionsManagementEnabled": true,
       "configFilePaths": [

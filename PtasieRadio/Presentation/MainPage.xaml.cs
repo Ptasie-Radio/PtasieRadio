@@ -15,25 +15,20 @@ namespace PtasieRadio.Presentation;
 
 public sealed partial class MainPage : Page
 {
-    //TODO:
-    //Jak mamy te zdjęcia to one mają działać jak przyciski, pojawiać się kolejne mają w nieskończoność
-    //Zrób tak, że pobierana jest lista iluś tam tych naszych radii
-    //Ja mam zrobić Animację jakoś żeby można było podłączyć
-    //Dobra, ja mam zrobić tak, że ten minipage ma się robić na cały ekran
 
-    //Dobra, w teori możemy zrobić taką tablicę gdzie będziemy przechowywać kilka stacji po przycisku, tylko ta nasza current by się odpalała
-    //Ale to już na inny sprint
     private bool start;
     private bool test;
     private bool muted;
+    private double pageAnimationTime;
     private WaveOutEvent? waveOut;//Znak zapytania, aby warning nie dawało
     private MediaFoundationReader? reader;
 
     public MainPage()
-    {
-        start = false;
+    {  
+        this.start = false;
         this.muted = false;
-        test = true;//Zmienna test na czas pierwszego sprinta. Zmienić później na przycisk zmieniający radia
+        this.pageAnimationTime = 0.4;
+        this.test = true;//Zmienna test na czas pierwszego i drugiego sprinta. Zmienić później na przycisk zmieniający radia
         this.InitializeComponent();
         this.SizeChanged += MainPage_SizeChanged; // element wymagany do debugowania rozmiaru okna
     }
@@ -62,19 +57,23 @@ public sealed partial class MainPage : Page
     {
         e.Handled = true;
 
-        if (Microsoft.UI.Xaml.Window.Current == null) return;//Musi tak być, inaczej warning
+        if(Microsoft.UI.Xaml.Window.Current == null)return;//Musi tak być, inaczej warning
         double windowHeight = Microsoft.UI.Xaml.Window.Current.Bounds.Height;
 
-        double time = windowHeight > 300 ? 0.25 : 0.1;
+        double time = pageAnimationTime;
         //Animacja przed zniknięciem
         var slideOutAnimation = new Microsoft.UI.Xaml.Media.Animation.DoubleAnimation
         {
             From = 0,
             To = windowHeight,
-            Duration = new Microsoft.UI.Xaml.Duration(TimeSpan.FromSeconds(time))
+            Duration = new Microsoft.UI.Xaml.Duration(TimeSpan.FromSeconds(time)),
+            EasingFunction = new CircleEase
+            {
+                EasingMode = EasingMode.EaseInOut
+            }
         };
         RadioMainPage.Visibility = Visibility.Visible;
-        // Uruchom animację dla TranslateTransform
+
         Storyboard.SetTarget(slideOutAnimation, RadioOverlayTransform);
         Storyboard.SetTargetProperty(slideOutAnimation, "Y");
 
@@ -94,16 +93,20 @@ public sealed partial class MainPage : Page
 
         RadioOverlay.Visibility = Visibility.Visible;
 
-        if (Microsoft.UI.Xaml.Window.Current == null) return;//Musi tak być, inaczej warning
+        if(Microsoft.UI.Xaml.Window.Current == null)return;//Musi tak być, inaczej warning
         double windowHeight = Microsoft.UI.Xaml.Window.Current.Bounds.Height;
-        double time = windowHeight > 300 ? 0.25 : 0.1;
+        double time = pageAnimationTime;
 
         RadioOverlayTransform.Y = windowHeight;
         var slideInAnimation = new Microsoft.UI.Xaml.Media.Animation.DoubleAnimation
         {
-            From = windowHeight,  // Pozycja z dołu
-            To = 0,      // Końcowa Pozycja
-            Duration = new Microsoft.UI.Xaml.Duration(TimeSpan.FromSeconds(time))  //Czas trwania
+            From = windowHeight,
+            To = 0,
+            Duration = new Microsoft.UI.Xaml.Duration(TimeSpan.FromSeconds(time)),
+            EasingFunction = new CircleEase
+            {
+                EasingMode = EasingMode.EaseInOut
+            }
         };
 
         Storyboard.SetTarget(slideInAnimation, RadioOverlayTransform);
@@ -123,7 +126,7 @@ public sealed partial class MainPage : Page
         e.Handled = true;
     }
 
-    public async Task StopAudioAsync() // Dodane słowo kluczowe async
+    public async Task StopAudioAsync()
     {
         await Task.Run(() =>
         {
@@ -132,61 +135,60 @@ public sealed partial class MainPage : Page
     }
     private async void PlayPauseButtonTappedEvent(object sender, TappedRoutedEventArgs e)
     {
+        
+        e.Handled=true;
 
-        e.Handled = true;
-
-        if (sender is Button playButton)
+        if(sender is not Button playButton){return;}
+        playButton.IsEnabled = false;
+        //string url = "https://playerservices.streamtheworld.com/api/livestream-redirect/WUAL_HD3.mp3";
+        string url = "http://chi.cdn.eurozet.pl/chi-net.mp3";
+        try
         {
-            playButton.IsEnabled = false;
-            //string url = "https://playerservices.streamtheworld.com/api/livestream-redirect/WUAL_HD3.mp3";
-            string url = "http://chi.cdn.eurozet.pl/chi-net.mp3";
-            try
+            //Tutaj bierze zatrzymuje jeśli coś już nam gra, inaczej się psuło
+          
+            if(start == true) 
             {
-                //Tutaj bierze zatrzymuje jeśli coś już nam gra, inaczej się psuło
-
-                if (start == true)
+                //Zmieniamy obydwa przyciski, bo użyszkodnik może powiększyć w trakcie playu
+                PlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/play_round.png"));
+                MiniPlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/mini_play.png"));
+                await StopAudioAsync();
+                start = false;
+            }
+            else
+            {
+                //Zmieniamy obydwa przyciski, bo użyszkodnik może powiększyć w trakcie pauzy
+                PlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/pause_round.png"));
+                MiniPlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/mini_pause.png"));
+                await Task.Run(
+                () =>
                 {
-                    //Zmieniamy obydwa przyciski, bo użyszkodnik może powiększyć w trakcie pauzy/playu
-                    PlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/play_round.png"));
-                    MiniPlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/mini_play.png"));
-                    await StopAudioAsync();
-                    start = false;
-                }
-                else
-                {
-                    //Zmieniamy obydwa przyciski, bo użyszkodnik może powiększyć w trakcie pauzy/playu
-                    PlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/pause_round.png"));
-                    MiniPlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/mini_pause.png"));
-                    await Task.Run(
-                    () =>
+                    //waveOut?.Dispose();//Przy dodaniu startowania z innych, umieścić to tam
+                    //reader?.Dispose();//To też. Na razie przy jednym nie potrzeba, ale przy więcej dodać
+                   
+                    if(test || waveOut == null || reader == null)//To trzeba dać do przycisku zmieniającego radia
                     {
-                        //waveOut?.Dispose();//Przy dodaniu startowania z innych, umieścić to tam
-                        //reader?.Dispose();//To też. Na razie przy jednym nie potrzeba, ale przy więcej dodać
-
-                        if (test || waveOut == null || reader == null)//To trzeba dać do przycisku zmieniającego radia
-                        {
-                            reader = new MediaFoundationReader(url);
-                            waveOut = new WaveOutEvent();
-                            waveOut.Init(reader);
-                            test = false;
-                        }
-
-                        waveOut?.Play();
-                        start = true;
-                    });
-
-                }
-
+                        reader = new MediaFoundationReader(url);
+                        waveOut = new WaveOutEvent();
+                        waveOut.Init(reader);
+                        test = false;
+                    }
+                   
+                    waveOut?.Play();
+                    start = true;
+                });
+               
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Błąd odtwarzania: {ex.Message}");
-            }
-            finally
-            {
-                playButton.IsEnabled = true;
-            }
+           
         }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Błąd odtwarzania: {ex.Message}");
+        }
+        finally
+        {
+            playButton.IsEnabled = true;
+        }
+    }
     }
 
     private void HeartButtonTappedEvent(object sender, TappedRoutedEventArgs e)
