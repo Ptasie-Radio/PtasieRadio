@@ -581,7 +581,11 @@ Zrobić by po kliknięciu minipage wysuwało się to, co jest teraz w komencie
                         </VisualState.StateTriggers>
                         <VisualState.Setters>
                             <Setter Target="Gif.Visibility"
-                                    Value="Visible"/>
+                                    Value="Collapsed"/>
+                            <Setter Target="PlaceholderBorder.Width"
+                                    Value="130"/>
+                            <Setter Target="PlaceholderBorder.Height"
+                                    Value="130"/>
                         </VisualState.Setters>
                     </VisualState>
                     <VisualState x:Name="NormalHeight">
@@ -605,13 +609,13 @@ Zrobić by po kliknięciu minipage wysuwało się to, co jest teraz w komencie
                         </VisualState.StateTriggers>
                         <VisualState.Setters>
                             <Setter Target="PlaceholderBorder.Width"
-                                    Value="140"/>
+                                    Value="170"/>
                             <Setter Target="PlaceholderBorder.Height"
-                                    Value="140"/>
-                            <Setter Target="Gif.Width"
+                                    Value="170"/>
+                            <!-- <Setter Target="Gif.Width"
                                     Value="90"/>
                             <Setter Target="Gif.Height"
-                                    Value="90"/>
+                                    Value="90"/> -->
                             <!-- te slidery powinny miec inna grupe visualna ale to problem na inny dzien -->
                         </VisualState.Setters>
                     </VisualState>
@@ -634,7 +638,7 @@ Zrobić by po kliknięciu minipage wysuwało się to, co jest teraz w komencie
                     <VisualState x:Name="MediumHeight">
                         <VisualState.StateTriggers>
                             <AdaptiveTrigger  MinWindowWidth="640"
-                                              MinWindowHeight="760"/>
+                                              MinWindowHeight="720"/>
                         </VisualState.StateTriggers>
                         <VisualState.Setters>
                             <Setter Target="PlaceholderBorder.Width"
@@ -689,11 +693,6 @@ Zrobić by po kliknięciu minipage wysuwało się to, co jest teraz w komencie
                         <VisualState.Setters>
                             <Setter Target="CountryName.Visibility"
                                     Value="Visible"/>
-
-                            <Setter Target="SoundLevelSlider.Visibility"
-                                    Value="Visible"/>
-                            <Setter Target="MuteUnmuteButton.Visibility"
-                                    Value="Visible"/>
                         </VisualState.Setters>
                     </VisualState>
                     <VisualState x:Name="SmallerWidth">
@@ -702,11 +701,6 @@ Zrobić by po kliknięciu minipage wysuwało się to, co jest teraz w komencie
                         </VisualState.StateTriggers>
                         <VisualState.Setters>
                             <Setter Target="CountryName.Visibility"
-                                    Value="Collapsed"/>
-
-                            <Setter Target="SoundLevelSlider.Visibility"
-                                    Value="Collapsed"/>
-                            <Setter Target="MuteUnmuteButton.Visibility"
                                     Value="Collapsed"/>
                         </VisualState.Setters>
                     </VisualState>
@@ -717,14 +711,47 @@ Zrobić by po kliknięciu minipage wysuwało się to, co jest teraz w komencie
                         <VisualState.Setters>
                             <Setter Target="CountryName.Visibility"
                                     Value="Visible"/>
+                        </VisualState.Setters>
+                    </VisualState>
 
+                </VisualStateGroup>
+                <VisualStateGroup x:Name="VolumeSliderGroup">
+                    <VisualState x:Name="DefaultVolume">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="390"
+                                             MinWindowHeight="600"/>
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="Soundbar.VerticalAlignment" Value="Center"/>
+                            <Setter Target="SoundLevelSlider.Visibility"
+                                    Value="Visible"/>
+                            <Setter Target="MuteUnmuteButton.Visibility"
+                                    Value="Visible"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="SmallerVolume">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="390"
+                                             MinWindowHeight="400"/>
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="SoundLevelSlider.Visibility"
+                                    Value="Visible"/>
+                            <Setter Target="MuteUnmuteButton.Visibility"
+                                    Value="Visible"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="NoVolume">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="0"/>
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
                             <Setter Target="SoundLevelSlider.Visibility"
                                     Value="Collapsed"/>
                             <Setter Target="MuteUnmuteButton.Visibility"
                                     Value="Collapsed"/>
                         </VisualState.Setters>
                     </VisualState>
-
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
 
@@ -733,12 +760,12 @@ Zrobić by po kliknięciu minipage wysuwało się to, co jest teraz w komencie
                                     Y="700"/>
             </Grid.RenderTransform>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
                 <!-- Nagłówek -->
-                <RowDefinition Height="*"/>
-                <!-- Główna zawartość -->
                 <RowDefinition Height="Auto"/>
+                <!-- Główna zawartość -->
+                <RowDefinition Height="*"/>
                 <!-- Nawigacja na dole -->
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <!-- Nagłówek -->
