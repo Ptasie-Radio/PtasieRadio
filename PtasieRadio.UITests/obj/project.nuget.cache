@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gI1jrwTuY+k=",
+  "dgSpecHash": "TTARi5vOvsg=",
   "success": true,
-  "projectFilePath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj",
+  "projectFilePath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Fabian\\.nuget\\packages\\docopt.net\\0.8.1\\docopt.net.0.8.1.nupkg.sha512",
     "C:\\Users\\Fabian\\.nuget\\packages\\fluentassertions\\6.12.0\\fluentassertions.6.12.0.nupkg.sha512",

@@ -19,7 +19,7 @@ build_property.XamlSourceGeneratorTracingFolder =
 build_property.TargetFramework = net8.0
 build_property.TargetFramework = net8.0
 build_property.ProjectTypeGuidsProperty = 
-build_property.MSBuildProjectFullPath = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\PtasieRadio.csproj
+build_property.MSBuildProjectFullPath = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\MiniLista\PtasieRadio\PtasieRadio.csproj
 build_property.RootNamespace = PtasieRadio
 build_property.RootNamespace = PtasieRadio
 build_property.DefineConstantsProperty = TRACE,USE_UITESTS,DISABLE_XAML_GENERATED_BREAK_ON_UNHANDLED_EXCEPTION,DEBUG,NET,NET8_0,NETCOREAPP,HAS_UNO,HAS_UNO_WINUI,WINUI_WINDOWING,UNO_HAS_FRAMEWORKELEMENT_MEASUREOVERRIDE,UNO_HAS_NO_IDEPENDENCYOBJECT,UNO_REFERENCE_API,NET5_0_OR_GREATER,NET6_0_OR_GREATER,NET7_0_OR_GREATER,NET8_0_OR_GREATER,NETCOREAPP1_0_OR_GREATER,NETCOREAPP1_1_OR_GREATER,NETCOREAPP2_0_OR_GREATER,NETCOREAPP2_1_OR_GREATER,NETCOREAPP2_2_OR_GREATER,NETCOREAPP3_0_OR_GREATER,NETCOREAPP3_1_OR_GREATER
@@ -46,12 +46,12 @@ build_property.UnoHotReloadMode =
 build_property.SolutionFileName = PtasieRadio.sln
 build_property.LangName = en-US
 build_property.LangID = 1033
-build_property.SolutionDir = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\
+build_property.SolutionDir = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\MiniLista\
 build_property.SolutionExt = .sln
 build_property.UseHostCompilerIfAvailable = true
 build_property.DefineExplicitDefaults = true
 build_property.Platform = AnyCPU
-build_property.SolutionPath = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio.sln
+build_property.SolutionPath = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\MiniLista\PtasieRadio.sln
 build_property.SolutionName = PtasieRadio
 build_property.VSIDEResolvedNonMSBuildProjectOutputs = 
 build_property.DevEnvDir = *Undefined*
@@ -91,80 +91,80 @@ build_property.InvariantGlobalization =
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
-build_property.ProjectDir = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\
+build_property.ProjectDir = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\MiniLista\PtasieRadio\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/Folder prywatny - Chroniony Hasłem/programowanie/Studia/Csharp/Projekt Grupowy/PtasieRadio/PtasieRadio/Presentation/MainPage.xaml]
+[D:/Folder prywatny - Chroniony Hasłem/programowanie/Studia/Csharp/Projekt Grupowy/MiniLista/PtasieRadio/Presentation/MainPage.xaml]
 build_metadata.AdditionalFiles.SourceItemGroup = Page
 build_metadata.AdditionalFiles.Link = 
 build_metadata.AdditionalFiles.TargetPath = 
-build_metadata.AdditionalFiles.FullPath = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\Presentation\MainPage.xaml
-build_metadata.AdditionalFiles.Identity = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\Presentation\MainPage.xaml
+build_metadata.AdditionalFiles.FullPath = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\MiniLista\PtasieRadio\Presentation\MainPage.xaml
+build_metadata.AdditionalFiles.Identity = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\MiniLista\PtasieRadio\Presentation\MainPage.xaml
 build_metadata.AdditionalFiles.XamlRuntime = 
 
-[D:/Folder prywatny - Chroniony Hasłem/programowanie/Studia/Csharp/Projekt Grupowy/PtasieRadio/PtasieRadio/Presentation/SecondPage.xaml]
+[D:/Folder prywatny - Chroniony Hasłem/programowanie/Studia/Csharp/Projekt Grupowy/MiniLista/PtasieRadio/Presentation/SecondPage.xaml]
 build_metadata.AdditionalFiles.SourceItemGroup = Page
 build_metadata.AdditionalFiles.Link = 
 build_metadata.AdditionalFiles.TargetPath = 
-build_metadata.AdditionalFiles.FullPath = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\Presentation\SecondPage.xaml
-build_metadata.AdditionalFiles.Identity = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\Presentation\SecondPage.xaml
+build_metadata.AdditionalFiles.FullPath = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\MiniLista\PtasieRadio\Presentation\SecondPage.xaml
+build_metadata.AdditionalFiles.Identity = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\MiniLista\PtasieRadio\Presentation\SecondPage.xaml
 build_metadata.AdditionalFiles.XamlRuntime = 
 
-[D:/Folder prywatny - Chroniony Hasłem/programowanie/Studia/Csharp/Projekt Grupowy/PtasieRadio/PtasieRadio/Presentation/Shell.xaml]
+[D:/Folder prywatny - Chroniony Hasłem/programowanie/Studia/Csharp/Projekt Grupowy/MiniLista/PtasieRadio/Presentation/Shell.xaml]
 build_metadata.AdditionalFiles.SourceItemGroup = Page
 build_metadata.AdditionalFiles.Link = 
 build_metadata.AdditionalFiles.TargetPath = 
-build_metadata.AdditionalFiles.FullPath = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\Presentation\Shell.xaml
-build_metadata.AdditionalFiles.Identity = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\Presentation\Shell.xaml
+build_metadata.AdditionalFiles.FullPath = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\MiniLista\PtasieRadio\Presentation\Shell.xaml
+build_metadata.AdditionalFiles.Identity = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\MiniLista\PtasieRadio\Presentation\Shell.xaml
 build_metadata.AdditionalFiles.XamlRuntime = 
 
-[D:/Folder prywatny - Chroniony Hasłem/programowanie/Studia/Csharp/Projekt Grupowy/PtasieRadio/PtasieRadio/Styles/ColorPaletteOverride.xaml]
+[D:/Folder prywatny - Chroniony Hasłem/programowanie/Studia/Csharp/Projekt Grupowy/MiniLista/PtasieRadio/Styles/ColorPaletteOverride.xaml]
 build_metadata.AdditionalFiles.SourceItemGroup = Page
 build_metadata.AdditionalFiles.Link = 
 build_metadata.AdditionalFiles.TargetPath = 
-build_metadata.AdditionalFiles.FullPath = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\Styles\ColorPaletteOverride.xaml
-build_metadata.AdditionalFiles.Identity = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\Styles\ColorPaletteOverride.xaml
+build_metadata.AdditionalFiles.FullPath = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\MiniLista\PtasieRadio\Styles\ColorPaletteOverride.xaml
+build_metadata.AdditionalFiles.Identity = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\MiniLista\PtasieRadio\Styles\ColorPaletteOverride.xaml
 build_metadata.AdditionalFiles.XamlRuntime = 
 
-[D:/Folder prywatny - Chroniony Hasłem/programowanie/Studia/Csharp/Projekt Grupowy/PtasieRadio/PtasieRadio/App.xaml]
+[D:/Folder prywatny - Chroniony Hasłem/programowanie/Studia/Csharp/Projekt Grupowy/MiniLista/PtasieRadio/App.xaml]
 build_metadata.AdditionalFiles.SourceItemGroup = ApplicationDefinition
 build_metadata.AdditionalFiles.Link = 
 build_metadata.AdditionalFiles.TargetPath = 
-build_metadata.AdditionalFiles.FullPath = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\App.xaml
-build_metadata.AdditionalFiles.Identity = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\App.xaml
+build_metadata.AdditionalFiles.FullPath = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\MiniLista\PtasieRadio\App.xaml
+build_metadata.AdditionalFiles.Identity = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\MiniLista\PtasieRadio\App.xaml
 build_metadata.AdditionalFiles.XamlRuntime = WinUI
 
-[D:/Folder prywatny - Chroniony Hasłem/programowanie/Studia/Csharp/Projekt Grupowy/PtasieRadio/PtasieRadio/Strings/en/Resources.resw]
+[D:/Folder prywatny - Chroniony Hasłem/programowanie/Studia/Csharp/Projekt Grupowy/MiniLista/PtasieRadio/Strings/en/Resources.resw]
 build_metadata.AdditionalFiles.SourceItemGroup = PRIResource
 build_metadata.AdditionalFiles.Link = 
 build_metadata.AdditionalFiles.TargetPath = 
-build_metadata.AdditionalFiles.FullPath = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\Strings\en\Resources.resw
-build_metadata.AdditionalFiles.Identity = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\Strings\en\Resources.resw
+build_metadata.AdditionalFiles.FullPath = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\MiniLista\PtasieRadio\Strings\en\Resources.resw
+build_metadata.AdditionalFiles.Identity = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\MiniLista\PtasieRadio\Strings\en\Resources.resw
 build_metadata.AdditionalFiles.XamlRuntime = 
 
-[D:/Folder prywatny - Chroniony Hasłem/programowanie/Studia/Csharp/Projekt Grupowy/PtasieRadio/PtasieRadio/Strings/es/Resources.resw]
+[D:/Folder prywatny - Chroniony Hasłem/programowanie/Studia/Csharp/Projekt Grupowy/MiniLista/PtasieRadio/Strings/es/Resources.resw]
 build_metadata.AdditionalFiles.SourceItemGroup = PRIResource
 build_metadata.AdditionalFiles.Link = 
 build_metadata.AdditionalFiles.TargetPath = 
-build_metadata.AdditionalFiles.FullPath = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\Strings\es\Resources.resw
-build_metadata.AdditionalFiles.Identity = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\Strings\es\Resources.resw
+build_metadata.AdditionalFiles.FullPath = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\MiniLista\PtasieRadio\Strings\es\Resources.resw
+build_metadata.AdditionalFiles.Identity = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\MiniLista\PtasieRadio\Strings\es\Resources.resw
 build_metadata.AdditionalFiles.XamlRuntime = 
 
-[D:/Folder prywatny - Chroniony Hasłem/programowanie/Studia/Csharp/Projekt Grupowy/PtasieRadio/PtasieRadio/Strings/fr/Resources.resw]
+[D:/Folder prywatny - Chroniony Hasłem/programowanie/Studia/Csharp/Projekt Grupowy/MiniLista/PtasieRadio/Strings/fr/Resources.resw]
 build_metadata.AdditionalFiles.SourceItemGroup = PRIResource
 build_metadata.AdditionalFiles.Link = 
 build_metadata.AdditionalFiles.TargetPath = 
-build_metadata.AdditionalFiles.FullPath = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\Strings\fr\Resources.resw
-build_metadata.AdditionalFiles.Identity = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\Strings\fr\Resources.resw
+build_metadata.AdditionalFiles.FullPath = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\MiniLista\PtasieRadio\Strings\fr\Resources.resw
+build_metadata.AdditionalFiles.Identity = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\MiniLista\PtasieRadio\Strings\fr\Resources.resw
 build_metadata.AdditionalFiles.XamlRuntime = 
 
-[D:/Folder prywatny - Chroniony Hasłem/programowanie/Studia/Csharp/Projekt Grupowy/PtasieRadio/PtasieRadio/Strings/pt-BR/Resources.resw]
+[D:/Folder prywatny - Chroniony Hasłem/programowanie/Studia/Csharp/Projekt Grupowy/MiniLista/PtasieRadio/Strings/pt-BR/Resources.resw]
 build_metadata.AdditionalFiles.SourceItemGroup = PRIResource
 build_metadata.AdditionalFiles.Link = 
 build_metadata.AdditionalFiles.TargetPath = 
-build_metadata.AdditionalFiles.FullPath = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\Strings\pt-BR\Resources.resw
-build_metadata.AdditionalFiles.Identity = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\Strings\pt-BR\Resources.resw
+build_metadata.AdditionalFiles.FullPath = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\MiniLista\PtasieRadio\Strings\pt-BR\Resources.resw
+build_metadata.AdditionalFiles.Identity = D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\MiniLista\PtasieRadio\Strings\pt-BR\Resources.resw
 build_metadata.AdditionalFiles.XamlRuntime = 

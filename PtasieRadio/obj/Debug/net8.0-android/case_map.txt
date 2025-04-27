@@ -17,6 +17,8 @@ drawable\assets_images_right_arrow;drawable\Assets_Images_right_arrow
 drawable\assets_images_search;drawable\Assets_Images_search
 drawable\assets_images_setting;drawable\Assets_Images_setting
 drawable\assets_images_shuffle;drawable\Assets_Images_shuffle
+drawable\assets_images_speaker_muted_round;drawable\Assets_Images_speaker_muted_round
+drawable\assets_images_speaker_round;drawable\Assets_Images_speaker_round
 drawable\splash_screen;drawable\splash_screen
 values\strings;values\Strings
 values\styles;values\Styles
