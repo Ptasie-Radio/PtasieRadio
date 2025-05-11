@@ -1,10 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> SCRUM-34-responsywnosc-play-pagea
     "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {}
   },
   "projects": {
@@ -16,22 +12,6 @@
         "projectPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj",
         "packagesPath": "C:\\Users\\Kornel\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\obj\\",
-<<<<<<< HEAD
-=======
-    "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio\\PtasieRadio.csproj": {}
-  },
-  "projects": {
-    "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio\\PtasieRadio.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio\\PtasieRadio.csproj",
-        "projectName": "PtasieRadio",
-        "projectPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio\\PtasieRadio.csproj",
-        "packagesPath": "C:\\Users\\Fabian\\.nuget\\packages\\",
-        "outputPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio\\obj\\",
->>>>>>> origin/Mini_lista
-=======
->>>>>>> SCRUM-34-responsywnosc-play-pagea
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "centralPackageVersionsManagementEnabled": true,
@@ -195,6 +175,11 @@
               "version": "[5.4.0, )",
               "autoReferenced": true
             },
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": {
+              "target": "Package",
+              "version": "[2.4.2, )",
+              "versionCentrallyManaged": true
+            },
             "Uno.Resizetizer": {
               "suppressParent": "All",
               "target": "Package",
@@ -259,6 +244,8 @@
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.4.2",
+            "Uno.Toolkit": "7.0.2",
             "Uno.UITest.Helpers": "1.1.0-dev.70",
             "Xamarin.UITest": "4.3.4"
           },
@@ -408,6 +395,11 @@
               "version": "[5.4.0, )",
               "autoReferenced": true
             },
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": {
+              "target": "Package",
+              "version": "[2.4.2, )",
+              "versionCentrallyManaged": true
+            },
             "Uno.Resizetizer": {
               "suppressParent": "All",
               "target": "Package",
@@ -512,6 +504,8 @@
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.4.2",
+            "Uno.Toolkit": "7.0.2",
             "Uno.UITest.Helpers": "1.1.0-dev.70",
             "Xamarin.UITest": "4.3.4"
           },
@@ -527,26 +521,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "downloadDependencies": [
-            {
-              "name": "Microsoft.Android.Ref.34",
-              "version": "[34.0.154, 34.0.154]"
-            },
-            {
-              "name": "Microsoft.Android.Runtime.34.android-arm",
-              "version": "[34.0.154, 34.0.154]"
-            },
-            {
-              "name": "Microsoft.Android.Runtime.34.android-arm64",
-              "version": "[34.0.154, 34.0.154]"
-            },
-            {
-              "name": "Microsoft.Android.Runtime.34.android-x64",
-              "version": "[34.0.154, 34.0.154]"
-            },
-            {
-              "name": "Microsoft.Android.Runtime.34.android-x86",
-              "version": "[34.0.154, 34.0.154]"
-            },
             {
               "name": "Microsoft.AspNetCore.App.Ref",
               "version": "[8.0.15, 8.0.15]"
@@ -684,6 +658,11 @@
               "version": "[5.4.0, )",
               "autoReferenced": true
             },
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": {
+              "target": "Package",
+              "version": "[2.4.2, )",
+              "versionCentrallyManaged": true
+            },
             "Uno.Resizetizer": {
               "suppressParent": "All",
               "target": "Package",
@@ -768,6 +747,8 @@
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.4.2",
+            "Uno.Toolkit": "7.0.2",
             "Uno.UITest.Helpers": "1.1.0-dev.70",
             "Xamarin.UITest": "4.3.4"
           },
@@ -915,6 +896,11 @@
               "version": "[5.4.0, )",
               "autoReferenced": true
             },
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": {
+              "target": "Package",
+              "version": "[2.4.2, )",
+              "versionCentrallyManaged": true
+            },
             "Uno.Resizetizer": {
               "suppressParent": "All",
               "target": "Package",
@@ -1004,6 +990,8 @@
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.4.2",
+            "Uno.Toolkit": "7.0.2",
             "Uno.UITest.Helpers": "1.1.0-dev.70",
             "Xamarin.UITest": "4.3.4"
           },
@@ -1162,6 +1150,11 @@
               "version": "[5.4.0, )",
               "autoReferenced": true
             },
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": {
+              "target": "Package",
+              "version": "[2.4.2, )",
+              "versionCentrallyManaged": true
+            },
             "Uno.Resizetizer": {
               "suppressParent": "All",
               "target": "Package",
@@ -1226,6 +1219,8 @@
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.4.2",
+            "Uno.Toolkit": "7.0.2",
             "Uno.UITest.Helpers": "1.1.0-dev.70",
             "Xamarin.UITest": "4.3.4"
           },
@@ -1391,6 +1386,11 @@
               "version": "[5.4.0, )",
               "autoReferenced": true
             },
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": {
+              "target": "Package",
+              "version": "[2.4.2, )",
+              "versionCentrallyManaged": true
+            },
             "Uno.Resizetizer": {
               "suppressParent": "All",
               "target": "Package",
@@ -1455,6 +1455,8 @@
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.4.2",
+            "Uno.Toolkit": "7.0.2",
             "Uno.UITest.Helpers": "1.1.0-dev.70",
             "Xamarin.UITest": "4.3.4"
           },

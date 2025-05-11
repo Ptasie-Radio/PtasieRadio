@@ -29,6 +29,7 @@
           "Uno.Extensions.Serialization.Refit": "5.2.7",
           "Uno.Fonts.OpenSans": "2.5.0",
           "Uno.Material.WinUI": "5.4.0",
+          "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.4.2",
           "Uno.Resizetizer": "1.7.0",
           "Uno.Sdk.Extras": "5.6.3",
           "Uno.Settings.DevServer": "1.2.18",
@@ -1441,6 +1442,29 @@
           }
         }
       },
+      "Uno.Microsoft.Xaml.Behaviors.Interactivity.WinUI/2.4.2": {
+        "dependencies": {
+          "Uno.WinUI": "5.6.81"
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.Xaml.Interactivity.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed/2.4.2": {
+        "dependencies": {
+          "Uno.Microsoft.Xaml.Behaviors.Interactivity.WinUI": "2.4.2",
+          "Uno.WinUI": "5.6.81"
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.Xaml.Interactions.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Uno.Resizetizer/1.7.0": {},
       "Uno.Sdk.Extras/5.6.3": {},
       "Uno.Settings.DevServer/1.2.18": {
@@ -2530,6 +2554,20 @@
       "sha512": "sha512-03hEXXLohT760RnUS6uHutiObzGiI84XrRo5dX5AVL9uL0tTIV9M4vit+1/5OikVUSoLfR/+Zxh8vdb9jlZyPQ==",
       "path": "uno.material.winui/5.4.0",
       "hashPath": "uno.material.winui.5.4.0.nupkg.sha512"
+    },
+    "Uno.Microsoft.Xaml.Behaviors.Interactivity.WinUI/2.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1nV1iTDU9KLjkVip2sfhwLO0BDMz6Rl75ZqLFG/I8mwXujMP1LTq5XC4oDJNUe2Ebrxp6iuoP1dv9H+o6zN4tQ==",
+      "path": "uno.microsoft.xaml.behaviors.interactivity.winui/2.4.2",
+      "hashPath": "uno.microsoft.xaml.behaviors.interactivity.winui.2.4.2.nupkg.sha512"
+    },
+    "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed/2.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5bcQUY7hZOy6dmLXDWv6blTH99wvrFTYDjkHG0nJGV2NIPEtLjTdrjfIStk5g0AXyiTgC401ESk2dwbKyR+/iQ==",
+      "path": "uno.microsoft.xaml.behaviors.winui.managed/2.4.2",
+      "hashPath": "uno.microsoft.xaml.behaviors.winui.managed.2.4.2.nupkg.sha512"
     },
     "Uno.Resizetizer/1.7.0": {
       "type": "package",

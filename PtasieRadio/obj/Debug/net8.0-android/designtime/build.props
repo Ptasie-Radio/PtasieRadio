@@ -24,22 +24,8 @@ androidgeneratejnimarshalmethods=false
 os=windows_nt
 androidincludedebugsymbols=true
 androidpackagenamingpolicy=lowercasecrc64
-<<<<<<< HEAD
-<<<<<<< HEAD
-_nugetassetsfilehash=cd23e69d581062723bdc56116f3a36614f617fc5a310a7908eb39a7b4c82071d
+_nugetassetsfilehash=6acf8198c04937c929fdaafdd33994745dc149bf73a875b5b7ee778494bea010
 typemapkind=strings-asm
 androidmanifestplaceholders=
 projectfullpath=c:\users\kornel\documents\ptasieradio\ptasieradio\ptasieradio\ptasieradio.csproj
-=======
-_nugetassetsfilehash=ecc60318b5f1d43bc850df6dc9e7bb3bdec894e39ecb49084e6bec0014293b41
-typemapkind=strings-asm
-androidmanifestplaceholders=
-projectfullpath=d:\folder prywatny - chroniony hasłem\programowanie\studia\csharp\projekt grupowy\minilista\ptasieradio\ptasieradio.csproj
->>>>>>> origin/Mini_lista
-=======
-_nugetassetsfilehash=cc7d55e32238d5e07af95552ac7b733eb157b4f0b97ccbe454facbbbc9adbebd
-typemapkind=strings-asm
-androidmanifestplaceholders=
-projectfullpath=c:\users\kornel\documents\ptasieradio\ptasieradio\ptasieradio\ptasieradio.csproj
->>>>>>> SCRUM-34-responsywnosc-play-pagea
 androidusedesignerassembly=true

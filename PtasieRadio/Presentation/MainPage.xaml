@@ -2,9 +2,11 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:local="using:PtasieRadio.Presentation"
-      xmlns:uen="using:Uno.Extensions.Navigation.UI"
+      xmlns:ue="using:Uno.Extensions.Navigation.UI"
       xmlns:utu="using:Uno.Toolkit.UI"
       xmlns:um="using:Uno.Material"
+      xmlns:i="using:Microsoft.Xaml.Interactivity"
+      xmlns:ic="using:Microsoft.Xaml.Interactions.Core"
       NavigationCacheMode="Required"
       Background="{ThemeResource BackgroundBrush}">
 
@@ -159,7 +161,7 @@
             <ScrollViewer Grid.Row="1">
                 <StackPanel Padding="10"
                             Spacing="20">
-                    <!-- Sekcja: Najczęściej Grane --> >
+                    <!-- Sekcja: Najczęściej Grane -->
                     <TextBlock Text="Najczęściej Grane"
                                FontSize="20"
                                FontWeight="Bold"
@@ -172,8 +174,120 @@
                                   VerticalScrollMode="Disabled"
                                   ZoomMode="Disabled">
                         <StackPanel Orientation="Horizontal"
+                                    ManipulationMode="None"
                                     Spacing="20"
                                     Padding="20,0,0,0">
+                            <i:Interaction.Behaviors>
+                                <ic:EventTriggerBehavior EventName="PointerPressed">
+                                    <ic:InvokeCommandAction Command="{Binding Model.ScrollStartCommand}"/>
+                                </ic:EventTriggerBehavior>
+                                <ic:EventTriggerBehavior EventName="PointerMoved">
+                                    <ic:InvokeCommandAction Command="{Binding Model.ScrollMoveCommand}"/>
+                                </ic:EventTriggerBehavior>
+                                <ic:EventTriggerBehavior EventName="PointerReleased">
+                                    <ic:InvokeCommandAction Command="{Binding Model.ScrollStopCommand}"/>
+                                </ic:EventTriggerBehavior>
+                                <!-- inaczej sa bledy ze mozna dalej przesuwac mimo odklikniecia przycisku mysz -->
+                                <ic:EventTriggerBehavior EventName="PointerCaptureLost">
+                                    <ic:InvokeCommandAction Command="{Binding Model.ScrollStopCommand}"/>
+                                </ic:EventTriggerBehavior>
+                            </i:Interaction.Behaviors>
+                            <!-- Powielone karty stacji dla testu przesuwania -->
+                            <StackPanel Width="100"
+                                        Background="Transparent"
+                                        Spacing="5">
+                                <Border Background="#cccccc"
+                                        CornerRadius="20"
+                                        Width="100"
+                                        Height="100">
+                                    <Image Width="60"
+                                           Height="60"
+                                           Stretch="Uniform"
+                                           Source="ms-appx:///Assets/Images/placeholder.png"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                </Border>
+                                <TextBlock Text="Radio A"
+                                           TextAlignment="Center"
+                                           FontSize="12"
+                                           Foreground="White"/>
+                            </StackPanel>
+                            <StackPanel Width="100"
+                                        Background="Transparent"
+                                        Spacing="5">
+                                <Border Background="#cccccc"
+                                        CornerRadius="20"
+                                        Width="100"
+                                        Height="100">
+                                    <Image Width="60"
+                                           Height="60"
+                                           Stretch="Uniform"
+                                           Source="ms-appx:///Assets/Images/placeholder.png"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                </Border>
+                                <TextBlock Text="Radio B"
+                                           TextAlignment="Center"
+                                           FontSize="12"
+                                           Foreground="White"/>
+                            </StackPanel>
+                            <StackPanel Width="100"
+                                        Background="Transparent"
+                                        Spacing="5">
+                                <Border Background="#cccccc"
+                                        CornerRadius="20"
+                                        Width="100"
+                                        Height="100">
+                                    <Image Width="60"
+                                           Height="60"
+                                           Stretch="Uniform"
+                                           Source="ms-appx:///Assets/Images/placeholder.png"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                </Border>
+                                <TextBlock Text="Radio C"
+                                           TextAlignment="Center"
+                                           FontSize="12"
+                                           Foreground="White"/>
+                            </StackPanel>
+                            <StackPanel Width="100"
+                                        Background="Transparent"
+                                        Spacing="5">
+                                <Border Background="#cccccc"
+                                        CornerRadius="20"
+                                        Width="100"
+                                        Height="100">
+                                    <Image Width="60"
+                                           Height="60"
+                                           Stretch="Uniform"
+                                           Source="ms-appx:///Assets/Images/placeholder.png"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                </Border>
+                                <TextBlock Text="Radio D"
+                                           TextAlignment="Center"
+                                           FontSize="12"
+                                           Foreground="White"/>
+                            </StackPanel>
+                            <StackPanel Width="100"
+                                        Background="Transparent"
+                                        Spacing="5">
+                                <Border Background="#cccccc"
+                                        CornerRadius="20"
+                                        Width="100"
+                                        Height="100">
+                                    <Image Width="60"
+                                           Height="60"
+                                           Stretch="Uniform"
+                                           Source="ms-appx:///Assets/Images/placeholder.png"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                </Border>
+                                <TextBlock Text="Radio E"
+                                           TextAlignment="Center"
+                                           FontSize="12"
+                                           Foreground="White"/>
+                            </StackPanel>
                             <!-- Powielone karty stacji dla testu przesuwania -->
                             <StackPanel Width="100"
                                         Background="Transparent"
@@ -286,8 +400,24 @@
                                   VerticalScrollMode="Disabled"
                                   ZoomMode="Disabled">
                         <StackPanel Orientation="Horizontal"
+                                    ManipulationMode="None"
                                     Spacing="20"
                                     Padding="20,0,0,0">
+                            <i:Interaction.Behaviors>
+                                <ic:EventTriggerBehavior EventName="PointerPressed">
+                                    <ic:InvokeCommandAction Command="{Binding Model.ScrollStartCommand}"/>
+                                </ic:EventTriggerBehavior>
+                                <ic:EventTriggerBehavior EventName="PointerMoved">
+                                    <ic:InvokeCommandAction Command="{Binding Model.ScrollMoveCommand}"/>
+                                </ic:EventTriggerBehavior>
+                                <ic:EventTriggerBehavior EventName="PointerReleased">
+                                    <ic:InvokeCommandAction Command="{Binding Model.ScrollStopCommand}"/>
+                                </ic:EventTriggerBehavior>
+                                <!-- inaczej sa bledy ze mozna dalej przesuwac mimo odklikniecia przycisku mysz -->
+                                <ic:EventTriggerBehavior EventName="PointerCaptureLost">
+                                    <ic:InvokeCommandAction Command="{Binding Model.ScrollStopCommand}"/>
+                                </ic:EventTriggerBehavior>
+                            </i:Interaction.Behaviors>
                             <!-- Powielone karty stacji dla testu przesuwania -->
                             <StackPanel Width="100"
                                         Background="Transparent"
@@ -717,7 +847,8 @@
                                              MinWindowHeight="600"/>
                         </VisualState.StateTriggers>
                         <VisualState.Setters>
-                            <Setter Target="Soundbar.VerticalAlignment" Value="Center"/>
+                            <Setter Target="Soundbar.VerticalAlignment"
+                                    Value="Center"/>
                             <Setter Target="SoundLevelSlider.Visibility"
                                     Value="Visible"/>
                             <Setter Target="MuteUnmuteButton.Visibility"
