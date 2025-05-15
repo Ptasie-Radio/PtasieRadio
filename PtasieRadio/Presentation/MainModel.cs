@@ -5,11 +5,12 @@ using Uno.Extensions.Navigation;
 using Uno.Extensions.Reactive;
 using PtasieRadio.Services.RadioService;
 using CommunityToolkit.Mvvm.ComponentModel;
-
+using Microsoft.UI.Xaml.Data;
 
 namespace PtasieRadio.Presentation;
+[Bindable]
 
-public partial class MainModel : ObservableObject
+public class MainModel : ObservableObject
 {
     private INavigator _navigator;
     public IAsyncRelayCommand NavigateCommand { get; }//Tworzenie komendy nawigacyjnej
@@ -80,11 +81,12 @@ public partial class MainModel : ObservableObject
 
     public IState<string> Name => State<string>.Value(this, () => string.Empty);
 
-public MainModel(
-        IStringLocalizer localizer,
-        IOptions<AppConfig> appInfo,
-        INavigator navigator,
-        IRadioPlayerService radioService)
+
+    public MainModel(
+            IStringLocalizer localizer,
+            IOptions<AppConfig> appInfo,
+            INavigator navigator,
+            IRadioPlayerService radioService)
     {
         _navigator = navigator;
         NavigateCommand = new AsyncRelayCommand(GoToSecond);
@@ -100,7 +102,6 @@ public MainModel(
         IsMuted = _radioService.GetIsMuted();
         isPlaying = _radioService.GetIsPlaying();
         _Volume = _radioService.GetVolume();
-
     }
 
     public async Task PlayRadio()

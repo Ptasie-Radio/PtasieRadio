@@ -3,9 +3,15 @@ using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using Uno.Extensions.Navigation;
 using Uno.Extensions.Reactive;
-
+using Microsoft.UI.Xaml.Data;
+using CommunityToolkit.Mvvm.ComponentModel;
+ 
 namespace PtasieRadio.Presentation;
-public partial record SecondModel
+
+
+
+[Bindable]
+public partial class SecondModel : ObservableObject
 {
     private INavigator _navigator;
     public IAsyncRelayCommand NavigateToMainCommand { get; }//Tworzenie komendy nawigacyjnej
@@ -33,7 +39,7 @@ public partial record SecondModel
         await _navigator.NavigateRouteAsync(this, "/Main");//Ten / musi tu być, aby zawsze odnajdował nasz model w ścieżce, bez tego po jednokrotnym
         //Wykonaniu, ścieżka się zmienia
     }
-        public async Task GoToAddRadio()
+    public async Task GoToAddRadio()
     {
         var name = await Name;
         await _navigator.NavigateRouteAsync(this, "/AddRadio");

@@ -10,39 +10,40 @@
 
     <Grid>
         <!-- Górny pasek z przyciskiem powrotu DO NAPRAWY!!!-->
-        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20">
-            <Button Width="40"
-                    Height="40"
-                    Background="Transparent"
-                    Command="{Binding NavigateToSecondCommand}">
-                <Button.Template>
-                    <ControlTemplate TargetType="Button">
-                        <Grid>
-                            <Ellipse x:Name="ellipse"
-                                     Fill="Transparent"
-                                     Width="40"
-                                     Height="40"/>
-                            <Image Source="ms-appx:///Assets/Images/left-arrow.png"
-                                   Width="24"
-                                   Height="24"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Center"/>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsPointerOver" Value="True">
-                                <Setter TargetName="ellipse" Property="Fill" Value="#12101DFF" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20" Canvas.ZIndex="1">
+           <Button Width="40"
+                        Height="40"
+                        Background="Transparent"
+                        Command="{Binding NavigateToSecondCommand}"
+                        >
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Ellipse x:Name="ellipse"
+                                         Fill="Transparent"
+                                         Width="40"
+                                         Height="40"/>
+                                <Image Source="ms-appx:///Assets/Images/left-arrow.png"
+                                       Width="24"
+                                       Height="24"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsPointerOver" Value="True">
+                                    <Setter TargetName="ellipse" Property="Fill" Value="#12101DFF" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
         </Grid>
 
         <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="420" Padding="24" Spacing="24">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="420" Padding="24" Spacing="24" >
 
                 <!-- Pole URL -->
-                <TextBox PlaceholderText="URL Stacji" Height="40"/>
+                <TextBox PlaceholderText="URL Stacji" Height="40" />
 
                 <!-- Obrazek + Nazwa i Opis obok siebie -->
                 <Grid>
