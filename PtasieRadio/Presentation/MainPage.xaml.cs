@@ -19,12 +19,12 @@ public sealed partial class MainPage : Page
     private double pageAnimationTime;
 
     public MainPage()
-    {  
+    {
 
         this.pageAnimationTime = 0.4;
         this.InitializeComponent();
         this.SizeChanged += MainPage_SizeChanged;
-        
+
     }
 
     private void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -52,7 +52,7 @@ public sealed partial class MainPage : Page
     {
         e.Handled = true;
 
-        if(Microsoft.UI.Xaml.Window.Current == null)return;//Musi tak być, inaczej warning
+        if (Microsoft.UI.Xaml.Window.Current == null) return;//Musi tak być, inaczej warning
         double windowHeight = Microsoft.UI.Xaml.Window.Current.Bounds.Height;
 
         double time = pageAnimationTime;
@@ -93,7 +93,7 @@ public sealed partial class MainPage : Page
 
         RadioOverlay.Visibility = Visibility.Visible;
 
-        if(Microsoft.UI.Xaml.Window.Current == null)return;//Musi tak być, inaczej warning
+        if (Microsoft.UI.Xaml.Window.Current == null) return;//Musi tak być, inaczej warning
         double windowHeight = Microsoft.UI.Xaml.Window.Current.Bounds.Height;
         double time = pageAnimationTime;
 
@@ -133,16 +133,18 @@ public sealed partial class MainPage : Page
 
     private void HeartButtonTappedEvent(object sender, TappedRoutedEventArgs e)
     {
-        e.Handled=true;
+        e.Handled = true;
     }
 
     private void OnSoundLevelSliderValueChanged(object sender, RangeBaseValueChangedEventArgs e)
     {
 
-    var viewModel = DataContext as MainModel;
+        var viewModel = DataContext as MainModel;
 
-    if (viewModel == null)  return;
+        if (viewModel == null) return;
 
-    viewModel.Volume = e.NewValue;
-	}
+        viewModel.Volume = e.NewValue;
+    }
+    //TODO:
+    //Make readFromFile and launch it here
 }

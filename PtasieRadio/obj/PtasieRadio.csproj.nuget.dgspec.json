@@ -1,22 +1,22 @@
 {
   "format": 1,
   "restore": {
-    "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {}
+    "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {}
   },
   "projects": {
-    "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
+    "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj",
+        "projectUniqueName": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj",
         "projectName": "PtasieRadio",
-        "projectPath": "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj",
-        "packagesPath": "C:\\Users\\SzymonS\\.nuget\\packages\\",
-        "outputPath": "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio\\PtasieRadio\\obj\\",
+        "projectPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj",
+        "packagesPath": "C:\\Users\\Fabian\\.nuget\\packages\\",
+        "outputPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "centralPackageVersionsManagementEnabled": true,
         "configFilePaths": [
-          "C:\\Users\\SzymonS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Fabian\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0",
@@ -533,6 +533,22 @@
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.13, 8.0.13]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.android-arm",
+              "version": "[8.0.13, 8.0.13]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.android-arm64",
+              "version": "[8.0.13, 8.0.13]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.android-x64",
+              "version": "[8.0.13, 8.0.13]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.android-x86",
               "version": "[8.0.13, 8.0.13]"
             },
             {
@@ -1238,6 +1254,10 @@
               "version": "[8.0.13, 8.0.13]"
             },
             {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.iossimulator-x64",
+              "version": "[8.0.13, 8.0.13]"
+            },
+            {
               "name": "Microsoft.WindowsDesktop.App.Ref",
               "version": "[8.0.13, 8.0.13]"
             }
@@ -1465,6 +1485,10 @@
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.13, 8.0.13]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.maccatalyst-x64",
               "version": "[8.0.13, 8.0.13]"
             },
             {

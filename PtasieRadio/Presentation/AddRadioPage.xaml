@@ -25,5 +25,52 @@
             Content="Powrót do ustawień"
             Command="{Binding NavigateToSecondCommand}"
             Margin="10"/>
+        
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+            <TextBox Width="200"
+            Height="32"
+            PlaceholderText="Nazwa Radia"
+            Grid.Row="0"
+            />
+            <TextBox Width="200"
+            Height="32"
+            PlaceholderText="Url Radia"
+            Grid.Row="1"
+            />
+            <Button Content="Wybierz obraz"
+            Tapped="SaveRadio"
+            Width="150" Height="40" 
+            Grid.Row="2"
+            />
+        </Grid>
+            <Button Content="Wybierz obraz"
+            Click="OnSelectImageClick"
+            Width="150" Height="40" 
+            Grid.Row="1"
+            />
+
+            <Image x:Name="SelectedImage"
+            Width="70"
+            Height="70"
+            Stretch="UniformToFill"
+            Visibility="Collapsed" />
+
+            <Image x:Name="LoadedImage"
+            Width="70"
+            Height="70"
+            Stretch="UniformToFill"
+            Visibility="Collapsed" />
+        </Grid>
     </Grid>
 </Page>

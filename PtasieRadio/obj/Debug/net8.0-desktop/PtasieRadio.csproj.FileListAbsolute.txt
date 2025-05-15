@@ -3184,3 +3184,15 @@ A:\KODOWANIE\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets
 A:\KODOWANIE\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\group.png
 A:\KODOWANIE\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\policy.png
 A:\KODOWANIE\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\review.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\brush.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\eq.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\folder.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\group.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\lang.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\link.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\policy.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\review.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\save.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\user.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Profil\avatar.png
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Profil\placeholder.png

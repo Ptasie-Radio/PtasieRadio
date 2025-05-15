@@ -13,7 +13,7 @@ public partial class App : Application
         this.InitializeComponent();
     }
 
-    protected Window? MainWindow { get; private set; }
+    protected static Window? MainWindow { get; private set; }
     public IHost? Host { get; private set; }
 
     protected async override void OnLaunched(LaunchActivatedEventArgs args)
@@ -111,4 +111,5 @@ public partial class App : Application
             )
         );
     }
+    public static Window? GetMainWindow(){return MainWindow;}
 }

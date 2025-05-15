@@ -33,7 +33,7 @@ public partial record SecondModel
         await _navigator.NavigateRouteAsync(this, "/Main");//Ten / musi tu być, aby zawsze odnajdował nasz model w ścieżce, bez tego po jednokrotnym
         //Wykonaniu, ścieżka się zmienia
     }
-        public async Task GoToAddRadio()
+    public async Task GoToAddRadio()
     {
         var name = await Name;
         await _navigator.NavigateRouteAsync(this, "/AddRadio");

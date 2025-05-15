@@ -80,11 +80,12 @@ public partial class MainModel : ObservableObject
 
     public IState<string> Name => State<string>.Value(this, () => string.Empty);
 
-public MainModel(
-        IStringLocalizer localizer,
-        IOptions<AppConfig> appInfo,
-        INavigator navigator,
-        IRadioPlayerService radioService)
+
+    public MainModel(
+            IStringLocalizer localizer,
+            IOptions<AppConfig> appInfo,
+            INavigator navigator,
+            IRadioPlayerService radioService)
     {
         _navigator = navigator;
         NavigateCommand = new AsyncRelayCommand(GoToSecond);
@@ -100,7 +101,6 @@ public MainModel(
         IsMuted = _radioService.GetIsMuted();
         isPlaying = _radioService.GetIsPlaying();
         _Volume = _radioService.GetVolume();
-
     }
 
     public async Task PlayRadio()

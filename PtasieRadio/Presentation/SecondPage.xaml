@@ -136,7 +136,7 @@
                                     <TextBlock Text="Equalizer" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
                                     <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
                                 </Grid>
-                                <Grid Height="48" Tapped="AddNewRadio">
+                                <Grid Height="48" Tapped="AddNewRadioNavigate">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="40"/>
                                         <ColumnDefinition Width="*"/>
