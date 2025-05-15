@@ -1,0 +1,29 @@
+<Page
+    x:Class="PtasieRadio.Presentation.AddRadioPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+    
+        <TextBlock Grid.Row="0" Text="Tutaj będzie stacja radiowa" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+    
+        <Button
+            Grid.Row="1"
+            Height="40"
+            Content="Powrót do głównej"
+            Command="{Binding NavigateToMainCommand}"
+            Margin="10"/>
+    
+        <Button 
+            Grid.Row="2"
+            Height="40"
+            Content="Powrót do ustawień"
+            Command="{Binding NavigateToSecondCommand}"
+            Margin="10"/>
+    </Grid>
+</Page>

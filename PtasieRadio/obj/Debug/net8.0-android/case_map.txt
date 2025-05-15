@@ -20,14 +20,7 @@ drawable\assets_images_setting;drawable\Assets_Images_setting
 drawable\assets_images_shuffle;drawable\Assets_Images_shuffle
 drawable\assets_images_speaker_muted_round;drawable\Assets_Images_speaker_muted_round
 drawable\assets_images_speaker_round;drawable\Assets_Images_speaker_round
-<<<<<<< HEAD
-<<<<<<< HEAD
 drawable\assets_splash_old_splash_screen;drawable\Assets_Splash_old_splash_screen
-=======
->>>>>>> origin/Mini_lista
-=======
-drawable\assets_splash_old_splash_screen;drawable\Assets_Splash_old_splash_screen
->>>>>>> SCRUM-34-responsywnosc-play-pagea
 drawable\splash_screen;drawable\splash_screen
 values\strings;values\Strings
 values\styles;values\Styles

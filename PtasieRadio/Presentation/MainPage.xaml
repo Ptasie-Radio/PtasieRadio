@@ -8,6 +8,7 @@
       NavigationCacheMode="Required"
       Background="{ThemeResource BackgroundBrush}">
 
+
     <Grid Background="#1C1B1F">
         <Grid
             x:Name="RadioMainPage"
@@ -108,7 +109,10 @@
                 <Button Grid.Column="2"
                         Width="40"
                         Height="40"
-                        Background="Transparent">
+                        Background="Transparent"
+                        Command="{Binding NavigateCommand}"
+                        Tapped="RackTappedEvent"
+                        >
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Grid>
@@ -159,7 +163,7 @@
             <ScrollViewer Grid.Row="1">
                 <StackPanel Padding="10"
                             Spacing="20">
-                    <!-- Sekcja: Najczęściej Grane --> >
+                    <!-- Sekcja: Najczęściej Grane -->
                     <TextBlock Text="Najczęściej Grane"
                                FontSize="20"
                                FontWeight="Bold"
@@ -513,8 +517,10 @@
                     </Button>
                     <Button Background="Transparent"
                             x:Name="MiniPlayButton"
-                            Tapped="PlayPauseButtonTappedEvent">
-                        <Image Source="ms-appx:///Assets/Images/mini_play.png"
+                            Command="{Binding PlayRadioCommand}"
+                            Tapped="PlayPauseButtonTappedEvent"
+                            >
+                        <Image Source="{Binding MiniPlayPauseButtonImage}"
                                Stretch="Uniform"
                                Width="20"
                                Height="20"
@@ -850,7 +856,7 @@
                         Height="200"
                         Margin="0, 0, 0, -20"
                         HorizontalAlignment="Center"
-                        Value="100"
+                        Value="{Binding Volume, Mode=TwoWay}"
                         ValueChanged="OnSoundLevelSliderValueChanged">
                 </Slider>
 
@@ -860,9 +866,10 @@
                         Width="96"
                         Height="96"
                         HorizontalAlignment="Center"
-                        Tapped="OnMuteUnmuteButtonClick">
+                        Command="{Binding ToggleMuteCommand}"
+                        >
                     <Button.Content>
-                        <Image Source="ms-appx:///Assets/Images/speaker_round.png"
+                        <Image Source="{Binding MuteButtonImage}"
                                x:Name="MuteUnmuteButtonImage"
                                Width="48"
                                Height="48"
@@ -910,14 +917,16 @@
 
                 <!-- Przycisk odtwarzania -->
                 <Button Style="{StaticResource MaterialIconButtonStyle}"
-                        Tapped="PlayPauseButtonTappedEvent"
+                        
                         x:Name="PlayButton"
                         Width="96"
                         Height="96"
                         HorizontalAlignment="Center"
-                        Command="{Binding PlayCommand}">
+                        Command="{Binding PlayRadioCommand}"
+                        Tapped="PlayPauseButtonTappedEvent"
+                        >
                     <Button.Content>
-                        <Image Source="ms-appx:///Assets/Images/play_round.png"
+                        <Image Source="{Binding PlayPauseButtonImage}"
                                x:Name="PlayButtonImage"
                                Width="48"
                                Height="48"
