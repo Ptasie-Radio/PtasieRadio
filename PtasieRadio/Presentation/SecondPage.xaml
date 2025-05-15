@@ -7,20 +7,22 @@
       xmlns:uen="using:Uno.Extensions.Navigation.UI"
       xmlns:utu="using:Uno.Toolkit.UI"
       xmlns:um="using:Uno.Material"
-      Background="{ThemeResource BackgroundBrush}">
+      Background="#1c1b1f"
+      mc:Ignorable="d">
 
-  <Grid utu:SafeArea.Insets="VisibleBounds">
-    <Grid>
-    <Grid.RowDefinitions>
-      <RowDefinition Height="Auto" />
-      <RowDefinition />
-    </Grid.RowDefinitions>
-              <Button Grid.Column="2"
-                        Width="40"
+    <Grid utu:SafeArea.Insets="VisibleBounds">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- Górny pasek z przyciskiem powrotu -->
+            <Grid Margin="20">
+                <Button Width="40"
                         Height="40"
                         Background="Transparent"
-                        Command="{Binding NavigateToMainCommand}"
-                        ><!--Tutaj tylko Command ważne-->
+                        Command="{Binding NavigateToMainCommand}">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Grid>
@@ -28,33 +30,179 @@
                                          Fill="Transparent"
                                          Width="40"
                                          Height="40"/>
-                                <Image Source="ms-appx:///Assets/Images/setting.png"
-                                       Stretch="Uniform"
+                                <Image Source="ms-appx:///Assets/Images/left-arrow.png"
                                        Width="24"
                                        Height="24"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"/>
                             </Grid>
                             <ControlTemplate.Triggers>
-                                <Trigger Property="IsPointerOver"
-                                         Value="True">
-                                    <Setter TargetName="ellipse"
-                                            Property="Fill"
-                                            Value="#12101DFF"/>
+                                <Trigger Property="IsPointerOver" Value="True">
+                                    <Setter TargetName="ellipse" Property="Fill" Value="#12101DFF" />
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-    <StackPanel Grid.Row="1"
-          HorizontalAlignment="Center"
-          VerticalAlignment="Center">
-    </StackPanel>
-  </Grid>
-  <Button 
-    Content="Dodaj Radio"
-    Tapped="AddNewRadio"
-    Command="{Binding NavigateToAddRadioCommand}"/><!--Tutaj już wszystko ważne jest-->
-  </Grid>
-      
+            </Grid>
+
+            <!-- Główna zawartość z profilem i ustawieniami w jednej kolumnie -->
+            <ScrollViewer Grid.Row="1"
+                          VerticalScrollBarVisibility="Visible"
+                          HorizontalScrollBarVisibility="Disabled"
+                          ZoomMode="Disabled"
+                          VerticalScrollMode="Enabled"
+                          Padding="0,0,16,0">
+                <Border HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Margin="0,20"
+                        Padding="24"
+                        Width="420"
+                        Background="Transparent">
+                    <StackPanel Spacing="24">
+
+                        <!-- Panel z ikoną i nazwą użytkownika -->
+                        <StackPanel HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Width="Auto"
+                                    Spacing="8">
+                            <Ellipse Width="72" Height="72">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="Assets/Profil/avatar.png" Stretch="UniformToFill"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <TextBlock Text="Nazwa Uzytkownika" FontSize="14" Foreground="White" TextAlignment="Center"/>
+                        </StackPanel>
+
+                        <!-- Poniżej cała zawartość ustawień -->
+                        <StackPanel Spacing="16">
+                            <TextBlock Text="Ustawienia" FontSize="28" FontWeight="Bold" Foreground="White" Margin="0,0,0,8"/>
+
+                            <!-- Ogólne -->
+                            <TextBlock Text="Ogólne" FontSize="20" FontWeight="SemiBold" Foreground="White" Margin="16,8,0,0"/>
+                            <StackPanel Spacing="8">
+                                <Grid Height="48">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="Assets/Images/user.png" Width="24" Height="24" VerticalAlignment="Center" Margin="8,0"/>
+                                    <TextBlock Text="Profil" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
+                                    <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
+                                </Grid>
+                                <Grid Height="48">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="Assets/Images/brush.png" Width="24" Height="24" VerticalAlignment="Center" Margin="8,0"/>
+                                    <TextBlock Text="Wygląd" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
+                                    <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
+                                </Grid>
+                                <Grid Height="48">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="Assets/Images/lang.png" Width="24" Height="24" VerticalAlignment="Center" Margin="8,0"/>
+                                    <TextBlock Text="Język" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
+                                    <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
+                                </Grid>
+                            </StackPanel>
+
+                            <!-- Zaawansowane -->
+                            <TextBlock Text="Zaawansowane" FontSize="20" FontWeight="SemiBold" Foreground="White" Margin="16,8,0,0"/>
+                            <StackPanel Spacing="8">
+                                <Grid Height="48">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="Assets/Images/folder.png" Width="24" Height="24" VerticalAlignment="Center" Margin="8,0"/>
+                                    <TextBlock Text="Backup" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
+                                    <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
+                                </Grid>
+                                <Grid Height="48">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="Assets/Images/eq.png" Width="24" Height="24" VerticalAlignment="Center" Margin="8,0"/>
+                                    <TextBlock Text="Equalizer" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
+                                    <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
+                                </Grid>
+                                <Grid Height="48" Tapped="AddNewRadio">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="Assets/Images/link.png" Width="24" Height="24" VerticalAlignment="Center" Margin="8,0"/>
+                                    <TextBlock Text="Dodaj Radio z URL" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
+                                    <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
+                                </Grid>
+                                <Grid Height="48">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="Assets/Images/save.png" Width="24" Height="24" VerticalAlignment="Center" Margin="8,0"/>
+                                    <TextBlock Text="Miejsce zapisu" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
+                                    <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
+                                </Grid>
+                            </StackPanel>
+
+                            <!-- Inne -->
+                            <TextBlock Text="Inne" FontSize="20" FontWeight="SemiBold" Foreground="White" Margin="16,8,0,0"/>
+                            <StackPanel Spacing="8">
+                                <Grid Height="48">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="Assets/Images/review.png" Width="24" Height="24" VerticalAlignment="Center" Margin="8,0"/>
+                                    <TextBlock Text="Opinia" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
+                                    <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
+                                </Grid>
+                                <Grid Height="48">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="Assets/Images/group.png" Width="24" Height="24" VerticalAlignment="Center" Margin="8,0"/>
+                                    <TextBlock Text="O nas" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
+                                    <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
+                                </Grid>
+                                <Grid Height="48">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="Assets/Images/policy.png" Width="24" Height="24" VerticalAlignment="Center" Margin="8,0"/>
+                                    <TextBlock Text="Polityka Prywatności" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
+                                    <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
+                                </Grid>
+                            </StackPanel>
+
+                            <!-- Wersja TUTAJ ZMIENIAJ WERSJE -->
+                            <TextBlock Text="Wersja aplikacji: v2.0" 
+                                       FontSize="14"
+                                       Foreground="Gray"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,16,0,0"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
 </Page>
