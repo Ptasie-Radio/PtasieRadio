@@ -3,9 +3,14 @@ using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using Uno.Extensions.Navigation;
 using Uno.Extensions.Reactive;
-
+using Microsoft.UI.Xaml.Data;
+using CommunityToolkit.Mvvm.ComponentModel;
+ 
 namespace PtasieRadio.Presentation;
-public partial record SecondModel
+
+
+[Bindable]
+public partial class SecondModel : ObservableObject
 {
     private INavigator _navigator;
     public IAsyncRelayCommand NavigateToMainCommand { get; }//Tworzenie komendy nawigacyjnej

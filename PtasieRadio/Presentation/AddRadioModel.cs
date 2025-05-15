@@ -3,9 +3,12 @@ using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using Uno.Extensions.Navigation;
 using Uno.Extensions.Reactive;
+using CommunityToolkit.Mvvm.ComponentModel;
+using Microsoft.UI.Xaml.Data;
 
 namespace PtasieRadio.Presentation;
-public partial record AddRadioModel
+[Bindable]
+public class AddRadioModel  : ObservableObject
 {
     private INavigator _navigator;
     public IAsyncRelayCommand NavigateToMainCommand { get; }//Tworzenie komendy nawigacyjnej
@@ -29,12 +32,12 @@ public partial record AddRadioModel
 
     public async Task GoToMain()
     {
-        var name = await Name;;
+        var name = await Name;
         await _navigator.NavigateRouteAsync(this, "/Main");
     }
     public async Task GoToSecond()
     {
-        var name = await Name;;
+        var name = await Name;
         await _navigator.NavigateRouteAsync(this, "/Second");
     }
 }

@@ -5,11 +5,12 @@ using Uno.Extensions.Navigation;
 using Uno.Extensions.Reactive;
 using PtasieRadio.Services.RadioService;
 using CommunityToolkit.Mvvm.ComponentModel;
-
+using Microsoft.UI.Xaml.Data;
 
 namespace PtasieRadio.Presentation;
+[Bindable]
 
-public partial class MainModel : ObservableObject
+public class MainModel : ObservableObject
 {
     private INavigator _navigator;
     public IAsyncRelayCommand NavigateCommand { get; }//Tworzenie komendy nawigacyjnej
