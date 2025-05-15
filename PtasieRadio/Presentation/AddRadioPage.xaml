@@ -1,29 +1,86 @@
 <Page
     x:Class="PtasieRadio.Presentation.AddRadioPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PtasieRadio.Presentation"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    mc:Ignorable="d"
+    Background="#1c1b1f">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-    
-        <TextBlock Grid.Row="0" Text="Tutaj będzie stacja radiowa" HorizontalAlignment="Center" Margin="0,0,0,20"/>
-    
-        <Button
-            Grid.Row="1"
-            Height="40"
-            Content="Powrót do głównej"
-            Command="{Binding NavigateToMainCommand}"
-            Margin="10"/>
-    
-        <Button 
-            Grid.Row="2"
-            Height="40"
-            Content="Powrót do ustawień"
-            Command="{Binding NavigateToSecondCommand}"
-            Margin="10"/>
+        <!-- Górny pasek z przyciskiem powrotu DO NAPRAWY!!!-->
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20">
+            <Button Width="40"
+                    Height="40"
+                    Background="Transparent"
+                    Command="{Binding NavigateToSecondCommand}">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse x:Name="ellipse"
+                                     Fill="Transparent"
+                                     Width="40"
+                                     Height="40"/>
+                            <Image Source="ms-appx:///Assets/Images/left-arrow.png"
+                                   Width="24"
+                                   Height="24"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPointerOver" Value="True">
+                                <Setter TargetName="ellipse" Property="Fill" Value="#12101DFF" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="420" Padding="24" Spacing="24">
+
+                <!-- Pole URL -->
+                <TextBox PlaceholderText="URL Stacji" Height="40"/>
+
+                <!-- Obrazek + Nazwa i Opis obok siebie -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="180"/>
+                        <ColumnDefinition Width="12"/>
+                        <ColumnDefinition Width="180"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Obrazek jako przycisk wyboru zdjęcia -->
+                    <StackPanel Grid.Column="0" Spacing="4" HorizontalAlignment="Center">
+                        <Button Width="180" Height="150" Padding="0" BorderThickness="1" Background="Transparent">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid>
+                                        <Image Source="Assets/Images/placeholder.png" Stretch="Fill"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <TextBlock Text="Kliknij aby wybrać zdjęcie"
+                                   FontSize="12"
+                                   FontWeight="Bold"
+                                   Foreground="White"
+                                   TextAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+
+                    <!-- Nazwa i Opis w pionie -->
+                    <StackPanel Grid.Column="2" Spacing="8" VerticalAlignment="Center">
+                        <TextBox PlaceholderText="Nazwa stacji" Width="180" Height="40"/>
+                        <TextBox PlaceholderText="Opis stacji" Width="180" Height="100" TextWrapping="Wrap" AcceptsReturn="True"/>
+                    </StackPanel>
+                </Grid>
+
+                <!-- Przycisk zapisu -->
+                <Button Content="Zapisz Stację" Width="160" Height="40" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>
