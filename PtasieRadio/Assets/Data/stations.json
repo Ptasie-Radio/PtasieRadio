@@ -1,0 +1,310 @@
+[
+  {
+    "Name": "Radio A",
+    "StreamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/WUALHD3.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Polska",
+    "Category": "MostPlayed"
+  },
+  {
+    "Name": "Radio B",
+    "StreamUrl": "http://chi.cdn.eurozet.pl/chi-net.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "USA",
+    "Category": "MostPlayed"
+  },
+  {
+    "Name": "Radio C",
+    "StreamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/WUALHD3.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Niemcy",
+    "Category": "Popular"
+  },
+  {
+    "Name": "Radio D",
+    "StreamUrl": "http://chi.cdn.eurozet.pl/chi-net.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Francja",
+    "Category": "Popular"
+  },
+  {
+    "Name": "Radio A",
+    "StreamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/WUALHD3.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Polska",
+    "Category": "MostPlayed"
+  },
+  {
+    "Name": "Radio B",
+    "StreamUrl": "http://chi.cdn.eurozet.pl/chi-net.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "USA",
+    "Category": "MostPlayed"
+  },
+  {
+    "Name": "Radio C",
+    "StreamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/WUALHD3.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Niemcy",
+    "Category": "Popular"
+  },
+  {
+    "Name": "Radio D",
+    "StreamUrl": "http://chi.cdn.eurozet.pl/chi-net.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Francja",
+    "Category": "Popular"
+  },
+  {
+    "Name": "Radio A",
+    "StreamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/WUALHD3.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Polska",
+    "Category": "MostPlayed"
+  },
+  {
+    "Name": "Radio B",
+    "StreamUrl": "http://chi.cdn.eurozet.pl/chi-net.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "USA",
+    "Category": "MostPlayed"
+  },
+  {
+    "Name": "Radio C",
+    "StreamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/WUALHD3.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Niemcy",
+    "Category": "Popular"
+  },
+  {
+    "Name": "Radio D",
+    "StreamUrl": "http://chi.cdn.eurozet.pl/chi-net.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Francja",
+    "Category": "Popular"
+  },
+  {
+    "Name": "Radio A",
+    "StreamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/WUALHD3.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Polska",
+    "Category": "MostPlayed"
+  },
+  {
+    "Name": "Radio B",
+    "StreamUrl": "http://chi.cdn.eurozet.pl/chi-net.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "USA",
+    "Category": "MostPlayed"
+  },
+  {
+    "Name": "Radio C",
+    "StreamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/WUALHD3.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Niemcy",
+    "Category": "Popular"
+  },
+  {
+    "Name": "Radio D",
+    "StreamUrl": "http://chi.cdn.eurozet.pl/chi-net.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Francja",
+    "Category": "Popular"
+  },
+  {
+    "Name": "Radio A",
+    "StreamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/WUALHD3.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Polska",
+    "Category": "MostPlayed"
+  },
+  {
+    "Name": "Radio B",
+    "StreamUrl": "http://chi.cdn.eurozet.pl/chi-net.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "USA",
+    "Category": "MostPlayed"
+  },
+  {
+    "Name": "Radio C",
+    "StreamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/WUALHD3.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Niemcy",
+    "Category": "Popular"
+  },
+  {
+    "Name": "Radio D",
+    "StreamUrl": "http://chi.cdn.eurozet.pl/chi-net.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Francja",
+    "Category": "Popular"
+  },
+  {
+    "Name": "Radio A",
+    "StreamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/WUALHD3.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Polska",
+    "Category": "MostPlayed"
+  },
+  {
+    "Name": "Radio B",
+    "StreamUrl": "http://chi.cdn.eurozet.pl/chi-net.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "USA",
+    "Category": "MostPlayed"
+  },
+  {
+    "Name": "Radio C",
+    "StreamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/WUALHD3.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Niemcy",
+    "Category": "Popular"
+  },
+  {
+    "Name": "Radio D",
+    "StreamUrl": "http://chi.cdn.eurozet.pl/chi-net.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Francja",
+    "Category": "Popular"
+  },
+  {
+    "Name": "Radio A",
+    "StreamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/WUALHD3.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Polska",
+    "Category": "MostPlayed"
+  },
+  {
+    "Name": "Radio B",
+    "StreamUrl": "http://chi.cdn.eurozet.pl/chi-net.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "USA",
+    "Category": "MostPlayed"
+  },
+  {
+    "Name": "Radio C",
+    "StreamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/WUALHD3.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Niemcy",
+    "Category": "Popular"
+  },
+  {
+    "Name": "Radio D",
+    "StreamUrl": "http://chi.cdn.eurozet.pl/chi-net.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Francja",
+    "Category": "Popular"
+  },
+  {
+    "Name": "Radio A",
+    "StreamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/WUALHD3.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Polska",
+    "Category": "MostPlayed"
+  },
+  {
+    "Name": "Radio B",
+    "StreamUrl": "http://chi.cdn.eurozet.pl/chi-net.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "USA",
+    "Category": "MostPlayed"
+  },
+  {
+    "Name": "Radio C",
+    "StreamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/WUALHD3.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Niemcy",
+    "Category": "Popular"
+  },
+  {
+    "Name": "Radio D",
+    "StreamUrl": "http://chi.cdn.eurozet.pl/chi-net.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Francja",
+    "Category": "Popular"
+  },
+  {
+    "Name": "Radio A",
+    "StreamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/WUALHD3.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Polska",
+    "Category": "MostPlayed"
+  },
+  {
+    "Name": "Radio B",
+    "StreamUrl": "http://chi.cdn.eurozet.pl/chi-net.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "USA",
+    "Category": "MostPlayed"
+  },
+  {
+    "Name": "Radio C",
+    "StreamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/WUALHD3.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Niemcy",
+    "Category": "Popular"
+  },
+  {
+    "Name": "Radio D",
+    "StreamUrl": "http://chi.cdn.eurozet.pl/chi-net.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Francja",
+    "Category": "Popular"
+  },
+  {
+    "Name": "Radio A",
+    "StreamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/WUALHD3.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Polska",
+    "Category": "MostPlayed"
+  },
+  {
+    "Name": "Radio B",
+    "StreamUrl": "http://chi.cdn.eurozet.pl/chi-net.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "USA",
+    "Category": "MostPlayed"
+  },
+  {
+    "Name": "Radio C",
+    "StreamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/WUALHD3.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Niemcy",
+    "Category": "Popular"
+  },
+  {
+    "Name": "Radio D",
+    "StreamUrl": "http://chi.cdn.eurozet.pl/chi-net.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Francja",
+    "Category": "Popular"
+  },
+  {
+    "Name": "Radio A",
+    "StreamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/WUALHD3.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Polska",
+    "Category": "MostPlayed"
+  },
+  {
+    "Name": "Radio B",
+    "StreamUrl": "http://chi.cdn.eurozet.pl/chi-net.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "USA",
+    "Category": "MostPlayed"
+  },
+  {
+    "Name": "Radio C",
+    "StreamUrl": "https://playerservices.streamtheworld.com/api/livestream-redirect/WUALHD3.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Niemcy",
+    "Category": "Popular"
+  },
+  {
+    "Name": "Radio D",
+    "StreamUrl": "http://chi.cdn.eurozet.pl/chi-net.mp3",
+    "ImagePath": "ms-appx:///Assets/Images/placeholder.png",
+    "Country": "Francja",
+    "Category": "Popular"
+  }
+]

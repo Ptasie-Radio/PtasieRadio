@@ -111,8 +111,7 @@
                         Height="40"
                         Background="Transparent"
                         Command="{Binding NavigateCommand}"
-                        Tapped="RackTappedEvent"
-                        >
+                        Tapped="RackTappedEvent">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Grid>
@@ -175,106 +174,57 @@
                                   HorizontalScrollMode="Enabled"
                                   VerticalScrollMode="Disabled"
                                   ZoomMode="Disabled">
-                        <StackPanel Orientation="Horizontal"
-                                    Spacing="20"
-                                    Padding="20,0,0,0">
-                            <!-- Powielone karty stacji dla testu przesuwania -->
-                            <StackPanel Width="100"
-                                        Background="Transparent"
-                                        Spacing="5">
-                                <Border Background="#cccccc"
-                                        CornerRadius="20"
-                                        Width="100"
-                                        Height="100">
-                                    <Image Width="60"
-                                           Height="60"
-                                           Stretch="Uniform"
-                                           Source="ms-appx:///Assets/Images/placeholder.png"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"/>
-                                </Border>
-                                <TextBlock Text="Radio A"
-                                           TextAlignment="Center"
-                                           FontSize="12"
-                                           Foreground="White"/>
-                            </StackPanel>
-                            <StackPanel Width="100"
-                                        Background="Transparent"
-                                        Spacing="5">
-                                <Border Background="#cccccc"
-                                        CornerRadius="20"
-                                        Width="100"
-                                        Height="100">
-                                    <Image Width="60"
-                                           Height="60"
-                                           Stretch="Uniform"
-                                           Source="ms-appx:///Assets/Images/placeholder.png"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"/>
-                                </Border>
-                                <TextBlock Text="Radio B"
-                                           TextAlignment="Center"
-                                           FontSize="12"
-                                           Foreground="White"/>
-                            </StackPanel>
-                            <StackPanel Width="100"
-                                        Background="Transparent"
-                                        Spacing="5">
-                                <Border Background="#cccccc"
-                                        CornerRadius="20"
-                                        Width="100"
-                                        Height="100">
-                                    <Image Width="60"
-                                           Height="60"
-                                           Stretch="Uniform"
-                                           Source="ms-appx:///Assets/Images/placeholder.png"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"/>
-                                </Border>
-                                <TextBlock Text="Radio C"
-                                           TextAlignment="Center"
-                                           FontSize="12"
-                                           Foreground="White"/>
-                            </StackPanel>
-                            <StackPanel Width="100"
-                                        Background="Transparent"
-                                        Spacing="5">
-                                <Border Background="#cccccc"
-                                        CornerRadius="20"
-                                        Width="100"
-                                        Height="100">
-                                    <Image Width="60"
-                                           Height="60"
-                                           Stretch="Uniform"
-                                           Source="ms-appx:///Assets/Images/placeholder.png"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"/>
-                                </Border>
-                                <TextBlock Text="Radio D"
-                                           TextAlignment="Center"
-                                           FontSize="12"
-                                           Foreground="White"/>
-                            </StackPanel>
-                            <StackPanel Width="100"
-                                        Background="Transparent"
-                                        Spacing="5">
-                                <Border Background="#cccccc"
-                                        CornerRadius="20"
-                                        Width="100"
-                                        Height="100">
-                                    <Image Width="60"
-                                           Height="60"
-                                           Stretch="Uniform"
-                                           Source="ms-appx:///Assets/Images/placeholder.png"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"/>
-                                </Border>
-                                <TextBlock Text="Radio E"
-                                           TextAlignment="Center"
-                                           FontSize="12"
-                                           Foreground="White"/>
-                            </StackPanel>
-                        </StackPanel>
+                        <ItemsControl ItemsSource="{Binding MostPlayedStations}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"
+                                                Spacing="20"
+                                                Padding="20,0,0,0"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Padding="0,10,0,0"
+                                            Background="Transparent"
+                                            BorderThickness="0"
+                                            Command="{Binding DataContext.PlayRadioCommand, ElementName=PageRoot}"
+                                            CommandParameter="{Binding}">
+                                        <Button.Content>
+                                            <StackPanel Width="100"
+                                                        Spacing="5">
+                                                <Border Background="#cccccc"
+                                                        CornerRadius="20"
+                                                        Width="100"
+                                                        Height="100">
+                                                    <Image Width="60"
+                                                           Height="60"
+                                                           Stretch="Uniform"
+                                                           Source="{Binding ImagePath}"
+                                                           HorizontalAlignment="Center"
+                                                           VerticalAlignment="Center"/>
+                                                </Border>
+                                                <TextBlock Text="{Binding Name}"
+                                                           TextAlignment="Center"
+                                                           FontSize="12"
+                                                           Foreground="White"/>
+                                            </StackPanel>
+                                        </Button.Content>
+                                        <Button.Resources>
+                                            <ResourceDictionary>
+                                                <!-- Nadpisanie stylu przycisku, aby miał przezroczyste tło w stanie normalnym -->
+                                                <SolidColorBrush x:Key="ButtonBackground"
+                                                                 Color="Transparent"/>
+                                                <SolidColorBrush x:Key="ButtonBackgroundPointerOver"
+                                                                 Color="#22FFFFFF"/>
+                                                <SolidColorBrush x:Key="ButtonBackgroundPressed"
+                                                                 Color="#44FFFFFF"/>
+                                            </ResourceDictionary>
+                                        </Button.Resources>
+                                    </Button>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
                     </ScrollViewer>
 
                     <!-- Sekcja: Popularne -->
@@ -289,182 +239,56 @@
                                   HorizontalScrollMode="Enabled"
                                   VerticalScrollMode="Disabled"
                                   ZoomMode="Disabled">
-                        <StackPanel Orientation="Horizontal"
-                                    Spacing="20"
-                                    Padding="20,0,0,0">
-                            <!-- Powielone karty stacji dla testu przesuwania -->
-                            <StackPanel Width="100"
-                                        Background="Transparent"
-                                        Spacing="5">
-                                <Border Background="#cccccc"
-                                        CornerRadius="20"
-                                        Width="100"
-                                        Height="100">
-                                    <Image Width="60"
-                                           Height="60"
-                                           Stretch="Uniform"
-                                           Source="ms-appx:///Assets/Images/placeholder.png"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"/>
-                                </Border>
-                                <TextBlock Text="Radio F"
-                                           TextAlignment="Center"
-                                           FontSize="12"
-                                           Foreground="White"/>
-                            </StackPanel>
-                            <StackPanel Width="100"
-                                        Background="Transparent"
-                                        Spacing="5">
-                                <Border Background="#cccccc"
-                                        CornerRadius="20"
-                                        Width="100"
-                                        Height="100">
-                                    <Image Width="60"
-                                           Height="60"
-                                           Stretch="Uniform"
-                                           Source="ms-appx:///Assets/Images/placeholder.png"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"/>
-                                </Border>
-                                <TextBlock Text="Radio G"
-                                           TextAlignment="Center"
-                                           FontSize="12"
-                                           Foreground="White"/>
-                            </StackPanel>
-                            <StackPanel Width="100"
-                                        Background="Transparent"
-                                        Spacing="5">
-                                <Border Background="#cccccc"
-                                        CornerRadius="20"
-                                        Width="100"
-                                        Height="100">
-                                    <Image Width="60"
-                                           Height="60"
-                                           Stretch="Uniform"
-                                           Source="ms-appx:///Assets/Images/placeholder.png"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"/>
-                                </Border>
-                                <TextBlock Text="Radio H"
-                                           TextAlignment="Center"
-                                           FontSize="12"
-                                           Foreground="White"/>
-                            </StackPanel>
-                            <StackPanel Width="100"
-                                        Background="Transparent"
-                                        Spacing="5">
-                                <Border Background="#cccccc"
-                                        CornerRadius="20"
-                                        Width="100"
-                                        Height="100">
-                                    <Image Width="60"
-                                           Height="60"
-                                           Stretch="Uniform"
-                                           Source="ms-appx:///Assets/Images/placeholder.png"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"/>
-                                </Border>
-                                <TextBlock Text="Radio I"
-                                           TextAlignment="Center"
-                                           FontSize="12"
-                                           Foreground="White"/>
-                            </StackPanel>
-                            <StackPanel Width="100"
-                                        Background="Transparent"
-                                        Spacing="5">
-                                <Border Background="#cccccc"
-                                        CornerRadius="20"
-                                        Width="100"
-                                        Height="100">
-                                    <Image Width="60"
-                                           Height="60"
-                                           Stretch="Uniform"
-                                           Source="ms-appx:///Assets/Images/placeholder.png"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"/>
-                                </Border>
-                                <TextBlock Text="Radio J"
-                                           TextAlignment="Center"
-                                           FontSize="12"
-                                           Foreground="White"/>
-                            </StackPanel>
-                            <StackPanel Width="100"
-                                        Background="Transparent"
-                                        Spacing="5">
-                                <Border Background="#cccccc"
-                                        CornerRadius="20"
-                                        Width="100"
-                                        Height="100">
-                                    <Image Width="60"
-                                           Height="60"
-                                           Stretch="Uniform"
-                                           Source="ms-appx:///Assets/Images/placeholder.png"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"/>
-                                </Border>
-                                <TextBlock Text="Radio K"
-                                           TextAlignment="Center"
-                                           FontSize="12"
-                                           Foreground="White"/>
-                            </StackPanel>
-                            <StackPanel Width="100"
-                                        Background="Transparent"
-                                        Spacing="5">
-                                <Border Background="#cccccc"
-                                        CornerRadius="20"
-                                        Width="100"
-                                        Height="100">
-                                    <Image Width="60"
-                                           Height="60"
-                                           Stretch="Uniform"
-                                           Source="ms-appx:///Assets/Images/placeholder.png"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"/>
-                                </Border>
-                                <TextBlock Text="Radio L"
-                                           TextAlignment="Center"
-                                           FontSize="12"
-                                           Foreground="White"/>
-                            </StackPanel>
-                            <StackPanel Width="100"
-                                        Background="Transparent"
-                                        Spacing="5">
-                                <Border Background="#cccccc"
-                                        CornerRadius="20"
-                                        Width="100"
-                                        Height="100">
-                                    <Image Width="60"
-                                           Height="60"
-                                           Stretch="Uniform"
-                                           Source="ms-appx:///Assets/Images/placeholder.png"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"/>
-                                </Border>
-                                <TextBlock Text="Radio M"
-                                           TextAlignment="Center"
-                                           FontSize="12"
-                                           Foreground="White"/>
-                            </StackPanel>
-                            <StackPanel Width="100"
-                                        Background="Transparent"
-                                        Spacing="5">
-                                <Border Background="#cccccc"
-                                        CornerRadius="20"
-                                        Width="100"
-                                        Height="100">
-                                    <Image Width="60"
-                                           Height="60"
-                                           Stretch="Uniform"
-                                           Source="ms-appx:///Assets/Images/placeholder.png"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"/>
-                                </Border>
-                                <TextBlock Text="Radio N"
-                                           TextAlignment="Center"
-                                           FontSize="12"
-                                           Foreground="White"/>
-                            </StackPanel>
-                        </StackPanel>
+                        <ItemsControl ItemsSource="{Binding PopularStations}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"
+                                                Spacing="20"
+                                                Padding="20,0,0,0"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Padding="0,10,0,0"
+                                            Background="Transparent"
+                                            BorderThickness="0"
+                                            utu:CommandExtensions.Command="{Binding DataContext.PlayRadioCommand, ElementName=PageRoot}"
+                                            utu:CommandExtensions.CommandParameter="{Binding}">
+                                        <Button.Content>
+                                            <StackPanel Width="100"
+                                                        Spacing="5">
+                                                <Border Background="#cccccc"
+                                                        CornerRadius="20"
+                                                        Width="100"
+                                                        Height="100">
+                                                    <Image Width="60"
+                                                           Height="60"
+                                                           Stretch="Uniform"
+                                                           Source="{Binding ImagePath}"
+                                                           HorizontalAlignment="Center"
+                                                           VerticalAlignment="Center"/>
+                                                </Border>
+                                                <TextBlock Text="{Binding Name}"
+                                                           TextAlignment="Center"
+                                                           FontSize="12"
+                                                           Foreground="White"/>
+                                            </StackPanel>
+                                        </Button.Content>
+                                        <Button.Resources>
+                                            <ResourceDictionary>
+                                                <!-- Nadpisanie stylu przycisku, aby miał przezroczyste tło w stanie normalnym -->
+                                                <SolidColorBrush x:Key="ButtonBackground"
+                                                                 Color="Transparent"/>
+                                                <SolidColorBrush x:Key="ButtonBackgroundPointerOver"
+                                                                 Color="#22FFFFFF"/>
+                                                <SolidColorBrush x:Key="ButtonBackgroundPressed"
+                                                                 Color="#44FFFFFF"/>
+                                            </ResourceDictionary>
+                                        </Button.Resources>
+                                    </Button>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                     </ScrollViewer>
                 </StackPanel>
             </ScrollViewer>
@@ -494,12 +318,15 @@
                                VerticalAlignment="Center"/>
                     </Border>
                     <StackPanel Margin="10,0">
-                        <TextBlock Text="SomaFM - PopTron"
+                        <TextBlock Text="{Binding StationName}"
                                    Foreground="White"
                                    FontSize="14"/>
-                        <TextBlock Text="somafm.com, US"
-                                   Foreground="Gray"
-                                   FontSize="12"/>
+                        <TextBlock Foreground="Gray"
+                                   FontSize="12">
+                                <!-- co to ma być, bo ja nie wiem -->
+                                <Run Text="somafm.com, "/>
+                                <Run Text="{Binding StationCountry}"/>
+                        </TextBlock>
                     </StackPanel>
                 </StackPanel>
 
@@ -518,8 +345,7 @@
                     <Button Background="Transparent"
                             x:Name="MiniPlayButton"
                             Command="{Binding PlayRadioCommand}"
-                            Tapped="PlayPauseButtonTappedEvent"
-                            >
+                            Tapped="PlayPauseButtonTappedEvent">
                         <Image Source="{Binding MiniPlayPauseButtonImage}"
                                Stretch="Uniform"
                                Width="20"
@@ -723,7 +549,8 @@
                                              MinWindowHeight="600"/>
                         </VisualState.StateTriggers>
                         <VisualState.Setters>
-                            <Setter Target="Soundbar.VerticalAlignment" Value="Center"/>
+                            <Setter Target="Soundbar.VerticalAlignment"
+                                    Value="Center"/>
                             <Setter Target="SoundLevelSlider.Visibility"
                                     Value="Visible"/>
                             <Setter Target="MuteUnmuteButton.Visibility"
@@ -805,7 +632,7 @@
                             VerticalAlignment="Center"
                             Spacing="4">
                     <TextBlock x:Name="RadioName"
-                               Text="Nazwa radia"
+                               Text="{Binding StationName}"
                                Style="{StaticResource MaterialSubtitle1Style}"
                                Foreground="White"
                                HorizontalAlignment="Center"/>
@@ -819,7 +646,7 @@
                                Height="16"
                                Stretch="Uniform"/>
                         <TextBlock x:Name="CountryName"
-                                   Text="Kraj pochodzenia"
+                                   Text="{Binding StationCountry}"
                                    Style="{StaticResource MaterialCaptionStyle}"
                                    Foreground="LightGray"
                                    VerticalAlignment="Center"/>
@@ -866,8 +693,7 @@
                         Width="96"
                         Height="96"
                         HorizontalAlignment="Center"
-                        Command="{Binding ToggleMuteCommand}"
-                        >
+                        Command="{Binding ToggleMuteCommand}">
                     <Button.Content>
                         <Image Source="{Binding MuteButtonImage}"
                                x:Name="MuteUnmuteButtonImage"
@@ -917,14 +743,12 @@
 
                 <!-- Przycisk odtwarzania -->
                 <Button Style="{StaticResource MaterialIconButtonStyle}"
-                        
                         x:Name="PlayButton"
                         Width="96"
                         Height="96"
                         HorizontalAlignment="Center"
                         Command="{Binding PlayRadioCommand}"
-                        Tapped="PlayPauseButtonTappedEvent"
-                        >
+                        Tapped="PlayPauseButtonTappedEvent">
                     <Button.Content>
                         <Image Source="{Binding PlayPauseButtonImage}"
                                x:Name="PlayButtonImage"

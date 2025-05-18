@@ -2762,3 +2762,4 @@ D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupo
 D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Splash\old\splash_screen.scale-200.png
 D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Splash\old\splash_screen.scale-300.png
 D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Splash\old\splash_screen.scale-400.png
+C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Data\stations.json

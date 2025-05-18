@@ -1,10 +1,8 @@
 using CommunityToolkit.Mvvm.Input;
-using Microsoft.Extensions.Localization;
-using Microsoft.Extensions.Options;
-using Uno.Extensions.Navigation;
-using Uno.Extensions.Reactive;
-using PtasieRadio.Services.RadioService;
 using CommunityToolkit.Mvvm.ComponentModel;
+using System.Collections.ObjectModel;
+
+using PtasieRadio.Services.RadioStationsService;
 
 
 namespace PtasieRadio.Presentation;
@@ -14,7 +12,13 @@ public partial class MainModel : ObservableObject
     private INavigator _navigator;
     public IAsyncRelayCommand NavigateCommand { get; }//Tworzenie komendy nawigacyjnej
     public IAsyncRelayCommand PlayRadioCommand { get; }
+    public IAsyncRelayCommand<RadioStation> PlayStationCommand { get; }
     private readonly IRadioPlayerService _radioService;
+    private readonly IRadioStationsService _radioStationsService;
+
+    // Kolekcje dla różnych kategorii stacji
+    public ObservableCollection<RadioStation> PopularStations { get; set; } = new();
+    public ObservableCollection<RadioStation> MostPlayedStations { get; set; } = new();
 
     public IRelayCommand ToggleMuteCommand { get; }
 
@@ -45,7 +49,7 @@ public partial class MainModel : ObservableObject
                 _Volume = value;
                 _radioService.SetVolume(value);
 
-                if(IsMuted)
+                if (IsMuted)
                 {
                     IsMuted = false;
                     _radioService.setIsMuted(IsMuted);//Używamy tego, aby przy zmianie dźwięku ustawić na Radiu że nie jest wyciszone
@@ -80,41 +84,98 @@ public partial class MainModel : ObservableObject
 
     public IState<string> Name => State<string>.Value(this, () => string.Empty);
 
-public MainModel(
-        IStringLocalizer localizer,
-        IOptions<AppConfig> appInfo,
-        INavigator navigator,
-        IRadioPlayerService radioService)
+    public MainModel(
+            IStringLocalizer localizer,
+            IOptions<AppConfig> appInfo,
+            INavigator navigator,
+            IRadioPlayerService radioService,
+            IRadioStationsService radioStationsService)
     {
         _navigator = navigator;
         NavigateCommand = new AsyncRelayCommand(GoToSecond);
 
         _radioService = radioService;
+
         ToggleMuteCommand = new RelayCommand(ToggleMute);
-        PlayRadioCommand = new AsyncRelayCommand(PlayRadio);
+        PlayRadioCommand = new AsyncRelayCommand(() => PlayRadio(null));
+        PlayStationCommand = new AsyncRelayCommand<RadioStation>(station => PlayRadio(station));
         Title = "Main";
         Title += $" - {localizer["ApplicationName"]}";
         Title += $" - {appInfo?.Value?.Environment}";
 
+        _radioStationsService = radioStationsService;
 
         IsMuted = _radioService.GetIsMuted();
         isPlaying = _radioService.GetIsPlaying();
         _Volume = _radioService.GetVolume();
 
+        _ = LoadStationsAsync();
+
     }
 
-    public async Task PlayRadio()
+    private RadioStation _currentStation;
+    public RadioStation CurrentStation
     {
+        get => _currentStation;
+        set
+        {
+            _currentStation = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public string StationName => CurrentStation?.Name ?? "Brak stacji";
+    public string StationCountry => CurrentStation?.Country ?? "";
+
+   // Jedna metoda obsługująca oba przypadki
+public async Task PlayRadio(RadioStation? station = null)
+{
+    if (station == null)
+    {
+        // Przypadek bezargumentowy - przełącz play/pause dla aktualnej stacji
+        if (CurrentStation == null)
+        {
+            // Jeśli nie ma wybranej stacji, nie rób nic
+            return;
+        }
+        
+        // Przełącz stan odtwarzania dla aktualnej stacji
         isPlaying = !isPlaying;
         OnPropertyChanged(nameof(PlayPauseButtonImage));
         OnPropertyChanged(nameof(MiniPlayPauseButtonImage));
-        string url = "http://chi.cdn.eurozet.pl/chi-net.mp3";//Później się to da jako zmienną
-        await _radioService.PlayOrPauseAsync(url);
-        if(IsMuted && !_radioService.GetIsMuted())//Nie jestem w 100% pewien czemu to działa, ale działa
-        {
-            _radioService.ToggleMute();
-        }
+        
+        // Odtwórz/zatrzymaj aktualną stację
+        await _radioService.PlayOrPauseAsync(CurrentStation.StreamUrl);
     }
+    else
+    {
+        // Przypadek z argumentem - wybór i odtwarzanie nowej stacji
+        if (string.IsNullOrEmpty(station.StreamUrl))
+            return;
+
+        // Aktualizacja aktualnie wybranej stacji
+        CurrentStation = station;
+        
+        // Odtwarzanie wybranej stacji
+        await _radioService.PlayOrPauseAsync(station.StreamUrl);
+        
+        // Ustawienie stanu odtwarzania na true (zawsze odtwarzaj przy wyborze stacji)
+        isPlaying = true;
+        OnPropertyChanged(nameof(PlayPauseButtonImage));
+        OnPropertyChanged(nameof(MiniPlayPauseButtonImage));
+    }
+    
+    // Obsługa wyciszenia (wspólna dla obu przypadków)
+    if (IsMuted && !_radioService.GetIsMuted())
+    {
+        _radioService.ToggleMute();
+    }
+    
+    // Aktualizacja UI z informacjami o stacji
+    OnPropertyChanged(nameof(StationName));
+    OnPropertyChanged(nameof(StationCountry));
+}
+
     public async Task GoToSecond()
     {
         var name = await Name;
@@ -126,6 +187,39 @@ public MainModel(
         IsMuted = !IsMuted;
         OnPropertyChanged(nameof(MuteButtonImage));
         _radioService.ToggleMute();
+    }
+
+    // zaladowanie stacji z json do programu
+    private async Task LoadStationsAsync()
+    {
+        try
+        {
+            // Ścieżka do pliku JSON z listą stacji
+            string filePath = Path.Combine(AppContext.BaseDirectory, "Assets", "Data", "stations.json");
+
+            var stations = await _radioStationsService.LoadStationsAsync(filePath);
+
+            // Czyszczenie kolekcji
+            PopularStations.Clear();
+            MostPlayedStations.Clear();
+
+            // Podział stacji na kategorie
+            foreach (var station in stations)
+            {
+                if (station.Category == "Popular")
+                {
+                    PopularStations.Add(station);
+                }
+                else if (station.Category == "MostPlayed")
+                {
+                    MostPlayedStations.Add(station);
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Błąd podczas ładowania stacji: {ex.Message}");
+        }
     }
 
 }

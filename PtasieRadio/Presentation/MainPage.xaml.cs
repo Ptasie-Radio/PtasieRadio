@@ -1,15 +1,6 @@
-using System;
-using System.Net;
-using System.IO;
-using System.Threading.Tasks;
-using NAudio.Wave;
-using Uno;
-using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Media.Animation;
-using Windows.Devices.Radios;
 using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Media.Animation;
 
 
 namespace PtasieRadio.Presentation;
@@ -19,12 +10,12 @@ public sealed partial class MainPage : Page
     private double pageAnimationTime;
 
     public MainPage()
-    {  
+    {
 
         this.pageAnimationTime = 0.4;
         this.InitializeComponent();
         this.SizeChanged += MainPage_SizeChanged;
-        
+
     }
 
     private void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -52,7 +43,7 @@ public sealed partial class MainPage : Page
     {
         e.Handled = true;
 
-        if(Microsoft.UI.Xaml.Window.Current == null)return;//Musi tak być, inaczej warning
+        if (Microsoft.UI.Xaml.Window.Current == null) return;//Musi tak być, inaczej warning
         double windowHeight = Microsoft.UI.Xaml.Window.Current.Bounds.Height;
 
         double time = pageAnimationTime;
@@ -93,7 +84,7 @@ public sealed partial class MainPage : Page
 
         RadioOverlay.Visibility = Visibility.Visible;
 
-        if(Microsoft.UI.Xaml.Window.Current == null)return;//Musi tak być, inaczej warning
+        if (Microsoft.UI.Xaml.Window.Current == null) return;//Musi tak być, inaczej warning
         double windowHeight = Microsoft.UI.Xaml.Window.Current.Bounds.Height;
         double time = pageAnimationTime;
 
@@ -121,6 +112,23 @@ public sealed partial class MainPage : Page
         };
     }
 
+    private void RadioStation_Tapped(object sender, TappedRoutedEventArgs e)
+    {
+        // if (sender is FrameworkElement element && element.DataContext is RadioStation station)
+        // {
+        //     // Pobierz ViewModel
+        //     if (DataContext is MainModel viewModel)
+        //     {
+        //         // Wywołaj metodę odtwarzania stacji
+        //         _ = viewModel.PlayRadio(station);
+
+        //         // Aktualizuj UI - np. nazwę stacji w miniplayerze
+        //         // Tutaj możesz dodać kod aktualizujący UI
+        //     }
+        // }
+        e.Handled = true;
+    }
+
     private void ShuffleButtonTappedEvent(object sender, TappedRoutedEventArgs e)
     {
         e.Handled = true;
@@ -133,16 +141,16 @@ public sealed partial class MainPage : Page
 
     private void HeartButtonTappedEvent(object sender, TappedRoutedEventArgs e)
     {
-        e.Handled=true;
+        e.Handled = true;
     }
 
     private void OnSoundLevelSliderValueChanged(object sender, RangeBaseValueChangedEventArgs e)
     {
 
-    var viewModel = DataContext as MainModel;
+        var viewModel = DataContext as MainModel;
 
-    if (viewModel == null)  return;
+        if (viewModel == null) return;
 
-    viewModel.Volume = e.NewValue;
-	}
+        viewModel.Volume = e.NewValue;
+    }
 }
