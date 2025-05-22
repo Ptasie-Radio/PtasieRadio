@@ -25,11 +25,8 @@ public sealed partial class SecondPage : Page
     private void AddNewRadioNavigate(object sender, TappedRoutedEventArgs e)
     {
         var viewModel = DataContext as SecondViewModel;
-        Debug.WriteLine("DataContext is NOT SecondModel");
-
         if (viewModel == null) return;
         viewModel.NavigateToAddRadioCommand.Execute(null);
-
     }
 }
 

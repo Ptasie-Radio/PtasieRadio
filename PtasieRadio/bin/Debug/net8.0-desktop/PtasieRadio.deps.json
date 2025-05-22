@@ -11,6 +11,7 @@
           "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
           "Microsoft.Extensions.Logging.Console": "8.0.1",
           "NAudio": "2.1.0",
+          "Newtonsoft.Json": "13.0.3",
           "SkiaSharp.Skottie": "2.88.9",
           "SkiaSharp.Views.Uno.WinUI": "2.88.9",
           "Uno.Dsp.Tasks": "1.4.0",

@@ -1,5 +1,6 @@
 using Uno.Resizetizer;
 using PtasieRadio.Services.RadioService;
+using PtasieRadio.Services.AddRadioService;
 namespace PtasieRadio;
 
 public partial class App : Application
@@ -78,6 +79,7 @@ public partial class App : Application
                 .ConfigureServices((context, services) =>
                 {
                     services.AddSingleton<IRadioPlayerService, RadioPlayerService>();
+                    services.AddSingleton<IAddRadioService, AddRadioService>();
                 })
                 .UseNavigation(ReactiveViewModelMappings.ViewModelMappings, RegisterRoutes)
             );

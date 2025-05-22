@@ -31,7 +31,7 @@ public class RadioPlayerService : IRadioPlayerService
                     reader = new MediaFoundationReader(url);
                     waveOut = new WaveOutEvent();
                     waveOut.Init(reader);
-                    waveOut.Volume = currentVolume;
+                    waveOut.Volume = isMuted ? 0 : currentVolume;
                     isInitialized = true;
                 }
 
@@ -67,18 +67,18 @@ public class RadioPlayerService : IRadioPlayerService
 
     public void SetVolume(double volume)
     {
+        currentVolume = (float)(volume / 100);
         if (waveOut != null)
         {
             waveOut.Volume = (float)(volume / 100);
-            currentVolume = (float)(volume / 100);
         }
     }
 
     public void ToggleMute()
     {
+        isMuted = !isMuted;
         if (waveOut != null)
         {
-            isMuted = !isMuted;
             waveOut.Volume = isMuted ? 0 : currentVolume;
         }
     }

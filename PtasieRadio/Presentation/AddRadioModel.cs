@@ -5,22 +5,35 @@ using Uno.Extensions.Navigation;
 using Uno.Extensions.Reactive;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.UI.Xaml.Data;
+using PtasieRadio.Models;
+using Windows.Storage;
+using WinRT.Interop;
 
 namespace PtasieRadio.Presentation;
+
 [Bindable]
-public class AddRadioModel  : ObservableObject
+public class AddRadioModel : ObservableObject
 {
     private INavigator _navigator;
-    public IAsyncRelayCommand NavigateToMainCommand { get; }//Tworzenie komendy nawigacyjnej
     public IAsyncRelayCommand NavigateToSecondCommand { get; }
+    public IAsyncRelayCommand NavigateToMainCommand { get; }
+    public IAsyncRelayCommand<SaveEntryData> OnSaveToFileCommand { get; }
+    private readonly IAddRadioService _addRadio;
     public AddRadioModel(
         IStringLocalizer localizer,
         IOptions<AppConfig> appInfo,
-        INavigator navigator)
+        INavigator navigator,
+        IAddRadioService addRadio)
     {
         _navigator = navigator;
-        NavigateToMainCommand = new AsyncRelayCommand(GoToMain);//Komenda do zmieniania na widok główny
+        _addRadio = addRadio;
         NavigateToSecondCommand = new AsyncRelayCommand(GoToSecond);
+        NavigateToMainCommand = new AsyncRelayCommand(GoToMain);
+        OnSaveToFileCommand = new AsyncRelayCommand<SaveEntryData>(async (data) =>
+        {
+            if (data is null) return;
+            await OnSaveToFile(data.Url, data.Name, data.Description, data.SelectedFile, _navigator);
+        });
         Title = "AddRadio";
         Title += $" - {localizer["ApplicationName"]}";
         Title += $" - {appInfo?.Value?.Environment}";
@@ -30,14 +43,24 @@ public class AddRadioModel  : ObservableObject
 
     public IState<string> Name => State<string>.Value(this, () => string.Empty);
 
-    public async Task GoToMain()
+    public async Task OnSaveToFile(string url, string name, string description, StorageFile selectedFile,INavigator navigator)
     {
-        var name = await Name;
-        await _navigator.NavigateRouteAsync(this, "/Main");
+        _addRadio.setUrl(url);
+        _addRadio.setName(name);
+        _addRadio.setDescription(description);
+        _addRadio.setSelectedFile(selectedFile);
+        await _addRadio.SaveImageToFile(_navigator);
     }
+
     public async Task GoToSecond()
     {
         var name = await Name;
         await _navigator.NavigateRouteAsync(this, "/Second");
+    }
+    
+        public async Task GoToMain()
+    {
+        var name = await Name;
+        await _navigator.NavigateRouteAsync(this, "/Main");
     }
 }

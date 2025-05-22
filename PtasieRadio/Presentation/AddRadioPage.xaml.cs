@@ -14,20 +14,24 @@ using Microsoft.UI.Xaml.Media.Imaging;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using WinRT.Interop;
+using PtasieRadio.Models;
 
 namespace PtasieRadio.Presentation;
 
 
 public sealed partial class AddRadioPage : Page
 {
+    private BitmapImage? bitmap;
+    private StorageFile? selectedFile;
+
     public AddRadioPage()
     {
         this.InitializeComponent();
     }
-    private StorageFile? _selectedFile;
 
-    private async void OnSelectImageClick(object sender, RoutedEventArgs e)
+    private async void OnSelectImageTapped(object sender, TappedRoutedEventArgs e)
     {
+        e.Handled = true;
         var picker = new FileOpenPicker();
         var hwnd = WindowNative.GetWindowHandle(App.GetMainWindow());
         InitializeWithWindow.Initialize(picker, hwnd);
@@ -36,38 +40,48 @@ public sealed partial class AddRadioPage : Page
         picker.FileTypeFilter.Add(".jpg");
         picker.FileTypeFilter.Add(".jpeg");
         picker.FileTypeFilter.Add(".webp");
-
         var file = await picker.PickSingleFileAsync();
         if (file != null)
         {
-            _selectedFile = file;
+            selectedFile = file;
 
             using var stream = await file.OpenAsync(FileAccessMode.Read);
-            var bitmap = new BitmapImage();
+            bitmap = new BitmapImage();
             await bitmap.SetSourceAsync(stream);
-            SelectedImage.Source = bitmap;
-            SelectedImage.Visibility = Visibility.Visible;
+
+            var image = SelectedImageButton.GetTemplateChild("SelectedImage") as Image;
+            if (image != null)
+            {
+                image.Source = bitmap;
+            }
         }
     }
 
-    private async Task SaveImageAsync()
+    private void OnSaveButtonTapped(object sender, TappedRoutedEventArgs e)
     {
-        if (_selectedFile != null)
+        e.Handled = true;
+        string url = UrlTextBox.Text;
+        string name = NameTextBox.Text;
+        string description = DescriptionTextBox.Text;
+        if (!string.IsNullOrWhiteSpace(url) && !string.IsNullOrWhiteSpace(url) && selectedFile != null)
         {
-            string folderName = "PtasieRadio";
-            var folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync(
-                folderName, CreationCollisionOption.OpenIfExists);
 
-            ApplicationData.Current.LocalSettings.Values["SavedImageFolder"] = folderName;
-
-            string fileName = "image.png";
-
-            var savedFile = await folder.CreateFileAsync(fileName, CreationCollisionOption.GenerateUniqueName);
-            await _selectedFile.CopyAndReplaceAsync(savedFile);
+            var viewModel = DataContext as AddRadioModel;
+            if (viewModel == null) return;
+            var data = new SaveEntryData
+            {
+                Url = url,
+                Name = name,
+                Description = description,
+                SelectedFile = selectedFile
+            };
+            viewModel.OnSaveToFileCommand.Execute(data);
         }
+
     }
 
-    private async Task LoadAllSavedImagesAsync()
+    //Funkcje przenieść do MainPage'a
+    /*private async Task LoadAllSavedImagesAsync()
     {
         var settings = ApplicationData.Current.LocalSettings;
 
@@ -76,55 +90,27 @@ public sealed partial class AddRadioPage : Page
             try
             {
                 var folder = await ApplicationData.Current.LocalFolder.GetFolderAsync(folderName);
-
                 var files = await folder.GetFilesAsync();
 
                 foreach (var file in files.Where(f => f.FileType == ".png" || f.FileType == ".jpg" || f.FileType == ".webp" || f.FileType == ".jpeg"))
                 {
                     using var stream = await file.OpenAsync(FileAccessMode.Read);
-
                     var bitmap = new BitmapImage();
                     await bitmap.SetSourceAsync(stream);
-
-                    LoadedImage.Source = bitmap;
+                    var image = SelectedImageButton.GetTemplateChild("SelectedImage") as Image;
+                    if (image != null)
+                    {
+                        image.Source = bitmap;
+                    }
                 }
             }
             catch (Exception ex)
             {
-
                 System.Diagnostics.Debug.WriteLine($"Błąd ładowania folderu: {ex.Message}");
             }
         }
     }
-
-    private async Task SaveRadio(object sender, TappedRoutedEventArgs e)
-    {
-        e.Handled = true;
-        await SaveImageAsync();
-    }
-    
-    
-    //To tutaj przerobić tak, by po wybraniu zdjęcia podmieniło odpowiednie na naszej stronie
-    /*private async Task LoadSavedImageAsync()
-    {
-        try
-        {
-            var localFolder = ApplicationData.Current.LocalFolder;
-            var customFolder = await localFolder.GetFolderAsync("PtasieRadio");
-            var savedFile = await customFolder.GetFileAsync("myimage.png");
-
-            using var stream = await savedFile.OpenAsync(FileAccessMode.Read);
-            var bitmap = new BitmapImage();
-            await bitmap.SetSourceAsync(stream);
-
-            LoadedImage.Source = bitmap;
-            LoadedImage.Visibility = Visibility.Visible;
-        }
-        catch (Exception ex)
-        {
-            System.Diagnostics.Debug.WriteLine($"Błąd wczytywania obrazu: {ex.Message}");
-        }
-    }*/
+    */
 }
 
 
