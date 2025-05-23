@@ -42,8 +42,7 @@ public class AddRadioService : IAddRadioService
             ApplicationData.Current.LocalSettings.Values["SavedImageFolder"] = folderName;
 
             var files = await folder.GetFilesAsync();
-            int i = 1;
-            foreach (var file in files.Where(f => f.FileType == ".png")) { i++; }//Zwiększamy i dla kolejnych plików
+            int i = await LoadFromJson();
 
             fileName = i + ".png";
             var savedFile = await folder.CreateFileAsync(fileName, CreationCollisionOption.GenerateUniqueName);
@@ -51,6 +50,33 @@ public class AddRadioService : IAddRadioService
 
             _ = SaveToJson(_navigator);
         }
+    }
+
+    public async Task<int> LoadFromJson()
+    {
+        var folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync(
+            folderName, CreationCollisionOption.OpenIfExists);
+        var localFileName = "radio.json";
+        Dictionary<string, SaveEntryData> entries;
+        int i = 1;
+        try
+        {
+            var file = await folder.GetFileAsync(localFileName);
+            string json = await FileIO.ReadTextAsync(file);
+            entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
+                      ?? new Dictionary<string, SaveEntryData>();
+        }
+        catch (FileNotFoundException)
+        {
+            entries = new Dictionary<string, SaveEntryData>();
+        }
+        foreach (var entry in entries)
+        {
+
+            if (entry.Key != i.ToString()) break;//Jeśli klucz jest wolny
+            else i++;
+        }
+        return i;   
     }
 
     public async Task SaveToJson(INavigator _navigator)
@@ -82,7 +108,7 @@ public class AddRadioService : IAddRadioService
         string index = fileName != null && fileName.Contains(".")
         ? fileName.Substring(0, fileName.IndexOf('.'))
         : fileName ?? "default_index";
-        System.Diagnostics.Debug.WriteLine($"Zapisano do jsona {fileName}");
+       
         entries[index] = entry;
         string json = JsonConvert.SerializeObject(entries, Formatting.Indented);
         file = await folder.CreateFileAsync(localFileName, CreationCollisionOption.ReplaceExisting);

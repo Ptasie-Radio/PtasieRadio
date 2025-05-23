@@ -483,7 +483,6 @@
                                     x:Name="WlasnePanel"
                                     Spacing="20"
                                     Padding="20,0,0,0">
-                            <!-- Karty stacji: Radio A do D -->
                             
                         </StackPanel>
                     </ScrollViewer>
