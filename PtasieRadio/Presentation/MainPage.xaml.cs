@@ -4,12 +4,14 @@ using System.IO;
 using System.Threading.Tasks;
 using NAudio.Wave;
 using Uno;
+using Newtonsoft.Json;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Animation;
 using Windows.Devices.Radios;
 using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Media.Imaging;
 
 
 namespace PtasieRadio.Presentation;
@@ -17,6 +19,9 @@ namespace PtasieRadio.Presentation;
 public sealed partial class MainPage : Page
 {
     private double pageAnimationTime;
+    private static string folderName = "PtasieRadio";
+
+    private StorageFolder? folder;
 
     public MainPage()
     {
@@ -24,6 +29,7 @@ public sealed partial class MainPage : Page
         this.pageAnimationTime = 0.4;
         this.InitializeComponent();
         this.SizeChanged += MainPage_SizeChanged;
+        _ = createOwnStationOnViewLoad();
 
     }
 
@@ -145,6 +151,114 @@ public sealed partial class MainPage : Page
 
         viewModel.Volume = e.NewValue;
     }
-    //TODO:
-    //Make readFromFile and launch it here
+
+    public async Task<Dictionary<string, SaveEntryData>> LoadFromJson()
+    {
+        folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync(
+            folderName, CreationCollisionOption.OpenIfExists);
+        var localFileName = "radio.json";
+        Dictionary<string, SaveEntryData> entries;
+
+        try
+        {
+            var file = await folder.GetFileAsync(localFileName);
+            string json = await FileIO.ReadTextAsync(file);
+            entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
+                      ?? new Dictionary<string, SaveEntryData>();
+        }
+        catch (FileNotFoundException)
+        {
+            entries = new Dictionary<string, SaveEntryData>();
+        }
+
+        return entries; 
+    }
+
+    private async Task createOwnStationOnViewLoad()
+    {
+        var entries = await LoadFromJson();
+        await addStation(entries);
+    }
+
+    private async Task addStation(Dictionary<string, SaveEntryData> entries)
+    {
+        if (folder == null) return;
+        var files = await folder.GetFilesAsync();
+        foreach (var entry in entries)
+        {
+            var file = files.FirstOrDefault(f => f.Name.Equals(entry.Key + ".png", StringComparison.OrdinalIgnoreCase));//Bierzemy zdjęcie z odpowiednim identyfikatorem
+            if (file == null) continue;//Jeśli nie ma takiego pliku z zdjęciem to pomija
+            using var stream = await file.OpenAsync(FileAccessMode.Read);
+            var bitmap = new BitmapImage();
+            await bitmap.SetSourceAsync(stream);
+
+
+            var image = new Image
+            {
+                Width = 120,
+                Height = 130,
+                Stretch = Stretch.Uniform,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+
+                Source = bitmap
+            };
+
+            var border = new Border
+            {
+                Width = 100,
+                Height = 100,
+                Background = new SolidColorBrush(Windows.UI.ColorHelper.FromArgb(255, 204, 204, 204)),
+                CornerRadius = new CornerRadius(20),
+                Child = image
+            };
+
+            var textBlock = new TextBlock
+            {
+                Text = entry.Value.Name,
+                TextAlignment = TextAlignment.Center,
+                FontSize = 12,
+                Foreground = new SolidColorBrush(Microsoft.UI.Colors.White)
+            };
+
+            var stationPanel = new StackPanel
+            {
+                Width = 100,
+                Background = new SolidColorBrush(Microsoft.UI.Colors.Transparent),
+                Spacing = 5,
+                Name = $"Stacja_{entry.Key}"
+            };
+
+            stationPanel.Tapped += OnPanelTapped;
+            stationPanel.Children.Add(border);
+            stationPanel.Children.Add(textBlock);
+            WlasnePanel.Children.Add(stationPanel);
+        }
+    }
+
+    private async void OnPanelTapped(object sender, TappedRoutedEventArgs e)
+    {
+        e.Handled = true;
+        if (sender is StackPanel panel)
+        {
+            string nazwa = panel.Name;
+            string index = nazwa != null && nazwa.Contains("_")
+            ? nazwa.Substring(nazwa.IndexOf('_') + 1)
+            : nazwa ?? "1";
+
+            var entries = await LoadFromJson();
+
+            if (entries.TryGetValue(index, out var entry))
+            {
+                var viewModel = DataContext as MainModel;
+                if (viewModel == null) return;
+                viewModel.ToggleChangeUrlCommand.Execute(entry.Url);//Tutaj
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine($"Nie udało się");
+            }
+        }  
+    }
+
 }

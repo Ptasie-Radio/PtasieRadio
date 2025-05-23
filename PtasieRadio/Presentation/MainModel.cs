@@ -8,6 +8,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.UI.Xaml.Data;
 
 namespace PtasieRadio.Presentation;
+
 [Bindable]
 
 public class MainModel : ObservableObject
@@ -16,8 +17,10 @@ public class MainModel : ObservableObject
     public IAsyncRelayCommand NavigateCommand { get; }//Tworzenie komendy nawigacyjnej
     public IAsyncRelayCommand PlayRadioCommand { get; }
     private readonly IRadioPlayerService _radioService;
+    private string? url;
 
     public IRelayCommand ToggleMuteCommand { get; }
+    public RelayCommand<string?> ToggleChangeUrlCommand { get; }
 
     private bool _isMuted;
     public bool IsMuted
@@ -46,10 +49,10 @@ public class MainModel : ObservableObject
                 _Volume = value;
                 _radioService.SetVolume(value);
 
-                if(IsMuted)
+                if (IsMuted)
                 {
                     IsMuted = false;
-                    _radioService.setIsMuted(IsMuted);//Używamy tego, aby przy zmianie dźwięku ustawić na Radiu że nie jest wyciszone
+                    _radioService.SetIsMuted(IsMuted);//Używamy tego, aby przy zmianie dźwięku ustawić na Radiu że nie jest wyciszone
                     OnPropertyChanged(nameof(MuteButtonImage));
                 }
             }
@@ -88,11 +91,16 @@ public class MainModel : ObservableObject
             INavigator navigator,
             IRadioPlayerService radioService)
     {
+
         _navigator = navigator;
         NavigateCommand = new AsyncRelayCommand(GoToSecond);
 
         _radioService = radioService;
+        url = _radioService.GetUrl();
+        if(url == null)url = "http://chi.cdn.eurozet.pl/chi-net.mp3";//Początkowa wartość url
+        
         ToggleMuteCommand = new RelayCommand(ToggleMute);
+        ToggleChangeUrlCommand = new RelayCommand<string?>(ToggleChangeUrl);
         PlayRadioCommand = new AsyncRelayCommand(PlayRadio);
         Title = "Main";
         Title += $" - {localizer["ApplicationName"]}";
@@ -109,9 +117,10 @@ public class MainModel : ObservableObject
         isPlaying = !isPlaying;
         OnPropertyChanged(nameof(PlayPauseButtonImage));
         OnPropertyChanged(nameof(MiniPlayPauseButtonImage));
-        string url = "http://chi.cdn.eurozet.pl/chi-net.mp3";//Później się to da jako zmienną
-        await _radioService.PlayOrPauseAsync(url);
-        if(IsMuted && !_radioService.GetIsMuted())//Nie jestem w 100% pewien czemu to działa, ale działa
+        if (url == null) url = "";
+        if (_radioService.GetUrl() == null) _radioService.SetUrl(url);
+        await _radioService.PlayOrPauseAsync();
+        if (IsMuted && !_radioService.GetIsMuted())
         {
             _radioService.ToggleMute();
         }
@@ -127,6 +136,20 @@ public class MainModel : ObservableObject
         IsMuted = !IsMuted;
         OnPropertyChanged(nameof(MuteButtonImage));
         _radioService.ToggleMute();
+    }
+
+    private void ToggleChangeUrl(string? url)
+    {
+        if (url == null) url = "";
+        this.url = url;
+        _radioService.Reset();
+        _radioService.SetUrl(url);
+        OnPropertyChanged(nameof(MuteButtonImage));
+        OnPropertyChanged(nameof(PlayPauseButtonImage));
+        OnPropertyChanged(nameof(MiniPlayPauseButtonImage));
+        IsMuted = _radioService.GetIsMuted();
+        isPlaying = _radioService.GetIsPlaying();
+        _Volume = _radioService.GetVolume();
     }
 
 }

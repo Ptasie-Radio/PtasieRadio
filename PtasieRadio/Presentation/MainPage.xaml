@@ -466,6 +466,28 @@
                             </StackPanel>
                         </StackPanel>
                     </ScrollViewer>
+                    
+                    <!--Własne-->
+                    <TextBlock Text="Własne"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Margin="0,20,0,10"/>
+                    <ScrollViewer x:Name="WlasneScroll"
+                                  HorizontalScrollBarVisibility="Hidden"
+                                  VerticalScrollBarVisibility="Disabled"
+                                  HorizontalScrollMode="Enabled"
+                                  VerticalScrollMode="Disabled"
+                                  ZoomMode="Disabled">
+                        <StackPanel Orientation="Horizontal"
+                                    x:Name="WlasnePanel"
+                                    Spacing="20"
+                                    Padding="20,0,0,0">
+                            <!-- Karty stacji: Radio A do D -->
+                            
+                        </StackPanel>
+                    </ScrollViewer>
+                    
                 </StackPanel>
             </ScrollViewer>
 

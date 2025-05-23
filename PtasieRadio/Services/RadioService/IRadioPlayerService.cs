@@ -4,12 +4,14 @@ public interface IRadioPlayerService
     bool IsMuted { get; }
     float Volume { get; }
 
-    Task PlayOrPauseAsync(string url);
+    Task PlayOrPauseAsync();
     Task StopAsync();
     void Reset();
     void SetVolume(double value);
     void ToggleMute();
-    void setIsMuted(bool muted);
+    void SetIsMuted(bool muted);
+    void SetUrl(string url);
+    string? GetUrl();
     bool GetIsMuted();
     bool GetIsPlaying();
     float GetVolume();

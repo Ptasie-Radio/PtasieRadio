@@ -80,37 +80,6 @@ public sealed partial class AddRadioPage : Page
 
     }
 
-    //Funkcje przenieść do MainPage'a
-    /*private async Task LoadAllSavedImagesAsync()
-    {
-        var settings = ApplicationData.Current.LocalSettings;
-
-        if (settings.Values.TryGetValue("SavedImageFolder", out var folderNameObj) && folderNameObj is string folderName)
-        {
-            try
-            {
-                var folder = await ApplicationData.Current.LocalFolder.GetFolderAsync(folderName);
-                var files = await folder.GetFilesAsync();
-
-                foreach (var file in files.Where(f => f.FileType == ".png" || f.FileType == ".jpg" || f.FileType == ".webp" || f.FileType == ".jpeg"))
-                {
-                    using var stream = await file.OpenAsync(FileAccessMode.Read);
-                    var bitmap = new BitmapImage();
-                    await bitmap.SetSourceAsync(stream);
-                    var image = SelectedImageButton.GetTemplateChild("SelectedImage") as Image;
-                    if (image != null)
-                    {
-                        image.Source = bitmap;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"Błąd ładowania folderu: {ex.Message}");
-            }
-        }
-    }
-    */
 }
 
 

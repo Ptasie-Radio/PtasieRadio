@@ -10,12 +10,13 @@ public class RadioPlayerService : IRadioPlayerService
     private bool isInitialized = false;
     private float currentVolume = 1.0f;
     private bool isMuted = false;
+    private string? url;
 
     public bool IsPlaying => isPlaying;
     public bool IsMuted => isMuted;
     public float Volume => currentVolume * 100f;
 
-    public async Task PlayOrPauseAsync(string url)
+    public async Task PlayOrPauseAsync()
     {
         await Task.Run(() =>
         {
@@ -28,11 +29,18 @@ public class RadioPlayerService : IRadioPlayerService
             {
                 if (!isInitialized)
                 {
-                    reader = new MediaFoundationReader(url);
-                    waveOut = new WaveOutEvent();
-                    waveOut.Init(reader);
-                    waveOut.Volume = isMuted ? 0 : currentVolume;
-                    isInitialized = true;
+                    try
+                    {
+                        reader = new MediaFoundationReader(url);
+                        waveOut = new WaveOutEvent();
+                        waveOut.Init(reader);
+                        waveOut.Volume = isMuted ? 0 : currentVolume;
+                        isInitialized = true;
+                    }
+                    catch (FileNotFoundException ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"{ex}");
+                    }
                 }
 
                 waveOut?.Play();
@@ -58,11 +66,9 @@ public class RadioPlayerService : IRadioPlayerService
 
         reader?.Dispose();
         reader = null;
-
         isPlaying = false;
         isInitialized = false;
-        isMuted = false;
-        currentVolume = 1.0f;
+
     }
 
     public void SetVolume(double volume)
@@ -83,8 +89,10 @@ public class RadioPlayerService : IRadioPlayerService
         }
     }
 
-    public void setIsMuted(bool muted){isMuted = muted;}
-    public bool GetIsMuted(){return IsMuted;}
-    public bool GetIsPlaying(){return IsPlaying;}
-    public float GetVolume(){return Volume;}
+    public void SetIsMuted(bool muted) { isMuted = muted; }
+    public bool GetIsMuted() { return IsMuted; }
+    public bool GetIsPlaying() { return IsPlaying; }
+    public float GetVolume() { return Volume; }
+    public string? GetUrl() { return url; }
+    public void SetUrl(string url) { this.url = url; }
 }
