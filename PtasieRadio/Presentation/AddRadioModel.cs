@@ -49,7 +49,7 @@ public class AddRadioModel : ObservableObject
         _addRadio.setName(name);
         _addRadio.setDescription(description);
         _addRadio.setSelectedFile(selectedFile);
-        await _addRadio.SaveImageToFile(_navigator);
+        await _addRadio.SaveToJson(_navigator);
     }
 
     public async Task GoToSecond()

@@ -15,8 +15,6 @@ public class AddRadioService : IAddRadioService
     private string url = "";
     private string name = "";
     private string description = "";
-
-    private string fileName = "";
     private static string folderName = "PtasieRadio";
 
     private StorageFile? selectedFile;
@@ -31,28 +29,8 @@ public class AddRadioService : IAddRadioService
     public void setDescription(string description) { this.description = description; }
 
     public void setSelectedFile(StorageFile selectedFile) { this.selectedFile = selectedFile; }
-    public async Task SaveImageToFile(INavigator _navigator)
-    {
-        if (selectedFile != null)
-        {
-            var folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync(
-                folderName, CreationCollisionOption.OpenIfExists);
-            var path = folder.Path;
-            System.Diagnostics.Process.Start("explorer.exe", path);
-            ApplicationData.Current.LocalSettings.Values["SavedImageFolder"] = folderName;
 
-            var files = await folder.GetFilesAsync();
-            int i = await LoadFromJson();
-
-            fileName = i + ".png";
-            var savedFile = await folder.CreateFileAsync(fileName, CreationCollisionOption.GenerateUniqueName);
-            await selectedFile.CopyAndReplaceAsync(savedFile);//Nadpisujemy plik naszymi danymi
-
-            _ = SaveToJson(_navigator);
-        }
-    }
-
-    public async Task<int> LoadFromJson()
+    public async Task<int> GetIndexFromJson()
     {
         var folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync(
             folderName, CreationCollisionOption.OpenIfExists);
@@ -70,11 +48,14 @@ public class AddRadioService : IAddRadioService
         {
             entries = new Dictionary<string, SaveEntryData>();
         }
-        foreach (var entry in entries)
+        while (true)
         {
-
-            if (entry.Key != i.ToString()) break;//Jeśli klucz jest wolny
-            else i++;
+            if (entries.ContainsKey(i.ToString()))
+            {
+                i++;
+                continue;
+            }
+            else break;
         }
         return i;   
     }
@@ -89,6 +70,8 @@ public class AddRadioService : IAddRadioService
         try
         {
             file = await folder.GetFileAsync(localFileName);
+            
+            System.Diagnostics.Process.Start("explorer.exe", file.Path);
             string existingJson = await FileIO.ReadTextAsync(file);
             entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(existingJson) ?? new Dictionary<string, SaveEntryData>();
         }
@@ -102,14 +85,13 @@ public class AddRadioService : IAddRadioService
             Url = url,
             Name = name,
             Description = description,
-            SelectedFile = selectedFile
+            SelectedFile = selectedFile,
+            PictureLocalization = selectedFile.Path
         };
 
-        string index = fileName != null && fileName.Contains(".")
-        ? fileName.Substring(0, fileName.IndexOf('.'))
-        : fileName ?? "default_index";
+        int index = await GetIndexFromJson();
        
-        entries[index] = entry;
+        entries[index.ToString()] = entry;
         string json = JsonConvert.SerializeObject(entries, Formatting.Indented);
         file = await folder.CreateFileAsync(localFileName, CreationCollisionOption.ReplaceExisting);
         await FileIO.WriteTextAsync(file, json);

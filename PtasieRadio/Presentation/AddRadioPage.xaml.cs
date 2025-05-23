@@ -73,7 +73,8 @@ public sealed partial class AddRadioPage : Page
                 Url = url,
                 Name = name,
                 Description = description,
-                SelectedFile = selectedFile
+                SelectedFile = selectedFile,
+                PictureLocalization = selectedFile.Path
             };
             viewModel.OnSaveToFileCommand.Execute(data);
         }

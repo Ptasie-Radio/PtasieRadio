@@ -186,11 +186,28 @@ public sealed partial class MainPage : Page
         var files = await folder.GetFilesAsync();
         foreach (var entry in entries)
         {
-            var file = files.FirstOrDefault(f => f.Name.Equals(entry.Key + ".png", StringComparison.OrdinalIgnoreCase));//Bierzemy zdjęcie z odpowiednim identyfikatorem
-            if (file == null) continue;//Jeśli nie ma takiego pliku z zdjęciem to pomija
-            using var stream = await file.OpenAsync(FileAccessMode.Read);
-            var bitmap = new BitmapImage();
-            await bitmap.SetSourceAsync(stream);
+            BitmapImage bitmap;
+            StorageFile file;
+
+            try
+            {
+                file = await StorageFile.GetFileFromPathAsync(entry.Value.PictureLocalization);
+            }
+            catch (FileNotFoundException)
+            {
+                file = null;
+            }
+            if (file != null)
+            {
+                using var stream = await file.OpenAsync(FileAccessMode.Read);
+                bitmap = new BitmapImage();
+                await bitmap.SetSourceAsync(stream);
+            }
+            else
+            {
+                bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
+            }
+
 
 
             var image = new Image
@@ -226,19 +243,20 @@ public sealed partial class MainPage : Page
                 Width = 100,
                 Background = new SolidColorBrush(Microsoft.UI.Colors.Transparent),
                 Spacing = 5,
-                Name = $"Stacja_{entry.Key}"
+                Name = $"Stacja_{entry.Key}",
+                ManipulationMode = ManipulationModes.TranslateX | ManipulationModes.System,
             };
 
-            stationPanel.Tapped += OnPanelTapped;
+            stationPanel.PointerReleased += OnPanelPointerReleased;
             stationPanel.Children.Add(border);
             stationPanel.Children.Add(textBlock);
             WlasnePanel.Children.Add(stationPanel);
         }
     }
 
-    private async void OnPanelTapped(object sender, TappedRoutedEventArgs e)
+    private async void OnPanelPointerReleased(object sender, PointerRoutedEventArgs e)
     {
-        e.Handled = true;
+        e.Handled = false;
         if (sender is StackPanel panel)
         {
             string nazwa = panel.Name;
