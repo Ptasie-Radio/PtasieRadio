@@ -70,11 +70,13 @@ public sealed partial class AddRadioPage : Page
             if (viewModel == null) return;
             var data = new SaveEntryData
             {
-                Url = url,
+                StreamUrl = url,
                 Name = name,
                 Description = description,
                 SelectedFile = selectedFile,
-                PictureLocalization = selectedFile.Path
+                ImagePath = selectedFile.Path,
+                Country = "Polska",
+                Category="Własne"
             };
             viewModel.OnSaveToFileCommand.Execute(data);
         }

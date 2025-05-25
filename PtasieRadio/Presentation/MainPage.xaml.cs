@@ -29,7 +29,7 @@ public sealed partial class MainPage : Page
         this.pageAnimationTime = 0.4;
         this.InitializeComponent();
         this.SizeChanged += MainPage_SizeChanged;
-        _ = createOwnStationOnViewLoad();
+        _ = CreateOwnStationOnViewLoad();
 
     }
 
@@ -174,7 +174,7 @@ public sealed partial class MainPage : Page
         return entries; 
     }
 
-    private async Task createOwnStationOnViewLoad()
+    private async Task CreateOwnStationOnViewLoad()
     {
         var entries = await LoadFromJson();
         await addStation(entries);
@@ -191,7 +191,7 @@ public sealed partial class MainPage : Page
 
             try
             {
-                file = await StorageFile.GetFileFromPathAsync(entry.Value.PictureLocalization);
+                file = await StorageFile.GetFileFromPathAsync(entry.Value.ImagePath);
             }
             catch (FileNotFoundException)
             {
@@ -208,8 +208,6 @@ public sealed partial class MainPage : Page
                 bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
             }
 
-
-
             var image = new Image
             {
                 Width = 120,
@@ -217,7 +215,6 @@ public sealed partial class MainPage : Page
                 Stretch = Stretch.Uniform,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
-
                 Source = bitmap
             };
 
@@ -270,7 +267,7 @@ public sealed partial class MainPage : Page
             {
                 var viewModel = DataContext as MainModel;
                 if (viewModel == null) return;
-                viewModel.ToggleChangeUrlCommand.Execute(entry.Url);//Tutaj
+                viewModel.ToggleChangeUrlCommand.Execute(entry.StreamUrl);
             }
             else
             {

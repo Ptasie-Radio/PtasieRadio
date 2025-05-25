@@ -32,7 +32,7 @@ public class AddRadioModel : ObservableObject
         OnSaveToFileCommand = new AsyncRelayCommand<SaveEntryData>(async (data) =>
         {
             if (data is null) return;
-            await OnSaveToFile(data.Url, data.Name, data.Description, data.SelectedFile, _navigator);
+            await OnSaveToFile(data.StreamUrl, data.Name, data.Description, data.SelectedFile, _navigator);
         });
         Title = "AddRadio";
         Title += $" - {localizer["ApplicationName"]}";

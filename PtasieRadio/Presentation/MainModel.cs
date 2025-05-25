@@ -86,18 +86,17 @@ public class MainModel : ObservableObject
 
 
     public MainModel(
-            IStringLocalizer localizer,
-            IOptions<AppConfig> appInfo,
-            INavigator navigator,
-            IRadioPlayerService radioService)
+        IStringLocalizer localizer,
+        IOptions<AppConfig> appInfo,
+        INavigator navigator,
+        IRadioPlayerService radioService)
     {
-
         _navigator = navigator;
         NavigateCommand = new AsyncRelayCommand(GoToSecond);
 
         _radioService = radioService;
         url = _radioService.GetUrl();
-        if(url == null)url = "http://chi.cdn.eurozet.pl/chi-net.mp3";//Początkowa wartość url. Możemy zrobić że minipage się wyświetla na dole dopiero po wybraniu radia (Problemem może być to tylko wtedy, gdy żadnego radia nie będzie do wyboru)
+        if(url == null)url = "http://chi.cdn.eurozet.pl/chi-net.mp3";
         
         ToggleMuteCommand = new RelayCommand(ToggleMute);
         ToggleChangeUrlCommand = new RelayCommand<string?>(ToggleChangeUrl);

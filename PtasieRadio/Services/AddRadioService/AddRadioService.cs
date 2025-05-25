@@ -82,11 +82,13 @@ public class AddRadioService : IAddRadioService
         if (selectedFile == null) return;
         var entry = new SaveEntryData
         {
-            Url = url,
+            StreamUrl = url,
             Name = name,
             Description = description,
             SelectedFile = selectedFile,
-            PictureLocalization = selectedFile.Path
+            ImagePath = selectedFile.Path,
+            Country = "Polska",
+            Category="Własne"
         };
 
         int index = await GetIndexFromJson();
