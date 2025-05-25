@@ -152,35 +152,44 @@ public sealed partial class MainPage : Page
         viewModel.Volume = e.NewValue;
     }
 
-    public async Task<Dictionary<string, SaveEntryData>> LoadFromJson()
+    public async Task<Dictionary<string, SaveEntryData>> LoadFromJson(string text="")
     {
         folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync(
             folderName, CreationCollisionOption.OpenIfExists);
         var localFileName = "radio.json";
         Dictionary<string, SaveEntryData> entries;
-
+        Dictionary<string, SaveEntryData> filteredEntries;
         try
         {
+
             var file = await folder.GetFileAsync(localFileName);
             string json = await FileIO.ReadTextAsync(file);
             entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
                       ?? new Dictionary<string, SaveEntryData>();
+            if (text != "") filteredEntries = entries.Where(kv => kv.Value.Category == text).ToDictionary(kv => kv.Key, kv => kv.Value);
+            else filteredEntries = entries;
         }
         catch (FileNotFoundException)
         {
-            entries = new Dictionary<string, SaveEntryData>();
+            filteredEntries = new Dictionary<string, SaveEntryData>();
         }
 
-        return entries; 
+        return filteredEntries; 
     }
 
     private async Task CreateOwnStationOnViewLoad()
     {
-        var entries = await LoadFromJson();
-        await addStation(entries);
+        var x = new List<string> { "POP", "NO", "Własne"};
+        int j = 0;
+        foreach (StackPanel i in new List<StackPanel> {NajczesciejGranePanel, PopularnePanel, WlasnePanel})
+        {
+            var entries = await LoadFromJson(x[j]);
+            await AddStation(entries, i);
+            j++;
+        }
     }
 
-    private async Task addStation(Dictionary<string, SaveEntryData> entries)
+    private async Task AddStation(Dictionary<string, SaveEntryData> entries, StackPanel category)
     {
         if (folder == null) return;
         var files = await folder.GetFilesAsync();
@@ -247,7 +256,7 @@ public sealed partial class MainPage : Page
             stationPanel.PointerReleased += OnPanelPointerReleased;
             stationPanel.Children.Add(border);
             stationPanel.Children.Add(textBlock);
-            WlasnePanel.Children.Add(stationPanel);
+            category.Children.Add(stationPanel);
         }
     }
 

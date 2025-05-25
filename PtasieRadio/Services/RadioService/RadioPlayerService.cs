@@ -31,6 +31,7 @@ public class RadioPlayerService : IRadioPlayerService
                 {
                     try
                     {
+
                         reader = new MediaFoundationReader(url);
                         waveOut = new WaveOutEvent();
                         waveOut.Init(reader);
@@ -40,6 +41,10 @@ public class RadioPlayerService : IRadioPlayerService
                     catch (FileNotFoundException ex)
                     {
                         System.Diagnostics.Debug.WriteLine($"{ex}");
+                    }
+                    catch (System.Runtime.InteropServices.COMException ex)
+                    {
+                         System.Diagnostics.Debug.WriteLine($"Error:{ex}");
                     }
                 }
 
