@@ -7800,34 +7800,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kornel\\.nuget\\packages\\": {}
+    "C:\\Users\\Fabian\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> SCRUM-34-responsywnosc-play-pagea
-      "projectUniqueName": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
+      "projectUniqueName": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
       "projectName": "PtasieRadio.Tests",
-      "projectPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
-      "packagesPath": "C:\\Users\\Kornel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\obj\\",
-<<<<<<< HEAD
-=======
-      "projectUniqueName": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
-      "projectName": "PtasieRadio.Tests",
-      "projectPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
+      "projectPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
       "packagesPath": "C:\\Users\\Fabian\\.nuget\\packages\\",
-      "outputPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio.Tests\\obj\\",
->>>>>>> origin/Mini_lista
-=======
->>>>>>> SCRUM-34-responsywnosc-play-pagea
+      "outputPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "centralPackageVersionsManagementEnabled": true,
       "configFilePaths": [
-        "C:\\Users\\Kornel\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Fabian\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -7840,18 +7826,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
-              "projectPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj"
-=======
-            "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio\\PtasieRadio.csproj": {
-              "projectPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio\\PtasieRadio.csproj"
->>>>>>> origin/Mini_lista
-=======
-            "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
-              "projectPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj"
->>>>>>> SCRUM-34-responsywnosc-play-pagea
+            "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
+              "projectPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj"
             }
           }
         }
@@ -7935,15 +7911,15 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.15, 8.0.15]"
+            "version": "[8.0.13, 8.0.13]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.15, 8.0.15]"
+            "version": "[8.0.13, 8.0.13]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[8.0.15, 8.0.15]"
+            "version": "[8.0.13, 8.0.13]"
           }
         ],
         "frameworkReferences": {
@@ -7951,7 +7927,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
@@ -7960,13 +7936,13 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Wystąpił problem podczas czytania pliku pamięci podręcznej C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+      "message": "Problem reading the cache file D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.Tests\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
     },
     {
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Pakiet „AudioSwitcher.AudioApi 3.0.0” został przywrócony przy użyciu elementu „.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1” zamiast platformy docelowej projektu „net8.0”. Ten pakiet może nie być w pełni kompatybilny z Twoim projektem.",
+      "message": "Package 'AudioSwitcher.AudioApi 3.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
       "libraryId": "AudioSwitcher.AudioApi",
       "targetGraphs": [
         "net8.0"
@@ -7976,7 +7952,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Pakiet „AudioSwitcher.AudioApi.CoreAudio 3.0.3” został przywrócony przy użyciu elementu „.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1” zamiast platformy docelowej projektu „net8.0”. Ten pakiet może nie być w pełni kompatybilny z Twoim projektem.",
+      "message": "Package 'AudioSwitcher.AudioApi.CoreAudio 3.0.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
       "libraryId": "AudioSwitcher.AudioApi.CoreAudio",
       "targetGraphs": [
         "net8.0"

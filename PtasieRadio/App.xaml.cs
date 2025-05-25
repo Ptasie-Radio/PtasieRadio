@@ -1,5 +1,6 @@
 using Uno.Resizetizer;
-
+using PtasieRadio.Services.RadioService;
+using PtasieRadio.Services.AddRadioService;
 namespace PtasieRadio;
 
 public partial class App : Application
@@ -13,8 +14,8 @@ public partial class App : Application
         this.InitializeComponent();
     }
 
-    protected Window? MainWindow { get; private set; }
-    protected IHost? Host { get; private set; }
+    protected static Window? MainWindow { get; private set; }
+    public IHost? Host { get; private set; }
 
     protected async override void OnLaunched(LaunchActivatedEventArgs args)
     {
@@ -77,8 +78,8 @@ public partial class App : Application
                     .AddRefitClient<IApiClient>(context))
                 .ConfigureServices((context, services) =>
                 {
-                    // TODO: Register your services
-                    //services.AddSingleton<IMyService, MyService>();
+                    services.AddSingleton<IRadioPlayerService, RadioPlayerService>();
+                    services.AddSingleton<IAddRadioService, AddRadioService>();
                 })
                 .UseNavigation(ReactiveViewModelMappings.ViewModelMappings, RegisterRoutes)
             );
@@ -97,7 +98,8 @@ public partial class App : Application
         views.Register(
             new ViewMap(ViewModel: typeof(ShellModel)),
             new ViewMap<MainPage, MainModel>(),
-            new DataViewMap<SecondPage, SecondModel, Entity>()
+            new ViewMap<SecondPage, SecondModel>(),
+            new ViewMap<AddRadioPage, AddRadioModel>()
         );
 
         routes.Register(
@@ -106,8 +108,10 @@ public partial class App : Application
                 [
                     new ("Main", View: views.FindByViewModel<MainModel>(), IsDefault:true),
                     new ("Second", View: views.FindByViewModel<SecondModel>()),
+                    new ("AddRadio", View: views.FindByViewModel<AddRadioModel>()),
                 ]
             )
         );
     }
+    public static Window? GetMainWindow(){return MainWindow;}
 }

@@ -90,6 +90,11 @@
               "version": "[2.1.0, )",
               "versionCentrallyManaged": true
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )",
+              "versionCentrallyManaged": true
+            },
             "SkiaSharp.Skottie": {
               "target": "Package",
               "version": "[2.88.9, )",
@@ -175,11 +180,6 @@
               "version": "[5.4.0, )",
               "autoReferenced": true
             },
-            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": {
-              "target": "Package",
-              "version": "[2.4.2, )",
-              "versionCentrallyManaged": true
-            },
             "Uno.Resizetizer": {
               "suppressParent": "All",
               "target": "Package",
@@ -244,8 +244,7 @@
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
-            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.4.2",
-            "Uno.Toolkit": "7.0.2",
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.3.0",
             "Uno.UITest.Helpers": "1.1.0-dev.70",
             "Xamarin.UITest": "4.3.4"
           },
@@ -303,6 +302,11 @@
             "NAudio": {
               "target": "Package",
               "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )",
               "versionCentrallyManaged": true
             },
             "SkiaSharp.Skottie": {
@@ -394,11 +398,6 @@
               "target": "Package",
               "version": "[5.4.0, )",
               "autoReferenced": true
-            },
-            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": {
-              "target": "Package",
-              "version": "[2.4.2, )",
-              "versionCentrallyManaged": true
             },
             "Uno.Resizetizer": {
               "suppressParent": "All",
@@ -504,8 +503,7 @@
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
-            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.4.2",
-            "Uno.Toolkit": "7.0.2",
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.3.0",
             "Uno.UITest.Helpers": "1.1.0-dev.70",
             "Xamarin.UITest": "4.3.4"
           },
@@ -571,6 +569,11 @@
             "NAudio": {
               "target": "Package",
               "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )",
               "versionCentrallyManaged": true
             },
             "Uno.Dsp.Tasks": {
@@ -658,11 +661,6 @@
               "version": "[5.4.0, )",
               "autoReferenced": true
             },
-            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": {
-              "target": "Package",
-              "version": "[2.4.2, )",
-              "versionCentrallyManaged": true
-            },
             "Uno.Resizetizer": {
               "suppressParent": "All",
               "target": "Package",
@@ -747,8 +745,7 @@
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
-            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.4.2",
-            "Uno.Toolkit": "7.0.2",
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.3.0",
             "Uno.UITest.Helpers": "1.1.0-dev.70",
             "Xamarin.UITest": "4.3.4"
           },
@@ -804,6 +801,11 @@
             "NAudio": {
               "target": "Package",
               "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )",
               "versionCentrallyManaged": true
             },
             "SkiaSharp.Skottie": {
@@ -895,11 +897,6 @@
               "target": "Package",
               "version": "[5.4.0, )",
               "autoReferenced": true
-            },
-            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": {
-              "target": "Package",
-              "version": "[2.4.2, )",
-              "versionCentrallyManaged": true
             },
             "Uno.Resizetizer": {
               "suppressParent": "All",
@@ -990,8 +987,7 @@
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
-            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.4.2",
-            "Uno.Toolkit": "7.0.2",
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.3.0",
             "Uno.UITest.Helpers": "1.1.0-dev.70",
             "Xamarin.UITest": "4.3.4"
           },
@@ -1053,6 +1049,11 @@
             "NAudio": {
               "target": "Package",
               "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )",
               "versionCentrallyManaged": true
             },
             "SkiaSharp.Skottie": {
@@ -1150,11 +1151,6 @@
               "version": "[5.4.0, )",
               "autoReferenced": true
             },
-            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": {
-              "target": "Package",
-              "version": "[2.4.2, )",
-              "versionCentrallyManaged": true
-            },
             "Uno.Resizetizer": {
               "suppressParent": "All",
               "target": "Package",
@@ -1219,8 +1215,7 @@
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
-            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.4.2",
-            "Uno.Toolkit": "7.0.2",
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.3.0",
             "Uno.UITest.Helpers": "1.1.0-dev.70",
             "Xamarin.UITest": "4.3.4"
           },
@@ -1291,6 +1286,11 @@
               "version": "[2.1.0, )",
               "versionCentrallyManaged": true
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )",
+              "versionCentrallyManaged": true
+            },
             "SkiaSharp.Skottie": {
               "target": "Package",
               "version": "[2.88.9, )",
@@ -1386,11 +1386,6 @@
               "version": "[5.4.0, )",
               "autoReferenced": true
             },
-            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": {
-              "target": "Package",
-              "version": "[2.4.2, )",
-              "versionCentrallyManaged": true
-            },
             "Uno.Resizetizer": {
               "suppressParent": "All",
               "target": "Package",
@@ -1455,8 +1450,7 @@
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
-            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.4.2",
-            "Uno.Toolkit": "7.0.2",
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.3.0",
             "Uno.UITest.Helpers": "1.1.0-dev.70",
             "Xamarin.UITest": "4.3.4"
           },

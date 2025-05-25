@@ -4,32 +4,33 @@ using System.IO;
 using System.Threading.Tasks;
 using NAudio.Wave;
 using Uno;
+using Newtonsoft.Json;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Animation;
 using Windows.Devices.Radios;
 using Microsoft.UI.Xaml.Controls.Primitives;
+using Microsoft.UI.Xaml.Media.Imaging;
+
 
 namespace PtasieRadio.Presentation;
 
 public sealed partial class MainPage : Page
 {
-
-    private bool start;
-    private bool test;
-    private bool muted;
     private double pageAnimationTime;
-    private WaveOutEvent? waveOut;//Znak zapytania, aby warning nie dawało
-    private MediaFoundationReader? reader;
+    private static string folderName = "PtasieRadio";
+
+    private StorageFolder? folder;
+
     public MainPage()
-    {  
-        this.start = false;
-        this.muted = false;
+    {
+
         this.pageAnimationTime = 0.4;
-        this.test = true;//Zmienna test na czas pierwszego i drugiego sprinta. Zmienić później na przycisk zmieniający radia
         this.InitializeComponent();
-        this.SizeChanged += MainPage_SizeChanged; // element wymagany do debugowania rozmiaru okna
+        this.SizeChanged += MainPage_SizeChanged;
+        _ = CreateOwnStationOnViewLoad();
+
     }
 
     private void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -52,11 +53,12 @@ public sealed partial class MainPage : Page
         System.Diagnostics.Debug.WriteLine($"Width: {this.ActualWidth}, Height: {this.ActualHeight}, Slider {sliderHeight}");
     }
 
+
     private void ArrowTapped(object s, TappedRoutedEventArgs e)
     {
         e.Handled = true;
 
-        if(Microsoft.UI.Xaml.Window.Current == null)return;//Musi tak być, inaczej warning
+        if (Microsoft.UI.Xaml.Window.Current == null) return;//Musi tak być, inaczej warning
         double windowHeight = Microsoft.UI.Xaml.Window.Current.Bounds.Height;
 
         double time = pageAnimationTime;
@@ -86,13 +88,18 @@ public sealed partial class MainPage : Page
         storyboard.Begin();
     }
 
+    private void RackTappedEvent(object sender, TappedRoutedEventArgs e)
+    {
+        e.Handled = true;
+    }
+
     private void MiniPlayerTapped(object sender, TappedRoutedEventArgs e)
     {
         e.Handled = true;
 
         RadioOverlay.Visibility = Visibility.Visible;
 
-        if(Microsoft.UI.Xaml.Window.Current == null)return;//Musi tak być, inaczej warning
+        if (Microsoft.UI.Xaml.Window.Current == null) return;//Musi tak być, inaczej warning
         double windowHeight = Microsoft.UI.Xaml.Window.Current.Bounds.Height;
         double time = pageAnimationTime;
 
@@ -125,102 +132,157 @@ public sealed partial class MainPage : Page
         e.Handled = true;
     }
 
-    public async Task StopAudioAsync()
+    private void PlayPauseButtonTappedEvent(object sender, TappedRoutedEventArgs e)
     {
-        await Task.Run(() =>
-        {
-            waveOut?.Stop();
-        });
-    }
-    private async void PlayPauseButtonTappedEvent(object sender, TappedRoutedEventArgs e)
-    {
-        
-        e.Handled=true;
-
-        if(sender is not Button playButton){return;}
-        playButton.IsEnabled = false;
-        //string url = "https://playerservices.streamtheworld.com/api/livestream-redirect/WUAL_HD3.mp3";
-        string url = "http://chi.cdn.eurozet.pl/chi-net.mp3";
-        try
-        {
-            //Tutaj bierze zatrzymuje jeśli coś już nam gra, inaczej się psuło
-          
-            if(start == true) 
-            {
-                //Zmieniamy obydwa przyciski, bo użyszkodnik może powiększyć w trakcie playu
-                PlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/play_round.png"));
-                MiniPlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/mini_play.png"));
-                await StopAudioAsync();
-                start = false;
-            }
-            else
-            {
-                //Zmieniamy obydwa przyciski, bo użyszkodnik może powiększyć w trakcie pauzy
-                PlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/pause_round.png"));
-                MiniPlayButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/mini_pause.png"));
-                await Task.Run(
-                () =>
-                {
-                    //waveOut?.Dispose();//Przy dodaniu startowania z innych, umieścić to tam
-                    //reader?.Dispose();//To też. Na razie przy jednym nie potrzeba, ale przy więcej dodać
-                   
-                    if(test || waveOut == null || reader == null)//To trzeba dać do przycisku zmieniającego radia
-                    {
-                        reader = new MediaFoundationReader(url);
-                        waveOut = new WaveOutEvent();
-                        waveOut.Init(reader);
-                        test = false;
-                    }
-                   
-                    waveOut?.Play();
-                    start = true;
-                });
-               
-            }
-           
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Błąd odtwarzania: {ex.Message}");
-        }
-        finally
-        {
-            playButton.IsEnabled = true;
-        }
+        e.Handled = true;
     }
 
     private void HeartButtonTappedEvent(object sender, TappedRoutedEventArgs e)
     {
-        e.Handled=true;
+        e.Handled = true;
     }
 
     private void OnSoundLevelSliderValueChanged(object sender, RangeBaseValueChangedEventArgs e)
     {
-        if (this.waveOut is not null)
-        {
-            this.waveOut.Volume = (float)(e.NewValue / 100);
-			MuteUnmuteButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/speaker_round.png"));
-			this.muted = false;
-		}
-            
-	}
 
-    private void OnMuteUnmuteButtonClick(object sender, TappedRoutedEventArgs e)
-    { 
-        if (this.waveOut is not null)
+        var viewModel = DataContext as MainModel;
+
+        if (viewModel == null) return;
+
+        viewModel.Volume = e.NewValue;
+    }
+
+    public async Task<Dictionary<string, SaveEntryData>> LoadFromJson(string text="")
+    {
+        folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync(
+            folderName, CreationCollisionOption.OpenIfExists);
+        var localFileName = "radio.json";
+        Dictionary<string, SaveEntryData> entries;
+        Dictionary<string, SaveEntryData> filteredEntries;
+        try
         {
-            if (this.muted == false)
+
+            var file = await folder.GetFileAsync(localFileName);
+            string json = await FileIO.ReadTextAsync(file);
+            entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
+                      ?? new Dictionary<string, SaveEntryData>();
+            if (text != "") filteredEntries = entries.Where(kv => kv.Value.Category == text).ToDictionary(kv => kv.Key, kv => kv.Value);
+            else filteredEntries = entries;
+        }
+        catch (FileNotFoundException)
+        {
+            filteredEntries = new Dictionary<string, SaveEntryData>();
+        }
+
+        return filteredEntries; 
+    }
+
+    private async Task CreateOwnStationOnViewLoad()
+    {
+        var x = new List<string> { "POP", "NO", "Własne"};
+        int j = 0;
+        foreach (StackPanel i in new List<StackPanel> {NajczesciejGranePanel, PopularnePanel, WlasnePanel})
+        {
+            var entries = await LoadFromJson(x[j]);
+            await AddStation(entries, i);
+            j++;
+        }
+    }
+
+    private async Task AddStation(Dictionary<string, SaveEntryData> entries, StackPanel category)
+    {
+        if (folder == null) return;
+        var files = await folder.GetFilesAsync();
+        foreach (var entry in entries)
+        {
+            BitmapImage bitmap;
+            StorageFile file;
+
+            try
             {
-                this.waveOut.Volume = 0;
-			    MuteUnmuteButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/speaker_muted_round.png"));
-                this.muted = true;
+                file = await StorageFile.GetFileFromPathAsync(entry.Value.ImagePath);
+            }
+            catch (FileNotFoundException)
+            {
+                file = null;
+            }
+            if (file != null)
+            {
+                using var stream = await file.OpenAsync(FileAccessMode.Read);
+                bitmap = new BitmapImage();
+                await bitmap.SetSourceAsync(stream);
             }
             else
             {
-                this.waveOut.Volume = (float)(SoundLevelSlider.Value / 100);
-				MuteUnmuteButtonImage.Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/Images/speaker_round.png"));
-				this.muted = false;
-			}
-	    }
+                bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
+            }
+
+            var image = new Image
+            {
+                Width = 120,
+                Height = 130,
+                Stretch = Stretch.Uniform,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                Source = bitmap
+            };
+
+            var border = new Border
+            {
+                Width = 100,
+                Height = 100,
+                Background = new SolidColorBrush(Windows.UI.ColorHelper.FromArgb(255, 204, 204, 204)),
+                CornerRadius = new CornerRadius(20),
+                Child = image
+            };
+
+            var textBlock = new TextBlock
+            {
+                Text = entry.Value.Name,
+                TextAlignment = TextAlignment.Center,
+                FontSize = 12,
+                Foreground = new SolidColorBrush(Microsoft.UI.Colors.White)
+            };
+
+            var stationPanel = new StackPanel
+            {
+                Width = 100,
+                Background = new SolidColorBrush(Microsoft.UI.Colors.Transparent),
+                Spacing = 5,
+                Name = $"Stacja_{entry.Key}",
+                ManipulationMode = ManipulationModes.TranslateX | ManipulationModes.System,
+            };
+
+            stationPanel.PointerReleased += OnPanelPointerReleased;
+            stationPanel.Children.Add(border);
+            stationPanel.Children.Add(textBlock);
+            category.Children.Add(stationPanel);
+        }
     }
+
+    private async void OnPanelPointerReleased(object sender, PointerRoutedEventArgs e)
+    {
+        e.Handled = false;
+        if (sender is StackPanel panel)
+        {
+            string nazwa = panel.Name;
+            string index = nazwa != null && nazwa.Contains("_")
+            ? nazwa.Substring(nazwa.IndexOf('_') + 1)
+            : nazwa ?? "1";
+
+            var entries = await LoadFromJson();
+
+            if (entries.TryGetValue(index, out var entry))
+            {
+                var viewModel = DataContext as MainModel;
+                if (viewModel == null) return;
+                viewModel.ToggleChangeUrlCommand.Execute(entry.StreamUrl);
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine($"Nie udało się");
+            }
+        }  
+    }
+
 }

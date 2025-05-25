@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ceI3NBTraVQ=",
+  "dgSpecHash": "lUEK+RLTjck=",
   "success": true,
   "projectFilePath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj",
   "expectedPackageFiles": [
@@ -174,8 +174,6 @@
     "C:\\Users\\Kornel\\.nuget\\packages\\uno.foundation.logging\\5.6.81\\uno.foundation.logging.5.6.81.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\uno.foundation.runtime.webassembly\\5.6.81\\uno.foundation.runtime.webassembly.5.6.81.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\uno.material.winui\\5.4.0\\uno.material.winui.5.4.0.nupkg.sha512",
-    "C:\\Users\\Kornel\\.nuget\\packages\\uno.microsoft.xaml.behaviors.interactivity.winui\\2.4.2\\uno.microsoft.xaml.behaviors.interactivity.winui.2.4.2.nupkg.sha512",
-    "C:\\Users\\Kornel\\.nuget\\packages\\uno.microsoft.xaml.behaviors.winui.managed\\2.4.2\\uno.microsoft.xaml.behaviors.winui.managed.2.4.2.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\uno.resizetizer\\1.7.0\\uno.resizetizer.1.7.0.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\uno.sdk.extras\\5.6.3\\uno.sdk.extras.5.6.3.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\uno.settings.devserver\\1.2.18\\uno.settings.devserver.1.2.18.nupkg.sha512",
@@ -300,6 +298,12 @@
     "C:\\Users\\Kornel\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.15\\microsoft.aspnetcore.app.ref.8.0.15.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1701",
       "level": "Warning",
