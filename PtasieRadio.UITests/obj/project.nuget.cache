@@ -1,8 +1,20 @@
 {
   "version": 2,
-  "dgSpecHash": "MUcI4D6hjgs=",
+<<<<<<< HEAD
+<<<<<<< HEAD
+  "dgSpecHash": "y9RHzPaVaJk=",
   "success": true,
   "projectFilePath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj",
+=======
+  "dgSpecHash": "TTARi5vOvsg=",
+  "success": true,
+  "projectFilePath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj",
+>>>>>>> origin/Mini_lista
+=======
+  "dgSpecHash": "y9RHzPaVaJk=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj",
+>>>>>>> SCRUM-34-responsywnosc-play-pagea
   "expectedPackageFiles": [
     "C:\\Users\\Kornel\\.nuget\\packages\\docopt.net\\0.8.1\\docopt.net.0.8.1.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\fluentassertions\\6.12.0\\fluentassertions.6.12.0.nupkg.sha512",
@@ -83,14 +95,17 @@
     "C:\\Users\\Kornel\\.nuget\\packages\\uno.uitest.helpers\\1.1.0-dev.70\\uno.uitest.helpers.1.1.0-dev.70.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\uno.uitest.selenium\\1.1.0-dev.70\\uno.uitest.selenium.1.1.0-dev.70.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\uno.uitest.xamarin\\1.1.0-dev.70\\uno.uitest.xamarin.1.1.0-dev.70.nupkg.sha512",
-    "C:\\Users\\Kornel\\.nuget\\packages\\xamarin.uitest\\4.3.4\\xamarin.uitest.4.3.4.nupkg.sha512"
+    "C:\\Users\\Kornel\\.nuget\\packages\\xamarin.uitest\\4.3.4\\xamarin.uitest.4.3.4.nupkg.sha512",
+    "C:\\Users\\Kornel\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.15\\microsoft.netcore.app.ref.8.0.15.nupkg.sha512",
+    "C:\\Users\\Kornel\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.15\\microsoft.windowsdesktop.app.ref.8.0.15.nupkg.sha512",
+    "C:\\Users\\Kornel\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.15\\microsoft.aspnetcore.app.ref.8.0.15.nupkg.sha512"
   ],
   "logs": [
     {
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.UITests\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+      "message": "Wystąpił problem podczas czytania pliku pamięci podręcznej C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.UITests\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
     }
   ]
 }

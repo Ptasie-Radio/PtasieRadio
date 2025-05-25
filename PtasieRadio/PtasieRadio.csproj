@@ -1,6 +1,7 @@
-<Project Sdk="Uno.Sdk">
+﻿<Project Sdk="Uno.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst;net8.0-windows10.0.26100;net8.0-browserwasm;net8.0-desktop;net8.0</TargetFrameworks>
+    <TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst;net8.0-browserwasm;net8.0-desktop;net8.0</TargetFrameworks>
+    <!--<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst;net8.0-windows10.0.26100;net8.0-browserwasm;net8.0-desktop;net8.0</TargetFrameworks>-->
 
     <OutputType>Exe</OutputType>
     <UnoSingleProject>true</UnoSingleProject>
@@ -54,7 +55,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AudioSwitcher.AudioApi.CoreAudio" />
     <PackageReference Include="NAudio" />
+    <PackageReference Include="Uno.Microsoft.Xaml.Behaviors.WinUI.Managed" />
   </ItemGroup>
 
 </Project>

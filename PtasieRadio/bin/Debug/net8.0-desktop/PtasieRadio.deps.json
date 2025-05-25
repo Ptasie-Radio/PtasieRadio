@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "PtasieRadio/1.0": {
         "dependencies": {
+          "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
           "Microsoft.Extensions.Logging.Console": "8.0.1",
           "NAudio": "2.1.0",
           "SkiaSharp.Skottie": "2.88.9",
@@ -28,6 +29,7 @@
           "Uno.Extensions.Serialization.Refit": "5.2.7",
           "Uno.Fonts.OpenSans": "2.5.0",
           "Uno.Material.WinUI": "5.4.0",
+          "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.4.2",
           "Uno.Resizetizer": "1.7.0",
           "Uno.Sdk.Extras": "5.6.3",
           "Uno.Settings.DevServer": "1.2.18",
@@ -46,6 +48,25 @@
         },
         "runtime": {
           "PtasieRadio.dll": {}
+        }
+      },
+      "AudioSwitcher.AudioApi/3.0.0": {
+        "runtime": {
+          "lib/net40/AudioSwitcher.AudioApi.dll": {
+            "assemblyVersion": "3.0.0.209",
+            "fileVersion": "3.0.0.256"
+          }
+        }
+      },
+      "AudioSwitcher.AudioApi.CoreAudio/3.0.3": {
+        "dependencies": {
+          "AudioSwitcher.AudioApi": "3.0.0"
+        },
+        "runtime": {
+          "lib/net452/AudioSwitcher.AudioApi.CoreAudio.dll": {
+            "assemblyVersion": "3.0.0.209",
+            "fileVersion": "3.0.3.420"
+          }
         }
       },
       "CommonServiceLocator/2.0.5": {
@@ -1421,6 +1442,29 @@
           }
         }
       },
+      "Uno.Microsoft.Xaml.Behaviors.Interactivity.WinUI/2.4.2": {
+        "dependencies": {
+          "Uno.WinUI": "5.6.81"
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.Xaml.Interactivity.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed/2.4.2": {
+        "dependencies": {
+          "Uno.Microsoft.Xaml.Behaviors.Interactivity.WinUI": "2.4.2",
+          "Uno.WinUI": "5.6.81"
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.Xaml.Interactions.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Uno.Resizetizer/1.7.0": {},
       "Uno.Sdk.Extras/5.6.3": {},
       "Uno.Settings.DevServer/1.2.18": {
@@ -1768,6 +1812,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AudioSwitcher.AudioApi/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AiYO8fCawsu/v6rZgDWta55GYzh9vs/FocW9xKhEGF3xsUJIgPaVsWeeBwoexMttueW6E8RS0Vp0o8w8dodjyQ==",
+      "path": "audioswitcher.audioapi/3.0.0",
+      "hashPath": "audioswitcher.audioapi.3.0.0.nupkg.sha512"
+    },
+    "AudioSwitcher.AudioApi.CoreAudio/3.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-O0XrFLuND0Ti/UmW24PvX36Tfhify6jOBpuIKw0wmWemzKQ6fS1uH36a+bNRny9LdqPGIQnFfDyieLo1otb/Lw==",
+      "path": "audioswitcher.audioapi.coreaudio/3.0.3",
+      "hashPath": "audioswitcher.audioapi.coreaudio.3.0.3.nupkg.sha512"
     },
     "CommonServiceLocator/2.0.5": {
       "type": "package",
@@ -2496,6 +2554,20 @@
       "sha512": "sha512-03hEXXLohT760RnUS6uHutiObzGiI84XrRo5dX5AVL9uL0tTIV9M4vit+1/5OikVUSoLfR/+Zxh8vdb9jlZyPQ==",
       "path": "uno.material.winui/5.4.0",
       "hashPath": "uno.material.winui.5.4.0.nupkg.sha512"
+    },
+    "Uno.Microsoft.Xaml.Behaviors.Interactivity.WinUI/2.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1nV1iTDU9KLjkVip2sfhwLO0BDMz6Rl75ZqLFG/I8mwXujMP1LTq5XC4oDJNUe2Ebrxp6iuoP1dv9H+o6zN4tQ==",
+      "path": "uno.microsoft.xaml.behaviors.interactivity.winui/2.4.2",
+      "hashPath": "uno.microsoft.xaml.behaviors.interactivity.winui.2.4.2.nupkg.sha512"
+    },
+    "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed/2.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5bcQUY7hZOy6dmLXDWv6blTH99wvrFTYDjkHG0nJGV2NIPEtLjTdrjfIStk5g0AXyiTgC401ESk2dwbKyR+/iQ==",
+      "path": "uno.microsoft.xaml.behaviors.winui.managed/2.4.2",
+      "hashPath": "uno.microsoft.xaml.behaviors.winui.managed.2.4.2.nupkg.sha512"
     },
     "Uno.Resizetizer/1.7.0": {
       "type": "package",

@@ -1,9 +1,23 @@
 {
   "version": 2,
-  "dgSpecHash": "VYnWnbQZ3iA=",
+<<<<<<< HEAD
+<<<<<<< HEAD
+  "dgSpecHash": "nPzkohmTXXU=",
   "success": true,
   "projectFilePath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
+=======
+  "dgSpecHash": "Ud3m2Hqt694=",
+  "success": true,
+  "projectFilePath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
+>>>>>>> origin/Mini_lista
+=======
+  "dgSpecHash": "nPzkohmTXXU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
+>>>>>>> SCRUM-34-responsywnosc-play-pagea
   "expectedPackageFiles": [
+    "C:\\Users\\Kornel\\.nuget\\packages\\audioswitcher.audioapi\\3.0.0\\audioswitcher.audioapi.3.0.0.nupkg.sha512",
+    "C:\\Users\\Kornel\\.nuget\\packages\\audioswitcher.audioapi.coreaudio\\3.0.3\\audioswitcher.audioapi.coreaudio.3.0.3.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\commonservicelocator\\2.0.5\\commonservicelocator.2.0.5.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.0\\communitytoolkit.mvvm.8.4.0.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\coverlet.collector\\6.0.2\\coverlet.collector.6.0.2.nupkg.sha512",
@@ -125,14 +139,37 @@
     "C:\\Users\\Kornel\\.nuget\\packages\\uno.winui\\5.6.81\\uno.winui.5.6.81.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\uno.winui.devserver\\5.6.81\\uno.winui.devserver.5.6.81.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\uno.winui.devserver.messaging\\5.6.81\\uno.winui.devserver.messaging.5.6.81.nupkg.sha512",
-    "C:\\Users\\Kornel\\.nuget\\packages\\uno.winui.lottie\\5.6.81\\uno.winui.lottie.5.6.81.nupkg.sha512"
+    "C:\\Users\\Kornel\\.nuget\\packages\\uno.winui.lottie\\5.6.81\\uno.winui.lottie.5.6.81.nupkg.sha512",
+    "C:\\Users\\Kornel\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.15\\microsoft.netcore.app.ref.8.0.15.nupkg.sha512",
+    "C:\\Users\\Kornel\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.15\\microsoft.windowsdesktop.app.ref.8.0.15.nupkg.sha512",
+    "C:\\Users\\Kornel\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.15\\microsoft.aspnetcore.app.ref.8.0.15.nupkg.sha512"
   ],
   "logs": [
     {
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+      "message": "Wystąpił problem podczas czytania pliku pamięci podręcznej C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Pakiet „AudioSwitcher.AudioApi 3.0.0” został przywrócony przy użyciu elementu „.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1” zamiast platformy docelowej projektu „net8.0”. Ten pakiet może nie być w pełni kompatybilny z Twoim projektem.",
+      "libraryId": "AudioSwitcher.AudioApi",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Pakiet „AudioSwitcher.AudioApi.CoreAudio 3.0.3” został przywrócony przy użyciu elementu „.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1” zamiast platformy docelowej projektu „net8.0”. Ten pakiet może nie być w pełni kompatybilny z Twoim projektem.",
+      "libraryId": "AudioSwitcher.AudioApi.CoreAudio",
+      "targetGraphs": [
+        "net8.0"
+      ]
     }
   ]
 }

@@ -1,6 +1,10 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> SCRUM-34-responsywnosc-play-pagea
     "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj": {}
   },
   "projects": {
@@ -12,6 +16,22 @@
         "projectPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj",
         "packagesPath": "C:\\Users\\Kornel\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.UITests\\obj\\",
+<<<<<<< HEAD
+=======
+    "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj": {}
+  },
+  "projects": {
+    "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj",
+        "projectName": "PtasieRadio.UITests",
+        "projectPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio.UITests\\PtasieRadio.UITests.csproj",
+        "packagesPath": "C:\\Users\\Fabian\\.nuget\\packages\\",
+        "outputPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\MiniLista\\PtasieRadio.UITests\\obj\\",
+>>>>>>> origin/Mini_lista
+=======
+>>>>>>> SCRUM-34-responsywnosc-play-pagea
         "projectStyle": "PackageReference",
         "centralPackageVersionsManagementEnabled": true,
         "configFilePaths": [
@@ -93,6 +113,7 @@
             }
           },
           "centralPackageVersions": {
+            "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
             "coverlet.collector": "6.0.2",
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
@@ -115,12 +136,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.15, 8.0.15]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.15, 8.0.15]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.15, 8.0.15]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
