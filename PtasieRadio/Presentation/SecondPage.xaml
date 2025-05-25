@@ -161,7 +161,7 @@
                             <!-- Inne -->
                             <TextBlock Text="Inne" FontSize="20" FontWeight="SemiBold" Foreground="White" Margin="16,8,0,0"/>
                             <StackPanel Spacing="8">
-                                <Grid Height="48">
+                                <Grid Height="48" Tapped="OnOpiniaTapped">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="40"/>
                                         <ColumnDefinition Width="*"/>
@@ -171,7 +171,7 @@
                                     <TextBlock Text="Opinia" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
                                     <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
                                 </Grid>
-                                <Grid Height="48">
+                                <Grid Height="48" Tapped="OnONasTapped">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="40"/>
                                         <ColumnDefinition Width="*"/>
@@ -181,7 +181,7 @@
                                     <TextBlock Text="O nas" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
                                     <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
                                 </Grid>
-                                <Grid Height="48">
+                                <Grid Height="48" Tapped="OnPolitykaTapped">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="40"/>
                                         <ColumnDefinition Width="*"/>
@@ -203,6 +203,43 @@
                     </StackPanel>
                 </Border>
             </ScrollViewer>
+                        <Popup x:Name="PopupInformacyjny" IsLightDismissEnabled="False">
+                <Grid x:Name="PopupOverlay"
+                    Background="#B0000000"
+                    Tapped="Popup_BackgroundTapped"
+                    Width="{x:Bind ActualWidth, Mode=OneWay}"
+                    Height="{x:Bind ActualHeight, Mode=OneWay}">
+
+                <Grid HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Tapped="Popup_ContentTapped">
+
+                <Border Background="#FF2D2D30"
+                        CornerRadius="12"
+                        Padding="24"
+                        MaxWidth="600"
+                        MinWidth="300"
+                        MaxHeight="600">
+                <StackPanel>
+                    <TextBlock x:Name="PopupTytul"
+                               HorizontalAlignment="Center"
+                               FontSize="18"
+                               FontWeight="SemiBold"
+                               Foreground="White"/>
+
+                    <ScrollViewer Margin="0,16,0,0"
+                                  MaxHeight="400">
+                        <TextBlock x:Name="PopupTresc"
+                                   TextWrapping="Wrap"
+                                   FontSize="16"
+                                   LineHeight="24"
+                                   Foreground="White"/>
+                    </ScrollViewer>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</Popup>
         </Grid>
     </Grid>
 </Page>

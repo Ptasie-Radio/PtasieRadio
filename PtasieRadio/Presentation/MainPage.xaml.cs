@@ -206,13 +206,17 @@ public sealed partial class MainPage : Page
             {
                 file = null;
             }
-            if (file != null)
+            try
             {
                 using var stream = await file.OpenAsync(FileAccessMode.Read);
                 bitmap = new BitmapImage();
                 await bitmap.SetSourceAsync(stream);
             }
-            else
+            catch (FileNotFoundException ex)
+            {
+                bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
+            }
+            catch (System.NullReferenceException ex)
             {
                 bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
             }
