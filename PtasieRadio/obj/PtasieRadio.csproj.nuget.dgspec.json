@@ -80,6 +80,11 @@
               "version": "[3.0.3, )",
               "versionCentrallyManaged": true
             },
+            "CommunityToolkit.WinUI.Behaviors": {
+              "target": "Package",
+              "version": "[8.0.240109, )",
+              "versionCentrallyManaged": true
+            },
             "Microsoft.Extensions.Logging.Console": {
               "target": "Package",
               "version": "[8.0.1, )",
@@ -236,6 +241,7 @@
           },
           "centralPackageVersions": {
             "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
+            "CommunityToolkit.WinUI.Behaviors": "8.0.240109",
             "coverlet.collector": "6.0.2",
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
@@ -286,6 +292,11 @@
             "AudioSwitcher.AudioApi.CoreAudio": {
               "target": "Package",
               "version": "[3.0.3, )",
+              "versionCentrallyManaged": true
+            },
+            "CommunityToolkit.WinUI.Behaviors": {
+              "target": "Package",
+              "version": "[8.0.240109, )",
               "versionCentrallyManaged": true
             },
             "Microsoft.Extensions.Logging.Console": {
@@ -495,6 +506,7 @@
           },
           "centralPackageVersions": {
             "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
+            "CommunityToolkit.WinUI.Behaviors": "8.0.240109",
             "coverlet.collector": "6.0.2",
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
@@ -548,6 +560,11 @@
             "AudioSwitcher.AudioApi.CoreAudio": {
               "target": "Package",
               "version": "[3.0.3, )",
+              "versionCentrallyManaged": true
+            },
+            "CommunityToolkit.WinUI.Behaviors": {
+              "target": "Package",
+              "version": "[8.0.240109, )",
               "versionCentrallyManaged": true
             },
             "Microsoft.Extensions.Logging.Console": {
@@ -737,6 +754,7 @@
           },
           "centralPackageVersions": {
             "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
+            "CommunityToolkit.WinUI.Behaviors": "8.0.240109",
             "coverlet.collector": "6.0.2",
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
@@ -791,6 +809,11 @@
             "AudioSwitcher.AudioApi.CoreAudio": {
               "target": "Package",
               "version": "[3.0.3, )",
+              "versionCentrallyManaged": true
+            },
+            "CommunityToolkit.WinUI.Behaviors": {
+              "target": "Package",
+              "version": "[8.0.240109, )",
               "versionCentrallyManaged": true
             },
             "Microsoft.Extensions.Logging.Console": {
@@ -979,6 +1002,7 @@
           },
           "centralPackageVersions": {
             "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
+            "CommunityToolkit.WinUI.Behaviors": "8.0.240109",
             "coverlet.collector": "6.0.2",
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
@@ -1033,6 +1057,11 @@
             "AudioSwitcher.AudioApi.CoreAudio": {
               "target": "Package",
               "version": "[3.0.3, )",
+              "versionCentrallyManaged": true
+            },
+            "CommunityToolkit.WinUI.Behaviors": {
+              "target": "Package",
+              "version": "[8.0.240109, )",
               "versionCentrallyManaged": true
             },
             "Microsoft.Extensions.Logging.Console": {
@@ -1207,6 +1236,7 @@
           },
           "centralPackageVersions": {
             "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
+            "CommunityToolkit.WinUI.Behaviors": "8.0.240109",
             "coverlet.collector": "6.0.2",
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
@@ -1270,6 +1300,11 @@
               "version": "[3.0.3, )",
               "versionCentrallyManaged": true
             },
+            "CommunityToolkit.WinUI.Behaviors": {
+              "target": "Package",
+              "version": "[8.0.240109, )",
+              "versionCentrallyManaged": true
+            },
             "Microsoft.Extensions.Logging.Console": {
               "target": "Package",
               "version": "[8.0.1, )",
@@ -1442,6 +1477,7 @@
           },
           "centralPackageVersions": {
             "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
+            "CommunityToolkit.WinUI.Behaviors": "8.0.240109",
             "coverlet.collector": "6.0.2",
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",

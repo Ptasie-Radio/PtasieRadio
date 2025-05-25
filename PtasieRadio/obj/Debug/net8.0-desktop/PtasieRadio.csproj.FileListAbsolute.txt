@@ -3199,3 +3199,19 @@ D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupo
 D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Profil\avatar.png
 D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Profil\placeholder.png
 >>>>>>> origin/Scrum13
+C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\brush.png
+C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\eq.png
+C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\folder.png
+C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\group.png
+C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\lang.png
+C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\link.png
+C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\policy.png
+C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\review.png
+C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\save.png
+C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\user.png
+C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Profil\avatar.png
+C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Profil\placeholder.png
+C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\CommunityToolkit.Common.dll
+C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\CommunityToolkit.WinUI.Animations.dll
+C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\CommunityToolkit.WinUI.Behaviors.dll
+C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\CommunityToolkit.WinUI.Extensions.dll

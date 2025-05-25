@@ -183,17 +183,17 @@
                                     Padding="20,0,0,0">
                             <i:Interaction.Behaviors>
                                 <ic:EventTriggerBehavior EventName="PointerPressed">
-                                    <ic:InvokeCommandAction Command="{Binding Model.ScrollStartCommand}"/>
+                                    <ic:InvokeCommandAction Command="{Binding ScrollStartCommand}"/>
                                 </ic:EventTriggerBehavior>
                                 <ic:EventTriggerBehavior EventName="PointerMoved">
-                                    <ic:InvokeCommandAction Command="{Binding Model.ScrollMoveCommand}"/>
+                                    <ic:InvokeCommandAction Command="{Binding ScrollMoveCommand}"/>
                                 </ic:EventTriggerBehavior>
                                 <ic:EventTriggerBehavior EventName="PointerReleased">
-                                    <ic:InvokeCommandAction Command="{Binding Model.ScrollStopCommand}"/>
+                                    <ic:InvokeCommandAction Command="{Binding ScrollStopCommand}"/>
                                 </ic:EventTriggerBehavior>
                                 <!-- inaczej sa bledy ze mozna dalej przesuwac mimo odklikniecia przycisku mysz -->
                                 <ic:EventTriggerBehavior EventName="PointerCaptureLost">
-                                    <ic:InvokeCommandAction Command="{Binding Model.ScrollStopCommand}"/>
+                                    <ic:InvokeCommandAction Command="{Binding ScrollStopCommand}"/>
                                 </ic:EventTriggerBehavior>
                             </i:Interaction.Behaviors>
                             <!-- Powielone karty stacji dla testu przesuwania -->
@@ -219,17 +219,17 @@
                                     Padding="20,0,0,0">
                             <i:Interaction.Behaviors>
                                 <ic:EventTriggerBehavior EventName="PointerPressed">
-                                    <ic:InvokeCommandAction Command="{Binding Model.ScrollStartCommand}"/>
+                                    <ic:InvokeCommandAction Command="{Binding ScrollStartCommand}"/>
                                 </ic:EventTriggerBehavior>
                                 <ic:EventTriggerBehavior EventName="PointerMoved">
-                                    <ic:InvokeCommandAction Command="{Binding Model.ScrollMoveCommand}"/>
+                                    <ic:InvokeCommandAction Command="{Binding ScrollMoveCommand}"/>
                                 </ic:EventTriggerBehavior>
                                 <ic:EventTriggerBehavior EventName="PointerReleased">
-                                    <ic:InvokeCommandAction Command="{Binding Model.ScrollStopCommand}"/>
+                                    <ic:InvokeCommandAction Command="{Binding ScrollStopCommand}"/>
                                 </ic:EventTriggerBehavior>
                                 <!-- inaczej sa bledy ze mozna dalej przesuwac mimo odklikniecia przycisku mysz -->
                                 <ic:EventTriggerBehavior EventName="PointerCaptureLost">
-                                    <ic:InvokeCommandAction Command="{Binding Model.ScrollStopCommand}"/>
+                                    <ic:InvokeCommandAction Command="{Binding ScrollStopCommand}"/>
                                 </ic:EventTriggerBehavior>
                             </i:Interaction.Behaviors>
                             <!-- Powielone karty stacji dla testu przesuwania -->
@@ -252,6 +252,21 @@
                                     x:Name="WlasnePanel"
                                     Spacing="20"
                                     Padding="20,0,0,0">
+                            <i:Interaction.Behaviors>
+                                <ic:EventTriggerBehavior EventName="PointerPressed">
+                                    <ic:InvokeCommandAction Command="{Binding ScrollStartCommand}"/>
+                                </ic:EventTriggerBehavior>
+                                <ic:EventTriggerBehavior EventName="PointerMoved">
+                                    <ic:InvokeCommandAction Command="{Binding ScrollMoveCommand}"/>
+                                </ic:EventTriggerBehavior>
+                                <ic:EventTriggerBehavior EventName="PointerReleased">
+                                    <ic:InvokeCommandAction Command="{Binding ScrollStopCommand}"/>
+                                </ic:EventTriggerBehavior>
+                                <!-- inaczej sa bledy ze mozna dalej przesuwac mimo odklikniecia przycisku mysz -->
+                                <ic:EventTriggerBehavior EventName="PointerCaptureLost">
+                                    <ic:InvokeCommandAction Command="{Binding ScrollStopCommand}"/>
+                                </ic:EventTriggerBehavior>
+                            </i:Interaction.Behaviors>
 
                         </StackPanel>
                     </ScrollViewer>

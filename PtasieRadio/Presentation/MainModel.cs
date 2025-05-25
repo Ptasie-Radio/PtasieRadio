@@ -6,6 +6,8 @@ using Uno.Extensions.Reactive;
 using PtasieRadio.Services.RadioService;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.UI.Xaml.Data;
+using Windows.Foundation;
+using Microsoft.UI.Xaml.Input;
 
 namespace PtasieRadio.Presentation;
 
@@ -21,6 +23,13 @@ public class MainModel : ObservableObject
 
     public IRelayCommand ToggleMuteCommand { get; }
     public RelayCommand<string?> ToggleChangeUrlCommand { get; }
+
+    private Point _lastPointerPosition;
+    private ScrollViewer? _currentScrollViewer;
+
+    public IRelayCommand<PointerRoutedEventArgs> ScrollStartCommand { get; }
+    public IRelayCommand<PointerRoutedEventArgs> ScrollMoveCommand { get; }
+    public RelayCommand<PointerRoutedEventArgs> ScrollStopCommand { get; }
 
     private bool _isMuted;
     public bool IsMuted
@@ -105,6 +114,10 @@ public class MainModel : ObservableObject
         Title += $" - {localizer["ApplicationName"]}";
         Title += $" - {appInfo?.Value?.Environment}";
 
+        IsMuted = _radioService.GetIsMuted();
+        isPlaying = _radioService.GetIsPlaying();
+        _Volume = _radioService.GetVolume();
+
         ScrollStartCommand = new RelayCommand<PointerRoutedEventArgs>(ScrollStart);
         ScrollMoveCommand = new RelayCommand<PointerRoutedEventArgs>(ScrollMove);
         ScrollStopCommand = new RelayCommand<PointerRoutedEventArgs>(ScrollStop);
@@ -157,7 +170,6 @@ public class MainModel : ObservableObject
     }
 
     // Koniec scrolli
-    public string? Title { get; }
 
     public async Task PlayRadio()
     {
@@ -197,10 +209,6 @@ public class MainModel : ObservableObject
         IsMuted = _radioService.GetIsMuted();
         isPlaying = _radioService.GetIsPlaying();
         _Volume = _radioService.GetVolume();
-    }
-
-}
-        await _navigator.NavigateViewModelAsync<SecondModel>(this, data: new Entity(name!));
     }
 
 }

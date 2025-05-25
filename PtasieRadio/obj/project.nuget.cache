@@ -1,13 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "lUEK+RLTjck=",
+  "dgSpecHash": "GfAm+LYxVLE=",
   "success": true,
   "projectFilePath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kornel\\.nuget\\packages\\audioswitcher.audioapi\\3.0.0\\audioswitcher.audioapi.3.0.0.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\audioswitcher.audioapi.coreaudio\\3.0.3\\audioswitcher.audioapi.coreaudio.3.0.3.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\commonservicelocator\\2.0.5\\commonservicelocator.2.0.5.nupkg.sha512",
+    "C:\\Users\\Kornel\\.nuget\\packages\\communitytoolkit.common\\8.2.1\\communitytoolkit.common.8.2.1.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.0\\communitytoolkit.mvvm.8.4.0.nupkg.sha512",
+    "C:\\Users\\Kornel\\.nuget\\packages\\communitytoolkit.winui.animations\\8.0.240109\\communitytoolkit.winui.animations.8.0.240109.nupkg.sha512",
+    "C:\\Users\\Kornel\\.nuget\\packages\\communitytoolkit.winui.behaviors\\8.0.240109\\communitytoolkit.winui.behaviors.8.0.240109.nupkg.sha512",
+    "C:\\Users\\Kornel\\.nuget\\packages\\communitytoolkit.winui.extensions\\8.0.240109\\communitytoolkit.winui.extensions.8.0.240109.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\harfbuzzsharp\\7.3.0.1\\harfbuzzsharp.7.3.0.1.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\harfbuzzsharp.nativeassets.linux\\7.3.0.1\\harfbuzzsharp.nativeassets.linux.7.3.0.1.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\7.3.0.1\\harfbuzzsharp.nativeassets.macos.7.3.0.1.nupkg.sha512",
@@ -174,6 +178,8 @@
     "C:\\Users\\Kornel\\.nuget\\packages\\uno.foundation.logging\\5.6.81\\uno.foundation.logging.5.6.81.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\uno.foundation.runtime.webassembly\\5.6.81\\uno.foundation.runtime.webassembly.5.6.81.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\uno.material.winui\\5.4.0\\uno.material.winui.5.4.0.nupkg.sha512",
+    "C:\\Users\\Kornel\\.nuget\\packages\\uno.microsoft.xaml.behaviors.interactivity.winui\\2.3.1-uno.2\\uno.microsoft.xaml.behaviors.interactivity.winui.2.3.1-uno.2.nupkg.sha512",
+    "C:\\Users\\Kornel\\.nuget\\packages\\uno.microsoft.xaml.behaviors.winui.managed\\2.3.1-uno.2\\uno.microsoft.xaml.behaviors.winui.managed.2.3.1-uno.2.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\uno.resizetizer\\1.7.0\\uno.resizetizer.1.7.0.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\uno.sdk.extras\\5.6.3\\uno.sdk.extras.5.6.3.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\uno.settings.devserver\\1.2.18\\uno.settings.devserver.1.2.18.nupkg.sha512",
@@ -299,16 +305,10 @@
   ],
   "logs": [
     {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    },
-    {
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'AudioSwitcher.AudioApi 3.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "message": "Pakiet „AudioSwitcher.AudioApi 3.0.0” został przywrócony przy użyciu elementu „.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1” zamiast platformy docelowej projektu „net8.0”. Ten pakiet może nie być w pełni kompatybilny z Twoim projektem.",
       "libraryId": "AudioSwitcher.AudioApi",
       "targetGraphs": [
         "net8.0"
@@ -318,7 +318,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'AudioSwitcher.AudioApi.CoreAudio 3.0.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "message": "Pakiet „AudioSwitcher.AudioApi.CoreAudio 3.0.3” został przywrócony przy użyciu elementu „.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1” zamiast platformy docelowej projektu „net8.0”. Ten pakiet może nie być w pełni kompatybilny z Twoim projektem.",
       "libraryId": "AudioSwitcher.AudioApi.CoreAudio",
       "targetGraphs": [
         "net8.0"

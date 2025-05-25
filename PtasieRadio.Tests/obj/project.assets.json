@@ -32,6 +32,19 @@
           "lib/netcoreapp3.0/CommonServiceLocator.dll": {}
         }
       },
+      "CommunityToolkit.Common/8.2.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Common.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Common.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "CommunityToolkit.Mvvm/8.4.0": {
         "type": "package",
         "compile": {
@@ -46,6 +59,62 @@
         },
         "build": {
           "buildTransitive/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
+      "CommunityToolkit.WinUI.Animations/8.0.240109": {
+        "type": "package",
+        "dependencies": {
+          "CommunityToolkit.WinUI.Extensions": "8.0.240109",
+          "Uno.Fonts.Fluent": "2.3.0",
+          "Uno.WinUI": "4.9.45"
+        },
+        "compile": {
+          "lib/net7.0/CommunityToolkit.WinUI.Animations.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/CommunityToolkit.WinUI.Animations.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
+      "CommunityToolkit.WinUI.Behaviors/8.0.240109": {
+        "type": "package",
+        "dependencies": {
+          "CommunityToolkit.WinUI.Animations": "8.0.240109",
+          "CommunityToolkit.WinUI.Extensions": "8.0.240109",
+          "Uno.Fonts.Fluent": "2.3.0",
+          "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.3.1-uno.2",
+          "Uno.WinUI": "4.9.45"
+        },
+        "compile": {
+          "lib/net7.0/CommunityToolkit.WinUI.Behaviors.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/CommunityToolkit.WinUI.Behaviors.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
+      "CommunityToolkit.WinUI.Extensions/8.0.240109": {
+        "type": "package",
+        "dependencies": {
+          "CommunityToolkit.Common": "8.2.1",
+          "Uno.Fonts.Fluent": "2.3.0",
+          "Uno.WinUI": "4.9.45"
+        },
+        "compile": {
+          "lib/net7.0/CommunityToolkit.WinUI.Extensions.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/CommunityToolkit.WinUI.Extensions.dll": {
+            "related": ".pdb"
+          }
         }
       },
       "coverlet.collector/6.0.2": {
@@ -2379,6 +2448,31 @@
           "buildTransitive/Uno.Material.WinUI.targets": {}
         }
       },
+      "Uno.Microsoft.Xaml.Behaviors.Interactivity.WinUI/2.3.1-uno.2": {
+        "type": "package",
+        "dependencies": {
+          "Uno.WinUI": "4.1.9"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Xaml.Interactivity.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Xaml.Interactivity.dll": {}
+        }
+      },
+      "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed/2.3.1-uno.2": {
+        "type": "package",
+        "dependencies": {
+          "Uno.Microsoft.Xaml.Behaviors.Interactivity.WinUI": "2.3.1-uno.2",
+          "Uno.WinUI": "4.1.9"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Xaml.Interactions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Xaml.Interactions.dll": {}
+        }
+      },
       "Uno.Themes.WinUI/5.4.0": {
         "type": "package",
         "dependencies": {
@@ -2705,8 +2799,10 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
+          "CommunityToolkit.WinUI.Behaviors": "8.0.240109",
           "Microsoft.Extensions.Logging.Console": "8.0.1",
           "NAudio": "2.1.0",
+          "Newtonsoft.Json": "13.0.3",
           "SkiaSharp.Skottie": "2.88.9",
           "SkiaSharp.Views.Uno.WinUI": "2.88.9",
           "Uno.Dsp.Tasks": "1.4.0",
@@ -2791,6 +2887,29 @@
         "lib/netstandard2.1/CommonServiceLocator.dll"
       ]
     },
+    "CommunityToolkit.Common/8.2.1": {
+      "sha512": "LWuhy8cQKJ/MYcy3XafJ916U3gPH/YDvYoNGWyQWN11aiEKCZszzPOTJAOvBjP9yG8vHmIcCyPUt4L82OK47Iw==",
+      "type": "package",
+      "path": "communitytoolkit.common/8.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "License.md",
+        "ThirdPartyNotices.txt",
+        "communitytoolkit.common.8.2.1.nupkg.sha512",
+        "communitytoolkit.common.nuspec",
+        "lib/net6.0/CommunityToolkit.Common.dll",
+        "lib/net6.0/CommunityToolkit.Common.pdb",
+        "lib/net6.0/CommunityToolkit.Common.xml",
+        "lib/netstandard2.0/CommunityToolkit.Common.dll",
+        "lib/netstandard2.0/CommunityToolkit.Common.pdb",
+        "lib/netstandard2.0/CommunityToolkit.Common.xml",
+        "lib/netstandard2.1/CommunityToolkit.Common.dll",
+        "lib/netstandard2.1/CommunityToolkit.Common.pdb",
+        "lib/netstandard2.1/CommunityToolkit.Common.xml"
+      ]
+    },
     "CommunityToolkit.Mvvm/8.4.0": {
       "sha512": "tqVU8yc/ADO9oiTRyTnwhFN68hCwvkliMierptWOudIAvWY1mWCh5VFh+guwHJmpMwfg0J0rY+yyd5Oy7ty9Uw==",
       "type": "package",
@@ -2831,6 +2950,96 @@
         "lib/netstandard2.1/CommunityToolkit.Mvvm.dll",
         "lib/netstandard2.1/CommunityToolkit.Mvvm.pdb",
         "lib/netstandard2.1/CommunityToolkit.Mvvm.xml"
+      ]
+    },
+    "CommunityToolkit.WinUI.Animations/8.0.240109": {
+      "sha512": "63zWEFpGc4lr/lT5f8F0tr4leUqCc8tZe7J4uhJ0ZoP1GdwGZnKNBqtQApbXoxvGCLSU/5zuM3/cZIBId5dDdA==",
+      "type": "package",
+      "path": "communitytoolkit.winui.animations/8.0.240109",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.md",
+        "ReadMe.md",
+        "communitytoolkit.winui.animations.8.0.240109.nupkg.sha512",
+        "communitytoolkit.winui.animations.nuspec",
+        "icon.png",
+        "lib/net6.0-windows10.0.19041/CommunityToolkit.WinUI.Animations.dll",
+        "lib/net6.0-windows10.0.19041/CommunityToolkit.WinUI.Animations.pdb",
+        "lib/net6.0-windows10.0.19041/CommunityToolkit.WinUI.Animations.pri",
+        "lib/net7.0-android33.0/CommunityToolkit.WinUI.Animations.aar",
+        "lib/net7.0-android33.0/CommunityToolkit.WinUI.Animations.dll",
+        "lib/net7.0-android33.0/CommunityToolkit.WinUI.Animations.pdb",
+        "lib/net7.0-android33.0/CommunityToolkit.WinUI.Animations.xml",
+        "lib/net7.0-ios16.1/CommunityToolkit.WinUI.Animations.dll",
+        "lib/net7.0-ios16.1/CommunityToolkit.WinUI.Animations.pdb",
+        "lib/net7.0-maccatalyst16.1/CommunityToolkit.WinUI.Animations.dll",
+        "lib/net7.0-maccatalyst16.1/CommunityToolkit.WinUI.Animations.pdb",
+        "lib/net7.0-windows10.0.19041/CommunityToolkit.WinUI.Animations.dll",
+        "lib/net7.0-windows10.0.19041/CommunityToolkit.WinUI.Animations.pdb",
+        "lib/net7.0-windows10.0.19041/CommunityToolkit.WinUI.Animations.pri",
+        "lib/net7.0/CommunityToolkit.WinUI.Animations.dll",
+        "lib/net7.0/CommunityToolkit.WinUI.Animations.pdb"
+      ]
+    },
+    "CommunityToolkit.WinUI.Behaviors/8.0.240109": {
+      "sha512": "Rs7rAWkIcLhs6s8d/Qh0r6IxkCLjC0CUaT2U+LgpHnFWl4A/1p3A1S+zfUIdow+wguwLGh8w1p19eWBO5hxCXw==",
+      "type": "package",
+      "path": "communitytoolkit.winui.behaviors/8.0.240109",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.md",
+        "ReadMe.md",
+        "communitytoolkit.winui.behaviors.8.0.240109.nupkg.sha512",
+        "communitytoolkit.winui.behaviors.nuspec",
+        "icon.png",
+        "lib/net6.0-windows10.0.19041/CommunityToolkit.WinUI.Behaviors.dll",
+        "lib/net6.0-windows10.0.19041/CommunityToolkit.WinUI.Behaviors.pdb",
+        "lib/net6.0-windows10.0.19041/CommunityToolkit.WinUI.Behaviors.pri",
+        "lib/net7.0-android33.0/CommunityToolkit.WinUI.Behaviors.aar",
+        "lib/net7.0-android33.0/CommunityToolkit.WinUI.Behaviors.dll",
+        "lib/net7.0-android33.0/CommunityToolkit.WinUI.Behaviors.pdb",
+        "lib/net7.0-android33.0/CommunityToolkit.WinUI.Behaviors.xml",
+        "lib/net7.0-ios16.1/CommunityToolkit.WinUI.Behaviors.dll",
+        "lib/net7.0-ios16.1/CommunityToolkit.WinUI.Behaviors.pdb",
+        "lib/net7.0-maccatalyst16.1/CommunityToolkit.WinUI.Behaviors.dll",
+        "lib/net7.0-maccatalyst16.1/CommunityToolkit.WinUI.Behaviors.pdb",
+        "lib/net7.0-windows10.0.19041/CommunityToolkit.WinUI.Behaviors.dll",
+        "lib/net7.0-windows10.0.19041/CommunityToolkit.WinUI.Behaviors.pdb",
+        "lib/net7.0-windows10.0.19041/CommunityToolkit.WinUI.Behaviors.pri",
+        "lib/net7.0/CommunityToolkit.WinUI.Behaviors.dll",
+        "lib/net7.0/CommunityToolkit.WinUI.Behaviors.pdb"
+      ]
+    },
+    "CommunityToolkit.WinUI.Extensions/8.0.240109": {
+      "sha512": "4CpGj3g3Tn2KfNRvwg/USyL7KAdY0rKqfc4ZYk57buoVpvAQLcmMpL/+/kbRe9Pixj4HY5On6H39bqTntd3+DQ==",
+      "type": "package",
+      "path": "communitytoolkit.winui.extensions/8.0.240109",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.md",
+        "ReadMe.md",
+        "communitytoolkit.winui.extensions.8.0.240109.nupkg.sha512",
+        "communitytoolkit.winui.extensions.nuspec",
+        "icon.png",
+        "lib/net6.0-windows10.0.19041/CommunityToolkit.WinUI.Extensions.dll",
+        "lib/net6.0-windows10.0.19041/CommunityToolkit.WinUI.Extensions.pdb",
+        "lib/net6.0-windows10.0.19041/CommunityToolkit.WinUI.Extensions.pri",
+        "lib/net7.0-android33.0/CommunityToolkit.WinUI.Extensions.aar",
+        "lib/net7.0-android33.0/CommunityToolkit.WinUI.Extensions.dll",
+        "lib/net7.0-android33.0/CommunityToolkit.WinUI.Extensions.pdb",
+        "lib/net7.0-android33.0/CommunityToolkit.WinUI.Extensions.xml",
+        "lib/net7.0-ios16.1/CommunityToolkit.WinUI.Extensions.dll",
+        "lib/net7.0-ios16.1/CommunityToolkit.WinUI.Extensions.pdb",
+        "lib/net7.0-maccatalyst16.1/CommunityToolkit.WinUI.Extensions.dll",
+        "lib/net7.0-maccatalyst16.1/CommunityToolkit.WinUI.Extensions.pdb",
+        "lib/net7.0-windows10.0.19041/CommunityToolkit.WinUI.Extensions.dll",
+        "lib/net7.0-windows10.0.19041/CommunityToolkit.WinUI.Extensions.pdb",
+        "lib/net7.0-windows10.0.19041/CommunityToolkit.WinUI.Extensions.pri",
+        "lib/net7.0/CommunityToolkit.WinUI.Extensions.dll",
+        "lib/net7.0/CommunityToolkit.WinUI.Extensions.pdb"
       ]
     },
     "coverlet.collector/6.0.2": {
@@ -6462,6 +6671,50 @@
         "uno.png"
       ]
     },
+    "Uno.Microsoft.Xaml.Behaviors.Interactivity.WinUI/2.3.1-uno.2": {
+      "sha512": "wdOsAanBE2R7C0ZO25PcboQeki7ERvm+CKsAMzAE3Cn9ad1AJhoSt6ExL9DTymIrRsN6IbSJkMxb5B50ldzSaw==",
+      "type": "package",
+      "path": "uno.microsoft.xaml.behaviors.interactivity.winui/2.3.1-uno.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid11.0/Microsoft.Xaml.Interactivity.dll",
+        "lib/net5.0-windows10.0.18362/Microsoft.Xaml.Interactivity.dll",
+        "lib/net5.0-windows10.0.18362/Microsoft.Xaml.Interactivity.pri",
+        "lib/net6.0-android31.0/Microsoft.Xaml.Interactivity.dll",
+        "lib/net6.0-android31.0/Microsoft.Xaml.Interactivity.xml",
+        "lib/net6.0-ios15.2/Microsoft.Xaml.Interactivity.dll",
+        "lib/net6.0-maccatalyst15.2/Microsoft.Xaml.Interactivity.dll",
+        "lib/net6.0-macos12.1/Microsoft.Xaml.Interactivity.dll",
+        "lib/netstandard2.0/Microsoft.Xaml.Interactivity.dll",
+        "lib/xamarinios10/Microsoft.Xaml.Interactivity.dll",
+        "lib/xamarinmac20/Microsoft.Xaml.Interactivity.dll",
+        "uno.microsoft.xaml.behaviors.interactivity.winui.2.3.1-uno.2.nupkg.sha512",
+        "uno.microsoft.xaml.behaviors.interactivity.winui.nuspec"
+      ]
+    },
+    "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed/2.3.1-uno.2": {
+      "sha512": "TH9Mk4cHPTeQRPiXePBjtcP/PHdk+WxKjsNkY+OnNDUKpxbrya+CDgXOC6735XPQyG3qF2CD3UzsCV3LdG/1Xw==",
+      "type": "package",
+      "path": "uno.microsoft.xaml.behaviors.winui.managed/2.3.1-uno.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid11.0/Microsoft.Xaml.Interactions.dll",
+        "lib/net5.0-windows10.0.18362/Microsoft.Xaml.Interactions.dll",
+        "lib/net5.0-windows10.0.18362/Microsoft.Xaml.Interactions.pri",
+        "lib/net6.0-android31.0/Microsoft.Xaml.Interactions.dll",
+        "lib/net6.0-android31.0/Microsoft.Xaml.Interactions.xml",
+        "lib/net6.0-ios15.2/Microsoft.Xaml.Interactions.dll",
+        "lib/net6.0-maccatalyst15.2/Microsoft.Xaml.Interactions.dll",
+        "lib/net6.0-macos12.1/Microsoft.Xaml.Interactions.dll",
+        "lib/netstandard2.0/Microsoft.Xaml.Interactions.dll",
+        "lib/xamarinios10/Microsoft.Xaml.Interactions.dll",
+        "lib/xamarinmac20/Microsoft.Xaml.Interactions.dll",
+        "uno.microsoft.xaml.behaviors.winui.managed.2.3.1-uno.2.nupkg.sha512",
+        "uno.microsoft.xaml.behaviors.winui.managed.nuspec"
+      ]
+    },
     "Uno.Themes.WinUI/5.4.0": {
       "sha512": "8L6e9ahRsiwxhIicRcluEGGWh2bDNcp04TiRdTu/5rYiHPrSZVm/813PZOYPdjXvLOSRjFcgOPLSK/JPRyN3uw==",
       "type": "package",
@@ -7800,20 +8053,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Fabian\\.nuget\\packages\\": {}
+    "C:\\Users\\Kornel\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
       "projectName": "PtasieRadio.Tests",
-      "projectPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
-      "packagesPath": "C:\\Users\\Fabian\\.nuget\\packages\\",
-      "outputPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.Tests\\obj\\",
+      "projectPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
+      "packagesPath": "C:\\Users\\Kornel\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "centralPackageVersionsManagementEnabled": true,
       "configFilePaths": [
-        "C:\\Users\\Fabian\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Kornel\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -7826,8 +8079,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
-              "projectPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj"
+            "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
+              "projectPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj"
             }
           }
         }
@@ -7886,6 +8139,7 @@
         },
         "centralPackageVersions": {
           "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
+          "CommunityToolkit.WinUI.Behaviors": "8.0.240109",
           "coverlet.collector": "6.0.2",
           "FluentAssertions": "6.12.0",
           "GitHubActionsTestLogger": "2.3.3",
@@ -7894,6 +8148,7 @@
           "Newtonsoft.Json": "13.0.3",
           "NUnit": "4.1.0",
           "NUnit3TestAdapter": "4.5.0",
+          "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.3.0",
           "Uno.UITest.Helpers": "1.1.0-dev.70",
           "Xamarin.UITest": "4.3.4"
         },
@@ -7911,15 +8166,15 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.13, 8.0.13]"
+            "version": "[8.0.15, 8.0.15]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.13, 8.0.13]"
+            "version": "[8.0.15, 8.0.15]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[8.0.13, 8.0.13]"
+            "version": "[8.0.15, 8.0.15]"
           }
         ],
         "frameworkReferences": {
@@ -7927,17 +8182,11 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
   "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.Tests\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    },
     {
       "code": "NU1701",
       "level": "Warning",

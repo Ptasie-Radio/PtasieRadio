@@ -9,6 +9,7 @@
       "PtasieRadio/1.0": {
         "dependencies": {
           "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
+          "CommunityToolkit.WinUI.Behaviors": "8.0.240109",
           "Microsoft.Extensions.Logging.Console": "8.0.1",
           "NAudio": "2.1.0",
           "Newtonsoft.Json": "13.0.3",
@@ -30,7 +31,6 @@
           "Uno.Extensions.Serialization.Refit": "5.2.7",
           "Uno.Fonts.OpenSans": "2.5.0",
           "Uno.Material.WinUI": "5.4.0",
-          "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.4.2",
           "Uno.Resizetizer": "1.7.0",
           "Uno.Sdk.Extras": "5.6.3",
           "Uno.Settings.DevServer": "1.2.18",
@@ -78,11 +78,60 @@
           }
         }
       },
+      "CommunityToolkit.Common/8.2.1": {
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Common.dll": {
+            "assemblyVersion": "8.2.0.0",
+            "fileVersion": "8.2.1.1"
+          }
+        }
+      },
       "CommunityToolkit.Mvvm/8.4.0": {
         "runtime": {
           "lib/net8.0/CommunityToolkit.Mvvm.dll": {
             "assemblyVersion": "8.4.0.0",
             "fileVersion": "8.4.0.1"
+          }
+        }
+      },
+      "CommunityToolkit.WinUI.Animations/8.0.240109": {
+        "dependencies": {
+          "CommunityToolkit.WinUI.Extensions": "8.0.240109",
+          "Uno.Fonts.Fluent": "2.6.1",
+          "Uno.WinUI": "5.6.81"
+        },
+        "runtime": {
+          "lib/net7.0/CommunityToolkit.WinUI.Animations.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.0.0"
+          }
+        }
+      },
+      "CommunityToolkit.WinUI.Behaviors/8.0.240109": {
+        "dependencies": {
+          "CommunityToolkit.WinUI.Animations": "8.0.240109",
+          "CommunityToolkit.WinUI.Extensions": "8.0.240109",
+          "Uno.Fonts.Fluent": "2.6.1",
+          "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.3.1-uno.2",
+          "Uno.WinUI": "5.6.81"
+        },
+        "runtime": {
+          "lib/net7.0/CommunityToolkit.WinUI.Behaviors.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.0.0"
+          }
+        }
+      },
+      "CommunityToolkit.WinUI.Extensions/8.0.240109": {
+        "dependencies": {
+          "CommunityToolkit.Common": "8.2.1",
+          "Uno.Fonts.Fluent": "2.6.1",
+          "Uno.WinUI": "5.6.81"
+        },
+        "runtime": {
+          "lib/net7.0/CommunityToolkit.WinUI.Extensions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.0.0"
           }
         }
       },
@@ -1443,24 +1492,24 @@
           }
         }
       },
-      "Uno.Microsoft.Xaml.Behaviors.Interactivity.WinUI/2.4.2": {
+      "Uno.Microsoft.Xaml.Behaviors.Interactivity.WinUI/2.3.1-uno.2": {
         "dependencies": {
           "Uno.WinUI": "5.6.81"
         },
         "runtime": {
-          "lib/net7.0/Microsoft.Xaml.Interactivity.dll": {
+          "lib/netstandard2.0/Microsoft.Xaml.Interactivity.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
       },
-      "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed/2.4.2": {
+      "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed/2.3.1-uno.2": {
         "dependencies": {
-          "Uno.Microsoft.Xaml.Behaviors.Interactivity.WinUI": "2.4.2",
+          "Uno.Microsoft.Xaml.Behaviors.Interactivity.WinUI": "2.3.1-uno.2",
           "Uno.WinUI": "5.6.81"
         },
         "runtime": {
-          "lib/net7.0/Microsoft.Xaml.Interactions.dll": {
+          "lib/netstandard2.0/Microsoft.Xaml.Interactions.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -1835,12 +1884,40 @@
       "path": "commonservicelocator/2.0.5",
       "hashPath": "commonservicelocator.2.0.5.nupkg.sha512"
     },
+    "CommunityToolkit.Common/8.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LWuhy8cQKJ/MYcy3XafJ916U3gPH/YDvYoNGWyQWN11aiEKCZszzPOTJAOvBjP9yG8vHmIcCyPUt4L82OK47Iw==",
+      "path": "communitytoolkit.common/8.2.1",
+      "hashPath": "communitytoolkit.common.8.2.1.nupkg.sha512"
+    },
     "CommunityToolkit.Mvvm/8.4.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-tqVU8yc/ADO9oiTRyTnwhFN68hCwvkliMierptWOudIAvWY1mWCh5VFh+guwHJmpMwfg0J0rY+yyd5Oy7ty9Uw==",
       "path": "communitytoolkit.mvvm/8.4.0",
       "hashPath": "communitytoolkit.mvvm.8.4.0.nupkg.sha512"
+    },
+    "CommunityToolkit.WinUI.Animations/8.0.240109": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-63zWEFpGc4lr/lT5f8F0tr4leUqCc8tZe7J4uhJ0ZoP1GdwGZnKNBqtQApbXoxvGCLSU/5zuM3/cZIBId5dDdA==",
+      "path": "communitytoolkit.winui.animations/8.0.240109",
+      "hashPath": "communitytoolkit.winui.animations.8.0.240109.nupkg.sha512"
+    },
+    "CommunityToolkit.WinUI.Behaviors/8.0.240109": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Rs7rAWkIcLhs6s8d/Qh0r6IxkCLjC0CUaT2U+LgpHnFWl4A/1p3A1S+zfUIdow+wguwLGh8w1p19eWBO5hxCXw==",
+      "path": "communitytoolkit.winui.behaviors/8.0.240109",
+      "hashPath": "communitytoolkit.winui.behaviors.8.0.240109.nupkg.sha512"
+    },
+    "CommunityToolkit.WinUI.Extensions/8.0.240109": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4CpGj3g3Tn2KfNRvwg/USyL7KAdY0rKqfc4ZYk57buoVpvAQLcmMpL/+/kbRe9Pixj4HY5On6H39bqTntd3+DQ==",
+      "path": "communitytoolkit.winui.extensions/8.0.240109",
+      "hashPath": "communitytoolkit.winui.extensions.8.0.240109.nupkg.sha512"
     },
     "HarfBuzzSharp/7.3.0.1": {
       "type": "package",
@@ -2556,19 +2633,19 @@
       "path": "uno.material.winui/5.4.0",
       "hashPath": "uno.material.winui.5.4.0.nupkg.sha512"
     },
-    "Uno.Microsoft.Xaml.Behaviors.Interactivity.WinUI/2.4.2": {
+    "Uno.Microsoft.Xaml.Behaviors.Interactivity.WinUI/2.3.1-uno.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-1nV1iTDU9KLjkVip2sfhwLO0BDMz6Rl75ZqLFG/I8mwXujMP1LTq5XC4oDJNUe2Ebrxp6iuoP1dv9H+o6zN4tQ==",
-      "path": "uno.microsoft.xaml.behaviors.interactivity.winui/2.4.2",
-      "hashPath": "uno.microsoft.xaml.behaviors.interactivity.winui.2.4.2.nupkg.sha512"
+      "sha512": "sha512-wdOsAanBE2R7C0ZO25PcboQeki7ERvm+CKsAMzAE3Cn9ad1AJhoSt6ExL9DTymIrRsN6IbSJkMxb5B50ldzSaw==",
+      "path": "uno.microsoft.xaml.behaviors.interactivity.winui/2.3.1-uno.2",
+      "hashPath": "uno.microsoft.xaml.behaviors.interactivity.winui.2.3.1-uno.2.nupkg.sha512"
     },
-    "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed/2.4.2": {
+    "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed/2.3.1-uno.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-5bcQUY7hZOy6dmLXDWv6blTH99wvrFTYDjkHG0nJGV2NIPEtLjTdrjfIStk5g0AXyiTgC401ESk2dwbKyR+/iQ==",
-      "path": "uno.microsoft.xaml.behaviors.winui.managed/2.4.2",
-      "hashPath": "uno.microsoft.xaml.behaviors.winui.managed.2.4.2.nupkg.sha512"
+      "sha512": "sha512-TH9Mk4cHPTeQRPiXePBjtcP/PHdk+WxKjsNkY+OnNDUKpxbrya+CDgXOC6735XPQyG3qF2CD3UzsCV3LdG/1Xw==",
+      "path": "uno.microsoft.xaml.behaviors.winui.managed/2.3.1-uno.2",
+      "hashPath": "uno.microsoft.xaml.behaviors.winui.managed.2.3.1-uno.2.nupkg.sha512"
     },
     "Uno.Resizetizer/1.7.0": {
       "type": "package",

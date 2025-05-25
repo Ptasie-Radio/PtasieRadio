@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj": {}
+    "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj": {}
   },
   "projects": {
-    "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj": {
+    "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
         "projectName": "PtasieRadio.Tests",
-        "projectPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
-        "packagesPath": "C:\\Users\\Fabian\\.nuget\\packages\\",
-        "outputPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio.Tests\\obj\\",
+        "projectPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
+        "packagesPath": "C:\\Users\\Kornel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "centralPackageVersionsManagementEnabled": true,
         "configFilePaths": [
-          "C:\\Users\\Fabian\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Kornel\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -28,8 +28,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
-                "projectPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj"
+              "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
+                "projectPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj"
               }
             }
           }
@@ -88,6 +88,7 @@
           },
           "centralPackageVersions": {
             "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
+            "CommunityToolkit.WinUI.Behaviors": "8.0.240109",
             "coverlet.collector": "6.0.2",
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
@@ -96,6 +97,7 @@
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.3.0",
             "Uno.UITest.Helpers": "1.1.0-dev.70",
             "Xamarin.UITest": "4.3.4"
           },
@@ -113,15 +115,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             }
           ],
           "frameworkReferences": {
@@ -129,23 +131,23 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
+    "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj",
+        "projectUniqueName": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj",
         "projectName": "PtasieRadio",
-        "projectPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj",
-        "packagesPath": "C:\\Users\\Fabian\\.nuget\\packages\\",
-        "outputPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\obj\\",
+        "projectPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj",
+        "packagesPath": "C:\\Users\\Kornel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "centralPackageVersionsManagementEnabled": true,
         "configFilePaths": [
-          "C:\\Users\\Fabian\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Kornel\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0",
@@ -209,6 +211,11 @@
               "version": "[3.0.3, )",
               "versionCentrallyManaged": true
             },
+            "CommunityToolkit.WinUI.Behaviors": {
+              "target": "Package",
+              "version": "[8.0.240109, )",
+              "versionCentrallyManaged": true
+            },
             "Microsoft.Extensions.Logging.Console": {
               "target": "Package",
               "version": "[8.0.1, )",
@@ -217,6 +224,11 @@
             "NAudio": {
               "target": "Package",
               "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )",
               "versionCentrallyManaged": true
             },
             "SkiaSharp.Skottie": {
@@ -360,6 +372,7 @@
           },
           "centralPackageVersions": {
             "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
+            "CommunityToolkit.WinUI.Behaviors": "8.0.240109",
             "coverlet.collector": "6.0.2",
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
@@ -368,6 +381,7 @@
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.3.0",
             "Uno.UITest.Helpers": "1.1.0-dev.70",
             "Xamarin.UITest": "4.3.4"
           },
@@ -385,15 +399,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             }
           ],
           "frameworkReferences": {
@@ -401,7 +415,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         },
         "net8.0-android34.0": {
           "targetAlias": "net8.0-android",
@@ -409,6 +423,11 @@
             "AudioSwitcher.AudioApi.CoreAudio": {
               "target": "Package",
               "version": "[3.0.3, )",
+              "versionCentrallyManaged": true
+            },
+            "CommunityToolkit.WinUI.Behaviors": {
+              "target": "Package",
+              "version": "[8.0.240109, )",
               "versionCentrallyManaged": true
             },
             "Microsoft.Extensions.Logging.Console": {
@@ -419,12 +438,17 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.13, )",
+              "version": "[8.0.15, )",
               "autoReferenced": true
             },
             "NAudio": {
               "target": "Package",
               "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )",
               "versionCentrallyManaged": true
             },
             "SkiaSharp.Skottie": {
@@ -613,6 +637,7 @@
           },
           "centralPackageVersions": {
             "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
+            "CommunityToolkit.WinUI.Behaviors": "8.0.240109",
             "coverlet.collector": "6.0.2",
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
@@ -621,6 +646,7 @@
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.3.0",
             "Uno.UITest.Helpers": "1.1.0-dev.70",
             "Xamarin.UITest": "4.3.4"
           },
@@ -637,52 +663,16 @@
           "warn": true,
           "downloadDependencies": [
             {
-              "name": "Microsoft.Android.Ref.34",
-              "version": "[34.0.147, 34.0.147]"
-            },
-            {
-              "name": "Microsoft.Android.Runtime.34.android-arm",
-              "version": "[34.0.147, 34.0.147]"
-            },
-            {
-              "name": "Microsoft.Android.Runtime.34.android-arm64",
-              "version": "[34.0.147, 34.0.147]"
-            },
-            {
-              "name": "Microsoft.Android.Runtime.34.android-x64",
-              "version": "[34.0.147, 34.0.147]"
-            },
-            {
-              "name": "Microsoft.Android.Runtime.34.android-x86",
-              "version": "[34.0.147, 34.0.147]"
-            },
-            {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.Mono.android-arm",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.Mono.android-arm64",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.Mono.android-x64",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.Mono.android-x86",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             }
           ],
           "frameworkReferences": {
@@ -693,7 +683,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         },
         "net8.0-browserwasm1.0": {
           "targetAlias": "net8.0-browserwasm",
@@ -701,6 +691,11 @@
             "AudioSwitcher.AudioApi.CoreAudio": {
               "target": "Package",
               "version": "[3.0.3, )",
+              "versionCentrallyManaged": true
+            },
+            "CommunityToolkit.WinUI.Behaviors": {
+              "target": "Package",
+              "version": "[8.0.240109, )",
               "versionCentrallyManaged": true
             },
             "Microsoft.Extensions.Logging.Console": {
@@ -711,7 +706,7 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.13, )",
+              "version": "[8.0.15, )",
               "autoReferenced": true
             },
             "Microsoft.Windows.Compatibility": {
@@ -722,6 +717,11 @@
             "NAudio": {
               "target": "Package",
               "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )",
               "versionCentrallyManaged": true
             },
             "Uno.Dsp.Tasks": {
@@ -885,6 +885,7 @@
           },
           "centralPackageVersions": {
             "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
+            "CommunityToolkit.WinUI.Behaviors": "8.0.240109",
             "coverlet.collector": "6.0.2",
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
@@ -893,6 +894,7 @@
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.3.0",
             "Uno.UITest.Helpers": "1.1.0-dev.70",
             "Xamarin.UITest": "4.3.4"
           },
@@ -910,19 +912,19 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             }
           ],
           "frameworkReferences": {
@@ -930,7 +932,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         },
         "net8.0-desktop1.0": {
           "targetAlias": "net8.0-desktop",
@@ -938,6 +940,11 @@
             "AudioSwitcher.AudioApi.CoreAudio": {
               "target": "Package",
               "version": "[3.0.3, )",
+              "versionCentrallyManaged": true
+            },
+            "CommunityToolkit.WinUI.Behaviors": {
+              "target": "Package",
+              "version": "[8.0.240109, )",
               "versionCentrallyManaged": true
             },
             "Microsoft.Extensions.Logging.Console": {
@@ -948,6 +955,11 @@
             "NAudio": {
               "target": "Package",
               "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )",
               "versionCentrallyManaged": true
             },
             "SkiaSharp.Skottie": {
@@ -1121,6 +1133,7 @@
           },
           "centralPackageVersions": {
             "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
+            "CommunityToolkit.WinUI.Behaviors": "8.0.240109",
             "coverlet.collector": "6.0.2",
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
@@ -1129,6 +1142,7 @@
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.3.0",
             "Uno.UITest.Helpers": "1.1.0-dev.70",
             "Xamarin.UITest": "4.3.4"
           },
@@ -1146,19 +1160,19 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             }
           ],
           "frameworkReferences": {
@@ -1166,7 +1180,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         },
         "net8.0-ios18.0": {
           "targetAlias": "net8.0-ios",
@@ -1174,6 +1188,11 @@
             "AudioSwitcher.AudioApi.CoreAudio": {
               "target": "Package",
               "version": "[3.0.3, )",
+              "versionCentrallyManaged": true
+            },
+            "CommunityToolkit.WinUI.Behaviors": {
+              "target": "Package",
+              "version": "[8.0.240109, )",
               "versionCentrallyManaged": true
             },
             "Microsoft.Extensions.Logging.Console": {
@@ -1184,12 +1203,17 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.13, )",
+              "version": "[8.0.15, )",
               "autoReferenced": true
             },
             "NAudio": {
               "target": "Package",
               "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )",
               "versionCentrallyManaged": true
             },
             "SkiaSharp.Skottie": {
@@ -1343,6 +1367,7 @@
           },
           "centralPackageVersions": {
             "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
+            "CommunityToolkit.WinUI.Behaviors": "8.0.240109",
             "coverlet.collector": "6.0.2",
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
@@ -1351,6 +1376,7 @@
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.3.0",
             "Uno.UITest.Helpers": "1.1.0-dev.70",
             "Xamarin.UITest": "4.3.4"
           },
@@ -1368,27 +1394,23 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.iOS.Ref.net8.0_18.0",
-              "version": "[18.0.8319, 18.0.8319]"
+              "version": "[18.0.8324, 18.0.8324]"
             },
             {
               "name": "Microsoft.iOS.Runtime.iossimulator-x64.net8.0_18.0",
-              "version": "[18.0.8319, 18.0.8319]"
+              "version": "[18.0.8324, 18.0.8324]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.Mono.iossimulator-x64",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             }
           ],
           "frameworkReferences": {
@@ -1399,7 +1421,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         },
         "net8.0-maccatalyst18.0": {
           "targetAlias": "net8.0-maccatalyst",
@@ -1407,6 +1429,11 @@
             "AudioSwitcher.AudioApi.CoreAudio": {
               "target": "Package",
               "version": "[3.0.3, )",
+              "versionCentrallyManaged": true
+            },
+            "CommunityToolkit.WinUI.Behaviors": {
+              "target": "Package",
+              "version": "[8.0.240109, )",
               "versionCentrallyManaged": true
             },
             "Microsoft.Extensions.Logging.Console": {
@@ -1417,12 +1444,17 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.13, )",
+              "version": "[8.0.15, )",
               "autoReferenced": true
             },
             "NAudio": {
               "target": "Package",
               "version": "[2.1.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )",
               "versionCentrallyManaged": true
             },
             "SkiaSharp.Skottie": {
@@ -1576,6 +1608,7 @@
           },
           "centralPackageVersions": {
             "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
+            "CommunityToolkit.WinUI.Behaviors": "8.0.240109",
             "coverlet.collector": "6.0.2",
             "FluentAssertions": "6.12.0",
             "GitHubActionsTestLogger": "2.3.3",
@@ -1584,6 +1617,7 @@
             "Newtonsoft.Json": "13.0.3",
             "NUnit": "4.1.0",
             "NUnit3TestAdapter": "4.5.0",
+            "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.3.0",
             "Uno.UITest.Helpers": "1.1.0-dev.70",
             "Xamarin.UITest": "4.3.4"
           },
@@ -1602,27 +1636,23 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.MacCatalyst.Ref.net8.0_18.0",
-              "version": "[18.0.8319, 18.0.8319]"
+              "version": "[18.0.8324, 18.0.8324]"
             },
             {
               "name": "Microsoft.MacCatalyst.Runtime.maccatalyst-x64.net8.0_18.0",
-              "version": "[18.0.8319, 18.0.8319]"
+              "version": "[18.0.8324, 18.0.8324]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.Mono.maccatalyst-x64",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.13, 8.0.13]"
+              "version": "[8.0.15, 8.0.15]"
             }
           ],
           "frameworkReferences": {
@@ -1633,7 +1663,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

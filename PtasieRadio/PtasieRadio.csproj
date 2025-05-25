@@ -58,6 +58,7 @@
     <PackageReference Include="AudioSwitcher.AudioApi.CoreAudio" />
     <PackageReference Include="NAudio" />
     <PackageReference Include="Newtonsoft.Json" />
+    <PackageReference Include="CommunityToolkit.WinUI.Behaviors"/>
   </ItemGroup>
 
 </Project>
