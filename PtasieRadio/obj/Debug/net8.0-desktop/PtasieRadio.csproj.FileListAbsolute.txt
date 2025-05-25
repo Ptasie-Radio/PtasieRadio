@@ -3215,3 +3215,9 @@ C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-d
 C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\CommunityToolkit.WinUI.Animations.dll
 C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\CommunityToolkit.WinUI.Behaviors.dll
 C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\CommunityToolkit.WinUI.Extensions.dll
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\CommunityToolkit.Common.dll
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\CommunityToolkit.WinUI.Animations.dll
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\CommunityToolkit.WinUI.Behaviors.dll
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\CommunityToolkit.WinUI.Extensions.dll
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Microsoft.Xaml.Interactivity.dll
+D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Microsoft.Xaml.Interactions.dll

@@ -197,7 +197,7 @@ public sealed partial class MainPage : Page
         {
             BitmapImage bitmap;
             StorageFile file;
-
+            System.Diagnostics.Debug.WriteLine($"Ta część");
             try
             {
                 file = await StorageFile.GetFileFromPathAsync(entry.Value.ImagePath);
@@ -206,17 +206,21 @@ public sealed partial class MainPage : Page
             {
                 file = null;
             }
-            if (file != null)
+            System.Diagnostics.Debug.WriteLine($"Nie udało się");
+            try
             {
                 using var stream = await file.OpenAsync(FileAccessMode.Read);
                 bitmap = new BitmapImage();
                 await bitmap.SetSourceAsync(stream);
             }
-            else
+            catch (FileNotFoundException ex)
             {
                 bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
             }
-
+            catch (System.NullReferenceException ex)
+            {
+                bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
+            }
             var image = new Image
             {
                 Width = 120,

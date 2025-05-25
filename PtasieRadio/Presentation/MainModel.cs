@@ -213,7 +213,6 @@ public class MainModel : ObservableObject
 
 }
 
-// Extension method do znajdowania ScrollViewera w drzewie wizualnym
 public static class Extensions
 {
     public static T? FindParent<T>(this DependencyObject element) where T : DependencyObject
