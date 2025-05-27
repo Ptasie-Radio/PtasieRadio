@@ -11,6 +11,6 @@ public class SaveEntryData
     public required string Category { get; set; }  = string.Empty;
     public required string Description { get; set; }  = string.Empty;
     
-    [JsonIgnore]
-    public required StorageFile SelectedFile { get; set; }
+    //[JsonIgnore]
+    //public required StorageFile SelectedFile { get; set; }
 }

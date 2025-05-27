@@ -1227,6 +1227,18 @@
           "build/netcoreapp3.1/NUnit3TestAdapter.props": {}
         }
       },
+      "RadioBrowser/0.7.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Text.Json": "5.0.0"
+        },
+        "compile": {
+          "lib/net6.0/RadioBrowser.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/RadioBrowser.dll": {}
+        }
+      },
       "Refit/7.2.22": {
         "type": "package",
         "compile": {
@@ -2803,6 +2815,7 @@
           "Microsoft.Extensions.Logging.Console": "8.0.1",
           "NAudio": "2.1.0",
           "Newtonsoft.Json": "13.0.3",
+          "RadioBrowser": "0.7.0",
           "SkiaSharp.Skottie": "2.88.9",
           "SkiaSharp.Views.Uno.WinUI": "2.88.9",
           "Uno.Dsp.Tasks": "1.4.0",
@@ -4627,6 +4640,19 @@
         "nunit3testadapter.4.5.0.nupkg.sha512",
         "nunit3testadapter.nuspec",
         "nunit_256.png"
+      ]
+    },
+    "RadioBrowser/0.7.0": {
+      "sha512": "9I8+VLIdZrF/vV2LoYdoA5LB4XW5Sa3Seggi2w6aVwlaoSE7f2froJUaB6Fc8Yb96lWRM3BZfO3X8H8Or722Eg==",
+      "type": "package",
+      "path": "radiobrowser/0.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0/RadioBrowser.dll",
+        "lib/netstandard2.1/RadioBrowser.dll",
+        "radiobrowser.0.7.0.nupkg.sha512",
+        "radiobrowser.nuspec"
       ]
     },
     "Refit/7.2.22": {
@@ -8053,25 +8079,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kornel\\.nuget\\packages\\": {}
+    "C:\\Users\\mikim\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
+      "projectUniqueName": "M:\\projekty Visual Studio\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
       "projectName": "PtasieRadio.Tests",
-      "projectPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
-      "packagesPath": "C:\\Users\\Kornel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\obj\\",
+      "projectPath": "M:\\projekty Visual Studio\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
+      "packagesPath": "C:\\Users\\mikim\\.nuget\\packages\\",
+      "outputPath": "M:\\projekty Visual Studio\\PtasieRadio\\PtasieRadio.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "centralPackageVersionsManagementEnabled": true,
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Kornel\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\mikim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -8079,8 +8112,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
-              "projectPath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj"
+            "M:\\projekty Visual Studio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
+              "projectPath": "M:\\projekty Visual Studio\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj"
             }
           }
         }
@@ -8098,7 +8131,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0": {
@@ -8148,6 +8181,7 @@
           "Newtonsoft.Json": "13.0.3",
           "NUnit": "4.1.0",
           "NUnit3TestAdapter": "4.5.0",
+          "RadioBrowser": "0.7.0",
           "Uno.Microsoft.Xaml.Behaviors.WinUI.Managed": "2.3.0",
           "Uno.UITest.Helpers": "1.1.0-dev.70",
           "Xamarin.UITest": "4.3.4"
@@ -8163,26 +8197,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.15, 8.0.15]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.15, 8.0.15]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[8.0.15, 8.0.15]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
@@ -8191,7 +8211,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'AudioSwitcher.AudioApi 3.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "message": "Pakiet „AudioSwitcher.AudioApi 3.0.0” został przywrócony przy użyciu elementu „.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1” zamiast platformy docelowej projektu „net8.0”. Ten pakiet może nie być w pełni kompatybilny z Twoim projektem.",
       "libraryId": "AudioSwitcher.AudioApi",
       "targetGraphs": [
         "net8.0"
@@ -8201,7 +8221,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'AudioSwitcher.AudioApi.CoreAudio 3.0.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "message": "Pakiet „AudioSwitcher.AudioApi.CoreAudio 3.0.3” został przywrócony przy użyciu elementu „.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1” zamiast platformy docelowej projektu „net8.0”. Ten pakiet może nie być w pełni kompatybilny z Twoim projektem.",
       "libraryId": "AudioSwitcher.AudioApi.CoreAudio",
       "targetGraphs": [
         "net8.0"

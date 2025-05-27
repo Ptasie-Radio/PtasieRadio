@@ -1,4 +1,7 @@
 using NAudio.Wave;
+using System.Net;
+using System.Text.Json;
+//using static Android.Renderscripts.Sampler;
 
 namespace PtasieRadio.Services.RadioService;
 
@@ -11,12 +14,19 @@ public class RadioPlayerService : IRadioPlayerService
     private float currentVolume = 1.0f;
     private bool isMuted = false;
     private string? url;
+	private static string folderName = "PtasieRadio";
 
-    public bool IsPlaying => isPlaying;
+	public bool IsPlaying => isPlaying;
     public bool IsMuted => isMuted;
     public float Volume => currentVolume * 100f;
 
-    public async Task PlayOrPauseAsync()
+
+	public RadioPlayerService()
+	{
+		LoadListFromRadioBrowser();
+	}
+
+	public async Task PlayOrPauseAsync()
     {
         await Task.Run(() =>
         {
@@ -94,7 +104,91 @@ public class RadioPlayerService : IRadioPlayerService
         }
     }
 
-    public void SetIsMuted(bool muted) { isMuted = muted; }
+	private async void LoadListFromRadioBrowser()
+	{
+		try
+		{
+			using (var httpClient = new HttpClient())
+			{
+				httpClient.DefaultRequestHeaders.Add("User-Agent", "PtasieRadio/0.1");
+				using (var response = await httpClient.GetAsync($"https://all.api.radio-browser.info/json/stations/search?limit=30&countrycode=pl&hidebroken=true&order=clickcount&reverse=true"))
+				{
+					
+					response.EnsureSuccessStatusCode();
+					var json = await response.Content.ReadAsStringAsync();
+					var stations = JsonSerializer.Deserialize<List<StationInfo>>(json, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+					foreach (var station in stations)
+						Console.WriteLine(station.Name);
+
+                    using(await AddRadioService.AddRadioService.jsonSemaphore.Lock())
+                    {
+                        StorageFolder folder = await MainPage.OpenFolder();
+                        var entries = await MainPage.LoadFromJson(folder);
+                        int imageIndex = 1;
+                        foreach (var station in stations)
+                        {
+                            var fileFormat = station.Favicon?.Map(f => Path.GetExtension(f.AbsolutePath));
+							string fileName = "stationIcon" + imageIndex + (string.IsNullOrEmpty(fileFormat) ? "": ("." + fileFormat));
+							int index = fileName.IndexOf('?');
+							if (index >= 0) fileName = fileName.Substring(0, index);
+							
+							imageIndex++;
+							
+							if (index >= 0) fileName = fileName.Substring(0, index);
+							HttpResponseMessage? image = null;
+                            Stream stream;
+                            try
+                            {
+                                image = await httpClient.GetAsync(station.Favicon);
+								image.EnsureSuccessStatusCode();
+								stream = await image.Content.ReadAsStreamAsync();
+
+							}
+                            catch
+                            {
+                                var uri = new Uri("ms-appx:///Assets/Images/placeholder.png");
+								StorageFile f = await StorageFile.GetFileFromApplicationUriAsync(uri);
+                                stream = (await f.OpenReadAsync()).AsStream();
+
+							}
+                                
+                            using (image)
+                            using (stream)
+                            {
+
+                                var saveFile = await folder.CreateFileAsync(fileName, CreationCollisionOption.OpenIfExists);
+                                File.WriteAllBytes(saveFile.Path, stream.ReadBytes());
+
+                                SaveEntryData s = new SaveEntryData
+                                {
+                                    Name = station.Name,
+                                    StreamUrl = station.Url.ToString(),
+                                    ImagePath = saveFile.Path,
+                                    Country = station.CountryCode,
+                                    Category = "POP",
+                                    Description = String.Join(", ", station.Tags),
+                                };
+
+                                foreach (var item in entries.Where(kvp => kvp.Value.StreamUrl == s.StreamUrl).ToList())
+                                {
+                                    entries.Remove(item.Key);
+                                }
+
+                                entries.Add(AddRadioService.AddRadioService.NextFreeIndex(entries).ToString(), s);
+                            }
+                        }
+                        await AddRadioService.AddRadioService.SaveToJson(folder, entries);
+                    }
+				}
+			}
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine(ex);
+		}
+	}
+
+	public void SetIsMuted(bool muted) { isMuted = muted; }
     public bool GetIsMuted() { return IsMuted; }
     public bool GetIsPlaying() { return IsPlaying; }
     public float GetVolume() { return Volume; }

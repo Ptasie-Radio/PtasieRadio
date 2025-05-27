@@ -13,6 +13,7 @@
           "Microsoft.Extensions.Logging.Console": "8.0.1",
           "NAudio": "2.1.0",
           "Newtonsoft.Json": "13.0.3",
+          "RadioBrowser": "0.7.0",
           "SkiaSharp.Skottie": "2.88.9",
           "SkiaSharp.Views.Uno.WinUI": "2.88.9",
           "Uno.Dsp.Tasks": "1.4.0",
@@ -693,6 +694,17 @@
           "lib/net6.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "13.0.0.0",
             "fileVersion": "13.0.3.27908"
+          }
+        }
+      },
+      "RadioBrowser/0.7.0": {
+        "dependencies": {
+          "System.Text.Json": "8.0.5"
+        },
+        "runtime": {
+          "lib/net6.0/RadioBrowser.dll": {
+            "assemblyVersion": "0.7.0.0",
+            "fileVersion": "0.7.0.0"
           }
         }
       },
@@ -2233,6 +2245,13 @@
       "sha512": "sha512-HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
       "path": "newtonsoft.json/13.0.3",
       "hashPath": "newtonsoft.json.13.0.3.nupkg.sha512"
+    },
+    "RadioBrowser/0.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9I8+VLIdZrF/vV2LoYdoA5LB4XW5Sa3Seggi2w6aVwlaoSE7f2froJUaB6Fc8Yb96lWRM3BZfO3X8H8Or722Eg==",
+      "path": "radiobrowser/0.7.0",
+      "hashPath": "radiobrowser.0.7.0.nupkg.sha512"
     },
     "Refit/7.2.22": {
       "type": "package",

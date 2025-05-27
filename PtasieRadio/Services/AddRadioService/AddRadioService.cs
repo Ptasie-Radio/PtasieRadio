@@ -7,102 +7,121 @@ using System.Collections.Generic;
 using Uno.Extensions.Navigation;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
+using Uno.Disposables;
 
 namespace PtasieRadio.Services.AddRadioService;
 
 public class AddRadioService : IAddRadioService
 {
-    private string url = "";
-    private string name = "";
-    private string description = "";
-    private static string folderName = "PtasieRadio";
+	public const string localFileName = "radio.json";
+	public static SemaphoreSlim jsonSemaphore = new SemaphoreSlim(1);
 
-    private StorageFile? selectedFile;
+	//private string url = "";
+	//private string name = "";
+	//private string description = "";
+	private static string folderName = "PtasieRadio";
+
+    //private StorageFile? selectedFile;
 
     public AddRadioService()
     {
 
     }
 
-    public void setUrl(string url) { this.url = url; }
-    public void setName(string name) { this.name = name; }
-    public void setDescription(string description) { this.description = description; }
+	//public void setUrl(string url) { this.url = url; }
+	//public void setName(string name) { this.name = name; }
+	//public void setDescription(string description) { this.description = description; }
 
-    public void setSelectedFile(StorageFile selectedFile) { this.selectedFile = selectedFile; }
+	//public void setSelectedFile(StorageFile selectedFile) { this.selectedFile = selectedFile; }
 
-    public async Task<int> GetIndexFromJson()
+	public static int NextFreeIndex<T>(Dictionary<string, T> dictionary)
     {
-        var folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync(
-            folderName, CreationCollisionOption.OpenIfExists);
-        var localFileName = "radio.json";
-        Dictionary<string, SaveEntryData> entries;
         int i = 1;
-        try
-        {
-            var file = await folder.GetFileAsync(localFileName);
-            string json = await FileIO.ReadTextAsync(file);
-            entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
-                      ?? new Dictionary<string, SaveEntryData>();
-        }
-        catch (FileNotFoundException)
-        {
-            entries = new Dictionary<string, SaveEntryData>();
-        }
-        while (true)
-        {
-            if (entries.ContainsKey(i.ToString()))
-            {
-                i++;
-                continue;
-            }
-            else break;
-        }
-        return i;   
-    }
+        for (; dictionary.ContainsKey(i.ToString()); i++) ;
+        return i;
+	}
+	//  public async Task<int> GetIndexFromJson()
+	//  {
+	//      var folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync(
+	//          folderName, CreationCollisionOption.OpenIfExists);
+	//      var localFileName = "radio.json";
+	//      Dictionary<string, SaveEntryData> entries;
 
-    public async Task SaveToJson(INavigator _navigator)
-    {
-        var folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync(
-        folderName, CreationCollisionOption.OpenIfExists);
-        var localFileName = "radio.json";
-        Dictionary<string, SaveEntryData> entries;
-        StorageFile file;
-        try
-        {
-            file = await folder.GetFileAsync(localFileName);
-            
-            System.Diagnostics.Process.Start("explorer.exe", file.Path);
-            string existingJson = await FileIO.ReadTextAsync(file);
-            entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(existingJson) ?? new Dictionary<string, SaveEntryData>();
-        }
-        catch (FileNotFoundException)
-        {
-            entries = new Dictionary<string, SaveEntryData>();
-        }
-        if (selectedFile == null) return;
-        var entry = new SaveEntryData
-        {
-            StreamUrl = url,
-            Name = name,
-            Description = description,
-            SelectedFile = selectedFile,
-            ImagePath = selectedFile.Path,
-            Country = "Polska",
-            Category="Własne"
-        };
+	//      try
+	//      {
+	//          var file = await folder.GetFileAsync(localFileName);
+	//          string json = await FileIO.ReadTextAsync(file);
+	//          entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
+	//                    ?? new Dictionary<string, SaveEntryData>();
+	//      }
+	//      catch (FileNotFoundException)
+	//      {
+	//          entries = new Dictionary<string, SaveEntryData>();
+	//      }
 
-        int index = await GetIndexFromJson();
-       
-        entries[index.ToString()] = entry;
-        string json = JsonConvert.SerializeObject(entries, Formatting.Indented);
-        file = await folder.CreateFileAsync(localFileName, CreationCollisionOption.ReplaceExisting);
-        await FileIO.WriteTextAsync(file, json);
-        _ = GoToMain(_navigator);
-    }
+	//int i = 1;
+	//      for (; entries.ContainsKey(i.ToString()); i++) ;
 
-    public async Task GoToMain(INavigator _navigator)
-    {
-        await _navigator.NavigateRouteAsync(this, "/Main");
-    }
+	////while (true)
+	////      {
+	////          if (entries.ContainsKey(i.ToString()))
+	////          {
+	////              i++;
+	////              continue;
+	////          }
+	////          else break;
+	////      }
+	//      return i;   
+	//  }
+
+	public async Task AddOneRadioToJson(string url, string name, string description, string imagePath)
+	{
+		using (await jsonSemaphore.Lock())
+		{
+			var folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync(
+			folderName, CreationCollisionOption.OpenIfExists);
+			Dictionary<string, SaveEntryData> entries;
+			StorageFile file;
+			try
+			{
+				file = await folder.GetFileAsync(localFileName);
+
+				System.Diagnostics.Process.Start("explorer.exe", file.Path);
+				string existingJson = await FileIO.ReadTextAsync(file);
+				entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(existingJson) ?? new Dictionary<string, SaveEntryData>();
+			}
+			catch (FileNotFoundException)
+			{
+				entries = new Dictionary<string, SaveEntryData>();
+			}
+			var entry = new SaveEntryData
+			{
+				StreamUrl = url,
+				Name = name,
+				Description = description,
+				ImagePath = imagePath,
+				Country = "Polska",
+				Category = "Własne"
+			};
+
+			int index = NextFreeIndex(entries);
+
+			entries[index.ToString()] = entry;
+			await SaveToJson(folder, entries);
+			//_ = GoToMain(_navigator);
+		}
+	}
+
+	public static async Task SaveToJson(StorageFolder folder, Dictionary<string, SaveEntryData> entries)
+	{
+		string json = JsonConvert.SerializeObject(entries, Formatting.Indented);
+		var saveFile = await folder.CreateFileAsync(localFileName, CreationCollisionOption.ReplaceExisting);
+		await FileIO.WriteTextAsync(saveFile, json);
+	}
+
+	//public async Task GoToMain(INavigator _navigator)
+	//{
+	//    await _navigator.NavigateRouteAsync(this, "/Main");
+	//}
 
 }

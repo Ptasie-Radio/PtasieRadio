@@ -22,42 +22,53 @@ namespace PtasieRadio.Presentation;
 public sealed partial class AddRadioPage : Page
 {
     private BitmapImage? bitmap;
-    private StorageFile? selectedFile;
+    private string? selectedFile;
 
     public AddRadioPage()
     {
         this.InitializeComponent();
     }
 
-    private async void OnSelectImageTapped(object sender, TappedRoutedEventArgs e)
-    {
-        e.Handled = true;
-        var picker = new FileOpenPicker();
-        var hwnd = WindowNative.GetWindowHandle(App.GetMainWindow());
-        InitializeWithWindow.Initialize(picker, hwnd);
+	private async void OnSelectImageTapped(object sender, TappedRoutedEventArgs e)
+	{
+		e.Handled = true;
+		var picker = new FileOpenPicker();
+		var hwnd = WindowNative.GetWindowHandle(App.GetMainWindow());
+		InitializeWithWindow.Initialize(picker, hwnd);
 
-        picker.FileTypeFilter.Add(".png");
-        picker.FileTypeFilter.Add(".jpg");
-        picker.FileTypeFilter.Add(".jpeg");
-        picker.FileTypeFilter.Add(".webp");
-        var file = await picker.PickSingleFileAsync();
-        if (file != null)
-        {
-            selectedFile = file;
+		picker.FileTypeFilter.Add(".png");
+		picker.FileTypeFilter.Add(".jpg");
+		picker.FileTypeFilter.Add(".jpeg");
+		picker.FileTypeFilter.Add(".webp");
+		var file = await picker.PickSingleFileAsync();
+		if (file != null)
+		{
+			selectedFile = file.Path;
+			try
+			{
+				using var stream = await file.OpenAsync(FileAccessMode.Read);
+				bitmap = new BitmapImage();
+				await bitmap.SetSourceAsync(stream);
+			}
+			catch (FileNotFoundException ex)
+			{
+				bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
+			}
+			catch (System.NullReferenceException ex)
+			{
+				bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
+			}
 
-            using var stream = await file.OpenAsync(FileAccessMode.Read);
-            bitmap = new BitmapImage();
-            await bitmap.SetSourceAsync(stream);
 
-            var image = SelectedImageButton.GetTemplateChild("SelectedImage") as Image;
-            if (image != null)
-            {
-                image.Source = bitmap;
-            }
-        }
-    }
+			var image = SelectedImageButton.GetTemplateChild("SelectedImage") as Image;
+			if (image != null)
+			{
+				image.Source = bitmap;
+			}
+		}
+	}
 
-    private void OnSaveButtonTapped(object sender, TappedRoutedEventArgs e)
+	private void OnSaveButtonTapped(object sender, TappedRoutedEventArgs e)
     {
         e.Handled = true;
         string url = UrlTextBox.Text;
@@ -73,8 +84,8 @@ public sealed partial class AddRadioPage : Page
                 StreamUrl = url,
                 Name = name,
                 Description = description,
-                SelectedFile = selectedFile,
-                ImagePath = selectedFile.Path,
+                //SelectedFile = selectedFile,
+                ImagePath = selectedFile,
                 Country = "Polska",
                 Category="Własne"
             };
