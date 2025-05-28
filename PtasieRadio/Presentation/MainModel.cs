@@ -203,12 +203,11 @@ public class MainModel : ObservableObject
         this.url = url;
         _radioService.Reset();
         _radioService.SetUrl(url);
+
+        if(isPlaying) _ = _radioService.PlayOrPauseAsync();
         OnPropertyChanged(nameof(MuteButtonImage));
         OnPropertyChanged(nameof(PlayPauseButtonImage));
         OnPropertyChanged(nameof(MiniPlayPauseButtonImage));
-        IsMuted = _radioService.GetIsMuted();
-        isPlaying = _radioService.GetIsPlaying();
-        _Volume = _radioService.GetVolume();
     }
 
 }

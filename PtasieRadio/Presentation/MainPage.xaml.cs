@@ -127,6 +127,8 @@ public sealed partial class MainPage : Page
 
     private void ShuffleButtonTappedEvent(object sender, TappedRoutedEventArgs e)
     {
+        //TODO:
+        //Dodaj tutaj shuffl'a
         e.Handled = true;
     }
 
@@ -172,7 +174,7 @@ public sealed partial class MainPage : Page
 		return filteredEntries;
 	}
     
-    public static async Task RemoveEntryById(StorageFolder folder, string idToRemove)
+    public static async Task RemoveEntryById(StorageFolder folder, string id)
     {
         var localFileName = "radio.json";
         try
@@ -183,11 +185,11 @@ public sealed partial class MainPage : Page
             var entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
                           ?? new Dictionary<string, SaveEntryData>();
 
-            if (entries.ContainsKey(idToRemove))
+            if (entries.ContainsKey(id))
             {
-                entries.Remove(idToRemove);
-                string updatedJson = JsonConvert.SerializeObject(entries, Formatting.Indented);
-                await FileIO.WriteTextAsync(file, updatedJson);
+                entries.Remove(id);
+                string newJson = JsonConvert.SerializeObject(entries, Formatting.Indented);
+                await FileIO.WriteTextAsync(file, newJson);
             }
         }
         catch (FileNotFoundException)
@@ -292,8 +294,8 @@ public sealed partial class MainPage : Page
                 var menu = new MenuFlyoutItem { Text = "Usuń" };
                 menu.Click += async (s, e) =>
                 {
-                    string idToRemove = stationPanel.Name.Replace("Stacja_", "");
-                    await RemoveEntryById(folder, idToRemove);
+                    string id = stationPanel.Name.Replace("Stacja_", "");
+                    await RemoveEntryById(folder, id);
                     var parent = stationPanel.Parent as Panel;
                     parent?.Children.Remove(stationPanel);//Usuwamy ten nasz station Panel
                 };
@@ -301,14 +303,14 @@ public sealed partial class MainPage : Page
                 menuFlyout.Items.Add(menu);
                 stationPanel.ContextFlyout = menuFlyout;
             }
-            stationPanel.PointerReleased += OnPanelPointerReleased;
+            stationPanel.DoubleTapped += OnPanelDoubleTapped;
             stationPanel.Children.Add(border);
             stationPanel.Children.Add(textBlock);
             category.Children.Add(stationPanel);
         }
     }
 
-    private async void OnPanelPointerReleased(object sender, PointerRoutedEventArgs e)
+    private async void OnPanelDoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
     {
         e.Handled = false;
         if (sender is StackPanel panel)

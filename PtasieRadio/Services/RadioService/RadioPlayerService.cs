@@ -11,7 +11,7 @@ public class RadioPlayerService : IRadioPlayerService
     private MediaFoundationReader? reader;
     private bool isPlaying = false;
     private bool isInitialized = false;
-    private float currentVolume = 1.0f;
+    private float currentVolume = 0.5f;
     private bool isMuted = false;
     private string? url;
 	private static string folderName = "PtasieRadio";
@@ -30,6 +30,26 @@ public class RadioPlayerService : IRadioPlayerService
     {
         await Task.Run(() =>
         {
+            if (!isInitialized)
+            {
+                try
+                {
+                    reader = new MediaFoundationReader(url);
+                    waveOut = new WaveOutEvent();
+                    waveOut.Init(reader);
+                    waveOut.Volume = isMuted ? 0 : currentVolume;
+                    isInitialized = true;
+                }
+                catch (FileNotFoundException ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"{ex}");
+                }
+                catch (System.Runtime.InteropServices.COMException ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"Error:{ex}");
+                }
+            }
+
             if (isPlaying)
             {
                 waveOut?.Stop();
@@ -37,27 +57,6 @@ public class RadioPlayerService : IRadioPlayerService
             }
             else
             {
-                if (!isInitialized)
-                {
-                    try
-                    {
-
-                        reader = new MediaFoundationReader(url);
-                        waveOut = new WaveOutEvent();
-                        waveOut.Init(reader);
-                        waveOut.Volume = isMuted ? 0 : currentVolume;
-                        isInitialized = true;
-                    }
-                    catch (FileNotFoundException ex)
-                    {
-                        System.Diagnostics.Debug.WriteLine($"{ex}");
-                    }
-                    catch (System.Runtime.InteropServices.COMException ex)
-                    {
-                         System.Diagnostics.Debug.WriteLine($"Error:{ex}");
-                    }
-                }
-
                 waveOut?.Play();
                 isPlaying = true;
             }
@@ -73,6 +72,8 @@ public class RadioPlayerService : IRadioPlayerService
         });
     }
 
+    //TODO:
+    //Zmienić, aby radio odpalało się od razu po załadowaniu, jeśli użyszkodnik mial isPlaying true
     public void Reset()
     {
         waveOut?.Stop();
@@ -83,7 +84,6 @@ public class RadioPlayerService : IRadioPlayerService
         reader = null;
         isPlaying = false;
         isInitialized = false;
-
     }
 
     public void SetVolume(double volume)
@@ -190,7 +190,8 @@ public class RadioPlayerService : IRadioPlayerService
 
 	public void SetIsMuted(bool muted) { isMuted = muted; }
     public bool GetIsMuted() { return IsMuted; }
-    public bool GetIsPlaying() { return IsPlaying; }
+    public bool GetIsPlaying() {return IsPlaying;}
+    public void SetIsPlaying(bool isPlaying) { this.isPlaying = isPlaying;}
     public float GetVolume() { return Volume; }
     public string? GetUrl() { return url; }
     public void SetUrl(string url) { this.url = url; }

@@ -56,7 +56,7 @@ public class AddRadioService : IAddRadioService
 				Name = name,
 				Description = description,
 				ImagePath = imagePath,
-				Country = "Polska",
+				Country = "pl",
 				Category = "Własne"
 			};
 

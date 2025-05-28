@@ -35,7 +35,8 @@ public partial class SecondModel : ObservableObject
     public async Task GoToMain()
     {
         var name = await Name;
-        await _navigator.NavigateRouteAsync(this, "/Main");//Ten / musi tu być, aby zawsze odnajdował nasz model w ścieżce, bez tego po jednokrotnym
+        await _navigator.NavigateRouteAsync(this, "/Main");
+        //Ten / musi tu być, aby zawsze odnajdował nasz model w ścieżce, bez tego po jednokrotnym
         //Wykonaniu, ścieżka się zmienia
     }
     public async Task GoToAddRadio()

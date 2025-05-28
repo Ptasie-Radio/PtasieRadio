@@ -14,5 +14,6 @@ public interface IRadioPlayerService
     string? GetUrl();
     bool GetIsMuted();
     bool GetIsPlaying();
+        void SetIsPlaying(bool isPlaying);
     float GetVolume();
 }
