@@ -19,7 +19,43 @@ public class MainModel : ObservableObject
     public IAsyncRelayCommand NavigateCommand { get; }//Tworzenie komendy nawigacyjnej
     public IAsyncRelayCommand PlayRadioCommand { get; }
     private readonly IRadioPlayerService _radioService;
+    public ICommand ToggleChangeStationNameCommand { get; }
+    public ICommand ToggleChangeCountryCommand { get; }
+    public ICommand ToggleChangeImagePathCommand { get; }
     private string? url;
+    private string _stationName;
+
+    public string StationName
+    {
+        get => _stationName;
+        set
+        {
+            _stationName = value;
+            OnPropertyChanged();
+        }
+    }
+
+    private string _country;
+    public string Country {
+        get => _country;
+        set
+        {
+            _country = value;
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(StationFlagUrl)); // Dodaj tę linię
+        }
+    }
+    private string _imagePath;
+    public string ImagePath
+    {
+        get => _imagePath;
+        set
+        {
+            _imagePath = value;
+            OnPropertyChanged();
+        }
+    }
+
 
     public IRelayCommand ToggleMuteCommand { get; }
     public RelayCommand<string?> ToggleChangeUrlCommand { get; }
@@ -69,6 +105,7 @@ public class MainModel : ObservableObject
     }
 
     private bool _isPlaying;
+
     public bool isPlaying
     {
         get => _isPlaying;
@@ -78,6 +115,7 @@ public class MainModel : ObservableObject
             {
                 OnPropertyChanged(nameof(PlayPauseButtonImage));
                 OnPropertyChanged(nameof(MiniPlayPauseButtonImage));
+                Console.WriteLine(Country);
             }
         }
     }
@@ -92,6 +130,8 @@ public class MainModel : ObservableObject
     public string? Title { get; }
 
     public IState<string> Name => State<string>.Value(this, () => string.Empty);
+    public string CountryFlagUrl => $"https://flagcdn.com/h20/{Country?.ToLower()}.png"; // nie dziala
+    public string StationFlagUrl => CountryFlagUrl ?? "";
 
 
     public MainModel(
@@ -105,10 +145,13 @@ public class MainModel : ObservableObject
 
         _radioService = radioService;
         url = _radioService.GetUrl();
-        if(url == null)url = "http://chi.cdn.eurozet.pl/chi-net.mp3";
-        
+        if (url == null) url = "http://chi.cdn.eurozet.pl/chi-net.mp3";
+
         ToggleMuteCommand = new RelayCommand(ToggleMute);
         ToggleChangeUrlCommand = new RelayCommand<string?>(ToggleChangeUrl);
+        ToggleChangeStationNameCommand = new RelayCommand<string?>(ToggleChangeName);
+        ToggleChangeCountryCommand = new RelayCommand<string?>(ToggleChangeCountry);
+        ToggleChangeImagePathCommand = new RelayCommand<string?>(ToggleChangeImagePath);
         PlayRadioCommand = new AsyncRelayCommand(PlayRadio);
         Title = "Main";
         Title += $" - {localizer["ApplicationName"]}";
@@ -122,6 +165,7 @@ public class MainModel : ObservableObject
         ScrollMoveCommand = new RelayCommand<PointerRoutedEventArgs>(ScrollMove);
         ScrollStopCommand = new RelayCommand<PointerRoutedEventArgs>(ScrollStop);
     }
+
 
     // Poczatek scrolli
     private void ScrollStop(PointerRoutedEventArgs? e)
@@ -210,6 +254,11 @@ public class MainModel : ObservableObject
         isPlaying = _radioService.GetIsPlaying();
         _Volume = _radioService.GetVolume();
     }
+
+    private void ToggleChangeName(string? name) { StationName = name; }
+    private void ToggleChangeCountry(string? country) { Country = country;
+    }
+    private void ToggleChangeImagePath(string? imagePath) { ImagePath = imagePath; }
 
 }
 

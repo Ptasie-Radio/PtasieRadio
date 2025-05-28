@@ -183,7 +183,7 @@ public sealed partial class MainPage : Page
         int j = 0;
 		using (await AddRadioService.jsonSemaphore.Lock())
         {
-		    foreach (StackPanel panel in new List<StackPanel> {NajczesciejGranePanel, PopularnePanel, WlasnePanel})
+		    foreach (StackPanel panel in new List<StackPanel> {PopularnePanel,NajczesciejGranePanel,  WlasnePanel})
             {
                 var folder = await OpenFolder();
 			    var entries = await LoadFromJson(folder, x[j]);
@@ -289,6 +289,9 @@ public sealed partial class MainPage : Page
                 var viewModel = DataContext as MainModel;
                 if (viewModel == null) return;
                 viewModel.ToggleChangeUrlCommand.Execute(entry.StreamUrl);
+                viewModel.ToggleChangeStationNameCommand.Execute(entry.Name);
+                viewModel.ToggleChangeCountryCommand.Execute(entry.Country);
+                viewModel.ToggleChangeImagePathCommand.Execute(entry.ImagePath);
             }
             else
             {
