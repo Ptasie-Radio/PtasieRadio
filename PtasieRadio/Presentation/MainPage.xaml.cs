@@ -30,7 +30,7 @@ public sealed partial class MainPage : Page
         this.SizeChanged += MainPage_SizeChanged;
         _ = CreateOwnStationOnViewLoad();
     }
-
+    
     private void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
     {
         double windowHeight = this.ActualHeight;
@@ -86,6 +86,9 @@ public sealed partial class MainPage : Page
         storyboard.Begin();
     }
 
+
+
+
     private void RackTappedEvent(object sender, TappedRoutedEventArgs e)
     {
         e.Handled = true;
@@ -124,6 +127,15 @@ public sealed partial class MainPage : Page
             RadioMainPage.Visibility = Visibility.Collapsed;
         };
     }
+
+    private void OnTabTapped(object sender, TappedRoutedEventArgs e)
+{
+    if (sender is StackPanel panel && panel.Tag is string selected)
+    {
+        System.Diagnostics.Debug.WriteLine($"Kliknięto: {selected}");
+    }
+}
+
 
     private void ShuffleButtonTappedEvent(object sender, TappedRoutedEventArgs e)
     {

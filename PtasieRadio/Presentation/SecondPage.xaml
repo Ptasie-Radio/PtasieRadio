@@ -133,7 +133,7 @@
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
                                     <Image Source="Assets/Images/eq.png" Width="24" Height="24" VerticalAlignment="Center" Margin="8,0"/>
-                                    <TextBlock Text="Equalizer" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
+                                    <TextBlock Text="Equalizer (" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
                                     <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
                                 </Grid>
                                 <Grid Height="48" Tapped="AddNewRadioNavigate">
@@ -146,7 +146,7 @@
                                     <TextBlock Text="Dodaj Radio z URL" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
                                     <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
                                 </Grid>
-                                <Grid Height="48">
+                                <!-- <Grid Height="48">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="40"/>
                                         <ColumnDefinition Width="*"/>
@@ -155,7 +155,7 @@
                                     <Image Source="Assets/Images/save.png" Width="24" Height="24" VerticalAlignment="Center" Margin="8,0"/>
                                     <TextBlock Text="Miejsce zapisu" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
                                     <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
-                                </Grid>
+                                </Grid> -->
                             </StackPanel>
 
                             <!-- Inne -->
