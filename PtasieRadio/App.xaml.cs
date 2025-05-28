@@ -96,19 +96,21 @@ public partial class App : Application
     private static void RegisterRoutes(IViewRegistry views, IRouteRegistry routes)
     {
         views.Register(
-            new ViewMap(ViewModel: typeof(ShellModel)),
-            new ViewMap<MainPage, MainModel>(),
-            new ViewMap<SecondPage, SecondModel>(),
-            new ViewMap<AddRadioPage, AddRadioModel>()
-        );
+    new ViewMap(ViewModel: typeof(ShellModel)),
+    new ViewMap<MainPage, MainModel>(),
+    new ViewMap<SecondPage, SecondModel>(),
+    new ViewMap<AddRadioPage, AddRadioModel>(),
+    new ViewMap<ChangeThemePage, ChangeThemeModel>()
+);
 
         routes.Register(
             new RouteMap("", View: views.FindByViewModel<ShellModel>(),
                 Nested:
                 [
                     new ("Main", View: views.FindByViewModel<MainModel>(), IsDefault:true),
-                    new ("Second", View: views.FindByViewModel<SecondModel>()),
-                    new ("AddRadio", View: views.FindByViewModel<AddRadioModel>()),
+            new ("Second", View: views.FindByViewModel<SecondModel>()),
+            new ("AddRadio", View: views.FindByViewModel<AddRadioModel>()),
+            new ("ChangeTheme", View: views.FindByViewModel<ChangeThemeModel>())
                 ]
             )
         );

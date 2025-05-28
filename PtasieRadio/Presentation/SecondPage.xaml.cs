@@ -27,13 +27,25 @@ public sealed partial class SecondPage : Page
         this.InitializeComponent();
     }
 
+
+private void NavigateToChangeTheme(object sender, TappedRoutedEventArgs e)
+{
+    var viewModel = DataContext as SecondViewModel;
+    if (viewModel == null) return;
+    viewModel.GoToChangeTheme.Execute(null);
+}
+
+
     private void AddNewRadioNavigate(object sender, TappedRoutedEventArgs e)
     {
         var viewModel = DataContext as SecondViewModel;
         if (viewModel == null) return;
         viewModel.NavigateToAddRadioCommand.Execute(null);
     }
-        //PRZYCISK USTAWIENIA - > INNE
+
+
+
+    //PRZYCISK USTAWIENIA - > INNE
     private async void OnOpiniaTapped(object sender, TappedRoutedEventArgs e)
     {
         var uri = new Uri("https://docs.google.com/forms/d/e/1FAIpQLSduEc6xafNra5ygl1m6dShfAwOl6oSdzMcyGw1p6q178Ya_bw/viewform");
