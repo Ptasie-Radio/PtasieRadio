@@ -43,7 +43,6 @@ public class AddRadioService : IAddRadioService
 			{
 				file = await folder.GetFileAsync(localFileName);
 
-				System.Diagnostics.Process.Start("explorer.exe", file.Path);
 				string existingJson = await FileIO.ReadTextAsync(file);
 				entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(existingJson) ?? new Dictionary<string, SaveEntryData>();
 			}

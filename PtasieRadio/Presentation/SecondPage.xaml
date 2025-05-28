@@ -146,7 +146,7 @@
                                     <TextBlock Text="Dodaj Radio z URL" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
                                     <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
                                 </Grid>
-                                <Grid Height="48">
+                                <Grid Height="48" Tapped="SaveFolderTapped">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="40"/>
                                         <ColumnDefinition Width="*"/>

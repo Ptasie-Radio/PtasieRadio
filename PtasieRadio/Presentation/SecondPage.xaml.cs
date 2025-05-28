@@ -33,6 +33,14 @@ public sealed partial class SecondPage : Page
         if (viewModel == null) return;
         viewModel.NavigateToAddRadioCommand.Execute(null);
     }
+
+        private async void SaveFolderTapped(object sender, TappedRoutedEventArgs e)
+    {
+        var folderName = "PtasieRadio";
+        var folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync(
+		folderName, CreationCollisionOption.OpenIfExists);
+			System.Diagnostics.Process.Start("explorer.exe", folder.Path);
+    }
         //PRZYCISK USTAWIENIA - > INNE
     private async void OnOpiniaTapped(object sender, TappedRoutedEventArgs e)
     {
@@ -81,6 +89,8 @@ public sealed partial class SecondPage : Page
             "Umożliwia słuchanie stacji radiowych, dodawanie własnych linków, zmianę kolorów interfejsu, ikon oraz nazwy użytkownika. \n" +
             "Dziękujemy, że z niej korzystasz! ❤️");
     }
+
+
 
     private void OnPolitykaTapped(object sender, TappedRoutedEventArgs e)
     {
