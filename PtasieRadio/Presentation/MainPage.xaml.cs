@@ -157,7 +157,6 @@ public sealed partial class MainPage : Page
 		Dictionary<string, SaveEntryData> filteredEntries;
 		try
 		{
-
 			var file = await folder.GetFileAsync(localFileName);
 			string json = await FileIO.ReadTextAsync(file);
 			entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
@@ -172,14 +171,38 @@ public sealed partial class MainPage : Page
 
 		return filteredEntries;
 	}
+    
+    public static async Task RemoveEntryById(StorageFolder folder, string idToRemove)
+    {
+        var localFileName = "radio.json";
+        try
+        {
+            var file = await folder.GetFileAsync(localFileName);
+            string json = await FileIO.ReadTextAsync(file);
 
-	public static async Task<StorageFolder> OpenFolder() => 
+            var entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
+                          ?? new Dictionary<string, SaveEntryData>();
+
+            if (entries.ContainsKey(idToRemove))
+            {
+                entries.Remove(idToRemove);
+                string updatedJson = JsonConvert.SerializeObject(entries, Formatting.Indented);
+                await FileIO.WriteTextAsync(file, updatedJson);
+            }
+        }
+        catch (FileNotFoundException)
+        {
+            System.Diagnostics.Debug.WriteLine($"Exception: Nie udało się znaleźć pliku");
+        }
+    }
+
+	public static async Task<StorageFolder> OpenFolder() =>
         await ApplicationData.Current.LocalFolder.CreateFolderAsync(
-			folderName, CreationCollisionOption.OpenIfExists);
+            folderName, CreationCollisionOption.OpenIfExists);
 
 	private async Task CreateOwnStationOnViewLoad()
     {
-        var x = new List<string> { "POP", "NO", "Własne"};
+        var x = new List<string> {"NO","POP","Własne"};
         int j = 0;
 		using (await AddRadioService.jsonSemaphore.Lock())
         {
@@ -227,7 +250,6 @@ public sealed partial class MainPage : Page
                 bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
             }
             
-
             var image = new Image
             {
                 Width = 120,
@@ -264,6 +286,21 @@ public sealed partial class MainPage : Page
                 ManipulationMode = ManipulationModes.TranslateX | ManipulationModes.System,
             };
 
+            var targetPanels = new HashSet<StackPanel> { NajczesciejGranePanel, WlasnePanel };
+            if (targetPanels.Contains(category))
+            {
+                var menu = new MenuFlyoutItem { Text = "Usuń" };
+                menu.Click += async (s, e) =>
+                {
+                    string idToRemove = stationPanel.Name.Replace("Stacja_", "");
+                    await RemoveEntryById(folder, idToRemove);
+                    var parent = stationPanel.Parent as Panel;
+                    parent?.Children.Remove(stationPanel);//Usuwamy ten nasz station Panel
+                };
+                var menuFlyout = new MenuFlyout();
+                menuFlyout.Items.Add(menu);
+                stationPanel.ContextFlyout = menuFlyout;
+            }
             stationPanel.PointerReleased += OnPanelPointerReleased;
             stationPanel.Children.Add(border);
             stationPanel.Children.Add(textBlock);

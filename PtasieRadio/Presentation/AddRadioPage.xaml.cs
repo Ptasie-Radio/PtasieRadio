@@ -59,7 +59,6 @@ public sealed partial class AddRadioPage : Page
 				bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
 			}
 
-
 			var image = SelectedImageButton.GetTemplateChild("SelectedImage") as Image;
 			if (image != null)
 			{
@@ -84,7 +83,6 @@ public sealed partial class AddRadioPage : Page
                 StreamUrl = url,
                 Name = name,
                 Description = description,
-                //SelectedFile = selectedFile,
                 ImagePath = selectedFile,
                 Country = "Polska",
                 Category="Własne"
