@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:local="using:PtasieRadio.Presentation"
       Background="#1C1B1F">
-
+<!-- IS CHECKED DODAĆ do przycisków + NAPRAWIĆ PRZYCISK COFANIA + Dodać inne kolory + Dodać Działanie przycisków żeby po wciśnieciu ich ischecked=?true oraz zmienia kolory aplikacji  -->
     <Grid>
         <!-- Główna zawartość -->
         <ScrollViewer Margin="0,0,0,0"
@@ -25,65 +25,118 @@
 
                         <!-- Jasny -->
                         <Border Background="#D9D9D9"
-                                BorderBrush="#EEEEEE"
-                                BorderThickness="2"
-                                CornerRadius="6"
-                                Padding="12"
-                                Margin="0,4">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Image Source="Assets/Icons/jasny.png"
-                                       Width="36" Height="36"
-                                       VerticalAlignment="Center"/>
-                                <TextBlock Text="Jasny"
-                                           Grid.Column="1"
-                                           VerticalAlignment="Center"
-                                           Margin="16,0"
-                                           FontSize="16"
-                                           FontWeight="Bold"
-                                           Foreground="Black"/>
-                                <Image Source="Assets/Icons/select_black.png"
-                                       Width="24"
-                                       Height="24"
-                                       Grid.Column="2"
-                                       VerticalAlignment="Center"/>
-                            </Grid>
-                        </Border>
+        BorderBrush="#EEEEEE"
+        BorderThickness="2"
+        CornerRadius="6"
+        Padding="12"
+        Margin="0,4">
+    <CheckBox IsChecked="{Binding IsJasnyChecked, Mode=TwoWay}"
+              Background="Transparent"
+              BorderThickness="0"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Center">
+        <CheckBox.Template>
+            <ControlTemplate TargetType="CheckBox">
+                <Grid HorizontalAlignment="Stretch"
+                      VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Ikona + Tekst -->
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Column="0"
+                                VerticalAlignment="Center">
+                        <Image Source="Assets/Icons/jasny.png"
+                               Width="36" Height="36"
+                               VerticalAlignment="Center"/>
+                        <TextBlock Text="Jasny"
+                                   VerticalAlignment="Center"
+                                   Margin="16,0"
+                                   FontSize="16"
+                                   FontWeight="Bold"
+                                   Foreground="Black"/>
+                    </StackPanel>
+
+                    <!-- Okrągły checkbox -->
+                    <Grid Grid.Column="1"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Width="24"
+                          Height="24"
+                          Margin="0,0,10,0">
+                        <Ellipse Stroke="Black" StrokeThickness="2"/>
+                        <Ellipse Fill="Black"
+                                 Width="12" Height="12"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Visibility="{TemplateBinding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    </Grid>
+                </Grid>
+            </ControlTemplate>
+        </CheckBox.Template>
+    </CheckBox>
+</Border>
+
+
 
                         <!-- Ciemny -->
                         <Border Background="#444"
-                                BorderBrush="#666"
-                                BorderThickness="2"
-                                CornerRadius="6"
-                                Padding="12"
-                                Margin="0,4">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Image Source="Assets/Icons/ciemny.png"
-                                       Width="36" Height="36"
-                                       VerticalAlignment="Center"/>
-                                <TextBlock Text="Ciemny"
-                                           Grid.Column="1"
-                                           VerticalAlignment="Center"
-                                           Margin="16,0"
-                                           FontSize="16"
-                                           FontWeight="Bold"
-                                           Foreground="White"/>
-                                <Image Source="Assets/Icons/select_white.png"
-                                       Width="24"
-                                       Height="24"
-                                       Grid.Column="2"
-                                       VerticalAlignment="Center"/>
-                            </Grid>
-                        </Border>
+        BorderBrush="#666"
+        BorderThickness="2"
+        CornerRadius="6"
+        Padding="12"
+        Margin="0,4">
+    <CheckBox IsChecked="{Binding IsCiemnyChecked, Mode=TwoWay}"
+              Background="Transparent"
+              BorderThickness="0"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Center">
+        <CheckBox.Template>
+            <ControlTemplate TargetType="CheckBox">
+                <Grid HorizontalAlignment="Stretch"
+                      VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Ikona + Tekst -->
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Column="0"
+                                VerticalAlignment="Center">
+                        <Image Source="Assets/Icons/ciemny.png"
+                               Width="36" Height="36"
+                               VerticalAlignment="Center"/>
+                        <TextBlock Text="Ciemny"
+                                   VerticalAlignment="Center"
+                                   Margin="16,0"
+                                   FontSize="16"
+                                   FontWeight="Bold"
+                                   Foreground="White"/>
+                    </StackPanel>
+
+                    <!-- Okrągły checkbox -->
+                    <Grid Grid.Column="1"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Width="24"
+                          Height="24"
+                          Margin="0,0,8,0">
+                        <Ellipse Stroke="White" StrokeThickness="2"/>
+                        <Ellipse Fill="White"
+                                 Width="12" Height="12"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Visibility="{TemplateBinding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    </Grid>
+                </Grid>
+            </ControlTemplate>
+        </CheckBox.Template>
+    </CheckBox>
+</Border>
+
 
                         <!-- Sekcja Specjalne -->
                         <TextBlock Text="Specjalne"
@@ -95,96 +148,165 @@
 
                         <!-- Cherry Dark -->
                         <Border Background="#4C0000"
-                                BorderBrush="#800000"
-                                BorderThickness="2"
-                                CornerRadius="6"
-                                Padding="12"
-                                Margin="0,4">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Image Source="Assets/Icons/cherry_dark.png"
-                                       Width="36" Height="36"
-                                       VerticalAlignment="Center"/>
-                                <TextBlock Text="Cherry Dark"
-                                           Grid.Column="1"
-                                           VerticalAlignment="Center"
-                                           Margin="16,0"
-                                           FontSize="16"
-                                           FontWeight="Bold"
-                                           Foreground="White"/>
-                                <Image Source="Assets/Icons/select_white.png"
-                                       Width="24"
-                                       Height="24"
-                                       Grid.Column="2"
-                                       VerticalAlignment="Center"/>
-                            </Grid>
-                        </Border>
+        BorderBrush="#800000"
+        BorderThickness="2"
+        CornerRadius="6"
+        Padding="12"
+        Margin="0,4">
+    <CheckBox IsChecked="{Binding IsCherryDarkChecked, Mode=TwoWay}"
+              Background="Transparent"
+              BorderThickness="0"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Center">
+        <CheckBox.Template>
+            <ControlTemplate TargetType="CheckBox">
+                <Grid HorizontalAlignment="Stretch"
+                      VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Column="0"
+                                VerticalAlignment="Center">
+                        <Image Source="Assets/Icons/cherry_dark.png"
+                               Width="36" Height="36"
+                               VerticalAlignment="Center"/>
+                        <TextBlock Text="Cherry Dark"
+                                   VerticalAlignment="Center"
+                                   Margin="16,0"
+                                   FontSize="16"
+                                   FontWeight="Bold"
+                                   Foreground="White"/>
+                    </StackPanel>
+
+                    <Grid Grid.Column="1"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Width="24" Height="24"
+                          Margin="0,0,8,0">
+                        <Ellipse Stroke="White" StrokeThickness="2"/>
+                        <Ellipse Fill="White"
+                                 Width="12" Height="12"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Visibility="{TemplateBinding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    </Grid>
+                </Grid>
+            </ControlTemplate>
+        </CheckBox.Template>
+    </CheckBox>
+</Border>
+
 
                         <!-- Cherry Light -->
                         <Border Background="#C07575"
-                                BorderBrush="#E39A9A"
-                                BorderThickness="2"
-                                CornerRadius="6"
-                                Padding="12"
-                                Margin="0,4">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Image Source="Assets/Icons/cherry_light.png"
-                                       Width="36" Height="36"
-                                       VerticalAlignment="Center"/>
-                                <TextBlock Text="Cherry Light"
-                                           Grid.Column="1"
-                                           VerticalAlignment="Center"
-                                           Margin="16,0"
-                                           FontSize="16"
-                                           FontWeight="Bold"
-                                           Foreground="White"/>
-                                <Image Source="Assets/Icons/select_white.png"
-                                       Width="24"
-                                       Height="24"
-                                       Grid.Column="2"
-                                       VerticalAlignment="Center"/>
-                            </Grid>
-                        </Border>
+        BorderBrush="#E39A9A"
+        BorderThickness="2"
+        CornerRadius="6"
+        Padding="12"
+        Margin="0,4">
+    <CheckBox IsChecked="{Binding IsCherryLightChecked, Mode=TwoWay}"
+              Background="Transparent"
+              BorderThickness="0"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Center">
+        <CheckBox.Template>
+            <ControlTemplate TargetType="CheckBox">
+                <Grid HorizontalAlignment="Stretch"
+                      VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Column="0"
+                                VerticalAlignment="Center">
+                        <Image Source="Assets/Icons/cherry_light.png"
+                               Width="36" Height="36"
+                               VerticalAlignment="Center"/>
+                        <TextBlock Text="Cherry Light"
+                                   VerticalAlignment="Center"
+                                   Margin="16,0"
+                                   FontSize="16"
+                                   FontWeight="Bold"
+                                   Foreground="White"/>
+                    </StackPanel>
+
+                    <Grid Grid.Column="1"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Width="24" Height="24"
+                          Margin="0,0,8,0">
+                        <Ellipse Stroke="White" StrokeThickness="2"/>
+                        <Ellipse Fill="White"
+                                 Width="12" Height="12"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Visibility="{TemplateBinding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    </Grid>
+                </Grid>
+            </ControlTemplate>
+        </CheckBox.Template>
+    </CheckBox>
+</Border>
+
 
                         <!-- Nigh Graphite -->
                         <Border Background="#1A1B2A"
-                                BorderBrush="#2A2B3C"
-                                BorderThickness="2"
-                                CornerRadius="6"
-                                Padding="12"
-                                Margin="0,4">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Image Source="Assets/Icons/graphite.png"
-                                       Width="36" Height="36"
-                                       VerticalAlignment="Center"/>
-                                <TextBlock Text="Nigh Graphite"
-                                           Grid.Column="1"
-                                           VerticalAlignment="Center"
-                                           Margin="16,0"
-                                           FontSize="16"
-                                           FontWeight="Bold"
-                                           Foreground="White"/>
-                                <Image Source="Assets/Icons/select_blue.png"
-                                       Width="24"
-                                       Height="24"
-                                       Grid.Column="2"
-                                       VerticalAlignment="Center"/>
-                            </Grid>
-                        </Border>
+        BorderBrush="#2A2B3C"
+        BorderThickness="2"
+        CornerRadius="6"
+        Padding="12"
+        Margin="0,4">
+    <CheckBox IsChecked="{Binding IsGraphiteChecked, Mode=TwoWay}"
+              Background="Transparent"
+              BorderThickness="0"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Center">
+        <CheckBox.Template>
+            <ControlTemplate TargetType="CheckBox">
+                <Grid HorizontalAlignment="Stretch"
+                      VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Column="0"
+                                VerticalAlignment="Center">
+                        <Image Source="Assets/Icons/graphite.png"
+                               Width="36" Height="36"
+                               VerticalAlignment="Center"/>
+                        <TextBlock Text="Nigh Graphite"
+                                   VerticalAlignment="Center"
+                                   Margin="16,0"
+                                   FontSize="16"
+                                   FontWeight="Bold"
+                                   Foreground="White"/>
+                    </StackPanel>
+
+                    <Grid Grid.Column="1"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Width="24" Height="24"
+                          Margin="0,0,8,0">
+                        <Ellipse Stroke="White" StrokeThickness="2"/>
+                        <Ellipse Fill="White"
+                                 Width="12" Height="12"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Visibility="{TemplateBinding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    </Grid>
+                </Grid>
+            </ControlTemplate>
+        </CheckBox.Template>
+    </CheckBox>
+</Border>
+
 
                     </StackPanel>
                 </Border>
@@ -196,7 +318,7 @@
             <Button Width="40"
                     Height="40"
                     Background="Transparent"
-                    Click="GoBack_Click">
+                   Command="{Binding NavigateToSecondCommand}">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Grid Background="Transparent">
