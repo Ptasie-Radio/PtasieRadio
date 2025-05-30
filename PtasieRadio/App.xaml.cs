@@ -1,7 +1,12 @@
 using Uno.Resizetizer;
 using PtasieRadio.Services.RadioService;
 using PtasieRadio.Services.AddRadioService;
+using Microsoft.UI;
+using Microsoft.UI.Xaml.Media;
+using Windows.UI;
+using PtasieRadio.Services;
 namespace PtasieRadio;
+
 
 public partial class App : Application
 {
@@ -89,7 +94,8 @@ public partial class App : Application
         MainWindow.UseStudio();
 #endif
         MainWindow.SetWindowIcon();
-
+        // 🔁 dynamiczne zastosowanie motywu
+        ThemeService.ApplyTheme(ThemeService.LoadTheme());
         Host = await builder.NavigateAsync<Shell>();
     }
 
@@ -115,5 +121,5 @@ public partial class App : Application
             )
         );
     }
-    public static Window? GetMainWindow(){return MainWindow;}
+    public static Window? GetMainWindow() { return MainWindow; }
 }
