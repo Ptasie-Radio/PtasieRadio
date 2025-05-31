@@ -9,22 +9,63 @@ namespace PtasieRadio.Presentation;
 
 public class ChangeThemeModel : ObservableObject
 {
+ private async Task RefreshPage()
+{
+    await _navigator.NavigateRouteAsync(this, "/ChangeTheme");
+}
+
+    private void ApplySavedThemeState()
+    {
+        var theme = ThemeService.LoadTheme();
+
+        // Wyłącz efekty uboczne: bez setterów
+        _isJasnyChecked = false;
+        _isCiemnyChecked = false;
+        _isCherryDarkChecked = false;
+        _isCherryLightChecked = false;
+        _isGraphiteChecked = false;
+
+        switch (theme)
+        {
+            case "Jasny":
+                _isJasnyChecked = true;
+                break;
+            case "Ciemny":
+                _isCiemnyChecked = true;
+                break;
+            case "CherryDark":
+                _isCherryDarkChecked = true;
+                break;
+            case "CherryLight":
+                _isCherryLightChecked = true;
+                break;
+            case "Graphite":
+                _isGraphiteChecked = true;
+                break;
+        }
+        OnPropertyChanged(nameof(IsJasnyChecked));
+        OnPropertyChanged(nameof(IsCiemnyChecked));
+        OnPropertyChanged(nameof(IsCherryDarkChecked));
+        OnPropertyChanged(nameof(IsCherryLightChecked));
+        OnPropertyChanged(nameof(IsGraphiteChecked));
+    }
   private readonly INavigator _navigator;
 
   public IAsyncRelayCommand NavigateToSecondCommand { get; }
 
-  public ChangeThemeModel(
-      IStringLocalizer localizer,
-      IOptions<AppConfig> appInfo,
-      INavigator navigator)
-  {
-    _navigator = navigator;
+    public ChangeThemeModel(
+        IStringLocalizer localizer,
+        IOptions<AppConfig> appInfo,
+        INavigator navigator)
+    {
+        _navigator = navigator;
 
-    NavigateToSecondCommand = new AsyncRelayCommand(GoToSecond);
+        NavigateToSecondCommand = new AsyncRelayCommand(GoToSecond);
 
-    Title = "Change Theme";
-    Title += $" - {localizer["ApplicationName"]}";
-    Title += $" - {appInfo?.Value?.Environment}";
+        Title = "Change Theme";
+        Title += $" - {localizer["ApplicationName"]}";
+        Title += $" - {appInfo?.Value?.Environment}";
+     ApplySavedThemeState();
   }
 
   public string? Title { get; }
@@ -48,6 +89,7 @@ public class ChangeThemeModel : ObservableObject
                 IsGraphiteChecked = false;
                 ThemeService.ApplyTheme("Jasny");
                 ThemeService.SaveThemeAsync("Jasny");
+                _ = RefreshPage();
             }
         }
     }
@@ -66,6 +108,7 @@ public class ChangeThemeModel : ObservableObject
                 IsGraphiteChecked = false;
                 ThemeService.ApplyTheme("Ciemny");
                 ThemeService.SaveThemeAsync("Ciemny");
+                _ = RefreshPage();
             }
         }
     }
@@ -84,6 +127,7 @@ public class ChangeThemeModel : ObservableObject
                 IsGraphiteChecked = false;
                 ThemeService.ApplyTheme("CherryDark");
                 ThemeService.SaveThemeAsync("CherryDark");
+                _ = RefreshPage();
             }
         }
     }
@@ -102,6 +146,7 @@ public class ChangeThemeModel : ObservableObject
                 IsGraphiteChecked = false;
                 ThemeService.ApplyTheme("CherryLight");
                 ThemeService.SaveThemeAsync("CherryLight");
+                _ = RefreshPage();
             }
         }
     }
@@ -120,6 +165,7 @@ public class ChangeThemeModel : ObservableObject
                 IsCherryLightChecked = false;
                 ThemeService.ApplyTheme("Graphite");
                 ThemeService.SaveThemeAsync("Graphite");
+                _ = RefreshPage();
             }
         }
     }

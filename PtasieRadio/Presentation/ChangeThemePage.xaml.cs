@@ -8,12 +8,5 @@ public sealed partial class ChangeThemePage : Page
   {
     this.InitializeComponent();
   }
-  private void GoBack_Click(object sender, RoutedEventArgs e)
-  {
-    if (Frame.CanGoBack)
-    {
-      Frame.GoBack();
-    }
-  }
         
 }
