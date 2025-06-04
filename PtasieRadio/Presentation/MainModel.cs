@@ -177,6 +177,7 @@ public class MainModel : ObservableObject
 
     public async Task PlayRadio()
     {
+        if (isChangingUrl) return;
         isPlaying = !isPlaying;
         OnPropertyChanged(nameof(PlayPauseButtonImage));
         OnPropertyChanged(nameof(MiniPlayPauseButtonImage));
