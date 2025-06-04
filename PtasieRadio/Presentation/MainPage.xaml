@@ -7,11 +7,10 @@
       xmlns:um="using:Uno.Material"
       xmlns:i="using:Microsoft.Xaml.Interactivity"
       xmlns:ic="using:Microsoft.Xaml.Interactions.Core"
-      NavigationCacheMode="Required"
-      Background="{ThemeResource BackgroundBrush}">
+      NavigationCacheMode="Required">
 
 
-    <Grid Background="#1C1B1F">
+    <Grid Background="{StaticResource PrimaryColor}">
         <Grid
             x:Name="RadioMainPage"
             Visibility="Visible">
@@ -25,7 +24,7 @@
 
             <!-- Górny pasek wyszukiwania -->
             <Grid Grid.Row="0"
-                  Background="#1B2029"
+                  Background="{StaticResource SecondaryColor}"
                   Padding="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -76,7 +75,7 @@
                         <TextBox Width="600"
                                  Height="40"
                                  CornerRadius="20"
-                                 Background="#1C1B1F"
+                                 Background="{StaticResource PrimaryColor}"
                                  BorderThickness="0"
                                  PlaceholderText="Wyszukaj..."
                                  Foreground="White"
@@ -97,7 +96,7 @@
                         <Button Grid.Column="1"
                                 Width="40"
                                 Height="40"
-                                Background="#2a2a2e"
+                                Background="{StaticResource PrimaryColor}"
                                 BorderThickness="0"
                                 Padding="0"
                                 CornerRadius="20">
@@ -146,21 +145,21 @@
             <!-- Pasek kategorii -->
 
             <Grid Grid.Row="1"
-                  Background="#1b2029"
+                  Background="{StaticResource SecondaryColor}"
                   Padding="24,10,24,10">
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Center"
                         Spacing="50">
             <StackPanel Spacing="4" HorizontalAlignment="Center">
             <TextBlock Text="Główna"
-                    Foreground="White"
+                    Foreground="{StaticResource TextColor}"
                     FontSize="16"
                     FontWeight="Bold"
                     HorizontalAlignment="Center"/>
                     <!-- Podkreślenie żeby info było na jakiej kategori jesteś -->
             <Rectangle Height="2"
                     Width="50"
-                    Fill="#FFFFFFFF"
+                    Fill="{StaticResource TextColor}"
                     RadiusX="1"
                     RadiusY="1"
                     HorizontalAlignment="Center"/>
@@ -184,7 +183,7 @@
                     <TextBlock Text="Najczęściej Grane"
                                FontSize="20"
                                FontWeight="Bold"
-                               Foreground="White"
+                               Foreground="{StaticResource TextColor}"
                                Margin="0,0,0,10"/>
                     <ScrollViewer x:Name="NajczesciejGraneScroll"
                                   HorizontalScrollBarVisibility="Hidden"
@@ -220,7 +219,7 @@
                     <TextBlock Text="Popularne"
                                FontSize="20"
                                FontWeight="Bold"
-                               Foreground="White"
+                               Foreground="{StaticResource TextColor}"
                                Margin="0,10,0,10"/>
                     <ScrollViewer x:Name="PopularneScroll"
                                   HorizontalScrollBarVisibility="Hidden"
@@ -256,7 +255,7 @@
                     <TextBlock Text="Własne"
                                FontSize="20"
                                FontWeight="Bold"
-                               Foreground="White"
+                               Foreground="{StaticResource TextColor}"
                                Margin="0,20,0,10"/>
                     <ScrollViewer x:Name="WlasneScroll"
                                   HorizontalScrollBarVisibility="Hidden"
@@ -293,7 +292,7 @@
             <!-- Dolny pasek odtwarzacza (zmieniony) -->
             <Grid x:Name="MiniPlayer"
                   Grid.Row="3"
-                  Background="#1B2029"
+                  Background="{StaticResource SecondaryColor}"
                   Padding="10"
                   Tapped="MiniPlayerTapped">
                 <Grid.ColumnDefinitions>
@@ -305,7 +304,7 @@
                 <StackPanel Orientation="Horizontal">
                     <Border Width="40"
                             Height="40"
-                            Background="#cccccc"
+                            Background="{StaticResource PrimaryColor}"
                             CornerRadius="5">
                         <Image Width="30"
                                Height="30"
@@ -316,7 +315,7 @@
                     </Border>
                     <StackPanel Margin="10,0">
                         <TextBlock Text="SomaFM - PopTron"
-                                   Foreground="White"
+                                   Foreground="{StaticResource TextColor}"
                                    FontSize="14"/>
                         <TextBlock Text="somafm.com, US"
                                    Foreground="Gray"
@@ -370,7 +369,7 @@
         <Grid utu:SafeArea.Insets="VisibleBounds"
               x:Name="RadioOverlay"
               Visibility="Collapsed"
-              Background="#1C1B1F">
+              Background="{StaticResource PrimaryColor}">
             <VisualStateManager.VisualStateGroups>
                 <VisualStateGroup x:Name="HeightPlayPageGroup">
                     <VisualState x:Name="ShortestHeight">
@@ -593,7 +592,7 @@
             <!-- Nagłówek -->
             <Grid Grid.Row="0"
                   x:Name="RootGrid"
-                  Background="#0B048DFF"
+                  Background="{StaticResource SecondaryColor}"
                   Padding="16">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -628,7 +627,7 @@
                     <TextBlock x:Name="RadioName"
                                Text="Nazwa radia"
                                Style="{StaticResource MaterialSubtitle1Style}"
-                               Foreground="White"
+                               Foreground="{StaticResource TextColor}"
                                HorizontalAlignment="Center"/>
                     <StackPanel x:Name="CountryPanel"
                                 Orientation="Horizontal"
@@ -657,7 +656,7 @@
                     <FontIcon Glyph=""
                               FontFamily="Segoe MDL2 Assets"
                               FontSize="20"
-                              Foreground="White"/>
+                              Foreground="{StaticResource TextColor}"/>
                 </Button>
             </Grid>
 
@@ -678,6 +677,8 @@
                         Margin="0, 0, 0, -20"
                         HorizontalAlignment="Center"
                         Value="{Binding Volume, Mode=TwoWay}"
+                        Foreground="{StaticResource TextColor}"
+                        Background="{StaticResource SecondaryColor}"
                         ValueChanged="OnSoundLevelSliderValueChanged">
                 </Slider>
 

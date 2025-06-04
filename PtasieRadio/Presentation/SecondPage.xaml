@@ -133,7 +133,7 @@
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
                                     <Image Source="Assets/Images/eq.png" Width="24" Height="24" VerticalAlignment="Center" Margin="8,0"/>
-                                    <TextBlock Text="Equalizer (" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
+                                    <TextBlock Text="Equalizer (Coming Future)" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
                                     <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
                                 </Grid>
                                 <Grid Height="48" Tapped="AddNewRadioNavigate">

@@ -114,9 +114,9 @@ public partial class App : Application
                 Nested:
                 [
                     new ("Main", View: views.FindByViewModel<MainModel>(), IsDefault:true),
-            new ("Second", View: views.FindByViewModel<SecondModel>()),
-            new ("AddRadio", View: views.FindByViewModel<AddRadioModel>()),
-            new ("ChangeTheme", View: views.FindByViewModel<ChangeThemeModel>())
+                    new ("Second", View: views.FindByViewModel<SecondModel>()),
+                    new ("AddRadio", View: views.FindByViewModel<AddRadioModel>()),
+                    new ("ChangeTheme", View: views.FindByViewModel<ChangeThemeModel>())
                 ]
             )
         );
