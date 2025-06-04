@@ -81,14 +81,14 @@
 
 
 
-                        <!-- Ciemny -->
-                        <Border Background="#444"
-        BorderBrush="#666"
+        <!-- Dark -->
+    <Border Background="#1c1b1f"
+        BorderBrush="#615d6b"
         BorderThickness="2"
         CornerRadius="6"
         Padding="12"
         Margin="0,4">
-    <CheckBox IsChecked="{Binding IsCiemnyChecked, Mode=TwoWay}"
+    <CheckBox IsChecked="{Binding IsDarkChecked, Mode=TwoWay}"
               Background="Transparent"
               BorderThickness="0"
               HorizontalAlignment="Stretch"
@@ -106,15 +106,15 @@
                     <StackPanel Orientation="Horizontal"
                                 Grid.Column="0"
                                 VerticalAlignment="Center">
-                        <Image Source="Assets/Icons/ciemny.png"
+                        <Image Source="Assets/Images/theme_img/standard.png"
                                Width="36" Height="36"
                                VerticalAlignment="Center"/>
-                        <TextBlock Text="Ciemny"
+                        <TextBlock Text="Dark"
                                    VerticalAlignment="Center"
                                    Margin="16,0"
                                    FontSize="16"
                                    FontWeight="Bold"
-                                   Foreground="White"/>
+                                   Foreground="#efefef"/>
                     </StackPanel>
 
                     <!-- Okrągły checkbox -->
@@ -124,8 +124,8 @@
                           Width="24"
                           Height="24"
                           Margin="0,0,8,0">
-                        <Ellipse Stroke="White" StrokeThickness="2"/>
-                        <Ellipse Fill="White"
+                        <Ellipse Stroke="#5ab8fa" StrokeThickness="2"/>
+                        <Ellipse Fill="#5ab8fa"
                                  Width="12" Height="12"
                                  HorizontalAlignment="Center"
                                  VerticalAlignment="Center"

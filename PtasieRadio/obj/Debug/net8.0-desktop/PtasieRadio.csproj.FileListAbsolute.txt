@@ -882,3 +882,4 @@ A:\KODOWANIE\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\A
 A:\KODOWANIE\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Images\theme_img\left_arrow.scale-400.png
 A:\KODOWANIE\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\theme_img\lime.png
 A:\KODOWANIE\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\theme_img\blueberry.png
+A:\KODOWANIE\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\theme_img\standard.png

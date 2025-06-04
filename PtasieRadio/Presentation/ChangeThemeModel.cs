@@ -20,7 +20,7 @@ public class ChangeThemeModel : ObservableObject
 
         // Wyłącz efekty uboczne: bez setterów
         _isJasnyChecked = false;
-        _isCiemnyChecked = false;
+        _isDarkChecked = false;
         _isBlueberryLightChecked = false;
         _isBlueberryDarkChecked = false;
         _isLimeDarkChecked = false;
@@ -30,8 +30,8 @@ public class ChangeThemeModel : ObservableObject
             case "Jasny":
                 _isJasnyChecked = true;
                 break;
-            case "Ciemny":
-                _isCiemnyChecked = true;
+            case "Dark":
+                _isDarkChecked = true;
                 break;
             case "BlueberryLight":
                 _isBlueberryLightChecked = true;
@@ -44,7 +44,7 @@ public class ChangeThemeModel : ObservableObject
                 break;
         }
         OnPropertyChanged(nameof(IsJasnyChecked));
-        OnPropertyChanged(nameof(IsCiemnyChecked));
+        OnPropertyChanged(nameof(IsDarkChecked));
         OnPropertyChanged(nameof(IsBlueberryLightChecked));
         OnPropertyChanged(nameof(IsBlueberryDarkChecked));
         OnPropertyChanged(nameof(IsLimeDarkChecked));
@@ -83,7 +83,7 @@ public class ChangeThemeModel : ObservableObject
         {
             if (SetProperty(ref _isJasnyChecked, value) && value)
             {
-                IsCiemnyChecked = false;
+                IsDarkChecked = false;
                 IsBlueberryLightChecked = false;
                 IsBlueberryDarkChecked = false;
                 IsLimeDarkChecked = false;
@@ -94,20 +94,20 @@ public class ChangeThemeModel : ObservableObject
         }
     }
 
-    private bool _isCiemnyChecked;
-    public bool IsCiemnyChecked
+    private bool _isDarkChecked;
+    public bool IsDarkChecked
     {
-        get => _isCiemnyChecked;
+        get => _isDarkChecked;
         set
         {
-            if (SetProperty(ref _isCiemnyChecked, value) && value)
+            if (SetProperty(ref _isDarkChecked, value) && value)
             {
                 IsJasnyChecked = false;
                 IsBlueberryLightChecked = false;
                 IsBlueberryDarkChecked = false;
                 IsLimeDarkChecked = false;
-                ThemeService.ApplyTheme("Ciemny");
-                ThemeService.SaveThemeAsync("Ciemny");
+                ThemeService.ApplyTheme("Dark");
+                ThemeService.SaveThemeAsync("Dark");
                 _ = RefreshPage();
             }
         }
@@ -122,7 +122,7 @@ public class ChangeThemeModel : ObservableObject
             if (SetProperty(ref _isBlueberryLightChecked, value) && value)
             {
                 IsJasnyChecked = false;
-                IsCiemnyChecked = false;
+                IsDarkChecked = false;
                 IsBlueberryDarkChecked = false;
                 IsLimeDarkChecked = false;
                 ThemeService.ApplyTheme("BlueberryLight");
@@ -141,7 +141,7 @@ public class ChangeThemeModel : ObservableObject
             if (SetProperty(ref _isBlueberryDarkChecked, value) && value)
             {
                 IsJasnyChecked = false;
-                IsCiemnyChecked = false;
+                IsDarkChecked = false;
                 IsBlueberryLightChecked = false;
                 IsLimeDarkChecked = false;
                 ThemeService.ApplyTheme("BlueberryDark");
@@ -160,7 +160,7 @@ public class ChangeThemeModel : ObservableObject
             if (SetProperty(ref _isLimeDarkChecked, value) && value)
             {
                 IsJasnyChecked = false;
-                IsCiemnyChecked = false;
+                IsDarkChecked = false;
                 IsBlueberryLightChecked = false;
                 IsBlueberryDarkChecked = false;
                 ThemeService.ApplyTheme("LimeDark");
