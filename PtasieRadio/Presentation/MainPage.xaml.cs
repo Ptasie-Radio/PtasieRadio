@@ -20,6 +20,8 @@ namespace PtasieRadio.Presentation;
 public sealed partial class MainPage : Page
 {
     private double pageAnimationTime;
+
+    private string? currentIndex;
     private const string folderName = "PtasieRadio";
 
 	public MainPage()
@@ -312,14 +314,11 @@ public sealed partial class MainPage : Page
 
     private async void OnPanelTapped(object sender, TappedRoutedEventArgs e)
     {
-        e.Handled = true;
+        
         if (sender is StackPanel panel)
         {
-            string nazwa = panel.Name;
-            string index = nazwa != null && nazwa.Contains("_")
-            ? nazwa.Substring(nazwa.IndexOf('_') + 1)
-            : nazwa ?? "1";
-
+            string index = panel.Name.Replace("Stacja_", "");
+            if (currentIndex == index) return;//Nie pozwalamy na to, aby użytkownik spamował na ten sam przycisk.
             var folder = await OpenFolder();
 			var entries = await LoadFromJson(folder);
 
@@ -327,6 +326,7 @@ public sealed partial class MainPage : Page
             {
                 var viewModel = DataContext as MainModel;
                 if (viewModel == null) return;
+                currentIndex = index;
                 viewModel.ToggleChangeUrlCommand.Execute(entry.StreamUrl);
             }
             else

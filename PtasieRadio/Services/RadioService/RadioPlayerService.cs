@@ -14,9 +14,8 @@ public class RadioPlayerService : IRadioPlayerService
     private bool isInitialized = false;
     private float currentVolume = 0.5f;
     private bool isMuted = false;
+    private bool isBusy = false;
     private string? url;
-	private static string folderName = "PtasieRadio";
-
 	public bool IsPlaying => isPlaying;
     public bool IsMuted => isMuted;
     public float Volume => currentVolume * 100f;
@@ -29,44 +28,47 @@ public class RadioPlayerService : IRadioPlayerService
 
     public async Task PlayOrPauseAsync()
     {
-        await mediaLock.WaitAsync();
-        try
+        if(isBusy) return;//Jeśli mamy blokadę, to nie pozwalaj na zmianę
+        isBusy = true;
+        await WithMediaLock(async () =>
         {
-            if (!isInitialized)
+            try
             {
-                try
+                if (!isInitialized)
                 {
-                    reader = new MediaFoundationReader(url);
-                    waveOut = new WaveOutEvent();
-                    waveOut.Init(reader);
-                    waveOut.Volume = isMuted ? 0 : currentVolume;
-                    isInitialized = true;
+                    try
+                    {
+                        reader = new MediaFoundationReader(url);
+                        waveOut = new WaveOutEvent();
+                        waveOut.Init(reader);
+                        waveOut.Volume = isMuted ? 0 : currentVolume;
+                        isInitialized = true;
+                    }
+                    catch (FileNotFoundException ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"{ex}");
+                    }
+                    catch (System.Runtime.InteropServices.COMException ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"Error:{ex}");
+                    }
                 }
-                catch (FileNotFoundException ex)
+                if (isPlaying)
                 {
-                    System.Diagnostics.Debug.WriteLine($"{ex}");
+                    try { waveOut?.Stop(); } catch (Exception ex) {  System.Diagnostics.Debug.WriteLine($"Error:{ex}"); }
+                    isPlaying = false;
                 }
-                catch (System.Runtime.InteropServices.COMException ex)
+                else
                 {
-                    System.Diagnostics.Debug.WriteLine($"Error:{ex}");
+                    waveOut?.Play();
+                    isPlaying = true;
                 }
             }
-
-            if (isPlaying)
+            finally
             {
-                waveOut?.Stop();
-                isPlaying = false;
+                isBusy = false;
             }
-            else
-            {
-                waveOut?.Play();
-                isPlaying = true;
-            }
-        }
-        finally
-        {
-            mediaLock.Release();
-        }
+        });
     }
 
     public async Task StopAsync()
@@ -82,22 +84,37 @@ public class RadioPlayerService : IRadioPlayerService
     //Zmienić, aby radio odpalało się od razu po załadowaniu, jeśli użyszkodnik mial isPlaying true
     public async Task Reset()
     {
-        await mediaLock.WaitAsync();
+        await WithMediaLock(async () =>
+        {
 
-        try{
-            waveOut?.Stop();
+            if (isPlaying)
+            {
+                isPlaying = false;
+                try { waveOut?.Stop(); } catch (Exception ex) {  System.Diagnostics.Debug.WriteLine($"Error:{ex}"); }
+            }
             waveOut?.Dispose();
             waveOut = null;
-    
             reader?.Dispose();
             reader = null;
-            isPlaying = false;
             isInitialized = false;
-        }
-        finally
+            
+        });
+    }
+
+    private async Task WithMediaLock(Func<Task> function)
+    {
+        await Task.Run(async () =>
         {
-            mediaLock.Release();
-        }
+            await mediaLock.WaitAsync();
+            try
+            {
+                await function();
+            }
+            finally
+            {
+                mediaLock.Release();
+            }
+        });
     }
 
     public void SetVolume(double volume)

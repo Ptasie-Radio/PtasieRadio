@@ -21,7 +21,7 @@ public class MainModel : ObservableObject
     public IAsyncRelayCommand PlayRadioCommand { get; }
     private readonly IRadioPlayerService _radioService;
     private string? url;
-
+    private bool isChangingUrl = false;
     public IRelayCommand ToggleMuteCommand { get; }
     public IAsyncRelayCommand<string?> ToggleChangeUrlCommand { get; }
 
@@ -200,15 +200,24 @@ public class MainModel : ObservableObject
 
     private async Task ToggleChangeUrl(string? url)
     {
-        if (url == null) url = "";
-        this.url = url;
-        await _radioService.Reset();
-        _radioService.SetUrl(url);
+        if (isChangingUrl) return;
+        try
+        {
+            isChangingUrl = true;
+            if (url == null) url = "";
+            this.url = url;
+            await _radioService.Reset();
+            _radioService.SetUrl(url);
 
-        if(isPlaying) await _radioService.PlayOrPauseAsync();
-        OnPropertyChanged(nameof(MuteButtonImage));
-        OnPropertyChanged(nameof(PlayPauseButtonImage));
-        OnPropertyChanged(nameof(MiniPlayPauseButtonImage));
+            if (isPlaying) await _radioService.PlayOrPauseAsync();
+            OnPropertyChanged(nameof(MuteButtonImage));
+            OnPropertyChanged(nameof(PlayPauseButtonImage));
+            OnPropertyChanged(nameof(MiniPlayPauseButtonImage));
+        }
+        finally
+        {
+            isChangingUrl = false;
+        }
     }
 
 }
