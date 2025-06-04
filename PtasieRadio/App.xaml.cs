@@ -80,6 +80,7 @@ public partial class App : Application
                 {
                     services.AddSingleton<IRadioPlayerService, RadioPlayerService>();
                     services.AddSingleton<IAddRadioService, AddRadioService>();
+                    services.AddSingleton<IShowPromptService, ShowPromptService>();
                 })
                 .UseNavigation(ReactiveViewModelMappings.ViewModelMappings, RegisterRoutes)
             );

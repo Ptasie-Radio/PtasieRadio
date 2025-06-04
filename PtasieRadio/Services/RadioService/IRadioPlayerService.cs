@@ -12,6 +12,7 @@ public interface IRadioPlayerService
     void SetIsMuted(bool muted);
     void SetUrl(string url);
     string? GetUrl();
+    bool GetIsInitialized();
     bool GetIsMuted();
     bool GetIsPlaying();
     void SetIsPlaying(bool isPlaying);

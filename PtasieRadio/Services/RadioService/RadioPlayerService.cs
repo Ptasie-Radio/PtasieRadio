@@ -80,8 +80,6 @@ public class RadioPlayerService : IRadioPlayerService
         });
     }
 
-    //TODO:
-    //Zmienić, aby radio odpalało się od razu po załadowaniu, jeśli użyszkodnik mial isPlaying true
     public async Task Reset()
     {
         await WithMediaLock(async () =>
@@ -192,12 +190,12 @@ public class RadioPlayerService : IRadioPlayerService
 
                                 SaveEntryData s = new SaveEntryData
                                 {
-                                    Name = station.Name,
-                                    StreamUrl = station.Url.ToString(),
+                                    Name = station.Name ?? "Brak Nazwy",
+                                    StreamUrl = station.Url?.ToString() ?? "Brak",
                                     ImagePath = saveFile.Path,
-                                    Country = station.CountryCode,
+                                    Country = station.CountryCode ?? "Unknown",
                                     Category = "POP",
-                                    Description = String.Join(", ", station.Tags),
+                                    Description = String.Join(", ", station.Tags ?? new List<string>()),
                                 };
 
                                 foreach (var item in entries.Where(kvp => kvp.Value.StreamUrl == s.StreamUrl && kvp.Value.Category == "POP").ToList())//Dodane kvp.Value.Category, aby tylko z POP brało i usuwało
@@ -225,5 +223,6 @@ public class RadioPlayerService : IRadioPlayerService
     public void SetIsPlaying(bool isPlaying) { this.isPlaying = isPlaying;}
     public float GetVolume() { return Volume; }
     public string? GetUrl() { return url; }
+    public bool GetIsInitialized() { return isInitialized; }
     public void SetUrl(string url) { this.url = url; }
 }

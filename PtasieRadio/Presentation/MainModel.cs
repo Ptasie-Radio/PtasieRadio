@@ -20,6 +20,7 @@ public class MainModel : ObservableObject
     public IAsyncRelayCommand NavigateCommand { get; }//Tworzenie komendy nawigacyjnej
     public IAsyncRelayCommand PlayRadioCommand { get; }
     private readonly IRadioPlayerService _radioService;
+    private readonly IShowPromptService _promptService;
     private string? url;
     private bool isChangingUrl = false;
     public IRelayCommand ToggleMuteCommand { get; }
@@ -99,12 +100,14 @@ public class MainModel : ObservableObject
         IStringLocalizer localizer,
         IOptions<AppConfig> appInfo,
         INavigator navigator,
-        IRadioPlayerService radioService)
+        IRadioPlayerService radioService,
+        IShowPromptService promptService)
     {
         _navigator = navigator;
         NavigateCommand = new AsyncRelayCommand(GoToSecond);
 
         _radioService = radioService;
+        _promptService = promptService;
         url = _radioService.GetUrl();
         if(url == null)url = "http://chi.cdn.eurozet.pl/chi-net.mp3";
         
@@ -184,6 +187,10 @@ public class MainModel : ObservableObject
         {
             _radioService.ToggleMute();
         }
+        if (!_radioService.GetIsInitialized() && isPlaying)
+        {
+           await _promptService.ShowMessageAsync("Nie udało się załadować radia", "Błąd");
+        }
     }
     public async Task GoToSecond()
     {
@@ -209,7 +216,14 @@ public class MainModel : ObservableObject
             await _radioService.Reset();
             _radioService.SetUrl(url);
 
-            if (isPlaying) await _radioService.PlayOrPauseAsync();
+            if (isPlaying)
+            {
+                await _radioService.PlayOrPauseAsync();
+                if (!_radioService.GetIsInitialized())
+                {
+                    await _promptService.ShowMessageAsync("Nie udało się załadować radia", "Błąd");
+                }
+            }
             OnPropertyChanged(nameof(MuteButtonImage));
             OnPropertyChanged(nameof(PlayPauseButtonImage));
             OnPropertyChanged(nameof(MiniPlayPauseButtonImage));

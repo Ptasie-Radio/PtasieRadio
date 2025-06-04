@@ -50,11 +50,11 @@ public sealed partial class AddRadioPage : Page
 				bitmap = new BitmapImage();
 				await bitmap.SetSourceAsync(stream);
 			}
-			catch (FileNotFoundException ex)
+			catch (FileNotFoundException)
 			{
 				bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
 			}
-			catch (System.NullReferenceException ex)
+			catch (System.NullReferenceException)
 			{
 				bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
 			}
