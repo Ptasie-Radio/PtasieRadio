@@ -303,16 +303,16 @@ public sealed partial class MainPage : Page
                 menuFlyout.Items.Add(menu);
                 stationPanel.ContextFlyout = menuFlyout;
             }
-            stationPanel.DoubleTapped += OnPanelDoubleTapped;
+            stationPanel.Tapped += OnPanelTapped;
             stationPanel.Children.Add(border);
             stationPanel.Children.Add(textBlock);
             category.Children.Add(stationPanel);
         }
     }
 
-    private async void OnPanelDoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+    private async void OnPanelTapped(object sender, TappedRoutedEventArgs e)
     {
-        e.Handled = false;
+        e.Handled = true;
         if (sender is StackPanel panel)
         {
             string nazwa = panel.Name;

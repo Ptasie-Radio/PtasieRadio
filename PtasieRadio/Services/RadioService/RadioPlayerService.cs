@@ -8,6 +8,7 @@ namespace PtasieRadio.Services.RadioService;
 public class RadioPlayerService : IRadioPlayerService
 {
     private WaveOutEvent? waveOut;
+    private readonly SemaphoreSlim mediaLock = new SemaphoreSlim(1, 1);
     private MediaFoundationReader? reader;
     private bool isPlaying = false;
     private bool isInitialized = false;
@@ -26,9 +27,10 @@ public class RadioPlayerService : IRadioPlayerService
 		LoadListFromRadioBrowser();
 	}
 
-	public async Task PlayOrPauseAsync()
+    public async Task PlayOrPauseAsync()
     {
-        await Task.Run(() =>
+        await mediaLock.WaitAsync();
+        try
         {
             if (!isInitialized)
             {
@@ -60,7 +62,11 @@ public class RadioPlayerService : IRadioPlayerService
                 waveOut?.Play();
                 isPlaying = true;
             }
-        });
+        }
+        finally
+        {
+            mediaLock.Release();
+        }
     }
 
     public async Task StopAsync()
@@ -74,16 +80,24 @@ public class RadioPlayerService : IRadioPlayerService
 
     //TODO:
     //Zmienić, aby radio odpalało się od razu po załadowaniu, jeśli użyszkodnik mial isPlaying true
-    public void Reset()
+    public async Task Reset()
     {
-        waveOut?.Stop();
-        waveOut?.Dispose();
-        waveOut = null;
+        await mediaLock.WaitAsync();
 
-        reader?.Dispose();
-        reader = null;
-        isPlaying = false;
-        isInitialized = false;
+        try{
+            waveOut?.Stop();
+            waveOut?.Dispose();
+            waveOut = null;
+    
+            reader?.Dispose();
+            reader = null;
+            isPlaying = false;
+            isInitialized = false;
+        }
+        finally
+        {
+            mediaLock.Release();
+        }
     }
 
     public void SetVolume(double volume)

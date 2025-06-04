@@ -6,7 +6,7 @@ public interface IRadioPlayerService
 
     Task PlayOrPauseAsync();
     Task StopAsync();
-    void Reset();
+    Task Reset();
     void SetVolume(double value);
     void ToggleMute();
     void SetIsMuted(bool muted);
@@ -14,6 +14,6 @@ public interface IRadioPlayerService
     string? GetUrl();
     bool GetIsMuted();
     bool GetIsPlaying();
-        void SetIsPlaying(bool isPlaying);
+    void SetIsPlaying(bool isPlaying);
     float GetVolume();
 }

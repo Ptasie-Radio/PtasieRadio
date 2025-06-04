@@ -8,6 +8,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.UI.Xaml.Data;
 using Windows.Foundation;
 using Microsoft.UI.Xaml.Input;
+using System.Threading.Tasks;
 
 namespace PtasieRadio.Presentation;
 
@@ -22,7 +23,7 @@ public class MainModel : ObservableObject
     private string? url;
 
     public IRelayCommand ToggleMuteCommand { get; }
-    public RelayCommand<string?> ToggleChangeUrlCommand { get; }
+    public IAsyncRelayCommand<string?> ToggleChangeUrlCommand { get; }
 
     private Point _lastPointerPosition;
     private ScrollViewer? _currentScrollViewer;
@@ -108,7 +109,7 @@ public class MainModel : ObservableObject
         if(url == null)url = "http://chi.cdn.eurozet.pl/chi-net.mp3";
         
         ToggleMuteCommand = new RelayCommand(ToggleMute);
-        ToggleChangeUrlCommand = new RelayCommand<string?>(ToggleChangeUrl);
+        ToggleChangeUrlCommand = new AsyncRelayCommand<string?>(ToggleChangeUrl);
         PlayRadioCommand = new AsyncRelayCommand(PlayRadio);
         Title = "Main";
         Title += $" - {localizer["ApplicationName"]}";
@@ -197,14 +198,14 @@ public class MainModel : ObservableObject
         _radioService.ToggleMute();
     }
 
-    private void ToggleChangeUrl(string? url)
+    private async Task ToggleChangeUrl(string? url)
     {
         if (url == null) url = "";
         this.url = url;
-        _radioService.Reset();
+        await _radioService.Reset();
         _radioService.SetUrl(url);
 
-        if(isPlaying) _ = _radioService.PlayOrPauseAsync();
+        if(isPlaying) await _radioService.PlayOrPauseAsync();
         OnPropertyChanged(nameof(MuteButtonImage));
         OnPropertyChanged(nameof(PlayPauseButtonImage));
         OnPropertyChanged(nameof(MiniPlayPauseButtonImage));
