@@ -49,10 +49,10 @@ public static class ThemeService
                 res["TextColor"] = new SolidColorBrush(Colors.White);
                 res["IconColor"] = new SolidColorBrush(Colors.White);
                 break;
-            case "CherryLight":
-                res["PrimaryColor"] = new SolidColorBrush(Microsoft.UI.ColorHelper.FromArgb(255, 192, 117, 117));
-                res["SecondaryColor"] = new SolidColorBrush(Microsoft.UI.Colors.White);
-                res["TextColor"] = new SolidColorBrush(Colors.White);
+            case "BlueberryDark":
+                res["PrimaryColor"] = new SolidColorBrush(Microsoft.UI.ColorHelper.FromArgb(255, 1, 11, 34));
+                res["SecondaryColor"] = new SolidColorBrush(Microsoft.UI.ColorHelper.FromArgb(255, 6, 28, 59));
+                res["TextColor"] = new SolidColorBrush(Microsoft.UI.ColorHelper.FromArgb(255, 209, 218, 244));
                 res["IconColor"] = new SolidColorBrush(Colors.White);
                 break;
             case "LimeDark":

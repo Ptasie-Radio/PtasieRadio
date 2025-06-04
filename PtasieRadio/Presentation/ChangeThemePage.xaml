@@ -200,14 +200,14 @@
 </Border>
 
 
-    <!-- Cherry Light -->
-    <Border Background="#C07575"
-        BorderBrush="#E39A9A"
+    <!-- BlueberryDark -->
+    <Border Background="#010b22"
+        BorderBrush="#244379"
         BorderThickness="2"
         CornerRadius="6"
         Padding="12"
         Margin="0,4">
-    <CheckBox IsChecked="{Binding IsCherryLightChecked, Mode=TwoWay}"
+    <CheckBox IsChecked="{Binding IsBlueberryDarkChecked, Mode=TwoWay}"
               Background="Transparent"
               BorderThickness="0"
               HorizontalAlignment="Stretch"
@@ -224,15 +224,15 @@
                     <StackPanel Orientation="Horizontal"
                                 Grid.Column="0"
                                 VerticalAlignment="Center">
-                        <Image Source="Assets/Icons/cherry_light.png"
+                        <Image Source="Assets/Images/theme_img/blueberry.png"
                                Width="36" Height="36"
                                VerticalAlignment="Center"/>
-                        <TextBlock Text="Cherry Light"
+                        <TextBlock Text="Blueberry Dark"
                                    VerticalAlignment="Center"
                                    Margin="16,0"
                                    FontSize="16"
                                    FontWeight="Bold"
-                                   Foreground="White"/>
+                                   Foreground="#d9e2fb"/>
                     </StackPanel>
 
                     <Grid Grid.Column="1"
@@ -280,7 +280,7 @@
                     <StackPanel Orientation="Horizontal"
                                 Grid.Column="0"
                                 VerticalAlignment="Center">
-                        <Image Source="Assets/Images/theme_img/lime_dark.png"
+                        <Image Source="Assets/Images/theme_img/lime.png"
                                Width="36" Height="36"
                                VerticalAlignment="Center"/>
                         <TextBlock Text="LimeDark"
@@ -288,7 +288,7 @@
                                    Margin="16,0"
                                    FontSize="16"
                                    FontWeight="Bold"
-                                   Foreground="White"/>
+                                   Foreground="#c8ebde"/>
                     </StackPanel>
 
                     <Grid Grid.Column="1"
