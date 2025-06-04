@@ -30,10 +30,10 @@ public static class ThemeService
 
         switch (theme)
         {
-            case "Jasny":
-                res["PrimaryColor"] = new SolidColorBrush(Microsoft.UI.ColorHelper.FromArgb(255,217, 217, 217));
-                res["SecondaryColor"] = new SolidColorBrush(Microsoft.UI.Colors.Black);
-                res["TextColor"] = new SolidColorBrush(Colors.Black);
+            case "Light":
+                res["PrimaryColor"] = new SolidColorBrush(Microsoft.UI.ColorHelper.FromArgb(255, 252, 249, 255));
+                res["SecondaryColor"] = new SolidColorBrush(Microsoft.UI.ColorHelper.FromArgb(255, 242, 241, 251));
+                res["TextColor"] = new SolidColorBrush(Microsoft.UI.ColorHelper.FromArgb(255, 26, 29, 45));
                 res["IconColor"] = new SolidColorBrush(Microsoft.UI.Colors.Black);
 
                 break;

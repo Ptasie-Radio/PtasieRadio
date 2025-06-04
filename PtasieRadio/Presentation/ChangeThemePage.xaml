@@ -23,14 +23,14 @@
                                    Foreground="{StaticResource TextColor}"
                                    HorizontalAlignment="Center"/>
 
-                        <!-- Jasny -->
-                        <Border Background="#D9D9D9"
-        BorderBrush="#EEEEEE"
+                        <!-- Light -->
+    <Border Background="#fcf9ff"
+        BorderBrush="#d4d1e1"
         BorderThickness="2"
         CornerRadius="6"
         Padding="12"
         Margin="0,4">
-    <CheckBox IsChecked="{Binding IsJasnyChecked, Mode=TwoWay}"
+    <CheckBox IsChecked="{Binding IsLightChecked, Mode=TwoWay}"
               Background="Transparent"
               BorderThickness="0"
               HorizontalAlignment="Stretch"
@@ -48,10 +48,10 @@
                     <StackPanel Orientation="Horizontal"
                                 Grid.Column="0"
                                 VerticalAlignment="Center">
-                        <Image Source="Assets/Icons/jasny.png"
+                        <Image Source="Assets/Images/theme_img/standard.png"
                                Width="36" Height="36"
                                VerticalAlignment="Center"/>
-                        <TextBlock Text="Jasny"
+                        <TextBlock Text="Light"
                                    VerticalAlignment="Center"
                                    Margin="16,0"
                                    FontSize="16"
@@ -66,8 +66,8 @@
                           Width="24"
                           Height="24"
                           Margin="0,0,10,0">
-                        <Ellipse Stroke="Black" StrokeThickness="2"/>
-                        <Ellipse Fill="Black"
+                        <Ellipse Stroke="#5ab8fa" StrokeThickness="2"/>
+                        <Ellipse Fill="#5ab8fa"
                                  Width="12" Height="12"
                                  HorizontalAlignment="Center"
                                  VerticalAlignment="Center"
@@ -355,7 +355,10 @@
 
 
 
+png to svg - ikonki do kolorów
+dodac kolor SYSTEMOWY ( kolor ikonki to odpowiednik tego ) do narzedzi systemowych
 
-kolory zrobić
-ikonki do kolorów
-popraw te systemowe kolory ( sound slider / texbox itp. ) -->
+popraw te systemowe kolory ( sound slider / texbox tip. )
+
+skaczący ekran po wyborze dolnych kolorów|
+nie można odznaczać ręcznie checkboxa -->
