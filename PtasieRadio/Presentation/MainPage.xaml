@@ -397,54 +397,20 @@
                             x:Name="MiniPlayButton"
                             Command="{Binding PlayRadioCommand}"
                             Tapped="PlayPauseButtonTappedEvent">
-                        <Image Source="{Binding MiniPlayPauseButtonImage}"
-                               Stretch="Uniform"
-                               Width="20"
-                               Height="20"
-                               x:Name="MiniPlayButtonImage"/>
+                        <Path Width="24"
+                            Height="24"
+                            Stretch="Uniform"
+                            Fill="{StaticResource IconColor}"
+                            Data="{Binding MiniPlayPauseButtonImage}"
+                            x:Name="MiniPlayButtonImage">
+                            <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1" CenterY="12"/>
+                        </TransformGroup>
+                    </Path.RenderTransform> 
+                           </Path>   
                     </Button>
-<!-- tutaj trzeba fabiana -->
-<!-- mini_play.svg
-<Path Width="24"
-      Height="24"
-      Stretch="Uniform"
-      Fill="{StaticResource IconColor}"
-      Data="M570 2994 c-53 -10 -147 -48 -198 -80 -111 -71 -189 -180 -222 -310
--20 -79 -20 -103 -18 -1135 l3 -1054 23 -60 c84 -224 298 -367 527 -352 44 2
-106 14 137 25 32 11 455 249 940 529 798 460 888 514 950 574 209 203 208 535
--2 739 -56 55 -121 96 -401 257 -184 105 -581 334 -883 508 -302 174 -574 326
--605 337 -55 19 -199 32 -251 22z">
-    <Path.RenderTransform>
-        <TransformGroup>
-            <ScaleTransform ScaleY="-1" CenterY="12"/>
-            <TranslateTransform Y="-4"/>
-        </TransformGroup>
-    </Path.RenderTransform>
-</Path>
-
-
-mini_pause.svg
-
-<Path Width="24"
-      Height="24"
-      Stretch="Uniform"
-      Fill="{StaticResource IconColor}"
-      Data="M598 2981 c-122 -39 -206 -113 -261 -229 l-32 -67 0 -1185 0 -1185
-32 -67 c89 -189 295 -288 484 -232 145 43 243 135 290 272 18 53 19 102 19
-1212 0 1110 -1 1159 -19 1212 -74 215 -304 335 -513 269z
-M2170 2981 c-77 -25 -115 -46 -168 -94 -55 -51 -88 -102 -113 -175
--18 -53 -19 -102 -19 -1212 0 -1110 1 -1159 19 -1212 47 -137 145 -229 290
--272 189 -56 395 43 484 232 l32 67 0 1185 0 1185 -32 67 c-91 192 -303 291
--493 229z">
-    <Path.RenderTransform>
-        <TransformGroup>
-            <ScaleTransform ScaleY="-1" CenterY="12"/>
-            <TranslateTransform Y="-4"/>
-        </TransformGroup>
-    </Path.RenderTransform>
-</Path>
- -->
-
+<!-- tutaj trzeba fabiana mini_play.svg mini_pause.svg -->
 
                     <Button Background="Transparent"
                             x:Name="MiniHeartButton"
@@ -733,10 +699,19 @@ M2170 2981 c-77 -25 -115 -46 -168 -94 -55 -51 -88 -102 -113 -175
                         Height="40"
                         Padding="0"
                         Tapped="ArrowTapped">
-                    <Image Source="ms-appx:///Assets/Images/arrow_down.png"
-                           Width="20"
-                           Height="20"
-                           Stretch="Uniform"/>
+                    <Path Width="24"
+                        Height="24"
+                        Stretch="Uniform"
+                        Fill="{StaticResource IconColor}"
+                        Data="M530 7039 c-81 -6 -124 -20 -214 -68 -136 -72 -262 -230 -299 -376 -14 -52 -13 -289 0 -340 14 -53 40 -112 53 -120 5 -3 10 -13 10 -22 0 -8 14 -34 32 -57 46 -61 3914 -3930 3978 -3980 66 -52 135 -91 207 -118 78 -29 308 -29 386 0 72 27 141 66 207 118 64 50 3932 3919 3978 3980 18 23 32 49 32 57 0 9 4 19 10 22 13 8 50 93 50 115 0 29 11 50 26 50 11 0 14 25 14 125 0 100 -3 125 -14 125 -15 0 -26 21 -26 50 0 11 -16 54 -37 97 -29 62 -53 95 -122 163 -83 82 -124 109 -254 164 -54 23 -320 23 -374 0 -79 -34 -110 -49 -163 -83 -37 -23 -634 -613 -1780 -1758 -949 -947 -1732 -1723 -1740 -1723 -8 0 -791 776 -1740 1723 -1146 1145 -1743 1735 -1780 1758 -148 93 -239 114 -440 98z">        
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1" CenterY="12"/>
+                            <TranslateTransform Y="-10"/>
+                        </TransformGroup>
+                    </Path.RenderTransform> 
+                </Path>
+                           <!-- arrow_down.svg -->
                 </Button>
 
                 <!-- Tekst i flaga -->
@@ -800,6 +775,9 @@ M2170 2981 c-77 -25 -115 -46 -168 -94 -55 -51 -88 -102 -113 -175
                         Foreground="{StaticResource TextColor}"
                         Background="{StaticResource SecondaryColor}"
                         ValueChanged="OnSoundLevelSliderValueChanged">
+                        <Slider.Resources>
+        <SolidColorBrush x:Key="SliderThumbBackground" Color="{ThemeResource IconColor}" />
+    </Slider.Resources>
                 </Slider>
 
                 <!-- mute/unmute button -->
@@ -810,11 +788,19 @@ M2170 2981 c-77 -25 -115 -46 -168 -94 -55 -51 -88 -102 -113 -175
                         HorizontalAlignment="Center"
                         Command="{Binding ToggleMuteCommand}">
                     <Button.Content>
-                        <Image Source="{Binding MuteButtonImage}"
+                        <Path  Data="{Binding MuteButtonImage}"
                                x:Name="MuteUnmuteButtonImage"
                                Width="48"
                                Height="48"
-                               Stretch="Uniform"/>
+                               Stretch="Uniform"
+                               Fill="{StaticResource IconColor}">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleY="-1" CenterY="12"/>
+                                    <TranslateTransform Y="12"/>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
                     </Button.Content>
                 </Button>
 
@@ -865,11 +851,19 @@ M2170 2981 c-77 -25 -115 -46 -168 -94 -55 -51 -88 -102 -113 -175
                         Command="{Binding PlayRadioCommand}"
                         Tapped="PlayPauseButtonTappedEvent">
                     <Button.Content>
-                        <Image Source="{Binding PlayPauseButtonImage}"
+                        <Path  Data="{Binding PlayPauseButtonImage}"
                                x:Name="PlayButtonImage"
+                               Fill="{StaticResource IconColor}"
                                Width="48"
                                Height="48"
-                               Stretch="Uniform"/>
+                               Stretch="Uniform">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleY="-1" CenterY="12"/>
+                                    <TranslateTransform Y="20"/>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
                     </Button.Content>
                 </Button>
             </StackPanel>
