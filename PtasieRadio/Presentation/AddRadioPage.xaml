@@ -80,8 +80,8 @@
                             <Button.Template>
                                 <ControlTemplate TargetType="Button">
                                     <Grid>
-                                        <Image Source="Assets/Images/placeholder.png"
-                                                Stretch="Fill"
+                                        <Image Source="Assets/Images/radio_placeholder_square.png"
+                                                Stretch="Uniform"
                                                 x:Name="SelectedImage"/>
                                     </Grid>
                                 </ControlTemplate>

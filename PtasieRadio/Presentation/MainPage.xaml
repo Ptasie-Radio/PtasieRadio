@@ -339,10 +339,10 @@
                             Height="40"
                             Background="{StaticResource PrimaryColor}"
                             CornerRadius="5">
-                        <Image Width="30"
-                               Height="30"
+                        <Image Width="40"
+                               Height="40"
                                Stretch="Uniform"
-                               Source="ms-appx:///Assets/Images/radio_placeholder.png"
+                               Source="ms-appx:///Assets/Images/radio_placeholder_square.png"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"/>
                     </Border>
@@ -823,7 +823,7 @@
                         Background="{ThemeResource SurfaceBrush}"
                         Margin="0,20,0,0"
                         CornerRadius="8">
-                    <Image Source="ms-appx:///Assets/Images/placeholder.png"
+                    <Image Source="ms-appx:///Assets/Images/radio_placeholder_square.png"
                            Stretch="UniformToFill"/>
                 </Border>
 

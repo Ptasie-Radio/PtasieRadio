@@ -883,7 +883,6 @@ A:\KODOWANIE\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\A
 A:\KODOWANIE\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\theme_img\lime.png
 A:\KODOWANIE\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\theme_img\blueberry.png
 A:\KODOWANIE\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\theme_img\standard.png
-A:\KODOWANIE\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\radio_placeholder.png
 A:\KODOWANIE\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\theme_img\png black\arrow_down.png
 A:\KODOWANIE\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\theme_img\png black\brush.png
 A:\KODOWANIE\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\theme_img\png black\close.png
@@ -1245,3 +1244,5 @@ A:\KODOWANIE\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\A
 A:\KODOWANIE\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Images\theme_img\eq.scale-200.png
 A:\KODOWANIE\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Images\theme_img\eq.scale-300.png
 A:\KODOWANIE\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Images\theme_img\eq.scale-400.png
+A:\KODOWANIE\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\radio_placeholder_rectangle.png
+A:\KODOWANIE\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\radio_placeholder_square.png
