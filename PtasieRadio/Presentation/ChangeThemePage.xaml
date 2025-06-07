@@ -31,6 +31,7 @@
         Padding="12"
         Margin="0,4">
     <CheckBox IsChecked="{Binding IsLightChecked, Mode=TwoWay}"
+              Click="CheckBox_Click"
               Background="Transparent"
               BorderThickness="0"
               HorizontalAlignment="Stretch"
@@ -89,6 +90,7 @@
         Padding="12"
         Margin="0,4">
     <CheckBox IsChecked="{Binding IsDarkChecked, Mode=TwoWay}"
+              Click="CheckBox_Click"
               Background="Transparent"
               BorderThickness="0"
               HorizontalAlignment="Stretch"
@@ -154,6 +156,7 @@
         Padding="12"
         Margin="0,4">
     <CheckBox IsChecked="{Binding IsBlueberryLightChecked, Mode=TwoWay}"
+              Click="CheckBox_Click"
               Background="Transparent"
               BorderThickness="0"
               HorizontalAlignment="Stretch"
@@ -208,6 +211,8 @@
         Padding="12"
         Margin="0,4">
     <CheckBox IsChecked="{Binding IsBlueberryDarkChecked, Mode=TwoWay}"
+              x:Name="BlueberryDarkCheckBox"
+              Click="CheckBox_Click"
               Background="Transparent"
               BorderThickness="0"
               HorizontalAlignment="Stretch"
@@ -265,6 +270,8 @@
         Margin="0,4">
     <CheckBox IsChecked="{Binding IsLimeDarkChecked, Mode=TwoWay}"
               Background="Transparent"
+              x:Name="LimeDarkCheckBox"
+              Click="CheckBox_Click"
               BorderThickness="0"
               HorizontalAlignment="Stretch"
               VerticalAlignment="Center">

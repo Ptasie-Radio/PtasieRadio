@@ -21,7 +21,7 @@ public static class ThemeService
     {
         return ApplicationData.Current.LocalSettings.Values[ThemeKey] as string;
     }
-
+    
     public static void ApplyTheme(string? theme)
     {
         if (string.IsNullOrWhiteSpace(theme)) return;
