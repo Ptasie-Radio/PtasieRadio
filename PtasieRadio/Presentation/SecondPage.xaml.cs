@@ -1,21 +1,6 @@
-﻿using System;
-using System.Net;
-using System.IO;
-using System.Threading.Tasks;
-using NAudio.Wave;
-using Uno;
-using System.Diagnostics;
-using Microsoft.UI.Xaml;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Media.Animation;
+﻿using Microsoft.UI.Xaml.Input;
+using PtasieRadio.Services.UserProfileService;
 using Windows.System;
-using Windows.Devices.Radios;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml;
-using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Media;
-using Microsoft.UI;
 
 namespace PtasieRadio.Presentation;
 
@@ -27,13 +12,50 @@ public sealed partial class SecondPage : Page
         this.InitializeComponent();
     }
 
+    // byc moze pozniej rusze by dzialalo
+    private void ProfileButton_Click(object sender, RoutedEventArgs e)
+    {
+        var viewModel = DataContext as SecondModel;
+        if (viewModel == null)
+        {
+            // Możesz wyświetlić komunikat "Brak profili"
+            System.Diagnostics.Debug.WriteLine("brak profili");
+            return;
+        }
+
+        viewModel.ProfileList.Clear();
+        foreach (var kvp in viewModel._profileService.Profiles)
+            viewModel.ProfileList.Add(kvp);
+
+        var menuFlyout = new MenuFlyout();
+        foreach (var profile in viewModel.ProfileList)
+        {
+            var item = new MenuFlyoutItem
+            {
+                Text = profile.Value.Name,
+                Command = viewModel.SelectProfileCommand,
+                CommandParameter = profile.Key
+            };
+            menuFlyout.Items.Add(item);
+        }
+        menuFlyout.ShowAt(ProfileButton);
+        //  _ = this.Navigator()?.NavigateViewAsync<SecondPage>(this, qualifier: Qualifiers.Dialog); // nie dziala
+    }
+
+    private void EditUserNavigate(object sender, TappedRoutedEventArgs e)
+    {
+        var viewModel = DataContext as SecondViewModel;
+        if (viewModel == null) return;
+        viewModel.NavigateToUserCommand.Execute(null);
+    }
+
     private void AddNewRadioNavigate(object sender, TappedRoutedEventArgs e)
     {
         var viewModel = DataContext as SecondViewModel;
         if (viewModel == null) return;
         viewModel.NavigateToAddRadioCommand.Execute(null);
     }
-        //PRZYCISK USTAWIENIA - > INNE
+    //PRZYCISK USTAWIENIA - > INNE
     private async void OnOpiniaTapped(object sender, TappedRoutedEventArgs e)
     {
         var uri = new Uri("https://docs.google.com/forms/d/e/1FAIpQLSduEc6xafNra5ygl1m6dShfAwOl6oSdzMcyGw1p6q178Ya_bw/viewform");

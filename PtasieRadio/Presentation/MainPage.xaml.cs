@@ -20,9 +20,11 @@ namespace PtasieRadio.Presentation;
 public sealed partial class MainPage : Page
 {
     private double pageAnimationTime;
+    // private readonly IUserProfileService _profileService;
+
     private const string folderName = "PtasieRadio";
 
-	public MainPage()
+    public MainPage()
     {
 
         this.pageAnimationTime = 0.4;
@@ -150,43 +152,43 @@ public sealed partial class MainPage : Page
         viewModel.Volume = e.NewValue;
     }
 
-    public static async Task<Dictionary<string, SaveEntryData>> LoadFromJson(StorageFolder folder, string text="")
-	{
-		var localFileName = "radio.json";
-		Dictionary<string, SaveEntryData> entries;
-		Dictionary<string, SaveEntryData> filteredEntries;
-		try
-		{
-
-			var file = await folder.GetFileAsync(localFileName);
-			string json = await FileIO.ReadTextAsync(file);
-			entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
-					  ?? new Dictionary<string, SaveEntryData>();
-			if (text != "") filteredEntries = entries.Where(kv => kv.Value.Category == text).ToDictionary(kv => kv.Key, kv => kv.Value);
-			else filteredEntries = entries;
-		}
-		catch (FileNotFoundException)
-		{
-			filteredEntries = new Dictionary<string, SaveEntryData>();
-		}
-
-		return filteredEntries;
-	}
-
-	public static async Task<StorageFolder> OpenFolder() => 
-        await ApplicationData.Current.LocalFolder.CreateFolderAsync(
-			folderName, CreationCollisionOption.OpenIfExists);
-
-	private async Task CreateOwnStationOnViewLoad()
+    public static async Task<Dictionary<string, SaveEntryData>> LoadFromJson(StorageFolder folder, string text = "")
     {
-        var x = new List<string> { "POP", "NO", "Własne"};
-        int j = 0;
-		using (await AddRadioService.jsonSemaphore.Lock())
+        var localFileName = "radio.json";
+        Dictionary<string, SaveEntryData> entries;
+        Dictionary<string, SaveEntryData> filteredEntries;
+        try
         {
-		    foreach (StackPanel panel in new List<StackPanel> {NajczesciejGranePanel, PopularnePanel, WlasnePanel})
+
+            var file = await folder.GetFileAsync(localFileName);
+            string json = await FileIO.ReadTextAsync(file);
+            entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
+                      ?? new Dictionary<string, SaveEntryData>();
+            if (text != "") filteredEntries = entries.Where(kv => kv.Value.Category == text).ToDictionary(kv => kv.Key, kv => kv.Value);
+            else filteredEntries = entries;
+        }
+        catch (FileNotFoundException)
+        {
+            filteredEntries = new Dictionary<string, SaveEntryData>();
+        }
+
+        return filteredEntries;
+    }
+
+    public static async Task<StorageFolder> OpenFolder() =>
+        await ApplicationData.Current.LocalFolder.CreateFolderAsync(
+            folderName, CreationCollisionOption.OpenIfExists);
+
+    private async Task CreateOwnStationOnViewLoad()
+    {
+        var x = new List<string> { "POP", "NO", "Własne" };
+        int j = 0;
+        using (await AddRadioService.jsonSemaphore.Lock())
+        {
+            foreach (StackPanel panel in new List<StackPanel> { NajczesciejGranePanel, PopularnePanel, WlasnePanel })
             {
                 var folder = await OpenFolder();
-			    var entries = await LoadFromJson(folder, x[j]);
+                var entries = await LoadFromJson(folder, x[j]);
                 await AddStation(folder, entries, panel);
                 j++;
             }
@@ -211,12 +213,12 @@ public sealed partial class MainPage : Page
             }
             try
             {
-                using(var stream = new MemoryStream(File.ReadAllBytes(file.Path)))
+                using (var stream = new MemoryStream(File.ReadAllBytes(file.Path)))
                 {
                     bitmap = new BitmapImage();
                     await bitmap.SetSourceAsync(stream);
                 }
-                
+
             }
             catch (FileNotFoundException ex)
             {
@@ -226,7 +228,7 @@ public sealed partial class MainPage : Page
             {
                 bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
             }
-            
+
 
             var image = new Image
             {
@@ -282,7 +284,7 @@ public sealed partial class MainPage : Page
             : nazwa ?? "1";
 
             var folder = await OpenFolder();
-			var entries = await LoadFromJson(folder);
+            var entries = await LoadFromJson(folder);
 
             if (entries.TryGetValue(index, out var entry))
             {
@@ -294,7 +296,7 @@ public sealed partial class MainPage : Page
             {
                 System.Diagnostics.Debug.WriteLine($"Nie udało się");
             }
-        }  
+        }
     }
 
 }

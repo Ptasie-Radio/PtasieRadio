@@ -1,4 +1,5 @@
 ﻿<Page x:Class="PtasieRadio.Presentation.SecondPage"
+      x:Name="PageRoot"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:local="using:PtasieRadio.Presentation"
@@ -13,8 +14,8 @@
     <Grid utu:SafeArea.Insets="VisibleBounds">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <!-- Górny pasek z przyciskiem powrotu -->
@@ -37,8 +38,11 @@
                                        HorizontalAlignment="Center"/>
                             </Grid>
                             <ControlTemplate.Triggers>
-                                <Trigger Property="IsPointerOver" Value="True">
-                                    <Setter TargetName="ellipse" Property="Fill" Value="#12101DFF" />
+                                <Trigger Property="IsPointerOver"
+                                         Value="True">
+                                    <Setter TargetName="ellipse"
+                                            Property="Fill"
+                                            Value="#12101DFF"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
@@ -66,30 +70,64 @@
                                     VerticalAlignment="Center"
                                     Width="Auto"
                                     Spacing="8">
-                            <Ellipse Width="72" Height="72">
+                            <Ellipse Width="72"
+                                     Height="72">
                                 <Ellipse.Fill>
-                                    <ImageBrush ImageSource="Assets/Profil/avatar.png" Stretch="UniformToFill"/>
+                                    <ImageBrush ImageSource="{Binding ProfileImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Stretch="UniformToFill"/>
                                 </Ellipse.Fill>
                             </Ellipse>
-                            <TextBlock Text="Nazwa Uzytkownika" FontSize="14" Foreground="White" TextAlignment="Center"/>
+                            <TextBlock Text="{Binding ProfileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                       FontSize="14"
+                                       Foreground="White"
+                                       TextAlignment="Center"/>
+                            <!-- Przycisk otwierający menu profili -->
+                            <Button x:Name="ProfileButton"
+                                    Content="Wybierz profil"
+                                    Click="ProfileButton_Click">
+                                <Button.ContextFlyout>
+                                    <MenuFlyout>
+                                        <!-- tu cos ma byc dodane -->
+                                    </MenuFlyout>
+                                </Button.ContextFlyout>
+                            </Button>
                         </StackPanel>
 
                         <!-- Poniżej cała zawartość ustawień -->
                         <StackPanel Spacing="16">
-                            <TextBlock Text="Ustawienia" FontSize="28" FontWeight="Bold" Foreground="White" Margin="0,0,0,8"/>
+                            <TextBlock Text="Ustawienia"
+                                       FontSize="28"
+                                       FontWeight="Bold"
+                                       Foreground="White"
+                                       Margin="0,0,0,8"/>
 
                             <!-- Ogólne -->
-                            <TextBlock Text="Ogólne" FontSize="20" FontWeight="SemiBold" Foreground="White" Margin="16,8,0,0"/>
+                            <TextBlock Text="Ogólne"
+                                       FontSize="20"
+                                       FontWeight="SemiBold"
+                                       Foreground="White"
+                                       Margin="16,8,0,0"/>
                             <StackPanel Spacing="8">
-                                <Grid Height="48">
+                                <Grid Height="48"
+                                      Tapped="EditUserNavigate">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="40"/>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="Assets/Images/user.png" Width="24" Height="24" VerticalAlignment="Center" Margin="8,0"/>
-                                    <TextBlock Text="Profil" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
-                                    <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
+                                    <Image Source="Assets/Images/user.png"
+                                           Width="24"
+                                           Height="24"
+                                           VerticalAlignment="Center"
+                                           Margin="8,0"/>
+                                    <TextBlock Text="Profil"
+                                               Grid.Column="1"
+                                               VerticalAlignment="Center"
+                                               Foreground="White"/>
+                                    <TextBlock Text=">"
+                                               Grid.Column="2"
+                                               VerticalAlignment="Center"
+                                               Foreground="Gray"
+                                               Margin="8,0"/>
                                 </Grid>
                                 <Grid Height="48">
                                     <Grid.ColumnDefinitions>
@@ -97,9 +135,20 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="Assets/Images/brush.png" Width="24" Height="24" VerticalAlignment="Center" Margin="8,0"/>
-                                    <TextBlock Text="Wygląd" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
-                                    <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
+                                    <Image Source="Assets/Images/brush.png"
+                                           Width="24"
+                                           Height="24"
+                                           VerticalAlignment="Center"
+                                           Margin="8,0"/>
+                                    <TextBlock Text="Wygląd"
+                                               Grid.Column="1"
+                                               VerticalAlignment="Center"
+                                               Foreground="White"/>
+                                    <TextBlock Text=">"
+                                               Grid.Column="2"
+                                               VerticalAlignment="Center"
+                                               Foreground="Gray"
+                                               Margin="8,0"/>
                                 </Grid>
                                 <Grid Height="48">
                                     <Grid.ColumnDefinitions>
@@ -107,14 +156,29 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="Assets/Images/lang.png" Width="24" Height="24" VerticalAlignment="Center" Margin="8,0"/>
-                                    <TextBlock Text="Język" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
-                                    <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
+                                    <Image Source="Assets/Images/lang.png"
+                                           Width="24"
+                                           Height="24"
+                                           VerticalAlignment="Center"
+                                           Margin="8,0"/>
+                                    <TextBlock Text="Język"
+                                               Grid.Column="1"
+                                               VerticalAlignment="Center"
+                                               Foreground="White"/>
+                                    <TextBlock Text=">"
+                                               Grid.Column="2"
+                                               VerticalAlignment="Center"
+                                               Foreground="Gray"
+                                               Margin="8,0"/>
                                 </Grid>
                             </StackPanel>
 
                             <!-- Zaawansowane -->
-                            <TextBlock Text="Zaawansowane" FontSize="20" FontWeight="SemiBold" Foreground="White" Margin="16,8,0,0"/>
+                            <TextBlock Text="Zaawansowane"
+                                       FontSize="20"
+                                       FontWeight="SemiBold"
+                                       Foreground="White"
+                                       Margin="16,8,0,0"/>
                             <StackPanel Spacing="8">
                                 <Grid Height="48">
                                     <Grid.ColumnDefinitions>
@@ -122,9 +186,20 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="Assets/Images/folder.png" Width="24" Height="24" VerticalAlignment="Center" Margin="8,0"/>
-                                    <TextBlock Text="Backup" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
-                                    <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
+                                    <Image Source="Assets/Images/folder.png"
+                                           Width="24"
+                                           Height="24"
+                                           VerticalAlignment="Center"
+                                           Margin="8,0"/>
+                                    <TextBlock Text="Backup"
+                                               Grid.Column="1"
+                                               VerticalAlignment="Center"
+                                               Foreground="White"/>
+                                    <TextBlock Text=">"
+                                               Grid.Column="2"
+                                               VerticalAlignment="Center"
+                                               Foreground="Gray"
+                                               Margin="8,0"/>
                                 </Grid>
                                 <Grid Height="48">
                                     <Grid.ColumnDefinitions>
@@ -132,19 +207,42 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="Assets/Images/eq.png" Width="24" Height="24" VerticalAlignment="Center" Margin="8,0"/>
-                                    <TextBlock Text="Equalizer" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
-                                    <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
+                                    <Image Source="Assets/Images/eq.png"
+                                           Width="24"
+                                           Height="24"
+                                           VerticalAlignment="Center"
+                                           Margin="8,0"/>
+                                    <TextBlock Text="Equalizer"
+                                               Grid.Column="1"
+                                               VerticalAlignment="Center"
+                                               Foreground="White"/>
+                                    <TextBlock Text=">"
+                                               Grid.Column="2"
+                                               VerticalAlignment="Center"
+                                               Foreground="Gray"
+                                               Margin="8,0"/>
                                 </Grid>
-                                <Grid Height="48" Tapped="AddNewRadioNavigate">
+                                <Grid Height="48"
+                                      Tapped="EditUserNavigate">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="40"/>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="Assets/Images/link.png" Width="24" Height="24" VerticalAlignment="Center" Margin="8,0"/>
-                                    <TextBlock Text="Dodaj Radio z URL" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
-                                    <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
+                                    <Image Source="Assets/Images/link.png"
+                                           Width="24"
+                                           Height="24"
+                                           VerticalAlignment="Center"
+                                           Margin="8,0"/>
+                                    <TextBlock Text="Dodaj Radio z URL"
+                                               Grid.Column="1"
+                                               VerticalAlignment="Center"
+                                               Foreground="White"/>
+                                    <TextBlock Text=">"
+                                               Grid.Column="2"
+                                               VerticalAlignment="Center"
+                                               Foreground="Gray"
+                                               Margin="8,0"/>
                                 </Grid>
                                 <Grid Height="48">
                                     <Grid.ColumnDefinitions>
@@ -152,49 +250,100 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="Assets/Images/save.png" Width="24" Height="24" VerticalAlignment="Center" Margin="8,0"/>
-                                    <TextBlock Text="Miejsce zapisu" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
-                                    <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
+                                    <Image Source="Assets/Images/save.png"
+                                           Width="24"
+                                           Height="24"
+                                           VerticalAlignment="Center"
+                                           Margin="8,0"/>
+                                    <TextBlock Text="Miejsce zapisu"
+                                               Grid.Column="1"
+                                               VerticalAlignment="Center"
+                                               Foreground="White"/>
+                                    <TextBlock Text=">"
+                                               Grid.Column="2"
+                                               VerticalAlignment="Center"
+                                               Foreground="Gray"
+                                               Margin="8,0"/>
                                 </Grid>
                             </StackPanel>
 
                             <!-- Inne -->
-                            <TextBlock Text="Inne" FontSize="20" FontWeight="SemiBold" Foreground="White" Margin="16,8,0,0"/>
+                            <TextBlock Text="Inne"
+                                       FontSize="20"
+                                       FontWeight="SemiBold"
+                                       Foreground="White"
+                                       Margin="16,8,0,0"/>
                             <StackPanel Spacing="8">
-                                <Grid Height="48" Tapped="OnOpiniaTapped">
+                                <Grid Height="48"
+                                      Tapped="OnOpiniaTapped">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="40"/>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="Assets/Images/review.png" Width="24" Height="24" VerticalAlignment="Center" Margin="8,0"/>
-                                    <TextBlock Text="Opinia" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
-                                    <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
+                                    <Image Source="Assets/Images/review.png"
+                                           Width="24"
+                                           Height="24"
+                                           VerticalAlignment="Center"
+                                           Margin="8,0"/>
+                                    <TextBlock Text="Opinia"
+                                               Grid.Column="1"
+                                               VerticalAlignment="Center"
+                                               Foreground="White"/>
+                                    <TextBlock Text=">"
+                                               Grid.Column="2"
+                                               VerticalAlignment="Center"
+                                               Foreground="Gray"
+                                               Margin="8,0"/>
                                 </Grid>
-                                <Grid Height="48" Tapped="OnONasTapped">
+                                <Grid Height="48"
+                                      Tapped="OnONasTapped">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="40"/>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="Assets/Images/group.png" Width="24" Height="24" VerticalAlignment="Center" Margin="8,0"/>
-                                    <TextBlock Text="O nas" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
-                                    <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
+                                    <Image Source="Assets/Images/group.png"
+                                           Width="24"
+                                           Height="24"
+                                           VerticalAlignment="Center"
+                                           Margin="8,0"/>
+                                    <TextBlock Text="O nas"
+                                               Grid.Column="1"
+                                               VerticalAlignment="Center"
+                                               Foreground="White"/>
+                                    <TextBlock Text=">"
+                                               Grid.Column="2"
+                                               VerticalAlignment="Center"
+                                               Foreground="Gray"
+                                               Margin="8,0"/>
                                 </Grid>
-                                <Grid Height="48" Tapped="OnPolitykaTapped">
+                                <Grid Height="48"
+                                      Tapped="OnPolitykaTapped">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="40"/>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="Assets/Images/policy.png" Width="24" Height="24" VerticalAlignment="Center" Margin="8,0"/>
-                                    <TextBlock Text="Polityka Prywatności" Grid.Column="1" VerticalAlignment="Center" Foreground="White"/>
-                                    <TextBlock Text=">" Grid.Column="2" VerticalAlignment="Center" Foreground="Gray" Margin="8,0"/>
+                                    <Image Source="Assets/Images/policy.png"
+                                           Width="24"
+                                           Height="24"
+                                           VerticalAlignment="Center"
+                                           Margin="8,0"/>
+                                    <TextBlock Text="Polityka Prywatności"
+                                               Grid.Column="1"
+                                               VerticalAlignment="Center"
+                                               Foreground="White"/>
+                                    <TextBlock Text=">"
+                                               Grid.Column="2"
+                                               VerticalAlignment="Center"
+                                               Foreground="Gray"
+                                               Margin="8,0"/>
                                 </Grid>
                             </StackPanel>
 
                             <!-- Wersja TUTAJ ZMIENIAJ WERSJE -->
-                            <TextBlock Text="Wersja aplikacji: v2.0" 
+                            <TextBlock Text="Wersja aplikacji: v2.0"
                                        FontSize="14"
                                        Foreground="Gray"
                                        HorizontalAlignment="Center"
@@ -203,43 +352,44 @@
                     </StackPanel>
                 </Border>
             </ScrollViewer>
-                        <Popup x:Name="PopupInformacyjny" IsLightDismissEnabled="False">
+            <Popup x:Name="PopupInformacyjny"
+                   IsLightDismissEnabled="False">
                 <Grid x:Name="PopupOverlay"
-                    Background="#B0000000"
-                    Tapped="Popup_BackgroundTapped"
-                    Width="{x:Bind ActualWidth, Mode=OneWay}"
-                    Height="{x:Bind ActualHeight, Mode=OneWay}">
+                      Background="#B0000000"
+                      Tapped="Popup_BackgroundTapped"
+                      Width="{x:Bind ActualWidth, Mode=OneWay}"
+                      Height="{x:Bind ActualHeight, Mode=OneWay}">
 
-                <Grid HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Tapped="Popup_ContentTapped">
+                    <Grid HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          Tapped="Popup_ContentTapped">
 
-                <Border Background="#FF2D2D30"
-                        CornerRadius="12"
-                        Padding="24"
-                        MaxWidth="600"
-                        MinWidth="300"
-                        MaxHeight="600">
-                <StackPanel>
-                    <TextBlock x:Name="PopupTytul"
-                               HorizontalAlignment="Center"
-                               FontSize="18"
-                               FontWeight="SemiBold"
-                               Foreground="White"/>
+                        <Border Background="#FF2D2D30"
+                                CornerRadius="12"
+                                Padding="24"
+                                MaxWidth="600"
+                                MinWidth="300"
+                                MaxHeight="600">
+                            <StackPanel>
+                                <TextBlock x:Name="PopupTytul"
+                                           HorizontalAlignment="Center"
+                                           FontSize="18"
+                                           FontWeight="SemiBold"
+                                           Foreground="White"/>
 
-                    <ScrollViewer Margin="0,16,0,0"
-                                  MaxHeight="400">
-                        <TextBlock x:Name="PopupTresc"
-                                   TextWrapping="Wrap"
-                                   FontSize="16"
-                                   LineHeight="24"
-                                   Foreground="White"/>
-                    </ScrollViewer>
-                </StackPanel>
-            </Border>
-        </Grid>
-    </Grid>
-</Popup>
+                                <ScrollViewer Margin="0,16,0,0"
+                                              MaxHeight="400">
+                                    <TextBlock x:Name="PopupTresc"
+                                               TextWrapping="Wrap"
+                                               FontSize="16"
+                                               LineHeight="24"
+                                               Foreground="White"/>
+                                </ScrollViewer>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </Popup>
         </Grid>
     </Grid>
 </Page>

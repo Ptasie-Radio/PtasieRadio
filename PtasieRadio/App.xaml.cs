@@ -1,6 +1,7 @@
 using Uno.Resizetizer;
 using PtasieRadio.Services.RadioService;
 using PtasieRadio.Services.AddRadioService;
+using PtasieRadio.Services.UserProfileService;
 namespace PtasieRadio;
 
 public partial class App : Application
@@ -80,6 +81,7 @@ public partial class App : Application
                 {
                     services.AddSingleton<IRadioPlayerService, RadioPlayerService>();
                     services.AddSingleton<IAddRadioService, AddRadioService>();
+                    services.AddSingleton<IUserProfileService, UserProfileService>();
                 })
                 .UseNavigation(ReactiveViewModelMappings.ViewModelMappings, RegisterRoutes)
             );
@@ -91,6 +93,12 @@ public partial class App : Application
         MainWindow.SetWindowIcon();
 
         Host = await builder.NavigateAsync<Shell>();
+        // wybranie profilu
+        var profileService = Host.Services.GetRequiredService<IUserProfileService>();
+        await profileService.InitializeAsync();
+        System.Diagnostics.Debug.WriteLine($"Profile count: {profileService.Profiles.Count}");
+        System.Diagnostics.Debug.WriteLine($"SelectedKey: {profileService.SelectedKey}");
+
     }
 
     private static void RegisterRoutes(IViewRegistry views, IRouteRegistry routes)
@@ -99,6 +107,7 @@ public partial class App : Application
             new ViewMap(ViewModel: typeof(ShellModel)),
             new ViewMap<MainPage, MainModel>(),
             new ViewMap<SecondPage, SecondModel>(),
+            new ViewMap<UserPage, UserModel>(),
             new ViewMap<AddRadioPage, AddRadioModel>()
         );
 
@@ -108,10 +117,11 @@ public partial class App : Application
                 [
                     new ("Main", View: views.FindByViewModel<MainModel>(), IsDefault:true),
                     new ("Second", View: views.FindByViewModel<SecondModel>()),
+                    new ("User", View: views.FindByViewModel<UserModel>()),
                     new ("AddRadio", View: views.FindByViewModel<AddRadioModel>()),
                 ]
             )
         );
     }
-    public static Window? GetMainWindow(){return MainWindow;}
+    public static Window? GetMainWindow() { return MainWindow; }
 }

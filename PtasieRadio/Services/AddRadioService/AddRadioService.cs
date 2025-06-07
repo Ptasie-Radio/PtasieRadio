@@ -40,39 +40,6 @@ public class AddRadioService : IAddRadioService
         for (; dictionary.ContainsKey(i.ToString()); i++) ;
         return i;
 	}
-	//  public async Task<int> GetIndexFromJson()
-	//  {
-	//      var folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync(
-	//          folderName, CreationCollisionOption.OpenIfExists);
-	//      var localFileName = "radio.json";
-	//      Dictionary<string, SaveEntryData> entries;
-
-	//      try
-	//      {
-	//          var file = await folder.GetFileAsync(localFileName);
-	//          string json = await FileIO.ReadTextAsync(file);
-	//          entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
-	//                    ?? new Dictionary<string, SaveEntryData>();
-	//      }
-	//      catch (FileNotFoundException)
-	//      {
-	//          entries = new Dictionary<string, SaveEntryData>();
-	//      }
-
-	//int i = 1;
-	//      for (; entries.ContainsKey(i.ToString()); i++) ;
-
-	////while (true)
-	////      {
-	////          if (entries.ContainsKey(i.ToString()))
-	////          {
-	////              i++;
-	////              continue;
-	////          }
-	////          else break;
-	////      }
-	//      return i;   
-	//  }
 
 	public async Task AddOneRadioToJson(string url, string name, string description, string imagePath)
 	{
