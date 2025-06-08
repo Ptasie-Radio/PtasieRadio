@@ -16,19 +16,22 @@ public class RadioPlayerService : IRadioPlayerService
     private bool isMuted = false;
     private bool isBusy = false;
     private string? url;
-	public bool IsPlaying => isPlaying;
+    public string? StationName { set; get; }
+    public string StationImagePath { set; get; }
+    public string StationCountry { get; set; }
+    public bool IsPlaying => isPlaying;
     public bool IsMuted => isMuted;
     public float Volume => currentVolume * 100f;
 
 
-	public RadioPlayerService()
-	{
-		LoadListFromRadioBrowser();
-	}
+    public RadioPlayerService()
+    {
+        LoadListFromRadioBrowser();
+    }
 
     public async Task PlayOrPauseAsync()
     {
-        if(isBusy) return;//Jeśli mamy blokadę, to nie pozwalaj na zmianę
+        if (isBusy) return;//Jeśli mamy blokadę, to nie pozwalaj na zmianę
         isBusy = true;
         await WithMediaLock(async () =>
         {
@@ -55,7 +58,7 @@ public class RadioPlayerService : IRadioPlayerService
                 }
                 if (isPlaying)
                 {
-                    try { waveOut?.Stop(); } catch (Exception ex) {  System.Diagnostics.Debug.WriteLine($"Error:{ex}"); }
+                    try { waveOut?.Stop(); } catch (Exception ex) { System.Diagnostics.Debug.WriteLine($"Error:{ex}"); }
                     isPlaying = false;
                 }
                 else
@@ -88,14 +91,14 @@ public class RadioPlayerService : IRadioPlayerService
             if (isPlaying)
             {
                 isPlaying = false;
-                try { waveOut?.Stop(); } catch (Exception ex) {  System.Diagnostics.Debug.WriteLine($"Error:{ex}"); }
+                try { waveOut?.Stop(); } catch (Exception ex) { System.Diagnostics.Debug.WriteLine($"Error:{ex}"); }
             }
             waveOut?.Dispose();
             waveOut = null;
             reader?.Dispose();
             reader = null;
             isInitialized = false;
-            
+
         });
     }
 
@@ -133,23 +136,23 @@ public class RadioPlayerService : IRadioPlayerService
         }
     }
 
-	private async void LoadListFromRadioBrowser()
-	{
-		try
-		{
-			using (var httpClient = new HttpClient())
-			{
-				httpClient.DefaultRequestHeaders.Add("User-Agent", "PtasieRadio/0.1");
-				using (var response = await httpClient.GetAsync($"https://all.api.radio-browser.info/json/stations/search?limit=30&countrycode=pl&hidebroken=true&order=clickcount&reverse=true"))
-				{
-					
-					response.EnsureSuccessStatusCode();
-					var json = await response.Content.ReadAsStringAsync();
-					var stations = JsonSerializer.Deserialize<List<StationInfo>>(json, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
-					foreach (var station in stations)
-						Console.WriteLine(station.Name);
+    private async void LoadListFromRadioBrowser()
+    {
+        try
+        {
+            using (var httpClient = new HttpClient())
+            {
+                httpClient.DefaultRequestHeaders.Add("User-Agent", "PtasieRadio/0.1");
+                using (var response = await httpClient.GetAsync($"https://all.api.radio-browser.info/json/stations/search?limit=30&countrycode=pl&hidebroken=true&order=clickcount&reverse=true"))
+                {
 
-                    using(await AddRadioService.AddRadioService.jsonSemaphore.Lock())
+                    response.EnsureSuccessStatusCode();
+                    var json = await response.Content.ReadAsStringAsync();
+                    var stations = JsonSerializer.Deserialize<List<StationInfo>>(json, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+                    foreach (var station in stations)
+                        Console.WriteLine(station.Name);
+
+                    using (await AddRadioService.AddRadioService.jsonSemaphore.Lock())
                     {
                         StorageFolder folder = await MainPage.OpenFolder();
                         var entries = await MainPage.LoadFromJson(folder);
@@ -157,30 +160,30 @@ public class RadioPlayerService : IRadioPlayerService
                         foreach (var station in stations)
                         {
                             var fileFormat = station.Favicon?.Map(f => Path.GetExtension(f.AbsolutePath));
-							string fileName = "stationIcon" + imageIndex + (string.IsNullOrEmpty(fileFormat) ? "": ("." + fileFormat));
-							int index = fileName.IndexOf('?');
-							if (index >= 0) fileName = fileName.Substring(0, index);
-							
-							imageIndex++;
-							
-							if (index >= 0) fileName = fileName.Substring(0, index);
-							HttpResponseMessage? image = null;
+                            string fileName = "stationIcon" + imageIndex + (string.IsNullOrEmpty(fileFormat) ? "" : ("." + fileFormat));
+                            int index = fileName.IndexOf('?');
+                            if (index >= 0) fileName = fileName.Substring(0, index);
+
+                            imageIndex++;
+
+                            if (index >= 0) fileName = fileName.Substring(0, index);
+                            HttpResponseMessage? image = null;
                             Stream stream;
                             try
                             {
                                 image = await httpClient.GetAsync(station.Favicon);
-								image.EnsureSuccessStatusCode();
-								stream = await image.Content.ReadAsStreamAsync();
+                                image.EnsureSuccessStatusCode();
+                                stream = await image.Content.ReadAsStreamAsync();
 
-							}
+                            }
                             catch
                             {
                                 var uri = new Uri("ms-appx:///Assets/Images/placeholder.png");
-								StorageFile f = await StorageFile.GetFileFromApplicationUriAsync(uri);
+                                StorageFile f = await StorageFile.GetFileFromApplicationUriAsync(uri);
                                 stream = (await f.OpenReadAsync()).AsStream();
 
-							}
-                                
+                            }
+
                             using (image)
                             using (stream)
                             {
@@ -208,19 +211,19 @@ public class RadioPlayerService : IRadioPlayerService
                         }
                         await AddRadioService.AddRadioService.SaveToJson(folder, entries);
                     }
-				}
-			}
-		}
-		catch (Exception ex)
-		{
-			Console.WriteLine(ex);
-		}
-	}
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+        }
+    }
 
-	public void SetIsMuted(bool muted) { isMuted = muted; }
+    public void SetIsMuted(bool muted) { isMuted = muted; }
     public bool GetIsMuted() { return IsMuted; }
-    public bool GetIsPlaying() {return IsPlaying;}
-    public void SetIsPlaying(bool isPlaying) { this.isPlaying = isPlaying;}
+    public bool GetIsPlaying() { return IsPlaying; }
+    public void SetIsPlaying(bool isPlaying) { this.isPlaying = isPlaying; }
     public float GetVolume() { return Volume; }
     public string? GetUrl() { return url; }
     public bool GetIsInitialized() { return isInitialized; }

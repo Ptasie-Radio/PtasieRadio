@@ -20,5 +20,6 @@
     <PackageVersion Include="Xamarin.UITest" Version="4.3.4" />
     <PackageVersion Include="Uno.Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.3.0" />
     <PackageVersion Include="CommunityToolkit.WinUI.Behaviors" Version="8.0.240109" />
+    <PackageVersion Include="GEmojiSharp" Version="4.0.0" />
   </ItemGroup>
 </Project>

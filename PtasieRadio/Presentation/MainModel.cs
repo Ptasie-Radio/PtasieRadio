@@ -25,7 +25,8 @@ public class MainModel : ObservableObject
     public ICommand ToggleChangeCountryCommand { get; }
     public ICommand ToggleChangeImagePathCommand { get; }
     private string? url;
-    private bool isChangingUrl = false;    private string _stationName;
+    private bool isChangingUrl = false;
+    private string _stationName;
 
     public string StationName
     {
@@ -33,16 +34,19 @@ public class MainModel : ObservableObject
         set
         {
             _stationName = value;
+            _radioService.StationName = value;
             OnPropertyChanged();
         }
     }
 
     private string _country;
-    public string Country {
+    public string Country
+    {
         get => _country;
         set
         {
             _country = value;
+            _radioService.StationCountry= value;
             OnPropertyChanged();
             OnPropertyChanged(nameof(StationFlagUrl)); // Dodaj tę linię
         }
@@ -54,6 +58,7 @@ public class MainModel : ObservableObject
         set
         {
             _imagePath = value;
+            _radioService.StationImagePath = value;
             OnPropertyChanged();
         }
     }
@@ -131,7 +136,7 @@ public class MainModel : ObservableObject
     public string MiniPlayPauseButtonImage => isPlaying
     ? "M598 2981 c-122 -39 -206 -113 -261 -229 l-32 -67 0 -1185 0 -1185 32 -67 c89 -189 295 -288 484 -232 145 43 243 135 290 272 18 53 19 102 19 1212 0 1110 -1 1159 -19 1212 -74 215 -304 335 -513 269z M2170 2981 c-77 -25 -115 -46 -168 -94 -55 -51 -88 -102 -113 -175 -18 -53 -19 -102 -19 -1212 0 -1110 1 -1159 19 -1212 47 -137 145 -229 290 -272 189 -56 395 43 484 232 l32 67 0 1185 0 1185 -32 67 c-91 192 -303 291 -493 229z"
     : "M570 2994 c-53 -10 -147 -48 -198 -80 -111 -71 -189 -180 -222 -310 -20 -79 -20 -103 -18 -1135 l3 -1054 23 -60 c84 -224 298 -367 527 -352 44 2 106 14 137 25 32 11 455 249 940 529 798 460 888 514 950 574 209 203 208 535 -2 739 -56 55 -121 96 -401 257 -184 105 -581 334 -883 508 -302 174 -574 326 -605 337 -55 19 -199 32 -251 22z";
-// mini_play.svg mini_pause.svg
+    // mini_play.svg mini_pause.svg
     public string? Title { get; }
 
     public IState<string> Name => State<string>.Value(this, () => string.Empty);
@@ -149,13 +154,20 @@ public class MainModel : ObservableObject
         _navigator = navigator;
         NavigateCommand = new AsyncRelayCommand(GoToSecond);
 
+
         _radioService = radioService;
         _promptService = promptService;
         url = _radioService.GetUrl();
         if (url == null) url = "http://chi.cdn.eurozet.pl/chi-net.mp3";
+        if (_radioService.StationName!=null) _stationName = _radioService.StationName;
+        if (_radioService.StationImagePath != null) _imagePath = _radioService.StationImagePath;
+        else {
+            _imagePath = "Assets\\Images\\radio_placeholder_square.png";
+        }
+        if (_radioService.StationCountry!=null) _country = _radioService.StationCountry;
 
         ToggleMuteCommand = new RelayCommand(ToggleMute);
-        ToggleChangeUrlCommand = new RelayCommand<string?>(ToggleChangeUrl);
+        ToggleChangeUrlCommand = new AsyncRelayCommand<string?>(ToggleChangeUrl);
         ToggleChangeStationNameCommand = new RelayCommand<string?>(ToggleChangeName);
         ToggleChangeCountryCommand = new RelayCommand<string?>(ToggleChangeCountry);
         ToggleChangeImagePathCommand = new RelayCommand<string?>(ToggleChangeImagePath);
@@ -237,7 +249,7 @@ public class MainModel : ObservableObject
         }
         if (!_radioService.GetIsInitialized() && isPlaying)
         {
-           await _promptService.ShowMessageAsync("Nie udało się załadować radia", "Błąd");
+            await _promptService.ShowMessageAsync("Nie udało się załadować radia", "Błąd");
         }
     }
     public async Task GoToSecond()
@@ -255,23 +267,36 @@ public class MainModel : ObservableObject
 
     private async Task ToggleChangeUrl(string? url)
     {
-        if (url == null) url = "";
-        this.url = url;
-        _radioService.Reset();
-        _radioService.SetUrl(url);
-        OnPropertyChanged(nameof(MuteButtonImage));
-        OnPropertyChanged(nameof(PlayPauseButtonImage));
-        OnPropertyChanged(nameof(MiniPlayPauseButtonImage));
-        IsMuted = _radioService.GetIsMuted();
-        isPlaying = _radioService.GetIsPlaying();
-        _Volume = _radioService.GetVolume();
+        if (isChangingUrl) return;
+        try
+        {
+            isChangingUrl = true;
+            if (url == null) url = "";
+            this.url = url;
+            await _radioService.Reset();
+            _radioService.SetUrl(url);
+
+            if (isPlaying)
+            {
+                await _radioService.PlayOrPauseAsync();
+                if (!_radioService.GetIsInitialized())
+                {
+                    await _promptService.ShowMessageAsync("Nie udało się załadować radia", "Błąd");
+                }
+            }
+            OnPropertyChanged(nameof(MuteButtonImage));
+            OnPropertyChanged(nameof(PlayPauseButtonImage));
+            OnPropertyChanged(nameof(MiniPlayPauseButtonImage));
+        }
+        finally
+        {
+            isChangingUrl = false;
+        }
     }
     private void ToggleChangeImagePath(string? imagePath) { ImagePath = imagePath; }
 
     private void ToggleChangeName(string? name) { StationName = name; }
-    private void ToggleChangeCountry(string? country) { Country = country;
-    }
-    private void ToggleChangeImagePath(string? imagePath) { ImagePath = imagePath; }
+    private void ToggleChangeCountry(string? country) { Country = country; }
 
 }
 
