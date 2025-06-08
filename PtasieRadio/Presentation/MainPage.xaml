@@ -83,6 +83,7 @@
                                  Height="40"
                                  CornerRadius="20"
                                  Background="{StaticResource PrimaryColor}"
+                                 PlaceholderForeground="{StaticResource TextColor}"
                                  BorderThickness="0"
                                  PlaceholderText="Wyszukaj..."
                                  Foreground="{StaticResource TextColor}"
@@ -199,10 +200,12 @@
             </StackPanel>
 
         <TextBlock Text="Gatunek"
-                   Foreground="Gray"
+                   Foreground="{StaticResource TextColor}"
+                   Opacity="0.6"
                    FontSize="16"/>
         <TextBlock Text="Kraj"
-                   Foreground="Gray"
+                   Foreground="{StaticResource TextColor}"
+                   Opacity="0.6"
                    FontSize="16"/>
     </StackPanel>
 </Grid>
@@ -352,6 +355,8 @@
                                    FontSize="14"/>
                         <TextBlock Text="{Binding Country}"
                                    Foreground="Gray"
+                                   Foreground="{StaticResource TextColor}"
+                                   Opacity="0.6"
                                    FontSize="12"/>
                     </StackPanel>
                 </StackPanel>
@@ -734,7 +739,8 @@
                         <TextBlock x:Name="CountryName"
                                    Text="{Binding Country}"
                                    Style="{StaticResource MaterialCaptionStyle}"
-                                   Foreground="LightGray"
+                                   Foreground="{StaticResource TextColor}"
+                                   Opacity="0.7"
                                    VerticalAlignment="Center"/>
                     </StackPanel>
                 </StackPanel>
@@ -834,6 +840,7 @@
                 <!-- chyba do skasowania
                 <TextBlock Text="Zespół - Tytuł"
                            Style="{StaticResource MaterialBody1Style}"
+                           Foreground="{StaticResource TextColor}"
                            HorizontalAlignment="Center"
                            Margin="0,16,0,0"/> -->
 

@@ -1247,6 +1247,7 @@ A:\KODOWANIE\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\A
 A:\KODOWANIE\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Images\theme_img\eq.scale-400.png
 A:\KODOWANIE\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\radio_placeholder_rectangle.png
 A:\KODOWANIE\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\radio_placeholder_square.png
+<<<<<<< HEAD
 =======
 D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Uno.Fonts.Fluent\Fonts\uno-fluentui-assets.ttf
 D:\Folder prywatny - Chroniony Hasłem\programowanie\Studia\Csharp\Projekt Grupowy\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Uno.Fonts.OpenSans\Fonts\OpenSans-Bold.ttf
@@ -2457,3 +2458,6 @@ C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\obj\Debug\net8.0-d
 C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Images\theme_img\user.scale-200.png
 C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Images\theme_img\user.scale-300.png
 C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\obj\Debug\net8.0-desktop\unoresizetizer\r\Assets\Images\theme_img\user.scale-400.png
+=======
+A:\KODOWANIE\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\oldplaceholder.png
+>>>>>>> origin/App_Design_temp
