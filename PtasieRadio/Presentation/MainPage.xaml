@@ -354,7 +354,6 @@
                                    Foreground="White"
                                    FontSize="14"/>
                         <TextBlock Text="{Binding Country}"
-                                   Foreground="Gray"
                                    Foreground="{StaticResource TextColor}"
                                    Opacity="0.6"
                                    FontSize="12"/>
