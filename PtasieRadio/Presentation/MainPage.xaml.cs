@@ -232,11 +232,11 @@ public sealed partial class MainPage : Page
             }
             catch (FileNotFoundException ex)
             {
-                bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
+                bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/radio_placeholder_square"));
             }
             catch (System.NullReferenceException ex)
             {
-                bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
+                bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/radio_placeholder_square"));
             }
             
 
@@ -254,7 +254,7 @@ public sealed partial class MainPage : Page
             {
                 Width = 100,
                 Height = 100,
-                Background = new SolidColorBrush(Windows.UI.ColorHelper.FromArgb(255, 204, 204, 204)),
+                Background = new SolidColorBrush(Windows.UI.ColorHelper.FromArgb(255, 224, 224, 224)),
                 CornerRadius = new CornerRadius(20),
                 Child = image
             };
@@ -264,7 +264,7 @@ public sealed partial class MainPage : Page
                 Text = entry.Value.Name,
                 TextAlignment = TextAlignment.Center,
                 FontSize = 12,
-                Foreground = new SolidColorBrush(Microsoft.UI.Colors.White)
+                Foreground = (Brush)Application.Current.Resources["TextColor"],
             };
 
             var stationPanel = new StackPanel
