@@ -224,7 +224,7 @@ public sealed partial class MainPage : Page
         int j = 0;
         using (await AddRadioService.jsonSemaphore.Lock())
         {
-		    foreach (StackPanel panel in new List<StackPanel> {PopularnePanel,NajczesciejGranePanel,  WlasnePanel})
+		    foreach (StackPanel panel in new List<StackPanel> {NajczesciejGranePanel,PopularnePanel,WlasnePanel})
             {
                 var folder = await OpenFolder();
                 var entries = await LoadFromJson(folder, x[j]);

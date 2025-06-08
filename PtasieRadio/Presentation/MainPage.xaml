@@ -351,7 +351,7 @@
                     </Border>
                     <StackPanel Margin="10,0">
                         <TextBlock Text="{Binding StationName}"
-                                   Foreground="White"
+                                   Foreground="{StaticResource TextColor}"
                                    FontSize="14"/>
                         <TextBlock Text="{Binding Country}"
                                    Foreground="{StaticResource TextColor}"
