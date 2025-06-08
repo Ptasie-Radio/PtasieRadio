@@ -8,6 +8,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.UI.Xaml.Data;
 using Windows.Foundation;
 using Microsoft.UI.Xaml.Input;
+using System.Threading.Tasks;
 
 namespace PtasieRadio.Presentation;
 
@@ -19,10 +20,11 @@ public class MainModel : ObservableObject
     public IAsyncRelayCommand NavigateCommand { get; }//Tworzenie komendy nawigacyjnej
     public IAsyncRelayCommand PlayRadioCommand { get; }
     private readonly IRadioPlayerService _radioService;
+    private readonly IShowPromptService _promptService;
     private string? url;
-
+    private bool isChangingUrl = false;
     public IRelayCommand ToggleMuteCommand { get; }
-    public RelayCommand<string?> ToggleChangeUrlCommand { get; }
+    public IAsyncRelayCommand<string?> ToggleChangeUrlCommand { get; }
 
     private Point _lastPointerPosition;
     private ScrollViewer? _currentScrollViewer;
@@ -101,17 +103,19 @@ public class MainModel : ObservableObject
         IStringLocalizer localizer,
         IOptions<AppConfig> appInfo,
         INavigator navigator,
-        IRadioPlayerService radioService)
+        IRadioPlayerService radioService,
+        IShowPromptService promptService)
     {
         _navigator = navigator;
         NavigateCommand = new AsyncRelayCommand(GoToSecond);
 
         _radioService = radioService;
+        _promptService = promptService;
         url = _radioService.GetUrl();
         if(url == null)url = "http://chi.cdn.eurozet.pl/chi-net.mp3";
         
         ToggleMuteCommand = new RelayCommand(ToggleMute);
-        ToggleChangeUrlCommand = new RelayCommand<string?>(ToggleChangeUrl);
+        ToggleChangeUrlCommand = new AsyncRelayCommand<string?>(ToggleChangeUrl);
         PlayRadioCommand = new AsyncRelayCommand(PlayRadio);
         Title = "Main";
         Title += $" - {localizer["ApplicationName"]}";
@@ -176,6 +180,7 @@ public class MainModel : ObservableObject
 
     public async Task PlayRadio()
     {
+        if (isChangingUrl) return;
         isPlaying = !isPlaying;
         OnPropertyChanged(nameof(PlayPauseButtonImage));
         OnPropertyChanged(nameof(MiniPlayPauseButtonImage));
@@ -185,6 +190,10 @@ public class MainModel : ObservableObject
         if (IsMuted && !_radioService.GetIsMuted())
         {
             _radioService.ToggleMute();
+        }
+        if (!_radioService.GetIsInitialized() && isPlaying)
+        {
+           await _promptService.ShowMessageAsync("Nie udało się załadować radia", "Błąd");
         }
     }
     public async Task GoToSecond()
@@ -200,18 +209,33 @@ public class MainModel : ObservableObject
         _radioService.ToggleMute();
     }
 
-    private void ToggleChangeUrl(string? url)
+    private async Task ToggleChangeUrl(string? url)
     {
-        if (url == null) url = "";
-        this.url = url;
-        _radioService.Reset();
-        _radioService.SetUrl(url);
-        OnPropertyChanged(nameof(MuteButtonImage));
-        OnPropertyChanged(nameof(PlayPauseButtonImage));
-        OnPropertyChanged(nameof(MiniPlayPauseButtonImage));
-        IsMuted = _radioService.GetIsMuted();
-        isPlaying = _radioService.GetIsPlaying();
-        _Volume = _radioService.GetVolume();
+        if (isChangingUrl) return;
+        try
+        {
+            isChangingUrl = true;
+            if (url == null) url = "";
+            this.url = url;
+            await _radioService.Reset();
+            _radioService.SetUrl(url);
+
+            if (isPlaying)
+            {
+                await _radioService.PlayOrPauseAsync();
+                if (!_radioService.GetIsInitialized())
+                {
+                    await _promptService.ShowMessageAsync("Nie udało się załadować radia", "Błąd");
+                }
+            }
+            OnPropertyChanged(nameof(MuteButtonImage));
+            OnPropertyChanged(nameof(PlayPauseButtonImage));
+            OnPropertyChanged(nameof(MiniPlayPauseButtonImage));
+        }
+        finally
+        {
+            isChangingUrl = false;
+        }
     }
 
 }

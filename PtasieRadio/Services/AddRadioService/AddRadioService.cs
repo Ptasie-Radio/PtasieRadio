@@ -16,23 +16,12 @@ public class AddRadioService : IAddRadioService
 	public const string localFileName = "radio.json";
 	public static SemaphoreSlim jsonSemaphore = new SemaphoreSlim(1);
 
-	//private string url = "";
-	//private string name = "";
-	//private string description = "";
 	private static string folderName = "PtasieRadio";
-
-    //private StorageFile? selectedFile;
 
     public AddRadioService()
     {
 
     }
-
-	//public void setUrl(string url) { this.url = url; }
-	//public void setName(string name) { this.name = name; }
-	//public void setDescription(string description) { this.description = description; }
-
-	//public void setSelectedFile(StorageFile selectedFile) { this.selectedFile = selectedFile; }
 
 	public static int NextFreeIndex<T>(Dictionary<string, T> dictionary)
     {
@@ -40,39 +29,7 @@ public class AddRadioService : IAddRadioService
         for (; dictionary.ContainsKey(i.ToString()); i++) ;
         return i;
 	}
-	//  public async Task<int> GetIndexFromJson()
-	//  {
-	//      var folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync(
-	//          folderName, CreationCollisionOption.OpenIfExists);
-	//      var localFileName = "radio.json";
-	//      Dictionary<string, SaveEntryData> entries;
 
-	//      try
-	//      {
-	//          var file = await folder.GetFileAsync(localFileName);
-	//          string json = await FileIO.ReadTextAsync(file);
-	//          entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
-	//                    ?? new Dictionary<string, SaveEntryData>();
-	//      }
-	//      catch (FileNotFoundException)
-	//      {
-	//          entries = new Dictionary<string, SaveEntryData>();
-	//      }
-
-	//int i = 1;
-	//      for (; entries.ContainsKey(i.ToString()); i++) ;
-
-	////while (true)
-	////      {
-	////          if (entries.ContainsKey(i.ToString()))
-	////          {
-	////              i++;
-	////              continue;
-	////          }
-	////          else break;
-	////      }
-	//      return i;   
-	//  }
 
 	public async Task AddOneRadioToJson(string url, string name, string description, string imagePath)
 	{
@@ -86,7 +43,6 @@ public class AddRadioService : IAddRadioService
 			{
 				file = await folder.GetFileAsync(localFileName);
 
-				System.Diagnostics.Process.Start("explorer.exe", file.Path);
 				string existingJson = await FileIO.ReadTextAsync(file);
 				entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(existingJson) ?? new Dictionary<string, SaveEntryData>();
 			}
@@ -100,7 +56,7 @@ public class AddRadioService : IAddRadioService
 				Name = name,
 				Description = description,
 				ImagePath = imagePath,
-				Country = "Polska",
+				Country = "pl",
 				Category = "Własne"
 			};
 
@@ -108,7 +64,6 @@ public class AddRadioService : IAddRadioService
 
 			entries[index.ToString()] = entry;
 			await SaveToJson(folder, entries);
-			//_ = GoToMain(_navigator);
 		}
 	}
 
@@ -118,10 +73,4 @@ public class AddRadioService : IAddRadioService
 		var saveFile = await folder.CreateFileAsync(localFileName, CreationCollisionOption.ReplaceExisting);
 		await FileIO.WriteTextAsync(saveFile, json);
 	}
-
-	//public async Task GoToMain(INavigator _navigator)
-	//{
-	//    await _navigator.NavigateRouteAsync(this, "/Main");
-	//}
-
 }

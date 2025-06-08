@@ -8,14 +8,14 @@ namespace PtasieRadio.Services.RadioService;
 public class RadioPlayerService : IRadioPlayerService
 {
     private WaveOutEvent? waveOut;
+    private readonly SemaphoreSlim mediaLock = new SemaphoreSlim(1, 1);
     private MediaFoundationReader? reader;
     private bool isPlaying = false;
     private bool isInitialized = false;
-    private float currentVolume = 1.0f;
+    private float currentVolume = 0.5f;
     private bool isMuted = false;
+    private bool isBusy = false;
     private string? url;
-	private static string folderName = "PtasieRadio";
-
 	public bool IsPlaying => isPlaying;
     public bool IsMuted => isMuted;
     public float Volume => currentVolume * 100f;
@@ -26,22 +26,18 @@ public class RadioPlayerService : IRadioPlayerService
 		LoadListFromRadioBrowser();
 	}
 
-	public async Task PlayOrPauseAsync()
+    public async Task PlayOrPauseAsync()
     {
-        await Task.Run(() =>
+        if(isBusy) return;//Jeśli mamy blokadę, to nie pozwalaj na zmianę
+        isBusy = true;
+        await WithMediaLock(async () =>
         {
-            if (isPlaying)
-            {
-                waveOut?.Stop();
-                isPlaying = false;
-            }
-            else
+            try
             {
                 if (!isInitialized)
                 {
                     try
                     {
-
                         reader = new MediaFoundationReader(url);
                         waveOut = new WaveOutEvent();
                         waveOut.Init(reader);
@@ -54,12 +50,23 @@ public class RadioPlayerService : IRadioPlayerService
                     }
                     catch (System.Runtime.InteropServices.COMException ex)
                     {
-                         System.Diagnostics.Debug.WriteLine($"Error:{ex}");
+                        System.Diagnostics.Debug.WriteLine($"Error:{ex}");
                     }
                 }
-
-                waveOut?.Play();
-                isPlaying = true;
+                if (isPlaying)
+                {
+                    try { waveOut?.Stop(); } catch (Exception ex) {  System.Diagnostics.Debug.WriteLine($"Error:{ex}"); }
+                    isPlaying = false;
+                }
+                else
+                {
+                    waveOut?.Play();
+                    isPlaying = true;
+                }
+            }
+            finally
+            {
+                isBusy = false;
             }
         });
     }
@@ -73,17 +80,39 @@ public class RadioPlayerService : IRadioPlayerService
         });
     }
 
-    public void Reset()
+    public async Task Reset()
     {
-        waveOut?.Stop();
-        waveOut?.Dispose();
-        waveOut = null;
+        await WithMediaLock(async () =>
+        {
 
-        reader?.Dispose();
-        reader = null;
-        isPlaying = false;
-        isInitialized = false;
+            if (isPlaying)
+            {
+                isPlaying = false;
+                try { waveOut?.Stop(); } catch (Exception ex) {  System.Diagnostics.Debug.WriteLine($"Error:{ex}"); }
+            }
+            waveOut?.Dispose();
+            waveOut = null;
+            reader?.Dispose();
+            reader = null;
+            isInitialized = false;
+            
+        });
+    }
 
+    private async Task WithMediaLock(Func<Task> function)
+    {
+        await Task.Run(async () =>
+        {
+            await mediaLock.WaitAsync();
+            try
+            {
+                await function();
+            }
+            finally
+            {
+                mediaLock.Release();
+            }
+        });
     }
 
     public void SetVolume(double volume)
@@ -161,15 +190,15 @@ public class RadioPlayerService : IRadioPlayerService
 
                                 SaveEntryData s = new SaveEntryData
                                 {
-                                    Name = station.Name,
-                                    StreamUrl = station.Url.ToString(),
+                                    Name = station.Name ?? "Brak Nazwy",
+                                    StreamUrl = station.Url?.ToString() ?? "Brak",
                                     ImagePath = saveFile.Path,
-                                    Country = station.CountryCode,
+                                    Country = station.CountryCode ?? "Unknown",
                                     Category = "POP",
-                                    Description = String.Join(", ", station.Tags),
+                                    Description = String.Join(", ", station.Tags ?? new List<string>()),
                                 };
 
-                                foreach (var item in entries.Where(kvp => kvp.Value.StreamUrl == s.StreamUrl).ToList())
+                                foreach (var item in entries.Where(kvp => kvp.Value.StreamUrl == s.StreamUrl && kvp.Value.Category == "POP").ToList())//Dodane kvp.Value.Category, aby tylko z POP brało i usuwało
                                 {
                                     entries.Remove(item.Key);
                                 }
@@ -190,8 +219,10 @@ public class RadioPlayerService : IRadioPlayerService
 
 	public void SetIsMuted(bool muted) { isMuted = muted; }
     public bool GetIsMuted() { return IsMuted; }
-    public bool GetIsPlaying() { return IsPlaying; }
+    public bool GetIsPlaying() {return IsPlaying;}
+    public void SetIsPlaying(bool isPlaying) { this.isPlaying = isPlaying;}
     public float GetVolume() { return Volume; }
     public string? GetUrl() { return url; }
+    public bool GetIsInitialized() { return isInitialized; }
     public void SetUrl(string url) { this.url = url; }
 }

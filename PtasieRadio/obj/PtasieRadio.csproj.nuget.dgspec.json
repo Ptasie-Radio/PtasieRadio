@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {}
   },
   "projects": {
@@ -12,11 +13,28 @@
         "projectPath": "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj",
         "packagesPath": "C:\\Users\\SzymonS\\.nuget\\packages\\",
         "outputPath": "A:\\KODOWANIE\\PtasieRadio\\PtasieRadio\\obj\\",
+=======
+    "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {}
+  },
+  "projects": {
+    "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj",
+        "projectName": "PtasieRadio",
+        "projectPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\PtasieRadio.csproj",
+        "packagesPath": "C:\\Users\\Fabian\\.nuget\\packages\\",
+        "outputPath": "D:\\Folder prywatny - Chroniony Hasłem\\programowanie\\Studia\\Csharp\\Projekt Grupowy\\PtasieRadio\\PtasieRadio\\obj\\",
+>>>>>>> Scrum48
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "centralPackageVersionsManagementEnabled": true,
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\SzymonS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
+          "C:\\Users\\Fabian\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> Scrum48
         ],
         "originalTargetFrameworks": [
           "net8.0",
@@ -572,6 +590,25 @@
               "version": "[8.0.13, 8.0.13]"
             },
             {
+<<<<<<< HEAD
+=======
+              "name": "Microsoft.NETCore.App.Runtime.Mono.android-arm",
+              "version": "[8.0.13, 8.0.13]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.android-arm64",
+              "version": "[8.0.13, 8.0.13]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.android-x64",
+              "version": "[8.0.13, 8.0.13]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.android-x86",
+              "version": "[8.0.13, 8.0.13]"
+            },
+            {
+>>>>>>> Scrum48
               "name": "Microsoft.WindowsDesktop.App.Ref",
               "version": "[8.0.13, 8.0.13]"
             }
@@ -1328,6 +1365,13 @@
               "version": "[8.0.13, 8.0.13]"
             },
             {
+<<<<<<< HEAD
+=======
+              "name": "Microsoft.NETCore.App.Runtime.Mono.iossimulator-x64",
+              "version": "[8.0.13, 8.0.13]"
+            },
+            {
+>>>>>>> Scrum48
               "name": "Microsoft.WindowsDesktop.App.Ref",
               "version": "[8.0.13, 8.0.13]"
             }
@@ -1576,6 +1620,13 @@
               "version": "[8.0.13, 8.0.13]"
             },
             {
+<<<<<<< HEAD
+=======
+              "name": "Microsoft.NETCore.App.Runtime.Mono.maccatalyst-x64",
+              "version": "[8.0.13, 8.0.13]"
+            },
+            {
+>>>>>>> Scrum48
               "name": "Microsoft.WindowsDesktop.App.Ref",
               "version": "[8.0.13, 8.0.13]"
             }

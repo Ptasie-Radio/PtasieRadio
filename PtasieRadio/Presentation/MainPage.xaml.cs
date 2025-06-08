@@ -20,15 +20,18 @@ namespace PtasieRadio.Presentation;
 public sealed partial class MainPage : Page
 {
     private double pageAnimationTime;
+
+    private string? currentIndex;
     private const string folderName = "PtasieRadio";
 
-	public MainPage()
+    public MainPage()
     {
 
         this.pageAnimationTime = 0.4;
         this.InitializeComponent();
         this.SizeChanged += MainPage_SizeChanged;
         _ = CreateOwnStationOnViewLoad();
+
     }
     
     private void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -139,6 +142,8 @@ public sealed partial class MainPage : Page
 
     private void ShuffleButtonTappedEvent(object sender, TappedRoutedEventArgs e)
     {
+        //TODO:
+        //Dodaj tutaj shuffl'a
         e.Handled = true;
     }
 
@@ -162,43 +167,66 @@ public sealed partial class MainPage : Page
         viewModel.Volume = e.NewValue;
     }
 
-    public static async Task<Dictionary<string, SaveEntryData>> LoadFromJson(StorageFolder folder, string text="")
-	{
-		var localFileName = "radio.json";
-		Dictionary<string, SaveEntryData> entries;
-		Dictionary<string, SaveEntryData> filteredEntries;
-		try
-		{
-
-			var file = await folder.GetFileAsync(localFileName);
-			string json = await FileIO.ReadTextAsync(file);
-			entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
-					  ?? new Dictionary<string, SaveEntryData>();
-			if (text != "") filteredEntries = entries.Where(kv => kv.Value.Category == text).ToDictionary(kv => kv.Key, kv => kv.Value);
-			else filteredEntries = entries;
-		}
-		catch (FileNotFoundException)
-		{
-			filteredEntries = new Dictionary<string, SaveEntryData>();
-		}
-
-		return filteredEntries;
-	}
-
-	public static async Task<StorageFolder> OpenFolder() => 
-        await ApplicationData.Current.LocalFolder.CreateFolderAsync(
-			folderName, CreationCollisionOption.OpenIfExists);
-
-	private async Task CreateOwnStationOnViewLoad()
+    public static async Task<Dictionary<string, SaveEntryData>> LoadFromJson(StorageFolder folder, string text = "")
     {
-        var x = new List<string> { "POP", "NO", "Własne"};
-        int j = 0;
-		using (await AddRadioService.jsonSemaphore.Lock())
+        var localFileName = "radio.json";
+        Dictionary<string, SaveEntryData> entries;
+        Dictionary<string, SaveEntryData> filteredEntries;
+        try
         {
-		    foreach (StackPanel panel in new List<StackPanel> {NajczesciejGranePanel, PopularnePanel, WlasnePanel})
+            var file = await folder.GetFileAsync(localFileName);
+            string json = await FileIO.ReadTextAsync(file);
+            entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
+                      ?? new Dictionary<string, SaveEntryData>();
+            if (text != "") filteredEntries = entries.Where(kv => kv.Value.Category == text).ToDictionary(kv => kv.Key, kv => kv.Value);
+            else filteredEntries = entries;
+        }
+        catch (FileNotFoundException)
+        {
+            filteredEntries = new Dictionary<string, SaveEntryData>();
+        }
+
+        return filteredEntries;
+    }
+
+    public static async Task RemoveEntryById(StorageFolder folder, string id)
+    {
+        var localFileName = "radio.json";
+        try
+        {
+            var file = await folder.GetFileAsync(localFileName);
+            string json = await FileIO.ReadTextAsync(file);
+
+            var entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
+                          ?? new Dictionary<string, SaveEntryData>();
+
+            if (entries.ContainsKey(id))
+            {
+                entries.Remove(id);
+                string newJson = JsonConvert.SerializeObject(entries, Formatting.Indented);
+                await FileIO.WriteTextAsync(file, newJson);
+            }
+        }
+        catch (FileNotFoundException)
+        {
+            System.Diagnostics.Debug.WriteLine($"Exception: Nie udało się znaleźć pliku");
+        }
+    }
+
+    public static async Task<StorageFolder> OpenFolder() =>
+        await ApplicationData.Current.LocalFolder.CreateFolderAsync(
+            folderName, CreationCollisionOption.OpenIfExists);
+
+    private async Task CreateOwnStationOnViewLoad()
+    {
+        var x = new List<string> { "NO", "POP", "Własne" };
+        int j = 0;
+        using (await AddRadioService.jsonSemaphore.Lock())
+        {
+            foreach (StackPanel panel in new List<StackPanel> { NajczesciejGranePanel, PopularnePanel, WlasnePanel })
             {
                 var folder = await OpenFolder();
-			    var entries = await LoadFromJson(folder, x[j]);
+                var entries = await LoadFromJson(folder, x[j]);
                 await AddStation(folder, entries, panel);
                 j++;
             }
@@ -211,7 +239,7 @@ public sealed partial class MainPage : Page
         foreach (var entry in entries)
         {
             BitmapImage bitmap;
-            StorageFile file;
+            StorageFile? file;
 
             try
             {
@@ -223,22 +251,21 @@ public sealed partial class MainPage : Page
             }
             try
             {
-                using(var stream = new MemoryStream(File.ReadAllBytes(file.Path)))
+                using (var stream = new MemoryStream(File.ReadAllBytes(file?.Path ?? "Brak")))
                 {
                     bitmap = new BitmapImage();
                     await bitmap.SetSourceAsync(stream);
                 }
-                
+
             }
-            catch (FileNotFoundException ex)
+            catch (FileNotFoundException)
             {
                 bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
             }
-            catch (System.NullReferenceException ex)
+            catch (System.NullReferenceException)
             {
                 bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
             }
-            
 
             var image = new Image
             {
@@ -276,37 +303,51 @@ public sealed partial class MainPage : Page
                 ManipulationMode = ManipulationModes.TranslateX | ManipulationModes.System,
             };
 
-            stationPanel.PointerReleased += OnPanelPointerReleased;
+            var targetPanels = new HashSet<StackPanel> { NajczesciejGranePanel, WlasnePanel };
+            if (targetPanels.Contains(category))
+            {
+                var menu = new MenuFlyoutItem { Text = "Usuń" };
+                menu.Click += async (s, e) =>
+                {
+                    string id = stationPanel.Name.Replace("Stacja_", "");
+                    await RemoveEntryById(folder, id);
+                    var parent = stationPanel.Parent as Panel;
+                    parent?.Children.Remove(stationPanel);//Usuwamy ten nasz station Panel
+                };
+                var menuFlyout = new MenuFlyout();
+                menuFlyout.Items.Add(menu);
+                stationPanel.ContextFlyout = menuFlyout;
+            }
+            stationPanel.Tapped += OnPanelTapped;
             stationPanel.Children.Add(border);
             stationPanel.Children.Add(textBlock);
             category.Children.Add(stationPanel);
         }
     }
 
-    private async void OnPanelPointerReleased(object sender, PointerRoutedEventArgs e)
+    private async void OnPanelTapped(object sender, TappedRoutedEventArgs e)
     {
-        e.Handled = false;
+
         if (sender is StackPanel panel)
         {
-            string nazwa = panel.Name;
-            string index = nazwa != null && nazwa.Contains("_")
-            ? nazwa.Substring(nazwa.IndexOf('_') + 1)
-            : nazwa ?? "1";
-
+            string index = panel.Name.Replace("Stacja_", "");
+            if (currentIndex == index) return;//Nie pozwalamy na to, aby użytkownik spamował na ten sam przycisk.
             var folder = await OpenFolder();
-			var entries = await LoadFromJson(folder);
+            var entries = await LoadFromJson(folder);
 
             if (entries.TryGetValue(index, out var entry))
             {
                 var viewModel = DataContext as MainModel;
                 if (viewModel == null) return;
+                currentIndex = index;
                 viewModel.ToggleChangeUrlCommand.Execute(entry.StreamUrl);
             }
             else
             {
                 System.Diagnostics.Debug.WriteLine($"Nie udało się");
             }
-        }  
+        }
     }
+    
 
 }
