@@ -167,24 +167,25 @@ public sealed partial class MainPage : Page
         viewModel.Volume = e.NewValue;
     }
 
-    public static async Task<Dictionary<string, SaveEntryData>> LoadFromJson(StorageFolder folder, string text = "")
-    {
-        var localFileName = "radio.json";
-        Dictionary<string, SaveEntryData> entries;
-        Dictionary<string, SaveEntryData> filteredEntries;
-        try
-        {
-            var file = await folder.GetFileAsync(localFileName);
-            string json = await FileIO.ReadTextAsync(file);
-            entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
-                      ?? new Dictionary<string, SaveEntryData>();
-            if (text != "") filteredEntries = entries.Where(kv => kv.Value.Category == text).ToDictionary(kv => kv.Key, kv => kv.Value);
-            else filteredEntries = entries;
-        }
-        catch (FileNotFoundException)
-        {
-            filteredEntries = new Dictionary<string, SaveEntryData>();
-        }
+    public static async Task<Dictionary<string, SaveEntryData>> LoadFromJson(StorageFolder folder, string text="")
+	{
+		var localFileName = "radio.json";
+		Dictionary<string, SaveEntryData> entries;
+		Dictionary<string, SaveEntryData> filteredEntries;
+		try
+		{
+
+			var file = await folder.GetFileAsync(localFileName);
+			string json = await FileIO.ReadTextAsync(file);
+			entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
+					  ?? new Dictionary<string, SaveEntryData>();
+			if (text != "") filteredEntries = entries.Where(kv => kv.Value.Category == text).ToDictionary(kv => kv.Key, kv => kv.Value);
+			else filteredEntries = entries;
+		}
+		catch (FileNotFoundException)
+		{
+			filteredEntries = new Dictionary<string, SaveEntryData>();
+		}
 
         return filteredEntries;
     }
@@ -223,7 +224,7 @@ public sealed partial class MainPage : Page
         int j = 0;
         using (await AddRadioService.jsonSemaphore.Lock())
         {
-            foreach (StackPanel panel in new List<StackPanel> { NajczesciejGranePanel, PopularnePanel, WlasnePanel })
+		    foreach (StackPanel panel in new List<StackPanel> {PopularnePanel,NajczesciejGranePanel,  WlasnePanel})
             {
                 var folder = await OpenFolder();
                 var entries = await LoadFromJson(folder, x[j]);
@@ -341,6 +342,9 @@ public sealed partial class MainPage : Page
                 if (viewModel == null) return;
                 currentIndex = index;
                 viewModel.ToggleChangeUrlCommand.Execute(entry.StreamUrl);
+                viewModel.ToggleChangeStationNameCommand.Execute(entry.Name);
+                viewModel.ToggleChangeCountryCommand.Execute(entry.Country);
+                viewModel.ToggleChangeImagePathCommand.Execute(entry.ImagePath);
             }
             else
             {

@@ -24,8 +24,15 @@ androidgeneratejnimarshalmethods=false
 os=windows_nt
 androidincludedebugsymbols=true
 androidpackagenamingpolicy=lowercasecrc64
+<<<<<<< HEAD
 _nugetassetsfilehash=3ca8d1b54f16c241c958a94729b0f6bf23993eb31639c863b38dd22cad154569
 typemapkind=strings-asm
 androidmanifestplaceholders=
 projectfullpath=d:\folder prywatny - chroniony hasłem\programowanie\studia\csharp\projekt grupowy\ptasieradio\ptasieradio\ptasieradio.csproj
+=======
+_nugetassetsfilehash=ce661610c2eaec4f0097dd632a6981478d7fe3143b0f4a1288c168a2b422c63e
+typemapkind=strings-asm
+androidmanifestplaceholders=
+projectfullpath=c:\users\kornel\documents\ptasieradio\ptasieradio\ptasieradio\ptasieradio.csproj
+>>>>>>> SCRUM-47-api-dynamiczny-napis-jaka-to-stacja-odtwarzany-utwor-ikona-kraj-itp
 androidusedesignerassembly=true

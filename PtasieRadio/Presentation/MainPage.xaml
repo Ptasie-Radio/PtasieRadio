@@ -342,15 +342,15 @@
                         <Image Width="40"
                                Height="40"
                                Stretch="Uniform"
-                               Source="ms-appx:///Assets/Images/radio_placeholder_square.png"
+                               Source="{Binding ImagePath}"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"/>
                     </Border>
                     <StackPanel Margin="10,0">
-                        <TextBlock Text="SomaFM - PopTron"
-                                   Foreground="{StaticResource TextColor}"
+                        <TextBlock Text="{Binding StationName}"
+                                   Foreground="White"
                                    FontSize="14"/>
-                        <TextBlock Text="somafm.com, US"
+                        <TextBlock Text="{Binding Country}"
                                    Foreground="Gray"
                                    FontSize="12"/>
                     </StackPanel>
@@ -720,7 +720,7 @@
                             VerticalAlignment="Center"
                             Spacing="4">
                     <TextBlock x:Name="RadioName"
-                               Text="Nazwa radia"
+                               Text="{Binding StationName}"
                                Style="{StaticResource MaterialSubtitle1Style}"
                                Foreground="{StaticResource TextColor}"
                                HorizontalAlignment="Center"/>
@@ -728,13 +728,11 @@
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Center"
                                 Spacing="8">
-                        <Image x:Name="CountryFlag"
-                               Source="ms-appx:///Assets/Images/flag.png"
+                        <Image Source="{Binding StationFlagUrl}"
                                Width="16"
-                               Height="16"
-                               Stretch="Uniform"/>
+                               Height="16"/>
                         <TextBlock x:Name="CountryName"
-                                   Text="Kraj pochodzenia"
+                                   Text="{Binding Country}"
                                    Style="{StaticResource MaterialCaptionStyle}"
                                    Foreground="LightGray"
                                    VerticalAlignment="Center"/>
@@ -812,10 +810,6 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Spacing="24">
-
-
-
-
                 <!-- Placeholder -->
                 <Border x:Name="PlaceholderBorder"
                         Width="70"
@@ -823,7 +817,7 @@
                         Background="{ThemeResource SurfaceBrush}"
                         Margin="0,20,0,0"
                         CornerRadius="8">
-                    <Image Source="ms-appx:///Assets/Images/radio_placeholder_square.png"
+                    <Image Source="{Binding ImagePath}"
                            Stretch="UniformToFill"/>
                 </Border>
 
@@ -837,10 +831,11 @@
             <!-- Tekst -->
             <StackPanel Grid.Row="2">
 
+                <!-- chyba do skasowania
                 <TextBlock Text="Zespół - Tytuł"
                            Style="{StaticResource MaterialBody1Style}"
                            HorizontalAlignment="Center"
-                           Margin="0,16,0,0"/>
+                           Margin="0,16,0,0"/> -->
 
                 <!-- Przycisk odtwarzania -->
                 <Button Style="{StaticResource MaterialIconButtonStyle}"
