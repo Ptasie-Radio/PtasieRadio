@@ -20,7 +20,7 @@ namespace PtasieRadio.Presentation;
 public sealed partial class MainPage : Page
 {
     private double pageAnimationTime;
-
+    private Dictionary<string, StackPanel> stationPanels = new();
     private string? currentIndex;
     private const string folderName = "PtasieRadio";
 
@@ -37,7 +37,7 @@ public sealed partial class MainPage : Page
     private void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
     {
         double windowHeight = this.ActualHeight;
-
+        
         // Parametry skalowania
         double minWindow = 400;  // Minimalna wysokość okna, od której zaczyna się skalowanie
         double maxWindow = 1000; // Maksymalna wysokość okna, powyżej której slider już nie rośnie
@@ -89,9 +89,6 @@ public sealed partial class MainPage : Page
         storyboard.Begin();
     }
 
-
-
-
     private void RackTappedEvent(object sender, TappedRoutedEventArgs e)
     {
         e.Handled = true;
@@ -139,12 +136,19 @@ public sealed partial class MainPage : Page
     }
 }
 
-
-    private void ShuffleButtonTappedEvent(object sender, TappedRoutedEventArgs e)
+    private async void ShuffleButtonTappedEvent(object sender, TappedRoutedEventArgs e)
     {
-        //TODO:
-        //Dodaj tutaj shuffl'a
         e.Handled = true;
+        var folder = await OpenFolder();
+        var entries = await LoadFromJson(folder, "GetRandomIndex");
+        var entry = entries.First();
+        System.Diagnostics.Debug.WriteLine($"Entries: {entry.Key}");
+
+        if (stationPanels.TryGetValue(entry.Key, out var targetPanel))
+        {
+        	OnPanelTapped(targetPanel, null);
+        }
+
     }
 
     private void PlayPauseButtonTappedEvent(object sender, TappedRoutedEventArgs e)
@@ -179,8 +183,18 @@ public sealed partial class MainPage : Page
 			string json = await FileIO.ReadTextAsync(file);
 			entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
 					  ?? new Dictionary<string, SaveEntryData>();
-			if (text != "") filteredEntries = entries.Where(kv => kv.Value.Category == text).ToDictionary(kv => kv.Key, kv => kv.Value);
-			else filteredEntries = entries;
+            if (text == "GetRandomIndex")
+            {
+			    var random = new Random();
+			    int index = random.Next(entries.Count);
+			    var randomEntry = entries.ElementAt(index);
+			    filteredEntries = new Dictionary<string, SaveEntryData>
+			    {
+			    	{ randomEntry.Key, randomEntry.Value }
+			    };
+            }
+            else if (text != "") filteredEntries = entries.Where(kv => kv.Value.Category == text).ToDictionary(kv => kv.Key, kv => kv.Value);
+            else filteredEntries = entries;
 		}
 		catch (FileNotFoundException)
 		{
@@ -323,6 +337,7 @@ public sealed partial class MainPage : Page
             stationPanel.Children.Add(border);
             stationPanel.Children.Add(textBlock);
             category.Children.Add(stationPanel);
+            stationPanels[entry.Key] = stationPanel;
         }
     }
 
