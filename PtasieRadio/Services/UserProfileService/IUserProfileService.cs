@@ -1,3 +1,5 @@
+using Microsoft.UI.Xaml.Media.Imaging;
+
 namespace PtasieRadio.Services.UserProfileService;
 public interface IUserProfileService
 {
@@ -5,7 +7,11 @@ public interface IUserProfileService
     string? SelectedKey { get; }
     Task InitializeAsync();
     Task AddProfileAsync(User profile);
-    Task EditProfileAsync(string key, string newName, string newImagePath);
-    Task RemoveProfileAsync(string key);
+    Task EditProfileAsync(string? key, string newName, StorageFile newImagePath);
+    Task RemoveProfileAsync(string? key);
     Task SelectProfileAsync(string key);
+    Task AddRadioStationKeyToCurrentProfile(string stationKey);
+    Task<string> ImageToBase64Async(string imagePath);
+    Task<string> ImageFileToBase64(StorageFile file);
+    Task<BitmapImage> Base64ToBitmapImage(string base64);
 }

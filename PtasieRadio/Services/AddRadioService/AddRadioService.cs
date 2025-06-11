@@ -8,6 +8,7 @@ using Uno.Extensions.Navigation;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using Uno.Disposables;
+using PtasieRadio.Services.UserProfileService;
 
 namespace PtasieRadio.Services.AddRadioService;
 
@@ -20,13 +21,15 @@ public class AddRadioService : IAddRadioService
 	//private string name = "";
 	//private string description = "";
 	private static string folderName = "PtasieRadio";
+	private readonly IUserProfileService _profileService;
 
-    //private StorageFile? selectedFile;
 
-    public AddRadioService()
-    {
+	//private StorageFile? selectedFile;
 
-    }
+	public AddRadioService(IUserProfileService profileService)
+	{
+		_profileService = profileService;
+	}
 
 	//public void setUrl(string url) { this.url = url; }
 	//public void setName(string name) { this.name = name; }
@@ -35,10 +38,10 @@ public class AddRadioService : IAddRadioService
 	//public void setSelectedFile(StorageFile selectedFile) { this.selectedFile = selectedFile; }
 
 	public static int NextFreeIndex<T>(Dictionary<string, T> dictionary)
-    {
-        int i = 1;
-        for (; dictionary.ContainsKey(i.ToString()); i++) ;
-        return i;
+	{
+		int i = 1;
+		for (; dictionary.ContainsKey(i.ToString()); i++) ;
+		return i;
 	}
 
 	public async Task AddOneRadioToJson(string url, string name, string description, string imagePath)
@@ -53,7 +56,9 @@ public class AddRadioService : IAddRadioService
 			{
 				file = await folder.GetFileAsync(localFileName);
 
+#if DEBUG
 				System.Diagnostics.Process.Start("explorer.exe", file.Path);
+#endif
 				string existingJson = await FileIO.ReadTextAsync(file);
 				entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(existingJson) ?? new Dictionary<string, SaveEntryData>();
 			}
@@ -67,13 +72,14 @@ public class AddRadioService : IAddRadioService
 				Name = name,
 				Description = description,
 				ImagePath = imagePath,
-				Country = "Polska",
+				Country = "PL",
 				Category = "Własne"
 			};
 
 			int index = NextFreeIndex(entries);
 
 			entries[index.ToString()] = entry;
+			await _profileService.AddRadioStationKeyToCurrentProfile(index.ToString());
 			await SaveToJson(folder, entries);
 			//_ = GoToMain(_navigator);
 		}

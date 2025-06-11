@@ -185,15 +185,38 @@ public sealed partial class MainPage : Page
         int j = 0;
         using (await AddRadioService.jsonSemaphore.Lock())
         {
-            foreach (StackPanel panel in new List<StackPanel> { NajczesciejGranePanel, PopularnePanel, WlasnePanel })
+            foreach (StackPanel panel in new List<StackPanel> { PopularnePanel, NajczesciejGranePanel, WlasnePanel })
             {
                 var folder = await OpenFolder();
                 var entries = await LoadFromJson(folder, x[j]);
+                if (x[j] == "Własne")
+                {
+                var viewModel = DataContext as MainModel;
+                if (viewModel == null) return;
+                    // Pobierz aktualny profil użytkownika
+                    var currentProfileKey = viewModel._profileService.SelectedKey;
+                    if (currentProfileKey != null && viewModel._profileService.Profiles.TryGetValue(currentProfileKey, out var userProfile))
+                    {
+                        // Filtruj tylko stacje z kluczami użytkownika
+                        entries = entries
+                            .Where(entry => userProfile.UserRadioStationKeys.Contains(entry.Key))
+                            .ToDictionary(kv => kv.Key, kv => kv.Value);
+                    }
+                    else
+                    {
+                        entries = new Dictionary<string, SaveEntryData>();
+                    }
+                }
                 await AddStation(folder, entries, panel);
                 j++;
             }
         }
     }
+
+    // private async Task IsWlasneStationCorrectFromProfile(Dictionary<string, SaveEntryData> entries)
+    // {
+
+    // }
 
     private async Task AddStation(StorageFolder folder, Dictionary<string, SaveEntryData> entries, StackPanel category)
     {

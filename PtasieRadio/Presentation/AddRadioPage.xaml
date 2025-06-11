@@ -52,7 +52,7 @@
                     Spacing="24">
 
                 <!-- Pole URL -->
-                <TextBox PlaceholderText="URL Stacji"
+                <TextBox Header="URL Stacji"
                         Height="40"
                         x:Name="UrlTextBox"/>
 
@@ -98,11 +98,11 @@
                     <StackPanel Grid.Column="2"
                             Spacing="8"
                             VerticalAlignment="Center">
-                        <TextBox PlaceholderText="Nazwa stacji"
+                        <TextBox Header="Nazwa stacji"
                                 Width="180"
                                 Height="40"
                                 x:Name="NameTextBox"/>
-                        <TextBox PlaceholderText="Opis stacji"
+                        <TextBox Header="Opis stacji"
                                 Width="180"
                                 Height="100"
                                 TextWrapping="Wrap"

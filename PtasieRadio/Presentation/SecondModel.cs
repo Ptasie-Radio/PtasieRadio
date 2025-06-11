@@ -7,6 +7,7 @@ using Microsoft.UI.Xaml.Data;
 using CommunityToolkit.Mvvm.ComponentModel;
 using PtasieRadio.Services.UserProfileService;
 using System.Collections.ObjectModel;
+using Microsoft.UI.Xaml.Media.Imaging;
 
 namespace PtasieRadio.Presentation;
 
@@ -18,6 +19,12 @@ public partial class SecondModel : ObservableObject
     public ObservableCollection<KeyValuePair<string, User>> ProfileList { get; set; }
     private INavigator _navigator;
     internal IUserProfileService _profileService;
+    public BitmapImage? _profileImage;
+    public BitmapImage? ProfileImage
+    {
+        get => _profileImage;
+        set => SetProperty(ref _profileImage, value);
+    }
 
     public IAsyncRelayCommand NavigateToMainCommand { get; }//Tworzenie komendy nawigacyjnej
     public IAsyncRelayCommand NavigateToAddRadioCommand { get; }
@@ -35,9 +42,27 @@ public partial class SecondModel : ObservableObject
         Title = "Second";
         Title += $" - {localizer["ApplicationName"]}";
         Title += $" - {appInfo?.Value?.Environment}";
-
         _profileService = profileService;
+        InitializeAsync();
+    }
+    public Task InitializeAsync()
+    {
+        _profileService.InitializeAsync(); // Upewnij się, że profile są załadowane
+        _ = LoadProfileImageAsync();
         _ = LoadProfilesAsync();
+        return Task.CompletedTask;
+    }
+    private async Task LoadProfileImageAsync()
+    {
+        if (!string.IsNullOrEmpty(SelectedProfile?.ImagePath))
+        {
+            ProfileImage = await _profileService.Base64ToBitmapImage(SelectedProfile.ImagePath);
+        }
+        else
+        {
+            // Domyślny obraz, np. z assets
+            ProfileImage = new BitmapImage(new Uri("ms-appx:///Assets/Images/user.png"));
+        }
     }
     private Task LoadProfilesAsync()
     {
@@ -50,7 +75,6 @@ public partial class SecondModel : ObservableObject
     }
     public string? Title { get; }
 
-    private User _selectedProfile;
     public User? SelectedProfile
     {
         get
@@ -75,19 +99,6 @@ public partial class SecondModel : ObservableObject
             }
         }
     }
-    public string ProfileImagePath
-    {
-        get => SelectedProfile?.ImagePath ?? string.Empty;
-        set
-        {
-            if (SelectedProfile != null && SelectedProfile.ImagePath != value)
-            {
-                SelectedProfile.ImagePath = value;
-                OnPropertyChanged(nameof(ProfileImagePath));
-            }
-        }
-    }
-
     public IState<string> Name => State<string>.Value(this, () => string.Empty);
 
     public async Task GoToMain()

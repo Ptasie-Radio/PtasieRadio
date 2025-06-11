@@ -73,23 +73,22 @@
                             <Ellipse Width="72"
                                      Height="72">
                                 <Ellipse.Fill>
-                                    <ImageBrush ImageSource="{Binding ProfileImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Stretch="UniformToFill"/>
+                                    <ImageBrush ImageSource="{Binding ProfileImage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Stretch="UniformToFill"/>
                                 </Ellipse.Fill>
                             </Ellipse>
                             <TextBlock Text="{Binding ProfileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                        FontSize="14"
                                        Foreground="White"
                                        TextAlignment="Center"/>
-                            <!-- Przycisk otwierający menu profili -->
-                            <Button x:Name="ProfileButton"
+                            <!-- Przycisk otwierający menu profili usunitey bo brak czasu -->
+                            <!-- <Button x:Name="ProfileButton"
                                     Content="Wybierz profil"
                                     Click="ProfileButton_Click">
                                 <Button.ContextFlyout>
                                     <MenuFlyout>
-                                        <!-- tu cos ma byc dodane -->
                                     </MenuFlyout>
                                 </Button.ContextFlyout>
-                            </Button>
+                            </Button> -->
                         </StackPanel>
 
                         <!-- Poniżej cała zawartość ustawień -->
@@ -108,7 +107,7 @@
                                        Margin="16,8,0,0"/>
                             <StackPanel Spacing="8">
                                 <Grid Height="48"
-                                      Tapped="EditUserNavigate">
+                                      Tapped="OnEditUserTapped">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="40"/>
                                         <ColumnDefinition Width="*"/>
@@ -223,7 +222,7 @@
                                                Margin="8,0"/>
                                 </Grid>
                                 <Grid Height="48"
-                                      Tapped="EditUserNavigate">
+                                      Tapped="OnAddRadioTapped">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="40"/>
                                         <ColumnDefinition Width="*"/>

@@ -1,6 +1,8 @@
+using Microsoft.UI.Xaml.Media.Imaging;
 using Newtonsoft.Json;
 
 namespace PtasieRadio.Services.UserProfileService;
+
 public class UserProfileService : IUserProfileService
 {
     private const string FileName = "users.json";
@@ -17,10 +19,15 @@ public class UserProfileService : IUserProfileService
         // Jeśli nie ma profili, utwórz domyślny
         if (_profiles.Count == 0)
         {
+            var defaultImageFile = await StorageFile.GetFileFromApplicationUriAsync(
+                       new Uri("ms-appx:///Assets/Images/user.png")
+                   );
+            string defaultImageBase64 = await ImageFileToBase64(defaultImageFile);
+
             var defaultProfile = new User
             {
                 Name = "Nowy profil",
-                ImagePath = @"Assets/Images/user.png",
+                ImagePath = defaultImageBase64, // Base64 zamiast ścieżki
                 Misc = ""
             };
             _profiles["1"] = defaultProfile;
@@ -45,12 +52,12 @@ public class UserProfileService : IUserProfileService
         await SaveProfilesAsync();
     }
 
-    public async Task EditProfileAsync(string key, string newName, string newImagePath)
+    public async Task EditProfileAsync(string key, string newName, StorageFile newImageFile)
     {
         if (_profiles.TryGetValue(key, out var profile))
         {
             profile.Name = newName;
-            profile.ImagePath = newImagePath;
+            profile.ImagePath = await ImageFileToBase64(newImageFile);
             await SaveProfilesAsync();
         }
     }
@@ -71,7 +78,7 @@ public class UserProfileService : IUserProfileService
                     var defaultProfile = new User
                     {
                         Name = "Nowy profil usuniety",
-                        ImagePath = @"Assets/Images/user.png",
+                        ImagePath = "",
                         Misc = ""
                     };
                     _profiles["1"] = defaultProfile;
@@ -126,5 +133,47 @@ public class UserProfileService : IUserProfileService
     private void SaveSelectedKey()
     {
         ApplicationData.Current.LocalSettings.Values[SelectedKeySetting] = SelectedKey;
+    }
+
+    public async Task AddRadioStationKeyToCurrentProfile(string stationKey)
+    {
+        if (!string.IsNullOrEmpty(SelectedKey) && _profiles.TryGetValue(SelectedKey, out var profile))
+        {
+            if (!profile.UserRadioStationKeys.Contains(stationKey))
+            {
+                profile.UserRadioStationKeys.Add(stationKey);
+                await SaveProfilesAsync();
+            }
+        }
+    }
+
+    public async Task<BitmapImage> Base64ToBitmapImage(string base64)
+    {
+        byte[] bytes = Convert.FromBase64String(base64);
+        using (var stream = new MemoryStream(bytes))
+        {
+            var image = new BitmapImage();
+            await image.SetSourceAsync(stream.AsRandomAccessStream());
+            return image;
+        }
+    }
+    public async Task<string> ImageFileToBase64(StorageFile file)
+    {
+        using (var stream = await file.OpenStreamForReadAsync())
+        using (var memoryStream = new MemoryStream())
+        {
+            await stream.CopyToAsync(memoryStream);
+            byte[] imageBytes = memoryStream.ToArray();
+            return Convert.ToBase64String(imageBytes);
+        }
+    }
+
+
+    public async Task<string> ImageToBase64Async(string imagePath)
+    {
+        var file = await StorageFile.GetFileFromApplicationUriAsync(
+            new Uri($"ms-appx:///{imagePath}")
+        );
+        return await ImageFileToBase64(file);
     }
 }

@@ -22,7 +22,7 @@ namespace PtasieRadio.Presentation;
 public sealed partial class UserPage : Page
 {
 	private BitmapImage? bitmap;
-	private string? selectedFile;
+	private StorageFile selectedFile;
 
 	public UserPage()
 	{
@@ -43,7 +43,7 @@ public sealed partial class UserPage : Page
 		var file = await picker.PickSingleFileAsync();
 		if (file != null)
 		{
-			selectedFile = file.Path;
+			selectedFile = file;
 			try
 			{
 				using var stream = await file.OpenAsync(FileAccessMode.Read);
@@ -68,22 +68,18 @@ public sealed partial class UserPage : Page
 		}
 	}
 
-	private void OnSaveButtonTapped(object sender, TappedRoutedEventArgs e)
-	{
-		e.Handled = true;
-		string name = NameTextBox.Text;
-		if (!string.IsNullOrWhiteSpace(name) && selectedFile != null)
-		{
-			var viewModel = DataContext as UserModel;
-			var data = new User
-			{
-				Name = name,
-				ImagePath = selectedFile,
-			};
-			viewModel.OnSaveToFileCommand.Execute(data);
-		}
-	}
-	private void OnDeleteButtonTapped(object sender, TappedRoutedEventArgs e)
+    private void OnSaveButtonTapped(object sender, TappedRoutedEventArgs e)
+    {
+        e.Handled = true;
+        string name = NameTextBox.Text;
+        if (!string.IsNullOrWhiteSpace(name) && selectedFile != null)
+        {
+            var viewModel = DataContext as UserModel;
+            if (viewModel == null) return;
+            viewModel?.OnSaveToFileCommand.Execute((name, selectedFile));
+        }
+    }
+    private void OnDeleteButtonTapped(object sender, TappedRoutedEventArgs e)
 	{
 		e.Handled = true;
 		var viewModel = DataContext as UserModel;

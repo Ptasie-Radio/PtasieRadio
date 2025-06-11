@@ -8,6 +8,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.UI.Xaml.Data;
 using Windows.Foundation;
 using Microsoft.UI.Xaml.Input;
+using PtasieRadio.Services.UserProfileService;
 
 namespace PtasieRadio.Presentation;
 
@@ -19,6 +20,7 @@ public class MainModel : ObservableObject
     public IAsyncRelayCommand NavigateCommand { get; }//Tworzenie komendy nawigacyjnej
     public IAsyncRelayCommand PlayRadioCommand { get; }
     private readonly IRadioPlayerService _radioService;
+    public readonly IUserProfileService _profileService;
     private string? url;
 
     public IRelayCommand ToggleMuteCommand { get; }
@@ -98,6 +100,7 @@ public class MainModel : ObservableObject
         IStringLocalizer localizer,
         IOptions<AppConfig> appInfo,
         INavigator navigator,
+        IUserProfileService profileService,
         IRadioPlayerService radioService)
     {
         _navigator = navigator;
@@ -106,6 +109,7 @@ public class MainModel : ObservableObject
         _radioService = radioService;
         url = _radioService.GetUrl();
         if(url == null)url = "http://chi.cdn.eurozet.pl/chi-net.mp3";
+        _profileService = profileService;
         
         ToggleMuteCommand = new RelayCommand(ToggleMute);
         ToggleChangeUrlCommand = new RelayCommand<string?>(ToggleChangeUrl);

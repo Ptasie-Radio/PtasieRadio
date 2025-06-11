@@ -78,7 +78,8 @@
                             <Button.Template>
                                 <ControlTemplate TargetType="Button">
                                     <Grid>
-                                        <Image Source="{Binding ProfileImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        <!-- <Image Source="ms-appx:///Assets/Images/placeholder.png" -->
+                                        <Image Source="{Binding ProfileImage, Mode=TwoWay, UpdateSourceTrigger=Explicit}"
                                                Stretch="Fill"
                                                x:Name="SelectedImage"/>
                                     </Grid>
@@ -98,7 +99,7 @@
                                 Spacing="8"
                                 VerticalAlignment="Center">
                         <TextBox Header="Nazwa profilu"
-                                 Text="{Binding ProfileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                 Text="{Binding ProfileName, Mode=TwoWay, UpdateSourceTrigger=Explicit}"
                                  Width="180"
                                  Height="40"
                                  x:Name="NameTextBox"/>

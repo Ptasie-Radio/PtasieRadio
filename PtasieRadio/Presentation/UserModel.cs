@@ -10,6 +10,8 @@ using Windows.Storage;
 using WinRT.Interop;
 using Newtonsoft.Json;
 using PtasieRadio.Services.UserProfileService;
+using Microsoft.UI.Xaml.Media.Imaging;
+using System.ComponentModel.DataAnnotations;
 
 namespace PtasieRadio.Presentation;
 
@@ -18,13 +20,13 @@ public class UserModel : ObservableObject
 {
     public const string localFileName = "users.json";
     private INavigator _navigator;
-    private IUserProfileService _profileService;
+    public readonly IUserProfileService _profileService;
 
     // private string _selectedKeyUser;
 
     public IAsyncRelayCommand NavigateToSecondCommand { get; }
     public IAsyncRelayCommand NavigateToMainCommand { get; }
-    public IAsyncRelayCommand<User> OnSaveToFileCommand { get; }
+    public IAsyncRelayCommand<(string name, StorageFile file)> OnSaveToFileCommand { get; }
     public IAsyncRelayCommand OnDeleteToFileCommand { get; }
     // private readonly IAddRadioService _addRadio;
     public User? SelectedProfile
@@ -38,7 +40,7 @@ public class UserModel : ObservableObject
         }
     }
 
-    // Wrappery na ProfileName i ProfileImagePath
+    // Wrappery na ProfileName i ProfileImage
     public string ProfileName
     {
         get => SelectedProfile?.Name ?? string.Empty;
@@ -51,18 +53,14 @@ public class UserModel : ObservableObject
             }
         }
     }
-    public string ProfileImagePath
+    private BitmapImage? _profileImage;
+
+    public BitmapImage? ProfileImage
     {
-        get => SelectedProfile?.ImagePath ?? string.Empty;
-        set
-        {
-            if (SelectedProfile != null && SelectedProfile.ImagePath != value)
-            {
-                SelectedProfile.ImagePath = value;
-                OnPropertyChanged(nameof(ProfileImagePath));
-            }
-        }
+        get => _profileImage;
+        private set => SetProperty(ref _profileImage, value);
     }
+
 
     public UserModel(
         IStringLocalizer localizer,
@@ -70,37 +68,33 @@ public class UserModel : ObservableObject
         IUserProfileService profileService,
         INavigator navigator)
     {
-        // co zrobic: 
-        // usuniecie uswa wszystkie profile
-        // potencjalnie ukryc/zaimplementowac wybor innych profilow; jakos wprowadzic dodawanie profilow
-        // ogarnac jak zrobic by zmiana wartosci nazwy/zdjecia  nie wykonywala sie do momentu kliknieca w 'zapisz'
         _profileService = profileService;
         _navigator = navigator;
         // _addRadio = addRadio;
         NavigateToSecondCommand = new AsyncRelayCommand(GoToSecond);
         NavigateToMainCommand = new AsyncRelayCommand(GoToMain);
         OnDeleteToFileCommand = new AsyncRelayCommand(() => RemoveProfile(_profileService.SelectedKey));
-        // OnSaveToFileCommand = new AsyncRelayCommand<SaveEntryData>(async (data) =>
-        OnSaveToFileCommand = new AsyncRelayCommand<User>(async (data) =>
+        OnSaveToFileCommand = new AsyncRelayCommand<(string name, StorageFile file)>(async data =>
         {
-            if (data is null) return;
-            await OnSaveToFile(data.Name, data.ImagePath, _navigator);
+            if (data == default) return;
+            await OnSaveToFile(data.name, data.file, _navigator);
         });
         Title = "AddRadio";
         Title += $" - {localizer["ApplicationName"]}";
         Title += $" - {appInfo?.Value?.Environment}";
+        _ = LoadProfileImageAsync();
     }
 
     public string? Title { get; }
 
     public IState<string> Name => State<string>.Value(this, () => string.Empty);
 
-    public async Task OnSaveToFile(string name, string imagePath, INavigator navigator)
+    public async Task OnSaveToFile(string name, StorageFile imagePath, INavigator navigator)
     {
         await _profileService.EditProfileAsync(_profileService.SelectedKey, name, imagePath);
-        await GoToMain(_navigator);
+        await GoToSecond();
     }
-    public async Task EditProfile(string key, string newName, string newImagePath)
+    public async Task EditProfile(string key, string newName, StorageFile newImagePath)
     {
         await _profileService.EditProfileAsync(key, newName, newImagePath);
     }
@@ -111,7 +105,7 @@ public class UserModel : ObservableObject
         await _profileService.AddProfileAsync(profile);
     }
 
-    public async Task RemoveProfile(string key)
+    public async Task RemoveProfile(string? key)
     {
         await _profileService.RemoveProfileAsync(key);
         await GoToMain(_navigator);
@@ -120,6 +114,18 @@ public class UserModel : ObservableObject
     public async Task SelectActiveProfile(string key)
     {
         await _profileService.SelectProfileAsync(key);
+    }
+    public async Task LoadProfileImageAsync()
+    {
+        if (SelectedProfile?.ImagePath is string base64 && !string.IsNullOrEmpty(base64))
+        {
+            ProfileImage = await _profileService.Base64ToBitmapImage(base64);
+        }
+        else
+        {
+            // ProfileImage = null;
+            ProfileImage = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
+        }
     }
 
     public async Task GoToMain(INavigator _navigator)
