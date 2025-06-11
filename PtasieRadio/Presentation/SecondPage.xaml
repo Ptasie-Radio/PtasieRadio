@@ -141,7 +141,8 @@
                                                Foreground="Gray"
                                                Margin="8,0"/>
                                 </Grid>
-                                <Grid Height="48">
+                                <Grid Height="48"
+                                    Tapped="NavigateToChangeTheme">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="40"/>
                                         <ColumnDefinition Width="*"/>
@@ -315,7 +316,7 @@
                                                Margin="8,0"/>
                                 </Grid>
                                 <Grid Height="48"
-                                      Tapped="OnAddRadioTapped">
+                                      Tapped="AddNewRadioNavigate">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="40"/>
                                         <ColumnDefinition Width="*"/>

@@ -115,15 +115,9 @@ public partial class App : Application
     new ViewMap<MainPage, MainModel>(),
     new ViewMap<SecondPage, SecondModel>(),
     new ViewMap<AddRadioPage, AddRadioModel>(),
+    new ViewMap<UserPage, UserModel>(),
     new ViewMap<ChangeThemePage, ChangeThemeModel>()
 );
-            new ViewMap(ViewModel: typeof(ShellModel)),
-            new ViewMap<MainPage, MainModel>(),
-            new ViewMap<SecondPage, SecondModel>(),
-            new ViewMap<UserPage, UserModel>(),
-            new ViewMap<AddRadioPage, AddRadioModel>()
-        );
-
         routes.Register(
             new RouteMap("", View: views.FindByViewModel<ShellModel>(),
                 Nested:
@@ -137,6 +131,5 @@ public partial class App : Application
             )
         );
     }
-    public static Window? GetMainWindow() { return MainWindow; }
     public static Window? GetMainWindow() { return MainWindow; }
 }

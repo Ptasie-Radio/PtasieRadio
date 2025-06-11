@@ -52,11 +52,11 @@ public sealed partial class UserPage : Page
 			}
 			catch (FileNotFoundException ex)
 			{
-				bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
+				bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/oldplaceholder.png"));
 			}
 			catch (System.NullReferenceException ex)
 			{
-				bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
+				bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/oldplaceholder.png"));
 			}
 
 

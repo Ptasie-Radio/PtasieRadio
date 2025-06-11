@@ -7,6 +7,8 @@ public class UserProfileService : IUserProfileService
 {
     private const string FileName = "users.json";
     private const string SelectedKeySetting = "SelectedKeyUser";
+    private const string folderName = "PtasieRadio";
+    StorageFolder folder = ApplicationData.Current.LocalFolder;
     private Dictionary<string, User> _profiles = new();
     public IReadOnlyDictionary<string, User> Profiles => _profiles;
     public string? SelectedKey { get; private set; }
@@ -61,9 +63,45 @@ public class UserProfileService : IUserProfileService
             await SaveProfilesAsync();
         }
     }
+    private async Task<StorageFolder> OpenFolder() =>
+        await ApplicationData.Current.LocalFolder.CreateFolderAsync(
+            folderName, CreationCollisionOption.OpenIfExists);
 
+    public static async Task RemoveEntryById(StorageFolder folder, string id)
+    {
+        var localFileName = "radio.json";
+        try
+        {
+            var file = await folder.GetFileAsync(localFileName);
+            string json = await FileIO.ReadTextAsync(file);
+
+            var entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
+                          ?? new Dictionary<string, SaveEntryData>();
+
+            if (entries.ContainsKey(id))
+            {
+                entries.Remove(id);
+                string newJson = JsonConvert.SerializeObject(entries, Formatting.Indented);
+                await FileIO.WriteTextAsync(file, newJson);
+            }
+        }
+        catch (FileNotFoundException)
+        {
+            System.Diagnostics.Debug.WriteLine($"Exception: Nie udało się znaleźć pliku");
+        }
+    }
     public async Task RemoveProfileAsync(string key)
     {
+        if (_profiles.TryGetValue(key, out var profile))
+        {
+            using (await AddRadioService.AddRadioService.jsonSemaphore.Lock())
+            {
+                foreach (var stationId in profile.UserRadioStationKeys)
+                {
+                    await RemoveEntryById(folder, stationId);
+                }
+            }
+        }
         if (_profiles.Remove(key))
         {
             // Jeśli usuwasz wybrany profil, wybierz inny lub utwórz domyślny

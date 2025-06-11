@@ -25,11 +25,18 @@
                                      Fill="Transparent"
                                      Width="40"
                                      Height="40"/>
-                            <Image Source="ms-appx:///Assets/Images/left-arrow.png"
-                                   Width="24"
-                                   Height="24"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Center"/>
+                            <Path Width="24"
+                                  Height="24"
+                                  VerticalAlignment="Center"
+                                  HorizontalAlignment="Center"
+                                  Stretch="Uniform"
+                                  Fill="{StaticResource IconColor}"
+                                  Data="M2055 2986 c-41 -19 -1411 -1394 -1425 -1429 -14 -40 -13 -82 5 -125
+                                                21 -50 1369 -1396 1419 -1417 79 -33 137 -11 233 87 88 89 110 149 79 221
+                                                -8 19 -247 266 -580 599 -311 312 -566 571 -566 575 0 4 254 262 565 573
+                                                390 391 569 576 580 602 33 81 17 129 -73 221 -100 102 -162 127 -237 93z"/>
+                            <!-- left_arrow.svg -->
+
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsPointerOver"

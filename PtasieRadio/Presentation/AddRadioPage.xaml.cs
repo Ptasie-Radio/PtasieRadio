@@ -84,7 +84,7 @@ public sealed partial class AddRadioPage : Page
                 Name = name,
                 Description = description,
                 ImagePath = selectedFile,
-                Country = "Polska",
+                Country = "PL",
                 Category="Własne"
             };
             viewModel.OnSaveToFileCommand.Execute(data);

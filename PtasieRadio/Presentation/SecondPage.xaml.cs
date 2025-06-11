@@ -56,7 +56,7 @@ public sealed partial class SecondPage : Page
         viewModel.NavigateToUserCommand.Execute(null);
     }
 
-    private void OnAddRadioTapped(object sender, TappedRoutedEventArgs e)
+    // private void OnAddRadioTapped(object sender, TappedRoutedEventArgs e)
 
 
 private void NavigateToChangeTheme(object sender, TappedRoutedEventArgs e)

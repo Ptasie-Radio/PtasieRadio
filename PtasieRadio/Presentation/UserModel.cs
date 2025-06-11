@@ -124,7 +124,7 @@ public class UserModel : ObservableObject
         else
         {
             // ProfileImage = null;
-            ProfileImage = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
+            ProfileImage = new BitmapImage(new Uri("ms-appx:///Assets/Images/oldplaceholder.png"));
         }
     }
 
