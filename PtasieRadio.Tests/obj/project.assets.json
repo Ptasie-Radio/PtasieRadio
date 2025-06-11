@@ -139,6 +139,19 @@
           }
         }
       },
+      "GEmojiSharp/4.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/GEmojiSharp.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/GEmojiSharp.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "GitHubActionsTestLogger/2.3.3": {
         "type": "package",
         "dependencies": {
@@ -2812,6 +2825,7 @@
         "dependencies": {
           "AudioSwitcher.AudioApi.CoreAudio": "3.0.3",
           "CommunityToolkit.WinUI.Behaviors": "8.0.240109",
+          "GEmojiSharp": "4.0.0",
           "Microsoft.Extensions.Logging.Console": "8.0.1",
           "NAudio": "2.1.0",
           "Newtonsoft.Json": "13.0.3",
@@ -3153,6 +3167,22 @@
         "lib/netstandard2.1/FluentAssertions.dll",
         "lib/netstandard2.1/FluentAssertions.pdb",
         "lib/netstandard2.1/FluentAssertions.xml"
+      ]
+    },
+    "GEmojiSharp/4.0.0": {
+      "sha512": "tAVZj/IgdPIYWzagPZHuE+1tRGpYB6qYPo/E8JubltZZE2OvD45sXrSpPHniFm5Ewf2bGxJp2MzAORRO+hLnHQ==",
+      "type": "package",
+      "path": "gemojisharp/4.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "GEmojiSharp.md",
+        "gemojisharp.4.0.0.nupkg.sha512",
+        "gemojisharp.nuspec",
+        "icon.png",
+        "lib/netstandard2.0/GEmojiSharp.dll",
+        "lib/netstandard2.0/GEmojiSharp.pdb",
+        "lib/netstandard2.0/GEmojiSharp.xml"
       ]
     },
     "GitHubActionsTestLogger/2.3.3": {

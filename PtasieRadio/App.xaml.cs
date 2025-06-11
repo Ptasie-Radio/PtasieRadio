@@ -1,8 +1,13 @@
 using Uno.Resizetizer;
 using PtasieRadio.Services.RadioService;
 using PtasieRadio.Services.AddRadioService;
+using Microsoft.UI;
+using Microsoft.UI.Xaml.Media;
+using Windows.UI;
+using PtasieRadio.Services;
 using PtasieRadio.Services.UserProfileService;
 namespace PtasieRadio;
+
 
 public partial class App : Application
 {
@@ -82,6 +87,7 @@ public partial class App : Application
                     services.AddSingleton<IRadioPlayerService, RadioPlayerService>();
                     services.AddSingleton<IAddRadioService, AddRadioService>();
                     services.AddSingleton<IUserProfileService, UserProfileService>();
+                    services.AddSingleton<IShowPromptService, ShowPromptService>();
                 })
                 .UseNavigation(ReactiveViewModelMappings.ViewModelMappings, RegisterRoutes)
             );
@@ -91,7 +97,8 @@ public partial class App : Application
         MainWindow.UseStudio();
 #endif
         MainWindow.SetWindowIcon();
-
+        // 🔁 dynamiczne zastosowanie motywu
+        ThemeService.ApplyTheme(ThemeService.LoadTheme());
         Host = await builder.NavigateAsync<Shell>();
         // wybranie profilu
         var profileService = Host.Services.GetRequiredService<IUserProfileService>();
@@ -104,6 +111,12 @@ public partial class App : Application
     private static void RegisterRoutes(IViewRegistry views, IRouteRegistry routes)
     {
         views.Register(
+    new ViewMap(ViewModel: typeof(ShellModel)),
+    new ViewMap<MainPage, MainModel>(),
+    new ViewMap<SecondPage, SecondModel>(),
+    new ViewMap<AddRadioPage, AddRadioModel>(),
+    new ViewMap<ChangeThemePage, ChangeThemeModel>()
+);
             new ViewMap(ViewModel: typeof(ShellModel)),
             new ViewMap<MainPage, MainModel>(),
             new ViewMap<SecondPage, SecondModel>(),
@@ -119,9 +132,11 @@ public partial class App : Application
                     new ("Second", View: views.FindByViewModel<SecondModel>()),
                     new ("User", View: views.FindByViewModel<UserModel>()),
                     new ("AddRadio", View: views.FindByViewModel<AddRadioModel>()),
+                    new ("ChangeTheme", View: views.FindByViewModel<ChangeThemeModel>())
                 ]
             )
         );
     }
+    public static Window? GetMainWindow() { return MainWindow; }
     public static Window? GetMainWindow() { return MainWindow; }
 }

@@ -1,0 +1,372 @@
+<Page x:Class="PtasieRadio.Presentation.ChangeThemePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:PtasieRadio.Presentation"
+      Background="{StaticResource PrimaryColor}">
+<!-- Zmiana koloru zdjęc -->
+    <Grid>
+        <!-- Główna zawartość -->
+        <ScrollViewer Margin="0,0,0,0"
+                      x:Name="MainScrollViewer"
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Disabled"
+                      ZoomMode="Disabled">
+            <StackPanel Margin="0,72,0,0" HorizontalAlignment="Center">
+                <Border Padding="24"
+                        Width="420"
+                        Background="Transparent">
+                    <StackPanel Spacing="24">
+
+                        <!-- Sekcja Podstawowe -->
+                        <TextBlock Text="Podstawowe"
+                                   FontSize="18"
+                                   FontWeight="Bold"
+                                   Foreground="{StaticResource TextColor}"
+                                   HorizontalAlignment="Center"/>
+
+                        <!-- Light -->
+    <Border Background="#fcf9ff"
+        BorderBrush="#d4d1e1"
+        BorderThickness="2"
+        CornerRadius="6"
+        Padding="12"
+        Margin="0,4">
+    <CheckBox IsChecked="{Binding IsLightChecked, Mode=TwoWay}"
+              Click="CheckBox_Click"
+              Background="Transparent"
+              BorderThickness="0"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Center">
+        <CheckBox.Template>
+            <ControlTemplate TargetType="CheckBox">
+                <Grid HorizontalAlignment="Stretch"
+                      VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Ikona + Tekst -->
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Column="0"
+                                VerticalAlignment="Center">
+                        <Image Source="Assets/Images/theme_img/standard.png"
+                               Width="36" Height="36"
+                               VerticalAlignment="Center"/>
+                        <TextBlock Text="Light"
+                                   VerticalAlignment="Center"
+                                   Margin="16,0"
+                                   FontSize="16"
+                                   FontWeight="Bold"
+                                   Foreground="Black"/>
+                    </StackPanel>
+
+                    <!-- Okrągły checkbox -->
+                    <Grid Grid.Column="1"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Width="24"
+                          Height="24"
+                          Margin="0,0,10,0">
+                        <Ellipse Stroke="#5ab8fa" StrokeThickness="2"/>
+                        <Ellipse Fill="#5ab8fa"
+                                 Width="12" Height="12"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Visibility="{TemplateBinding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    </Grid>
+                </Grid>
+            </ControlTemplate>
+        </CheckBox.Template>
+    </CheckBox>
+</Border>
+
+
+
+        <!-- Dark -->
+    <Border Background="#1c1b1f"
+        BorderBrush="#615d6b"
+        BorderThickness="2"
+        CornerRadius="6"
+        Padding="12"
+        Margin="0,4">
+    <CheckBox IsChecked="{Binding IsDarkChecked, Mode=TwoWay}"
+              Click="CheckBox_Click"
+              Background="Transparent"
+              BorderThickness="0"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Center">
+        <CheckBox.Template>
+            <ControlTemplate TargetType="CheckBox">
+                <Grid HorizontalAlignment="Stretch"
+                      VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Ikona + Tekst -->
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Column="0"
+                                VerticalAlignment="Center">
+                        <Image Source="Assets/Images/theme_img/standard.png"
+                               Width="36" Height="36"
+                               VerticalAlignment="Center"/>
+                        <TextBlock Text="Dark"
+                                   VerticalAlignment="Center"
+                                   Margin="16,0"
+                                   FontSize="16"
+                                   FontWeight="Bold"
+                                   Foreground="#efefef"/>
+                    </StackPanel>
+
+                    <!-- Okrągły checkbox -->
+                    <Grid Grid.Column="1"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Width="24"
+                          Height="24"
+                          Margin="0,0,8,0">
+                        <Ellipse Stroke="#5ab8fa" StrokeThickness="2"/>
+                        <Ellipse Fill="#5ab8fa"
+                                 Width="12" Height="12"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Visibility="{TemplateBinding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    </Grid>
+                </Grid>
+            </ControlTemplate>
+        </CheckBox.Template>
+    </CheckBox>
+</Border>
+
+
+                        <!-- Sekcja Specjalne -->
+                        <TextBlock Text="Specjalne"
+                                   FontSize="18"
+                                   FontWeight="Bold"
+                                   Foreground="{StaticResource TextColor}"
+                                   Margin="0,20,0,0"
+                                   HorizontalAlignment="Center"/>
+
+                        <!-- BlueberryLight -->
+                        <Border Background="#d9e2f9"
+        BorderBrush="#6c80ab"
+        BorderThickness="2"
+        CornerRadius="6"
+        Padding="12"
+        Margin="0,4">
+    <CheckBox IsChecked="{Binding IsBlueberryLightChecked, Mode=TwoWay}"
+              Click="CheckBox_Click"
+              Background="Transparent"
+              BorderThickness="0"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Center">
+        <CheckBox.Template>
+            <ControlTemplate TargetType="CheckBox">
+                <Grid HorizontalAlignment="Stretch"
+                      VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Column="0"
+                                VerticalAlignment="Center">
+                        <Image Source="Assets/Images/theme_img/blueberry.png"
+                               Width="36" Height="36"
+                               VerticalAlignment="Center"/>
+                        <TextBlock Text="Blueberry Light"
+                                   VerticalAlignment="Center"
+                                   Margin="16,0"
+                                   FontSize="16"
+                                   FontWeight="Bold"
+                                   Foreground="#00052b"/>
+                    </StackPanel>
+
+                    <Grid Grid.Column="1"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Width="24" Height="24"
+                          Margin="0,0,8,0">
+                        <Ellipse Stroke="#00052b" StrokeThickness="2"/>
+                        <Ellipse Fill="#00052b"
+                                 Width="12" Height="12"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Visibility="{TemplateBinding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    </Grid>
+                </Grid>
+            </ControlTemplate>
+        </CheckBox.Template>
+    </CheckBox>
+</Border>
+
+
+    <!-- BlueberryDark -->
+    <Border Background="#010b22"
+        BorderBrush="#244379"
+        BorderThickness="2"
+        CornerRadius="6"
+        Padding="12"
+        Margin="0,4">
+    <CheckBox IsChecked="{Binding IsBlueberryDarkChecked, Mode=TwoWay}"
+              x:Name="BlueberryDarkCheckBox"
+              Click="CheckBox_Click"
+              Background="Transparent"
+              BorderThickness="0"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Center">
+        <CheckBox.Template>
+            <ControlTemplate TargetType="CheckBox">
+                <Grid HorizontalAlignment="Stretch"
+                      VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Column="0"
+                                VerticalAlignment="Center">
+                        <Image Source="Assets/Images/theme_img/blueberry.png"
+                               Width="36" Height="36"
+                               VerticalAlignment="Center"/>
+                        <TextBlock Text="Blueberry Dark"
+                                   VerticalAlignment="Center"
+                                   Margin="16,0"
+                                   FontSize="16"
+                                   FontWeight="Bold"
+                                   Foreground="#d9e2fb"/>
+                    </StackPanel>
+
+                    <Grid Grid.Column="1"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Width="24" Height="24"
+                          Margin="0,0,8,0">
+                        <Ellipse Stroke="White" StrokeThickness="2"/>
+                        <Ellipse Fill="White"
+                                 Width="12" Height="12"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Visibility="{TemplateBinding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    </Grid>
+                </Grid>
+            </ControlTemplate>
+        </CheckBox.Template>
+    </CheckBox>
+</Border>
+
+
+        <!-- Nigh LimeDark -->
+        <!-- Backround #1 = srodek -->
+        <!-- Backround #2 = obwódka -->
+    <Border Background="#073828"
+        BorderBrush="#437d6a"
+        BorderThickness="2"
+        CornerRadius="6"
+        Padding="12"
+        Margin="0,4">
+    <CheckBox IsChecked="{Binding IsLimeDarkChecked, Mode=TwoWay}"
+              Background="Transparent"
+              x:Name="LimeDarkCheckBox"
+              Click="CheckBox_Click"
+              BorderThickness="0"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Center">
+        <CheckBox.Template>
+            <ControlTemplate TargetType="CheckBox">
+                <Grid HorizontalAlignment="Stretch"
+                      VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Column="0"
+                                VerticalAlignment="Center">
+                        <Image Source="Assets/Images/theme_img/lime.png"
+                               Width="36" Height="36"
+                               VerticalAlignment="Center"/>
+                        <TextBlock Text="LimeDark"
+                                   VerticalAlignment="Center"
+                                   Margin="16,0"
+                                   FontSize="16"
+                                   FontWeight="Bold"
+                                   Foreground="#c8ebde"/>
+                    </StackPanel>
+
+                    <Grid Grid.Column="1"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Width="24" Height="24"
+                          Margin="0,0,8,0">
+                        <Ellipse Stroke="White" StrokeThickness="2"/>
+                        <Ellipse Fill="White"
+                                 Width="12" Height="12"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Visibility="{TemplateBinding IsChecked, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    </Grid>
+                </Grid>
+            </ControlTemplate>
+        </CheckBox.Template>
+    </CheckBox>
+</Border>
+
+
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Przycisk powrotu w lewym górnym rogu -->
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20" Background="Transparent">
+            <Button Width="40"
+                    Height="40"
+                    Background="Transparent"
+                   Command="{Binding NavigateToSecondCommand}">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Background="Transparent">
+                            <Ellipse x:Name="ellipse"
+                                     Fill="Transparent"
+                                     Width="40"
+                                     Height="40"/>
+                                     <!-- left_arrow.svg path-->
+                            <Path Data="M6180 10206 c-102 -35 -4201 -4108 -4273 -4246 -59 -115 -51 -346 17 -460 117 -196 4153 -4191 4274 -4230 229 -74 352 -25 638 257 255 251 293 315 293 503 0 212 47 160 -1786 1995 l-1713 1715 1723 1725 c1891 1894 1802 1793 1783 2019 -13 160 -66 247 -276 460 -278 282 -440 344 -680 262z"
+                                Fill="{StaticResource IconColor}"
+                                Width="24"
+                                Height="24"
+                                Stretch="Uniform"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPointerOver" Value="True">
+                                <Setter TargetName="ellipse" Property="Fill" Value="#12101DFF" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+    </Grid>
+</Page>
+<!-- <TextBlock Foreground="{StaticResource TextColor}" />
+<Grid Background="{StaticResource PrimaryColor}" />
+<Border Background="{StaticResource SecondaryColor}" />
+
+
+
+png to svg - ikonki do kolorów
+dodac kolor SYSTEMOWY ( kolor ikonki to odpowiednik tego ) do narzedzi systemowych
+
+popraw te systemowe kolory ( sound slider / texbox tip. )
+
+skaczący ekran po wyborze dolnych kolorów|
+nie można odznaczać ręcznie checkboxa -->

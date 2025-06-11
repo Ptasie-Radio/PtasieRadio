@@ -45,10 +45,6 @@ public class AddRadioModel : ObservableObject
 
     public async Task OnSaveToFile(string url, string name, string description, string imagePath,INavigator navigator)
     {
-        //_addRadio.setUrl(url);
-        //_addRadio.setName(name);
-        //_addRadio.setDescription(description);
-        //_addRadio.setSelectedFile(selectedFile);
         await _addRadio.AddOneRadioToJson(url, name, description, imagePath);
         await GoToMain(_navigator);
     }

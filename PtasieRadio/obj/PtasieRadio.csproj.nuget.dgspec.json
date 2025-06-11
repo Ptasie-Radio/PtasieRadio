@@ -85,6 +85,11 @@
               "version": "[8.0.240109, )",
               "versionCentrallyManaged": true
             },
+            "GEmojiSharp": {
+              "target": "Package",
+              "version": "[4.0.0, )",
+              "versionCentrallyManaged": true
+            },
             "Microsoft.Extensions.Logging.Console": {
               "target": "Package",
               "version": "[8.0.1, )",
@@ -304,6 +309,11 @@
             "CommunityToolkit.WinUI.Behaviors": {
               "target": "Package",
               "version": "[8.0.240109, )",
+              "versionCentrallyManaged": true
+            },
+            "GEmojiSharp": {
+              "target": "Package",
+              "version": "[4.0.0, )",
               "versionCentrallyManaged": true
             },
             "Microsoft.Extensions.Logging.Console": {
@@ -581,6 +591,11 @@
               "version": "[8.0.240109, )",
               "versionCentrallyManaged": true
             },
+            "GEmojiSharp": {
+              "target": "Package",
+              "version": "[4.0.0, )",
+              "versionCentrallyManaged": true
+            },
             "Microsoft.Extensions.Logging.Console": {
               "target": "Package",
               "version": "[8.0.1, )",
@@ -835,6 +850,11 @@
             "CommunityToolkit.WinUI.Behaviors": {
               "target": "Package",
               "version": "[8.0.240109, )",
+              "versionCentrallyManaged": true
+            },
+            "GEmojiSharp": {
+              "target": "Package",
+              "version": "[4.0.0, )",
               "versionCentrallyManaged": true
             },
             "Microsoft.Extensions.Logging.Console": {
@@ -1092,6 +1112,11 @@
               "version": "[8.0.240109, )",
               "versionCentrallyManaged": true
             },
+            "GEmojiSharp": {
+              "target": "Package",
+              "version": "[4.0.0, )",
+              "versionCentrallyManaged": true
+            },
             "Microsoft.Extensions.Logging.Console": {
               "target": "Package",
               "version": "[8.0.1, )",
@@ -1338,6 +1363,11 @@
             "CommunityToolkit.WinUI.Behaviors": {
               "target": "Package",
               "version": "[8.0.240109, )",
+              "versionCentrallyManaged": true
+            },
+            "GEmojiSharp": {
+              "target": "Package",
+              "version": "[4.0.0, )",
               "versionCentrallyManaged": true
             },
             "Microsoft.Extensions.Logging.Console": {

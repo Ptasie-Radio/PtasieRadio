@@ -20,8 +20,8 @@ namespace PtasieRadio.Presentation;
 public sealed partial class MainPage : Page
 {
     private double pageAnimationTime;
-    // private readonly IUserProfileService _profileService;
 
+    private string? currentIndex;
     private const string folderName = "PtasieRadio";
 
     public MainPage()
@@ -31,6 +31,7 @@ public sealed partial class MainPage : Page
         this.InitializeComponent();
         this.SizeChanged += MainPage_SizeChanged;
         _ = CreateOwnStationOnViewLoad();
+
     }
 
     private void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -88,6 +89,9 @@ public sealed partial class MainPage : Page
         storyboard.Begin();
     }
 
+
+
+
     private void RackTappedEvent(object sender, TappedRoutedEventArgs e)
     {
         e.Handled = true;
@@ -127,8 +131,19 @@ public sealed partial class MainPage : Page
         };
     }
 
+    private void OnTabTapped(object sender, TappedRoutedEventArgs e)
+    {
+        if (sender is StackPanel panel && panel.Tag is string selected)
+        {
+            System.Diagnostics.Debug.WriteLine($"Kliknięto: {selected}");
+        }
+    }
+
+
     private void ShuffleButtonTappedEvent(object sender, TappedRoutedEventArgs e)
     {
+        //TODO:
+        //Dodaj tutaj shuffl'a
         e.Handled = true;
     }
 
@@ -175,24 +190,48 @@ public sealed partial class MainPage : Page
         return filteredEntries;
     }
 
+    public static async Task RemoveEntryById(StorageFolder folder, string id)
+    {
+        var localFileName = "radio.json";
+        try
+        {
+            var file = await folder.GetFileAsync(localFileName);
+            string json = await FileIO.ReadTextAsync(file);
+
+            var entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
+                          ?? new Dictionary<string, SaveEntryData>();
+
+            if (entries.ContainsKey(id))
+            {
+                entries.Remove(id);
+                string newJson = JsonConvert.SerializeObject(entries, Formatting.Indented);
+                await FileIO.WriteTextAsync(file, newJson);
+            }
+        }
+        catch (FileNotFoundException)
+        {
+            System.Diagnostics.Debug.WriteLine($"Exception: Nie udało się znaleźć pliku");
+        }
+    }
+
     public static async Task<StorageFolder> OpenFolder() =>
         await ApplicationData.Current.LocalFolder.CreateFolderAsync(
             folderName, CreationCollisionOption.OpenIfExists);
 
     private async Task CreateOwnStationOnViewLoad()
     {
-        var x = new List<string> { "POP", "NO", "Własne" };
+        var x = new List<string> { "NO", "POP", "Własne" };
         int j = 0;
         using (await AddRadioService.jsonSemaphore.Lock())
         {
-            foreach (StackPanel panel in new List<StackPanel> { PopularnePanel, NajczesciejGranePanel, WlasnePanel })
+            foreach (StackPanel panel in new List<StackPanel> { NajczesciejGranePanel, PopularnePanel, WlasnePanel })
             {
                 var folder = await OpenFolder();
                 var entries = await LoadFromJson(folder, x[j]);
                 if (x[j] == "Własne")
                 {
-                var viewModel = DataContext as MainModel;
-                if (viewModel == null) return;
+                    var viewModel = DataContext as MainModel;
+                    if (viewModel == null) return;
                     // Pobierz aktualny profil użytkownika
                     var currentProfileKey = viewModel._profileService.SelectedKey;
                     if (currentProfileKey != null && viewModel._profileService.Profiles.TryGetValue(currentProfileKey, out var userProfile))
@@ -213,18 +252,13 @@ public sealed partial class MainPage : Page
         }
     }
 
-    // private async Task IsWlasneStationCorrectFromProfile(Dictionary<string, SaveEntryData> entries)
-    // {
-
-    // }
-
     private async Task AddStation(StorageFolder folder, Dictionary<string, SaveEntryData> entries, StackPanel category)
     {
         var files = await folder.GetFilesAsync();
         foreach (var entry in entries)
         {
             BitmapImage bitmap;
-            StorageFile file;
+            StorageFile? file;
 
             try
             {
@@ -236,22 +270,21 @@ public sealed partial class MainPage : Page
             }
             try
             {
-                using (var stream = new MemoryStream(File.ReadAllBytes(file.Path)))
+                using (var stream = new MemoryStream(File.ReadAllBytes(file?.Path ?? "Brak")))
                 {
                     bitmap = new BitmapImage();
                     await bitmap.SetSourceAsync(stream);
                 }
-
+                
             }
-            catch (FileNotFoundException ex)
+            catch (FileNotFoundException)
             {
-                bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
+                bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/radio_placeholder_square"));
             }
-            catch (System.NullReferenceException ex)
+            catch (System.NullReferenceException)
             {
-                bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
+                bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/radio_placeholder_square"));
             }
-
 
             var image = new Image
             {
@@ -267,7 +300,7 @@ public sealed partial class MainPage : Page
             {
                 Width = 100,
                 Height = 100,
-                Background = new SolidColorBrush(Windows.UI.ColorHelper.FromArgb(255, 204, 204, 204)),
+                Background = new SolidColorBrush(Windows.UI.ColorHelper.FromArgb(255, 224, 224, 224)),
                 CornerRadius = new CornerRadius(20),
                 Child = image
             };
@@ -277,7 +310,7 @@ public sealed partial class MainPage : Page
                 Text = entry.Value.Name,
                 TextAlignment = TextAlignment.Center,
                 FontSize = 12,
-                Foreground = new SolidColorBrush(Microsoft.UI.Colors.White)
+                Foreground = (Brush)Application.Current.Resources["TextColor"],
             };
 
             var stationPanel = new StackPanel
@@ -289,23 +322,35 @@ public sealed partial class MainPage : Page
                 ManipulationMode = ManipulationModes.TranslateX | ManipulationModes.System,
             };
 
-            stationPanel.PointerReleased += OnPanelPointerReleased;
+            var targetPanels = new HashSet<StackPanel> { NajczesciejGranePanel, WlasnePanel };
+            if (targetPanels.Contains(category))
+            {
+                var menu = new MenuFlyoutItem { Text = "Usuń" };
+                menu.Click += async (s, e) =>
+                {
+                    string id = stationPanel.Name.Replace("Stacja_", "");
+                    await RemoveEntryById(folder, id);
+                    var parent = stationPanel.Parent as Panel;
+                    parent?.Children.Remove(stationPanel);//Usuwamy ten nasz station Panel
+                };
+                var menuFlyout = new MenuFlyout();
+                menuFlyout.Items.Add(menu);
+                stationPanel.ContextFlyout = menuFlyout;
+            }
+            stationPanel.Tapped += OnPanelTapped;
             stationPanel.Children.Add(border);
             stationPanel.Children.Add(textBlock);
             category.Children.Add(stationPanel);
         }
     }
 
-    private async void OnPanelPointerReleased(object sender, PointerRoutedEventArgs e)
+    private async void OnPanelTapped(object sender, TappedRoutedEventArgs e)
     {
-        e.Handled = false;
+
         if (sender is StackPanel panel)
         {
-            string nazwa = panel.Name;
-            string index = nazwa != null && nazwa.Contains("_")
-            ? nazwa.Substring(nazwa.IndexOf('_') + 1)
-            : nazwa ?? "1";
-
+            string index = panel.Name.Replace("Stacja_", "");
+            if (currentIndex == index) return;//Nie pozwalamy na to, aby użytkownik spamował na ten sam przycisk.
             var folder = await OpenFolder();
             var entries = await LoadFromJson(folder);
 
@@ -313,7 +358,11 @@ public sealed partial class MainPage : Page
             {
                 var viewModel = DataContext as MainModel;
                 if (viewModel == null) return;
+                currentIndex = index;
                 viewModel.ToggleChangeUrlCommand.Execute(entry.StreamUrl);
+                viewModel.ToggleChangeStationNameCommand.Execute(entry.Name);
+                viewModel.ToggleChangeCountryCommand.Execute(entry.Country);
+                viewModel.ToggleChangeImagePathCommand.Execute(entry.ImagePath);
             }
             else
             {
@@ -321,5 +370,6 @@ public sealed partial class MainPage : Page
             }
         }
     }
-
 }
+
+

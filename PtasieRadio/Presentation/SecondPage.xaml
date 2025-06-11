@@ -8,7 +8,7 @@
       xmlns:uen="using:Uno.Extensions.Navigation.UI"
       xmlns:utu="using:Uno.Toolkit.UI"
       xmlns:um="using:Uno.Material"
-      Background="#1c1b1f"
+      Background="{StaticResource PrimaryColor}"
       mc:Ignorable="d">
 
     <Grid utu:SafeArea.Insets="VisibleBounds">
@@ -31,11 +31,18 @@
                                          Fill="Transparent"
                                          Width="40"
                                          Height="40"/>
-                                <Image Source="ms-appx:///Assets/Images/left-arrow.png"
-                                       Width="24"
-                                       Height="24"
-                                       VerticalAlignment="Center"
-                                       HorizontalAlignment="Center"/>
+                                <Path Width="24"
+                                      Height="24"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Center"
+                                      Stretch="Uniform"
+                                      Fill="{StaticResource IconColor}"
+                                      Data="M2055 2986 c-41 -19 -1411 -1394 -1425 -1429 -14 -40 -13 -82 5 -125
+                                                21 -50 1369 -1396 1419 -1417 79 -33 137 -11 233 87 88 89 110 149 79 221
+                                                -8 19 -247 266 -580 599 -311 312 -566 571 -566 575 0 4 254 262 565 573
+                                                390 391 569 576 580 602 33 81 17 129 -73 221 -100 102 -162 127 -237 93z"/>
+                                <!-- left_arrow.svg -->
+
                             </Grid>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsPointerOver"
@@ -73,12 +80,13 @@
                             <Ellipse Width="72"
                                      Height="72">
                                 <Ellipse.Fill>
-                                    <ImageBrush ImageSource="{Binding ProfileImage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Stretch="UniformToFill"/>
+                                    <ImageBrush ImageSource="{Binding ProfileImage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                Stretch="UniformToFill"/>
                                 </Ellipse.Fill>
                             </Ellipse>
                             <TextBlock Text="{Binding ProfileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                        FontSize="14"
-                                       Foreground="White"
+                                       Foreground="{StaticResource TextColor}"
                                        TextAlignment="Center"/>
                             <!-- Przycisk otwierający menu profili usunitey bo brak czasu -->
                             <!-- <Button x:Name="ProfileButton"
@@ -96,14 +104,14 @@
                             <TextBlock Text="Ustawienia"
                                        FontSize="28"
                                        FontWeight="Bold"
-                                       Foreground="White"
+                                       Foreground="{StaticResource TextColor}"
                                        Margin="0,0,0,8"/>
 
                             <!-- Ogólne -->
                             <TextBlock Text="Ogólne"
                                        FontSize="20"
                                        FontWeight="SemiBold"
-                                       Foreground="White"
+                                       Foreground="{StaticResource TextColor}"
                                        Margin="16,8,0,0"/>
                             <StackPanel Spacing="8">
                                 <Grid Height="48"
@@ -113,15 +121,20 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="Assets/Images/user.png"
-                                           Width="24"
-                                           Height="24"
-                                           VerticalAlignment="Center"
-                                           Margin="8,0"/>
+                                    <Path Width="24"
+                                          Height="24"
+                                          Stretch="Uniform"
+                                          Fill="{StaticResource IconColor}"
+                                          Data="M 773,1535 C 540,1484 377,1293 300,985 255,798 236,518 260,389 277,302 323,215 388,151 456,83 522,46 628,19 699,1 745,0 1494,0 c 647,0 803,3 858,15 208,44 354,196 388,405 20,118 1,368 -41,548 -60,259 -182,440 -354,522 -86,42 -208,67 -271,57 -20,-3 -87,-38 -150,-78 -258,-162 -443,-187 -680,-93 -38,15 -106,51 -152,80 -156,101 -184,108 -319,79 z m 552,1449 c -38,-8 -113,-36 -165,-61 -81,-39 -108,-59 -185,-137 -155,-155 -215,-300 -215,-515 1,-279 149,-514 408,-645 175,-89 447,-89 624,-1 122,62 251,184 321,305 14,25 38,81 53,125 25,73 28,93 28,220 0,123 -4,149 -26,217 -40,121 -92,204 -182,293 -144,142 -285,203 -481,211 -76,2 -132,-1 -180,-12 z">
+                                        <Path.RenderTransform>
+                                            <ScaleTransform ScaleY="-1"
+                                                            CenterY="12"/>
+                                        </Path.RenderTransform>
+                                    </Path>
                                     <TextBlock Text="Profil"
                                                Grid.Column="1"
                                                VerticalAlignment="Center"
-                                               Foreground="White"/>
+                                               Foreground="{StaticResource TextColor}"/>
                                     <TextBlock Text=">"
                                                Grid.Column="2"
                                                VerticalAlignment="Center"
@@ -134,15 +147,23 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="Assets/Images/brush.png"
-                                           Width="24"
-                                           Height="24"
-                                           VerticalAlignment="Center"
-                                           Margin="8,0"/>
+                                    <Path Width="24"
+                                          Height="24"
+                                          Stretch="Uniform"
+                                          Fill="{StaticResource IconColor}"
+                                          Data="M1449 2584 l-419 -419 567 -567 568 -568 413 413 c227 226 415 422 418 435 11 43 -8 77 -94 165 -90 92 -138 123 -175 111 -12 -3 -96 -56 -186 -117 -187 -125 -184 -133 -32 93 130 193 136 169 -86 393 -98 98 -190 185 -205 193 -35 18 -62 18 -99 -2 -17 -8 -33 -14 -35 -11 -2 2 3 24 13 49 22 61 11 86 -76 172 -57 57 -75 68 -110 73 l-43 6 -419 -419z
+                                            M747 1882 c-171 -173 -172 -159 7 -341 73 -75 141 -152 151 -170 13 -25 16 -51 13 -100 -5 -87 -27 -118 -137 -189 -255 -165 -525 -345 -592 -394 -139 -103 -183 -180 -183 -318 0 -116 27 -185 103 -261 76 -76 145 -103 261 -103 70 0 94 4 140 25 106 49 141 92 388 469 245 375 244 373 287 397 49 28 140 31 188 7 17 -9 93 -77 168 -150 183 -179 167 -179 343 -4 l131 130 -565 565 c-311 311 -567 565 -570 565 -4 0 -63 -58 -133 -128z m-300 -1392 c91 -55 82 -206 -14 -247 -124 -51 -241 66 -190 190 30 71 133 101 204 57z">
+                                        <Path.RenderTransform>
+                                            <ScaleTransform ScaleY="-1"
+                                                            CenterY="12"/>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                    <!-- Brush.svg -->
+
                                     <TextBlock Text="Wygląd"
                                                Grid.Column="1"
                                                VerticalAlignment="Center"
-                                               Foreground="White"/>
+                                               Foreground="{StaticResource TextColor}"/>
                                     <TextBlock Text=">"
                                                Grid.Column="2"
                                                VerticalAlignment="Center"
@@ -155,15 +176,43 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="Assets/Images/lang.png"
-                                           Width="24"
-                                           Height="24"
-                                           VerticalAlignment="Center"
-                                           Margin="8,0"/>
+                                    <Path Width="24"
+                                          Height="24"
+                                          Stretch="Uniform"
+                                          Fill="{StaticResource IconColor}"
+                                          Data="M395 2620 c-143 -22 -244 -125 -265 -272 -13 -87 -12 -748 0 -827 6
+                                    -35 20 -81 31 -103 42 -82 141 -152 234 -165 l45 -6 0 -81 c0 -119 34 -167
+                                    120 -168 57 -1 82 20 172 143 l80 109 154 0 154 0 0 -192 c0 -208 10 -300 39
+                                    -357 28 -54 89 -110 151 -140 l55 -26 385 -3 385 -3 126 -124 c121 -120 127
+                                    -125 168 -125 95 0 131 46 131 168 l0 80 43 6 c95 14 196 85 238 168 35 68 41
+                                    160 37 566 -5 451 -5 450 -97 543 -93 93 -94 93 -528 97 l-373 3 0 187 c-1
+                                    292 -18 363 -112 447 -91 82 -67 79 -733 81 -324 1 -612 -1 -640 -6z m1267
+                                    -149 c19 -13 46 -40 59 -59 23 -35 24 -41 27 -269 l3 -233 -163 0 c-168 0
+                                    -256 -13 -307 -46 -13 -9 -27 -12 -31 -7 -4 4 -49 100 -100 213 -51 113 -99
+                                    213 -108 223 -8 9 -27 17 -42 17 -15 0 -34 -8 -42 -17 -25 -29 -328 -704 -328
+                                    -731 0 -50 54 -79 93 -49 9 6 39 62 66 122 l50 110 161 3 c90 1 160 -1 160 -7
+                                    0 -4 -7 -26 -16 -47 -11 -26 -18 -83 -22 -176 l-5 -138 -163 0 c-89 0 -174 -4
+                                    -188 -10 -15 -5 -62 -58 -113 -127 l-88 -118 -2 95 c-4 153 -1 148 -125 160
+                                    -91 8 -139 38 -169 104 -17 38 -19 72 -19 446 0 239 4 420 10 441 12 43 73
+                                    106 114 118 17 6 301 9 642 8 l610 -2 36 -24z m-611 -483 l46 -103 -49 -3
+                                    c-26 -2 -70 -2 -96 0 l-49 3 46 103 c25 56 48 102 51 102 3 0 26 -46 51 -102z
+                                    m1595 -228 c24 -12 54 -39 70 -62 l29 -41 0 -437 0 -436 -27 -42 c-37 -56 -77
+                                    -75 -172 -82 -103 -9 -106 -13 -106 -147 0 -57 -3 -103 -7 -103 -4 0 -64 56
+                                    -133 125 l-127 125 -392 0 c-373 0 -394 1 -431 20 -22 11 -52 39 -67 62 l-28
+                                    42 0 436 0 436 27 41 c15 23 44 49 70 62 43 21 50 21 647 21 588 0 606 -1 647
+                                    -20z
+                                    M1956 1604 c-12 -11 -16 -36 -16 -90 l0 -74 -133 0 c-154 0 -177 -9 -177 -65 0 -62 14 -65 283 -65 l239 0 -7 -32 c-18 -86 -109 -228 -146 -228 -17 0 -43 31 -124 148 -32 45 -105 20 -105 -37 0 -30 46 -109 92 -158 l30 -31 -53 -16 c-29 -9 -72 -16 -96 -16 -54 0 -98 -36 -88 -73 13 -45 44 -59 111 -52 73 8 136 25 193 54 41 21 41 21 79 2 49 -25 133 -48 204 -57 52 -6 59 -4 83 20 19 19 24 32 20 49 -11 35 -43 57 -87 57 -47 0 -126 19 -134 32 -4 5 5 22 19 36 57 61 107 165 131 275 5 20 12 27 29 27 39 0 67 27 67 65 0 56 -23 65 -177 65 l-133 0 0 74 c0 84 -13 106 -60 106 -16 0 -36 -7 -44 -16z">
+                                        <Path.RenderTransform>
+                                            <ScaleTransform ScaleY="-1"
+                                                            CenterY="12"/>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                    <!-- lang.svg -->
+
                                     <TextBlock Text="Język"
                                                Grid.Column="1"
                                                VerticalAlignment="Center"
-                                               Foreground="White"/>
+                                               Foreground="{StaticResource TextColor}"/>
                                     <TextBlock Text=">"
                                                Grid.Column="2"
                                                VerticalAlignment="Center"
@@ -176,7 +225,7 @@
                             <TextBlock Text="Zaawansowane"
                                        FontSize="20"
                                        FontWeight="SemiBold"
-                                       Foreground="White"
+                                       Foreground="{StaticResource TextColor}"
                                        Margin="16,8,0,0"/>
                             <StackPanel Spacing="8">
                                 <Grid Height="48">
@@ -185,15 +234,33 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="Assets/Images/folder.png"
-                                           Width="24"
-                                           Height="24"
-                                           VerticalAlignment="Center"
-                                           Margin="8,0"/>
+                                    <Path Width="24"
+                                          Height="24"
+                                          Stretch="Uniform"
+                                          Fill="{StaticResource IconColor}"
+                                          Data="M121 2649 c-46 -18 -84 -53 -102 -93 -18 -39 -19 -82 -18 -866 l0
+                                    -825 36 75 c104 215 219 456 304 635 69 147 105 210 135 241 77 78 18 74 1097
+                                    74 l959 0 -4 143 c-4 156 -13 184 -68 230 -17 15 -47 31 -68 37 -23 6 -241 10
+                                    -593 10 l-555 0 -110 152 c-155 216 -103 198 -593 197 -223 0 -406 -4 -420
+                                    -10z
+                                    M677 1704 c-99 -31 -106 -43 -401 -662 -202 -424 -266 -569 -262
+                                    -587 9 -35 50 -80 93 -101 36 -18 86 -19 1083 -22 575 -2 1077 0 1117 3 55 5
+                                    84 14 125 38 l53 32 258 513 c228 455 257 517 257 560 0 100 -75 198 -174 227
+                                    -74 22 -2077 21 -2149 -1z">
+                                        <Path.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform ScaleY="-1"
+                                                                CenterY="12"/>
+                                                <TranslateTransform Y="-7"/>
+                                            </TransformGroup>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                    <!-- folder.svg -->
+
                                     <TextBlock Text="Backup"
                                                Grid.Column="1"
                                                VerticalAlignment="Center"
-                                               Foreground="White"/>
+                                               Foreground="{StaticResource TextColor}"/>
                                     <TextBlock Text=">"
                                                Grid.Column="2"
                                                VerticalAlignment="Center"
@@ -206,15 +273,41 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="Assets/Images/eq.png"
-                                           Width="24"
-                                           Height="24"
-                                           VerticalAlignment="Center"
-                                           Margin="8,0"/>
-                                    <TextBlock Text="Equalizer"
+                                    <Path Width="24"
+                                          Height="24"
+                                          Stretch="Uniform"
+                                          Fill="{StaticResource IconColor}"
+                                          Data="M983 2984 c-18 -9 -42 -31 -53 -49 -20 -32 -20 -48 -20 -1436 0
+                                    -1356 1 -1405 19 -1435 52 -86 189 -81 238 9 17 30 18 111 18 1427 0 1377 0
+                                    1395 -20 1429 -38 64 -116 87 -182 55z
+                                    M1450 2483 c-24 -9 -61 -46 -76 -75 -12 -23 -14 -171 -14 -910 0
+                                    -836 1 -885 18 -917 50 -93 195 -93 242 0 19 37 20 65 20 919 0 953 3 906 -54
+                                    959 -26 24 -103 38 -136 24z
+                                    M2341 2472 c-19 -10 -43 -34 -53 -53 -17 -32 -18 -81 -18 -917 0
+                                    -972 -3 -932 62 -972 64 -39 153 -17 195 47 17 26 18 76 18 923 0 847 -1 897
+                                    -18 923 -41 63 -121 84 -186 49z
+                                    M532 2221 c-32 -15 -47 -31 -62 -63 -19 -41 -20 -70 -20 -658 0 -582
+                                    1 -617 19 -657 42 -92 154 -108 227 -32 l29 30 3 647 c2 628 2 648 -17 679
+                                    -41 66 -109 86 -179 54z
+                                    M1895 1970 c-35 -14 -67 -58 -76 -102 -11 -56 -11 -680 0 -737 24
+                                    -121 187 -153 251 -48 19 30 20 53 20 417 0 364 -1 387 -20 417 -33 54 -113
+                                    79 -175 53z
+                                    M80 1713 c-19 -10 -45 -33 -57 -52 -21 -31 -23 -46 -23 -160 0 -108
+                                    3 -131 20 -159 59 -97 191 -92 242 9 26 49 26 249 0 298 -35 70 -116 98 -182
+                                    64z
+                                    M2801 1713 c-66 -35 -76 -59 -79 -201 -2 -106 0 -133 15 -161 53
+                                    -101 184 -106 243 -9 17 28 20 51 20 158 0 106 -3 130 -20 157 -39 65 -117 89
+                                    -179 56z">
+                                        <Path.RenderTransform>
+                                            <ScaleTransform ScaleY="-1"
+                                                            CenterY="12"/>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                    <!-- eq.svg -->
+                                    <TextBlock Text="Equalizer (Coming Future)"
                                                Grid.Column="1"
                                                VerticalAlignment="Center"
-                                               Foreground="White"/>
+                                               Foreground="{StaticResource TextColor}"/>
                                     <TextBlock Text=">"
                                                Grid.Column="2"
                                                VerticalAlignment="Center"
@@ -228,36 +321,75 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="Assets/Images/link.png"
-                                           Width="24"
-                                           Height="24"
-                                           VerticalAlignment="Center"
-                                           Margin="8,0"/>
+                                    <Path Width="24"
+                                          Height="24"
+                                          Stretch="Uniform"
+                                          Fill="{StaticResource IconColor}"
+                                          Data="M2155 2984 c-38 -8 -113 -36 -165 -61 l-95 -45 -312 -311 c-313 -311
+                                    -334 -337 -300 -365 7 -6 60 -16 118 -21 99 -10 170 -25 232 -50 16 -6 36 -11
+                                    44 -11 9 0 114 97 233 215 228 226 256 247 355 259 65 9 154 -15 209 -54 123
+                                    -89 159 -264 81 -395 -13 -22 -180 -196 -372 -387 -390 -388 -394 -392 -518
+                                    -392 -80 0 -155 29 -216 82 -46 40 -78 52 -140 52 -64 0 -107 -18 -146 -63
+                                    -91 -103 -59 -232 81 -332 134 -95 264 -138 416 -137 153 1 278 39 397 120 32
+                                    22 230 213 439 424 l382 383 45 95 c102 212 102 409 0 620 -38 80 -59 109
+                                    -132 181 -72 73 -101 94 -181 132 -153 74 -300 93 -455 61z
+                                    M1256 2027 c-93 -9 -177 -36 -266 -84 -54 -29 -135 -105 -466 -437
+                                    l-402 -401 -45 -95 c-102 -212 -102 -409 0 -620 38 -80 59 -109 132 -181 72
+                                    -73 101 -94 181 -132 211 -102 408 -102 620 0 l95 45 313 311 c312 311 333
+                                    337 299 365 -7 6 -63 16 -124 22 -64 6 -143 21 -187 35 -42 14 -82 25 -89 25
+                                    -6 0 -108 -97 -227 -214 -165 -165 -227 -220 -264 -237 -258 -114 -517 150
+                                    -394 401 39 80 710 749 783 781 105 46 230 25 328 -55 24 -19 55 -40 70 -45
+                                    39 -15 121 -14 160 3 72 30 126 129 112 205 -10 55 -30 85 -95 144 -141 127
+                                    -328 185 -534 164z">
+                                        <Path.RenderTransform>
+                                            <ScaleTransform ScaleY="-1"
+                                                            CenterY="12"/>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                    <!-- link.svg -->
                                     <TextBlock Text="Dodaj Radio z URL"
                                                Grid.Column="1"
                                                VerticalAlignment="Center"
-                                               Foreground="White"/>
+                                               Foreground="{StaticResource TextColor}"/>
                                     <TextBlock Text=">"
                                                Grid.Column="2"
                                                VerticalAlignment="Center"
                                                Foreground="Gray"
                                                Margin="8,0"/>
                                 </Grid>
-                                <Grid Height="48">
+                                <Grid Height="48"
+                                      Tapped="SaveFolderTapped">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="40"/>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="Assets/Images/save.png"
-                                           Width="24"
-                                           Height="24"
-                                           VerticalAlignment="Center"
-                                           Margin="8,0"/>
+                                    <Path Width="24"
+                                          Height="24"
+                                          Stretch="Uniform"
+                                          Fill="{StaticResource IconColor}"
+                                          Data="M317 2899 c-93 -22 -169 -87 -203 -175 -18 -47 -19 -95 -19 -1224 0
+                                    -1132 1 -1177 19 -1224 25 -66 85 -129 149 -157 42 -18 75 -23 174 -27 l122
+                                    -4 3 458 c3 443 4 461 24 505 27 58 85 116 143 143 46 21 53 21 771 21 718 0
+                                    725 0 771 -21 58 -27 116 -85 143 -143 20 -44 21 -62 24 -505 l3 -458 122 4
+                                    c98 3 132 9 172 27 65 29 118 81 147 145 l23 51 3 970 c2 672 -1 978 -8 996
+                                    -6 14 -145 159 -308 321 -330 330 -304 312 -447 306 l-80 -3 -5 -405 c-6 -456
+                                    -4 -446 -82 -498 l-42 -27 -436 0 -436 0 -42 27 c-78 52 -76 42 -82 498 l-5
+                                    405 -290 2 c-159 0 -307 -3 -328 -8z
+                                    M1127 2903 c-4 -3 -7 -172 -7 -375 l0 -368 380 0 380 0 -2 373 -3
+                                    372 -371 3 c-204 1 -373 -1 -377 -5z
+                                    M779 1001 l-29 -29 0 -441 0 -441 750 0 750 0 0 441 0 441 -29 29
+                                    -29 29 -692 0 -692 0 -29 -29z">
+                                        <Path.RenderTransform>
+                                            <ScaleTransform ScaleY="-1"
+                                                            CenterY="12"/>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                    <!-- save.svg -->
                                     <TextBlock Text="Miejsce zapisu"
                                                Grid.Column="1"
                                                VerticalAlignment="Center"
-                                               Foreground="White"/>
+                                               Foreground="{StaticResource TextColor}"/>
                                     <TextBlock Text=">"
                                                Grid.Column="2"
                                                VerticalAlignment="Center"
@@ -270,7 +402,7 @@
                             <TextBlock Text="Inne"
                                        FontSize="20"
                                        FontWeight="SemiBold"
-                                       Foreground="White"
+                                       Foreground="{StaticResource TextColor}"
                                        Margin="16,8,0,0"/>
                             <StackPanel Spacing="8">
                                 <Grid Height="48"
@@ -280,15 +412,37 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="Assets/Images/review.png"
-                                           Width="24"
-                                           Height="24"
-                                           VerticalAlignment="Center"
-                                           Margin="8,0"/>
+                                    <Path Width="24"
+                                          Height="24"
+                                          Stretch="Uniform"
+                                          Fill="{StaticResource IconColor}"
+                                          Data="M2302 2783 c-10 -10 -49 -66 -86 -124 l-67 -107 -127 -32 c-198 -49
+                                        -202 -62 -72 -215 68 -80 89 -112 86 -128 -12 -57 -17 -247 -7 -265 18 -34 46
+                                        -31 173 19 68 27 128 49 133 49 6 0 65 -22 133 -49 183 -72 188 -68 176 130
+                                        l-9 141 88 105 c88 106 102 137 73 166 -8 8 -73 29 -145 47 l-130 32 -72 114
+                                        c-85 136 -106 153 -147 117z
+                                        M442 2420 c-163 -24 -300 -160 -332 -330 -13 -71 -13 -1179 0 -1251
+                                        24 -127 109 -236 228 -292 l67 -32 201 -3 202 -3 -2 -129 c-1 -127 -1 -128 29
+                                        -172 55 -79 166 -111 245 -70 19 10 140 98 269 195 l234 177 297 0 c241 0 306
+                                        3 351 16 140 41 247 157 278 302 7 35 11 205 11 492 l0 438 -93 37 -93 37
+                                        -104 -43 c-133 -54 -186 -56 -256 -14 -31 20 -56 46 -72 75 -23 43 -24 50 -17
+                                        176 l6 131 -70 84 c-42 49 -79 104 -90 134 l-19 50 -608 1 c-335 1 -633 -2
+                                        -662 -6z m1397 -670 c31 -16 46 -65 31 -100 -7 -17 -21 -35 -31 -40 -11 -6
+                                        -215 -10 -512 -10 -471 0 -496 1 -518 19 -33 27 -33 95 0 122 22 18 47 19 518
+                                        19 297 0 501 -4 512 -10z m-430 -436 c40 -33 43 -83 6 -119 l-24 -25 -270 0
+                                        c-177 0 -278 4 -294 11 -26 12 -47 47 -47 77 0 24 28 62 54 72 11 5 139 9 283
+                                        9 l261 1 31 -26z">
+                                        <Path.RenderTransform>
+                                            <ScaleTransform ScaleY="-1"
+                                                            CenterY="12"/>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                    <!-- review.svg -->
+
                                     <TextBlock Text="Opinia"
                                                Grid.Column="1"
                                                VerticalAlignment="Center"
-                                               Foreground="White"/>
+                                               Foreground="{StaticResource TextColor}"/>
                                     <TextBlock Text=">"
                                                Grid.Column="2"
                                                VerticalAlignment="Center"
@@ -302,15 +456,57 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="Assets/Images/group.png"
-                                           Width="24"
-                                           Height="24"
-                                           VerticalAlignment="Center"
-                                           Margin="8,0"/>
+                                    <Path Width="24"
+                                          Height="24"
+                                          Stretch="Uniform"
+                                          Fill="{StaticResource IconColor}"
+                                          Data="M1067 2846 c-151 -63 -242 -200 -240 -361 1 -126 59 -235 163 -308
+                                    75 -52 144 -70 244 -65 142 8 257 87 320 218 28 59 31 74 31 160 0 85 -3 102
+                                    -31 160 -37 79 -108 151 -183 187 -46 22 -73 27 -151 30 -83 3 -102 1 -153
+                                    -21z
+                                    M2291 2499 c-40 -12 -106 -52 -144 -88 -42 -38 -74 -98 -92 -169
+                                    l-16 -62 68 -68 c73 -71 119 -150 131 -225 10 -59 40 -72 162 -72 79 0 103 4
+                                    142 24 75 37 134 95 170 169 30 60 33 75 33 152 0 101 -27 171 -95 244 -64 69
+                                    -134 99 -239 103 -47 1 -101 -2 -120 -8z
+                                    M527 2150 c-124 -32 -219 -119 -257 -239 -30 -96 -22 -190 24 -280
+                                    28 -52 102 -120 164 -149 49 -23 70 -27 147 -26 73 0 99 4 137 23 44 21 48 26
+                                    67 91 22 71 93 180 132 200 19 11 21 17 15 69 -13 119 -99 236 -209 286 -59
+                                    27 -163 39 -220 25z
+                                    M1741 2150 c-140 -30 -256 -150 -277 -288 -6 -42 -6 -43 60 -108 72
+                                    -70 120 -154 132 -230 5 -38 10 -45 43 -56 20 -7 72 -13 116 -12 106 0 185 34
+                                    255 111 69 75 93 144 88 253 -2 70 -8 95 -32 143 -71 139 -233 218 -385 187z
+                                    M967 2073 c-10 -3 -17 -8 -15 -11 34 -63 61 -138 65 -179 3 -29 6
+                                    -53 7 -53 1 0 25 9 55 21 78 29 163 35 239 15 35 -9 67 -14 72 -11 4 2 10 24
+                                    12 49 3 24 19 71 35 104 l30 60 -30 6 c-34 7 -443 6 -470 -1z
+                                    M1113 1772 c-152 -54 -237 -178 -237 -344 0 -66 5 -86 33 -142 61
+                                    -125 177 -197 316 -197 141 0 254 71 317 199 30 60 33 75 33 152 0 71 -5 94
+                                    -26 140 -61 128 -168 200 -307 207 -57 3 -91 -1 -129 -15z
+                                    M2246 1738 c-10 -70 -44 -150 -86 -206 -44 -58 -46 -62 -26 -62 8 0
+                                    39 -13 70 -30 184 -96 283 -260 294 -482 l5 -108 31 0 c98 0 328 50 421 91
+                                    l45 20 0 207 c0 225 -8 280 -56 374 -39 77 -120 152 -211 196 l-78 37 -201 3
+                                    -201 4 -7 -44z
+                                    M392 1419 c-175 -22 -335 -166 -376 -336 -13 -54 -16 -110 -14 -277
+                                    l3 -209 65 -19 c111 -32 293 -67 382 -74 l85 -7 5 119 c4 99 9 130 32 184 53
+                                    129 153 235 277 293 l68 31 -31 35 c-42 48 -87 148 -95 209 -4 40 -10 51 -27
+                                    56 -31 8 -300 5 -374 -5z
+                                    M1668 1424 c-5 -4 -8 -22 -8 -39 0 -64 -65 -204 -113 -244 -16 -12
+                                    -9 -18 64 -53 136 -66 240 -190 283 -337 10 -34 16 -92 16 -152 0 -54 3 -100
+                                    8 -102 4 -2 51 0 105 5 114 10 265 47 344 83 l55 25 -4 217 c-4 184 -8 228
+                                    -25 280 -49 148 -155 253 -303 298 -59 18 -408 34 -422 19z
+                                    M961 1044 c-161 -43 -292 -180 -326 -341 -14 -64 -22 -473 -10 -473
+                                    2 0 53 -13 112 -29 209 -56 289 -66 528 -66 235 0 308 10 454 60 122 41 111
+                                    16 111 248 0 145 -5 220 -15 266 -39 166 -164 292 -330 336 -81 21 -445 20
+                                    -524 -1z">
+                                        <Path.RenderTransform>
+                                            <ScaleTransform ScaleY="-1"
+                                                            CenterY="12"/>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                    <!-- group.svg -->
                                     <TextBlock Text="O nas"
                                                Grid.Column="1"
                                                VerticalAlignment="Center"
-                                               Foreground="White"/>
+                                               Foreground="{StaticResource TextColor}"/>
                                     <TextBlock Text=">"
                                                Grid.Column="2"
                                                VerticalAlignment="Center"
@@ -324,15 +520,29 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Source="Assets/Images/policy.png"
-                                           Width="24"
-                                           Height="24"
-                                           VerticalAlignment="Center"
-                                           Margin="8,0"/>
+                                    <Path Width="24"
+                                          Height="24"
+                                          Stretch="Uniform"
+                                          Fill="{StaticResource IconColor}"
+                                          Data="M1215 2911 c-295 -104 -772 -284 -824 -310 -77 -40 -89 -65 -120
+                                    -246 -36 -205 -46 -351 -46 -670 0 -429 19 -543 119 -731 137 -258 450 -552
+                                    856 -806 160 -99 258 -148 299 -148 66 0 283 120 509 282 420 302 682 614 736
+                                    878 53 260 44 871 -18 1262 -16 100 -37 136 -99 172 -48 28 -622 245 -903 341
+                                    -104 36 -205 65 -224 65 -19 -1 -147 -41 -285 -89z m388 -937 c57 -19 129 -81
+                                    164 -142 22 -37 28 -61 31 -131 4 -82 2 -89 -30 -151 -23 -45 -48 -76 -81
+                                    -100 l-47 -35 0 -155 c0 -136 -2 -159 -20 -187 -51 -85 -180 -83 -237 3 -15
+                                    23 -19 57 -23 185 l-5 156 -45 35 c-30 22 -56 56 -78 98 -32 62 -34 69 -30
+                                    151 3 70 9 94 31 131 34 59 107 123 160 142 56 19 153 20 210 0z">
+                                        <Path.RenderTransform>
+                                            <ScaleTransform ScaleY="-1"
+                                                            CenterY="12"/>
+                                        </Path.RenderTransform>
+                                    </Path>
+
                                     <TextBlock Text="Polityka Prywatności"
                                                Grid.Column="1"
                                                VerticalAlignment="Center"
-                                               Foreground="White"/>
+                                               Foreground="{StaticResource TextColor}"/>
                                     <TextBlock Text=">"
                                                Grid.Column="2"
                                                VerticalAlignment="Center"
@@ -374,15 +584,14 @@
                                            HorizontalAlignment="Center"
                                            FontSize="18"
                                            FontWeight="SemiBold"
-                                           Foreground="White"/>
-
+                                           Foreground="{StaticResource TextColor}"/>
                                 <ScrollViewer Margin="0,16,0,0"
                                               MaxHeight="400">
                                     <TextBlock x:Name="PopupTresc"
                                                TextWrapping="Wrap"
                                                FontSize="16"
                                                LineHeight="24"
-                                               Foreground="White"/>
+                                               Foreground="{StaticResource TextColor}"/>
                                 </ScrollViewer>
                             </StackPanel>
                         </Border>

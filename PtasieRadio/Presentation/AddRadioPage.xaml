@@ -6,10 +6,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     mc:Ignorable="d"
-    Background="#1c1b1f">
+    Background="{StaticResource PrimaryColor}">
 
     <Grid>
-        <!-- Górny pasek z przyciskiem powrotu DO NAPRAWY!!!-->
+        <!-- Górny pasek z przyciskiem powrotu-->
         <Grid HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Margin="20"
@@ -36,7 +36,7 @@
                                     Value="True">
                                 <Setter TargetName="ellipse"
                                         Property="Fill"
-                                        Value="#12101DFF"/>
+                                        Value="{StaticResource PrimaryColor}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -54,7 +54,8 @@
                 <!-- Pole URL -->
                 <TextBox Header="URL Stacji"
                         Height="40"
-                        x:Name="UrlTextBox"/>
+                        x:Name="UrlTextBox"
+                        BorderBrush="{StaticResource SecondaryColor}"/>
 
                 <!-- Obrazek + Nazwa i Opis obok siebie -->
                 <Grid>
@@ -79,8 +80,8 @@
                             <Button.Template>
                                 <ControlTemplate TargetType="Button">
                                     <Grid>
-                                        <Image Source="Assets/Images/placeholder.png"
-                                                Stretch="Fill"
+                                        <Image Source="Assets/Images/radio_placeholder_square.png"
+                                                Stretch="Uniform"
                                                 x:Name="SelectedImage"/>
                                     </Grid>
                                 </ControlTemplate>
@@ -89,7 +90,7 @@
                         <TextBlock Text="Kliknij aby wybrać zdjęcie"
                                    FontSize="12"
                                    FontWeight="Bold"
-                                   Foreground="White"
+                                   Foreground="{StaticResource TextColor}"
                                    TextAlignment="Center"
                                    HorizontalAlignment="Center"/>
                     </StackPanel>
@@ -101,13 +102,15 @@
                         <TextBox Header="Nazwa stacji"
                                 Width="180"
                                 Height="40"
-                                x:Name="NameTextBox"/>
+                                x:Name="NameTextBox"
+                                BorderBrush="{StaticResource SecondaryColor}"/>
                         <TextBox Header="Opis stacji"
                                 Width="180"
                                 Height="100"
                                 TextWrapping="Wrap"
                                 AcceptsReturn="True"
-                                x:Name="DescriptionTextBox"/>
+                                x:Name="DescriptionTextBox"
+                                BorderBrush="{StaticResource SecondaryColor}"/>
                     </StackPanel>
                 </Grid>
 
@@ -116,7 +119,12 @@
                         Width="160"
                         Height="40"
                         HorizontalAlignment="Center"
-                        Tapped="OnSaveButtonTapped"/>
+                        Tapped="OnSaveButtonTapped"
+                        Background="{StaticResource SecondaryColor}"
+                        Foreground="{StaticResource TextColor}"
+
+                         />
+                         <!-- po najechaniu na przycisk zmienia się na zły kolor + gdy zaczynasz pisać w textboxach to zmienia się obwódka na bakcground kolor  napraw later -->
             </StackPanel>
         </ScrollViewer>
     </Grid>

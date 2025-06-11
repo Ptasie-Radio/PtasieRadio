@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "jZy9eIImaBw=",
+  "dgSpecHash": "6Xy4sjza79A=",
   "success": true,
   "projectFilePath": "C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\PtasieRadio.Tests.csproj",
   "expectedPackageFiles": [
@@ -14,6 +14,7 @@
     "C:\\Users\\Kornel\\.nuget\\packages\\communitytoolkit.winui.extensions\\8.0.240109\\communitytoolkit.winui.extensions.8.0.240109.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\coverlet.collector\\6.0.2\\coverlet.collector.6.0.2.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\fluentassertions\\6.12.0\\fluentassertions.6.12.0.nupkg.sha512",
+    "C:\\Users\\Kornel\\.nuget\\packages\\gemojisharp\\4.0.0\\gemojisharp.4.0.0.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\githubactionstestlogger\\2.3.3\\githubactionstestlogger.2.3.3.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\8.0.0\\microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",
     "C:\\Users\\Kornel\\.nuget\\packages\\microsoft.codecoverage\\17.9.0\\microsoft.codecoverage.17.9.0.nupkg.sha512",
@@ -140,6 +141,12 @@
     "C:\\Users\\Kornel\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.15\\microsoft.aspnetcore.app.ref.8.0.15.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Kornel\\Documents\\PtasieRadio\\PtasieRadio\\PtasieRadio.Tests\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1701",
       "level": "Warning",

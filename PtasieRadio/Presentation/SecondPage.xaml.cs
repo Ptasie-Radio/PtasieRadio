@@ -57,12 +57,31 @@ public sealed partial class SecondPage : Page
     }
 
     private void OnAddRadioTapped(object sender, TappedRoutedEventArgs e)
+
+
+private void NavigateToChangeTheme(object sender, TappedRoutedEventArgs e)
+{
+    var viewModel = DataContext as SecondViewModel;
+    if (viewModel == null) return;
+    viewModel.GoToChangeTheme.Execute(null);
+}
+
+
+    private void AddNewRadioNavigate(object sender, TappedRoutedEventArgs e)
     {
         var viewModel = DataContext as SecondViewModel;
         if (viewModel == null) return;
         viewModel.NavigateToAddRadioCommand.Execute(null);
     }
-    //PRZYCISK USTAWIENIA - > INNE
+
+        private async void SaveFolderTapped(object sender, TappedRoutedEventArgs e)
+    {
+        var folderName = "PtasieRadio";
+        var folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync(
+		folderName, CreationCollisionOption.OpenIfExists);
+			System.Diagnostics.Process.Start("explorer.exe", folder.Path);
+    }
+        //PRZYCISK USTAWIENIA - > INNE
     private async void OnOpiniaTapped(object sender, TappedRoutedEventArgs e)
     {
         var uri = new Uri("https://docs.google.com/forms/d/e/1FAIpQLSduEc6xafNra5ygl1m6dShfAwOl6oSdzMcyGw1p6q178Ya_bw/viewform");
@@ -110,6 +129,8 @@ public sealed partial class SecondPage : Page
             "Umożliwia słuchanie stacji radiowych, dodawanie własnych linków, zmianę kolorów interfejsu, ikon oraz nazwy użytkownika. \n" +
             "Dziękujemy, że z niej korzystasz! ❤️");
     }
+
+
 
     private void OnPolitykaTapped(object sender, TappedRoutedEventArgs e)
     {

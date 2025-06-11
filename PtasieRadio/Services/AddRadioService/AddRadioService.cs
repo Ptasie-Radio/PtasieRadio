@@ -17,9 +17,6 @@ public class AddRadioService : IAddRadioService
 	public const string localFileName = "radio.json";
 	public static SemaphoreSlim jsonSemaphore = new SemaphoreSlim(1);
 
-	//private string url = "";
-	//private string name = "";
-	//private string description = "";
 	private static string folderName = "PtasieRadio";
 	private readonly IUserProfileService _profileService;
 
@@ -81,7 +78,6 @@ public class AddRadioService : IAddRadioService
 			entries[index.ToString()] = entry;
 			await _profileService.AddRadioStationKeyToCurrentProfile(index.ToString());
 			await SaveToJson(folder, entries);
-			//_ = GoToMain(_navigator);
 		}
 	}
 
@@ -91,10 +87,4 @@ public class AddRadioService : IAddRadioService
 		var saveFile = await folder.CreateFileAsync(localFileName, CreationCollisionOption.ReplaceExisting);
 		await FileIO.WriteTextAsync(saveFile, json);
 	}
-
-	//public async Task GoToMain(INavigator _navigator)
-	//{
-	//    await _navigator.NavigateRouteAsync(this, "/Main");
-	//}
-
 }
