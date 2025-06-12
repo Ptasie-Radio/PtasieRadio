@@ -235,13 +235,11 @@ public sealed partial class MainPage : Page
     }
     private void FilterVisibleStations(string searchText)
     {
-        // Lista wszystkich kategorii/paneli zawierających stacje
         var categoryPanels = new List<StackPanel>
     {
         NajczesciejGranePanel,
         PopularnePanel,
-        WlasnePanel 
-        // Dodaj tutaj inne panele kategorii jeśli masz więcej
+        WlasnePanel
     };
 
         foreach (var categoryPanel in categoryPanels)
@@ -264,14 +262,14 @@ public sealed partial class MainPage : Page
                     string stationName = textBlock.Text.ToLower();
 
                     // Pokazujemy/ukrywamy stację na podstawie dopasowania
-                    if (string.IsNullOrEmpty(searchText) || stationName.Contains(searchText))
-                    {
+                    bool isMatch = string.IsNullOrEmpty(searchText) ||
+                              stationName.Contains(searchText) ||
+                              FuzzySearch.CalculateSimilarity(stationName, searchText) >= 0.4;
+
+                    if (isMatch)
                         stationPanel.Visibility = Visibility.Visible;
-                    }
                     else
-                    {
                         stationPanel.Visibility = Visibility.Collapsed;
-                    }
                 }
             }
         }
@@ -301,7 +299,7 @@ public sealed partial class MainPage : Page
     private List<string> GetMatchingStationNames(string searchText)
     {
         var matchingNames = new List<string>();
-        var categoryPanels = new List<StackPanel> { NajczesciejGranePanel, WlasnePanel };
+        var categoryPanels = new List<StackPanel> { NajczesciejGranePanel,PopularnePanel, WlasnePanel};
 
         foreach (var categoryPanel in categoryPanels)
         {

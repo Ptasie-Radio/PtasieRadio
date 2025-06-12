@@ -120,6 +120,13 @@
                                         HorizontalContentAlignment="Left"
                                         TextChanged="SearchAutoSuggestBox_TextChanged"
                                         VerticalContentAlignment="Center">
+                            <AutoSuggestBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding }"
+                                            FontWeight="SemiBold"
+                                            Foreground="{StaticResource TextColor}"/>
+                                </DataTemplate>
+                            </AutoSuggestBox.ItemTemplate>
                             <AutoSuggestBox.Resources>
                                 <Style TargetType="AutoSuggestBox">
                                     <Setter Property="FocusVisualPrimaryBrush"
