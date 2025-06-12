@@ -14,12 +14,16 @@
         <Grid
             x:Name="RadioMainPage"
             Visibility="Visible">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/> <!-- Pasek wyszukiwania -->
-            <RowDefinition Height="Auto"/> <!-- Pasek kategorii -->
-            <RowDefinition Height="*"/>   <!-- Radia itp -->
-            <RowDefinition Height="Auto"/> <!-- MiniPlayer -->
-        </Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- Pasek wyszukiwania -->
+                <RowDefinition Height="Auto"/>
+                <!-- Pasek kategorii -->
+                <RowDefinition Height="*"/>
+                <!-- Radia itp -->
+                <RowDefinition Height="Auto"/>
+                <!-- MiniPlayer -->
+            </Grid.RowDefinitions>
 
 
             <!-- Górny pasek wyszukiwania -->
@@ -44,13 +48,14 @@
                                          Width="40"
                                          Height="40"/>
                                 <Path Width="24"
-                                    Height="24"
-                                    Stretch="Uniform"
-                                    Fill="{StaticResource IconColor}"
-                                    Data="M336 2619 c-72 -12 -135 -55 -173 -119 -28 -46 -33 -63 -33 -120 0 -117 61 -204 168 -242 54 -19 2350 -19 2404 0 112 40 173 132 166 251 -7 125 -86 210 -213 231 -73 12 -2248 11 -2319 -1z M310 1741 c-72 -23 -138 -79 -164 -143 -20 -48 -20 -148 0 -196 19 -47 67 -97 119 -125 l40 -22 1195 0 1195 0 40 22 c90 48 135 123 135 223 0 100 -45 175 -135 223 l-40 22 -1180 2 c-649 1 -1191 -2 -1205 -6z M333 870 c-82 -17 -144 -62 -179 -132 -22 -44 -26 -61 -22 -123 3 -59 9 -81 33 -121 38 -61 102 -101 180 -114 80 -13 2230 -13 2310 0 127 21 206 106 213 231 7 115 -44 197 -154 246 -37 17 -110 18 -1189 20 -632 0 -1169 -3 -1192 -7z">
+                                      Height="24"
+                                      Stretch="Uniform"
+                                      Fill="{StaticResource IconColor}"
+                                      Data="M336 2619 c-72 -12 -135 -55 -173 -119 -28 -46 -33 -63 -33 -120 0 -117 61 -204 168 -242 54 -19 2350 -19 2404 0 112 40 173 132 166 251 -7 125 -86 210 -213 231 -73 12 -2248 11 -2319 -1z M310 1741 c-72 -23 -138 -79 -164 -143 -20 -48 -20 -148 0 -196 19 -47 67 -97 119 -125 l40 -22 1195 0 1195 0 40 22 c90 48 135 123 135 223 0 100 -45 175 -135 223 l-40 22 -1180 2 c-649 1 -1191 -2 -1205 -6z M333 870 c-82 -17 -144 -62 -179 -132 -22 -44 -26 -61 -22 -123 3 -59 9 -81 33 -121 38 -61 102 -101 180 -114 80 -13 2230 -13 2310 0 127 21 206 106 213 231 7 115 -44 197 -154 246 -37 17 -110 18 -1189 20 -632 0 -1169 -3 -1192 -7z">
                                     <Path.RenderTransform>
                                         <TransformGroup>
-                                            <ScaleTransform ScaleY="-1" CenterY="12"/>
+                                            <ScaleTransform ScaleY="-1"
+                                                            CenterY="12"/>
                                             <TranslateTransform Y="-5"/>
                                         </TransformGroup>
                                     </Path.RenderTransform>
@@ -79,7 +84,8 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <TextBox Width="600"
+                        <!-- <TextBox x:Name="SearchTextBox"
+                                 Width="600"
                                  Height="40"
                                  CornerRadius="20"
                                  Background="{StaticResource PrimaryColor}"
@@ -97,9 +103,50 @@
                                             Value="Transparent"/>
                                     <Setter Property="FocusVisualSecondaryBrush"
                                             Value="Transparent"/>
+                                            <Setter Property="Background" Value="Transparent"/>
                                 </Style>
                             </TextBox.Resources>
-                        </TextBox>
+                        </TextBox> -->
+
+                        <!-- PlaceholderForeground="{StaticResource TextColor}" -->
+                        <AutoSuggestBox x:Name="SearchAutoSuggestBox"
+                                        Width="600"
+                                        Height="40"
+                                        Background="{StaticResource PrimaryColor}"
+                                        BorderThickness="0"
+                                        PlaceholderText="Wyszukaj..."
+                                        Foreground="{StaticResource TextColor}"
+                                        FontWeight="SemiBold"
+                                        HorizontalContentAlignment="Left"
+                                        TextChanged="SearchAutoSuggestBox_TextChanged"
+                                        VerticalContentAlignment="Center">
+                            <AutoSuggestBox.Resources>
+                                <Style TargetType="AutoSuggestBox">
+                                    <Setter Property="FocusVisualPrimaryBrush"
+                                            Value="Transparent"/>
+                                    <Setter Property="FocusVisualSecondaryBrush"
+                                            Value="Transparent"/>
+                                </Style>
+                            </AutoSuggestBox.Resources>
+                            <AutoSuggestBox.TextBoxStyle>
+                                <Style TargetType="TextBox">
+                                    <Setter Property="PlaceholderForeground"
+                                            Value="{StaticResource TextColor}"/>
+                                    <Setter Property="CornerRadius"
+                                            Value="20"/>
+                                    <Setter Property="Background"
+                                            Value="{StaticResource PrimaryColor}"/>
+                                    <Setter Property="Foreground"
+                                            Value="{StaticResource TextColor}"/>
+                                    <Setter Property="FontWeight"
+                                            Value="SemiBold"/>
+                                    <Setter Property="Padding"
+                                            Value="20,11,0,0"/>
+                                    <Setter Property="BorderThickness"
+                                            Value="0"/>
+                                </Style>
+                            </AutoSuggestBox.TextBoxStyle>
+                        </AutoSuggestBox>
 
                         <Button Grid.Column="1"
                                 Width="40"
@@ -109,12 +156,13 @@
                                 Padding="0"
                                 CornerRadius="20">
                             <Path Width="24"
-                                Height="24"
-                                Stretch="Uniform"
-                                Fill="{StaticResource IconColor}"
-                                Data="M1059 2970 c-170 -21 -371 -98 -529 -201 -86 -57 -264 -236 -322 -324 -148 -228 -218 -475 -204 -730 27 -542 390 -985 915 -1122 169 -44 436 -42 601 3 119 33 243 87 340 149 l43 27 356 -354 c229 -228 370 -361 396 -374 53 -24 156 -24 205 0 49 25 88 64 113 111 28 54 30 154 3 210 -12 25 -150 172 -377 400 l-358 360 38 72 c157 294 186 667 76 973 -79 219 -225 419 -411 562 -72 55 -245 149 -330 179 -155 54 -396 80 -555 59z m377 -416 c148 -42 261 -112 370 -226 96 -99 163 -219 199 -353 23 -83 30 -255 16 -340 -61 -349 -328 -615 -676 -676 -87 -15 -270 -6 -345 16 -158 48 -271 117 -378 229 -129 137 -201 292 -224 485 -9 80 -8 113 6 199 59 371 337 640 721 696 67 10 228 -6 311 -30z">
+                                  Height="24"
+                                  Stretch="Uniform"
+                                  Fill="{StaticResource IconColor}"
+                                  Data="M1059 2970 c-170 -21 -371 -98 -529 -201 -86 -57 -264 -236 -322 -324 -148 -228 -218 -475 -204 -730 27 -542 390 -985 915 -1122 169 -44 436 -42 601 3 119 33 243 87 340 149 l43 27 356 -354 c229 -228 370 -361 396 -374 53 -24 156 -24 205 0 49 25 88 64 113 111 28 54 30 154 3 210 -12 25 -150 172 -377 400 l-358 360 38 72 c157 294 186 667 76 973 -79 219 -225 419 -411 562 -72 55 -245 149 -330 179 -155 54 -396 80 -555 59z m377 -416 c148 -42 261 -112 370 -226 96 -99 163 -219 199 -353 23 -83 30 -255 16 -340 -61 -349 -328 -615 -676 -676 -87 -15 -270 -6 -345 16 -158 48 -271 117 -378 229 -129 137 -201 292 -224 485 -9 80 -8 113 6 199 59 371 337 640 721 696 67 10 228 -6 311 -30z">
                                 <Path.RenderTransform>
-                                    <ScaleTransform ScaleY="-1" CenterY="12"/>
+                                    <ScaleTransform ScaleY="-1"
+                                                    CenterY="12"/>
                                 </Path.RenderTransform>
                             </Path>
                             <!-- search.svg -->
@@ -138,10 +186,10 @@
                                          Width="40"
                                          Height="40"/>
                                 <Path Width="24"
-                                    Height="24"
-                                    Stretch="Uniform"
-                                    Fill="{StaticResource IconColor}"
-                                    Data="M1308 2940 c-69 -11 -103 -28 -145 -72 -40 -42 -53 -75 -64 -167 -14
+                                      Height="24"
+                                      Stretch="Uniform"
+                                      Fill="{StaticResource IconColor}"
+                                      Data="M1308 2940 c-69 -11 -103 -28 -145 -72 -40 -42 -53 -75 -64 -167 -14
                                 -126 -73 -211 -178 -259 -84 -39 -174 -37 -265 6 -84 40 -157 43 -224 11 -48
                                 -24 -116 -107 -189 -234 -92 -158 -119 -247 -99 -325 16 -60 40 -90 118 -148
                                 108 -81 155 -192 130 -309 -17 -80 -57 -140 -132 -196 -91 -68 -114 -103 -118
@@ -158,7 +206,8 @@
                                 -180 37 -95 47 -160 112 -207 207 -36 72 -37 79 -37 181 0 102 1 109 37 181
                                 43 87 107 155 188 198 79 42 120 51 223 47 77 -3 97 -8 160 -39z">
                                     <Path.RenderTransform>
-                                        <ScaleTransform ScaleY="-1" CenterY="12"/>
+                                        <ScaleTransform ScaleY="-1"
+                                                        CenterY="12"/>
                                     </Path.RenderTransform>
                                 </Path>
 
@@ -181,34 +230,35 @@
             <Grid Grid.Row="1"
                   Background="{StaticResource SecondaryColor}"
                   Padding="24,10,24,10">
-            <StackPanel Orientation="Horizontal"
-                        HorizontalAlignment="Center"
-                        Spacing="50">
-            <StackPanel Spacing="4" HorizontalAlignment="Center">
-            <TextBlock Text="Główna"
-                    Foreground="{StaticResource TextColor}"
-                    FontSize="16"
-                    FontWeight="Bold"
-                    HorizontalAlignment="Center"/>
-                    <!-- Podkreślenie żeby info było na jakiej kategori jesteś -->
-            <Rectangle Height="2"
-                    Width="50"
-                    Fill="{StaticResource TextColor}"
-                    RadiusX="1"
-                    RadiusY="1"
-                    HorizontalAlignment="Center"/>
-            </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Spacing="50">
+                    <StackPanel Spacing="4"
+                                HorizontalAlignment="Center">
+                        <TextBlock Text="Główna"
+                                   Foreground="{StaticResource TextColor}"
+                                   FontSize="16"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"/>
+                        <!-- Podkreślenie żeby info było na jakiej kategori jesteś -->
+                        <Rectangle Height="2"
+                                   Width="50"
+                                   Fill="{StaticResource TextColor}"
+                                   RadiusX="1"
+                                   RadiusY="1"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
 
-        <TextBlock Text="Gatunek"
-                   Foreground="{StaticResource TextColor}"
-                   Opacity="0.6"
-                   FontSize="16"/>
-        <TextBlock Text="Kraj"
-                   Foreground="{StaticResource TextColor}"
-                   Opacity="0.6"
-                   FontSize="16"/>
-    </StackPanel>
-</Grid>
+                    <TextBlock Text="Gatunek"
+                               Foreground="{StaticResource TextColor}"
+                               Opacity="0.6"
+                               FontSize="16"/>
+                    <TextBlock Text="Kraj"
+                               Foreground="{StaticResource TextColor}"
+                               Opacity="0.6"
+                               FontSize="16"/>
+                </StackPanel>
+            </Grid>
 
 
             <!-- Sekcje główne -->
@@ -368,10 +418,10 @@
                             x:Name="MiniShuffleButton"
                             Tapped="ShuffleButtonTappedEvent">
                         <Path Width="24"
-                            Height="24"
-                            Stretch="Uniform"
-                            Fill="{StaticResource IconColor}"
-                            Data="M2349 2772 c-63 -33 -99 -90 -99 -159 0 -56 18 -98 64 -148 l37 -40
+                              Height="24"
+                              Stretch="Uniform"
+                              Fill="{StaticResource IconColor}"
+                              Data="M2349 2772 c-63 -33 -99 -90 -99 -159 0 -56 18 -98 64 -148 l37 -40
                         -213 -6 c-231 -7 -281 -16 -394 -69 -34 -17 -90 -51 -123 -76 -121 -91 -195
                         -185 -421 -539 -423 -661 -441 -684 -558 -742 -56 -27 -62 -28 -277 -34 -121
                         -3 -229 -9 -240 -14 -96 -39 -149 -151 -114 -242 15 -42 79 -102 119 -113 55
@@ -390,40 +440,42 @@
                         56 13 93 -8 139 -23 49 -433 459 -474 474 -44 17 -118 12 -159 -9z">
                             <Path.RenderTransform>
                                 <TransformGroup>
-                                    <ScaleTransform ScaleY="-1" CenterY="12"/>
+                                    <ScaleTransform ScaleY="-1"
+                                                    CenterY="12"/>
                                     <TranslateTransform Y="-4"/>
                                 </TransformGroup>
                             </Path.RenderTransform>
                         </Path>
-                    <!-- shuffle.svg -->
+                        <!-- shuffle.svg -->
                     </Button>
                     <Button Background="Transparent"
                             x:Name="MiniPlayButton"
                             Command="{Binding PlayRadioCommand}"
                             Tapped="PlayPauseButtonTappedEvent">
                         <Path Width="24"
-                            Height="24"
-                            Stretch="Uniform"
-                            Fill="{StaticResource IconColor}"
-                            Data="{Binding MiniPlayPauseButtonImage}"
-                            x:Name="MiniPlayButtonImage">
+                              Height="24"
+                              Stretch="Uniform"
+                              Fill="{StaticResource IconColor}"
+                              Data="{Binding MiniPlayPauseButtonImage}"
+                              x:Name="MiniPlayButtonImage">
                             <Path.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform ScaleY="-1" CenterY="12"/>
-                        </TransformGroup>
-                    </Path.RenderTransform> 
-                           </Path>   
+                                <TransformGroup>
+                                    <ScaleTransform ScaleY="-1"
+                                                    CenterY="12"/>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
                     </Button>
-<!-- tutaj trzeba fabiana mini_play.svg mini_pause.svg -->
+                    <!-- tutaj trzeba fabiana mini_play.svg mini_pause.svg -->
 
                     <Button Background="Transparent"
                             x:Name="MiniHeartButton"
                             Tapped="HeartButtonTappedEvent">
                         <Path Width="24"
-                            Height="24"
-                            Stretch="Uniform"
-                            Fill="{StaticResource IconColor}"
-                            Data="M636 2809 c-268 -66 -496 -284 -584 -559 -136 -425 -8 -802 417
+                              Height="24"
+                              Stretch="Uniform"
+                              Fill="{StaticResource IconColor}"
+                              Data="M636 2809 c-268 -66 -496 -284 -584 -559 -136 -425 -8 -802 417
                         -1229 178 -179 885 -796 954 -833 43 -23 109 -22 155 1 38 20 463 382 753 642
                         346 310 533 550 615 792 151 442 -33 933 -420 1125 -209 104 -472 111 -678 19
                         -109 -49 -234 -148 -316 -252 l-32 -40 -32 40 c-117 147 -272 251 -443 296
@@ -435,7 +487,8 @@
                         -2 123 -10 167 -25z">
                             <Path.RenderTransform>
                                 <TransformGroup>
-                                    <ScaleTransform ScaleY="-1" CenterY="12"/>
+                                    <ScaleTransform ScaleY="-1"
+                                                    CenterY="12"/>
                                     <TranslateTransform Y="-4"/>
                                 </TransformGroup>
                             </Path.RenderTransform>
@@ -704,18 +757,19 @@
                         Padding="0"
                         Tapped="ArrowTapped">
                     <Path Width="24"
-                        Height="24"
-                        Stretch="Uniform"
-                        Fill="{StaticResource IconColor}"
-                        Data="M530 7039 c-81 -6 -124 -20 -214 -68 -136 -72 -262 -230 -299 -376 -14 -52 -13 -289 0 -340 14 -53 40 -112 53 -120 5 -3 10 -13 10 -22 0 -8 14 -34 32 -57 46 -61 3914 -3930 3978 -3980 66 -52 135 -91 207 -118 78 -29 308 -29 386 0 72 27 141 66 207 118 64 50 3932 3919 3978 3980 18 23 32 49 32 57 0 9 4 19 10 22 13 8 50 93 50 115 0 29 11 50 26 50 11 0 14 25 14 125 0 100 -3 125 -14 125 -15 0 -26 21 -26 50 0 11 -16 54 -37 97 -29 62 -53 95 -122 163 -83 82 -124 109 -254 164 -54 23 -320 23 -374 0 -79 -34 -110 -49 -163 -83 -37 -23 -634 -613 -1780 -1758 -949 -947 -1732 -1723 -1740 -1723 -8 0 -791 776 -1740 1723 -1146 1145 -1743 1735 -1780 1758 -148 93 -239 114 -440 98z">        
-                    <Path.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform ScaleY="-1" CenterY="12"/>
-                            <TranslateTransform Y="-10"/>
-                        </TransformGroup>
-                    </Path.RenderTransform> 
-                </Path>
-                           <!-- arrow_down.svg -->
+                          Height="24"
+                          Stretch="Uniform"
+                          Fill="{StaticResource IconColor}"
+                          Data="M530 7039 c-81 -6 -124 -20 -214 -68 -136 -72 -262 -230 -299 -376 -14 -52 -13 -289 0 -340 14 -53 40 -112 53 -120 5 -3 10 -13 10 -22 0 -8 14 -34 32 -57 46 -61 3914 -3930 3978 -3980 66 -52 135 -91 207 -118 78 -29 308 -29 386 0 72 27 141 66 207 118 64 50 3932 3919 3978 3980 18 23 32 49 32 57 0 9 4 19 10 22 13 8 50 93 50 115 0 29 11 50 26 50 11 0 14 25 14 125 0 100 -3 125 -14 125 -15 0 -26 21 -26 50 0 11 -16 54 -37 97 -29 62 -53 95 -122 163 -83 82 -124 109 -254 164 -54 23 -320 23 -374 0 -79 -34 -110 -49 -163 -83 -37 -23 -634 -613 -1780 -1758 -949 -947 -1732 -1723 -1740 -1723 -8 0 -791 776 -1740 1723 -1146 1145 -1743 1735 -1780 1758 -148 93 -239 114 -440 98z">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleY="-1"
+                                                CenterY="12"/>
+                                <TranslateTransform Y="-10"/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                    <!-- arrow_down.svg -->
                 </Button>
 
                 <!-- Tekst i flaga -->
@@ -778,9 +832,10 @@
                         Foreground="{StaticResource TextColor}"
                         Background="{StaticResource SecondaryColor}"
                         ValueChanged="OnSoundLevelSliderValueChanged">
-                        <Slider.Resources>
-        <SolidColorBrush x:Key="SliderThumbBackground" Color="{ThemeResource IconColor}" />
-    </Slider.Resources>
+                    <Slider.Resources>
+                        <SolidColorBrush x:Key="SliderThumbBackground"
+                                         Color="{ThemeResource IconColor}"/>
+                    </Slider.Resources>
                 </Slider>
 
                 <!-- mute/unmute button -->
@@ -799,7 +854,8 @@
                                Fill="{StaticResource IconColor}">
                             <Path.RenderTransform>
                                 <TransformGroup>
-                                    <ScaleTransform ScaleY="-1" CenterY="12"/>
+                                    <ScaleTransform ScaleY="-1"
+                                                    CenterY="12"/>
                                     <TranslateTransform Y="12"/>
                                 </TransformGroup>
                             </Path.RenderTransform>
@@ -860,7 +916,8 @@
                                Stretch="Uniform">
                             <Path.RenderTransform>
                                 <TransformGroup>
-                                    <ScaleTransform ScaleY="-1" CenterY="12"/>
+                                    <ScaleTransform ScaleY="-1"
+                                                    CenterY="12"/>
                                     <TranslateTransform Y="20"/>
                                 </TransformGroup>
                             </Path.RenderTransform>

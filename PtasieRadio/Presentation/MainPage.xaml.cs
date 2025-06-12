@@ -33,7 +33,7 @@ public sealed partial class MainPage : Page
         _ = CreateOwnStationOnViewLoad();
 
     }
-    
+
     private void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
     {
         double windowHeight = this.ActualHeight;
@@ -132,12 +132,12 @@ public sealed partial class MainPage : Page
     }
 
     private void OnTabTapped(object sender, TappedRoutedEventArgs e)
-{
-    if (sender is StackPanel panel && panel.Tag is string selected)
     {
-        System.Diagnostics.Debug.WriteLine($"Kliknięto: {selected}");
+        if (sender is StackPanel panel && panel.Tag is string selected)
+        {
+            System.Diagnostics.Debug.WriteLine($"Kliknięto: {selected}");
+        }
     }
-}
 
 
     private void ShuffleButtonTappedEvent(object sender, TappedRoutedEventArgs e)
@@ -167,25 +167,25 @@ public sealed partial class MainPage : Page
         viewModel.Volume = e.NewValue;
     }
 
-    public static async Task<Dictionary<string, SaveEntryData>> LoadFromJson(StorageFolder folder, string text="")
-	{
-		var localFileName = "radio.json";
-		Dictionary<string, SaveEntryData> entries;
-		Dictionary<string, SaveEntryData> filteredEntries;
-		try
-		{
+    public static async Task<Dictionary<string, SaveEntryData>> LoadFromJson(StorageFolder folder, string text = "")
+    {
+        var localFileName = "radio.json";
+        Dictionary<string, SaveEntryData> entries;
+        Dictionary<string, SaveEntryData> filteredEntries;
+        try
+        {
 
-			var file = await folder.GetFileAsync(localFileName);
-			string json = await FileIO.ReadTextAsync(file);
-			entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
-					  ?? new Dictionary<string, SaveEntryData>();
-			if (text != "") filteredEntries = entries.Where(kv => kv.Value.Category == text).ToDictionary(kv => kv.Key, kv => kv.Value);
-			else filteredEntries = entries;
-		}
-		catch (FileNotFoundException)
-		{
-			filteredEntries = new Dictionary<string, SaveEntryData>();
-		}
+            var file = await folder.GetFileAsync(localFileName);
+            string json = await FileIO.ReadTextAsync(file);
+            entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
+                      ?? new Dictionary<string, SaveEntryData>();
+            if (text != "") filteredEntries = entries.Where(kv => kv.Value.Category == text).ToDictionary(kv => kv.Key, kv => kv.Value);
+            else filteredEntries = entries;
+        }
+        catch (FileNotFoundException)
+        {
+            filteredEntries = new Dictionary<string, SaveEntryData>();
+        }
 
         return filteredEntries;
     }
@@ -224,7 +224,7 @@ public sealed partial class MainPage : Page
         int j = 0;
         using (await AddRadioService.jsonSemaphore.Lock())
         {
-		    foreach (StackPanel panel in new List<StackPanel> {NajczesciejGranePanel,PopularnePanel,WlasnePanel})
+            foreach (StackPanel panel in new List<StackPanel> { NajczesciejGranePanel, PopularnePanel, WlasnePanel })
             {
                 var folder = await OpenFolder();
                 var entries = await LoadFromJson(folder, x[j]);
@@ -232,6 +232,97 @@ public sealed partial class MainPage : Page
                 j++;
             }
         }
+    }
+    private void FilterVisibleStations(string searchText)
+    {
+        // Lista wszystkich kategorii/paneli zawierających stacje
+        var categoryPanels = new List<StackPanel>
+    {
+        NajczesciejGranePanel,
+        PopularnePanel,
+        WlasnePanel 
+        // Dodaj tutaj inne panele kategorii jeśli masz więcej
+    };
+
+        foreach (var categoryPanel in categoryPanels)
+        {
+            FilterStationsInCategory(categoryPanel, searchText);
+        }
+    }
+
+    private void FilterStationsInCategory(StackPanel categoryPanel, string searchText)
+    {
+        foreach (var child in categoryPanel.Children)
+        {
+            if (child is StackPanel stationPanel && stationPanel.Name.StartsWith("Stacja_"))
+            {
+                // Znajdujemy TextBlock z nazwą stacji (drugi element w StackPanel)
+                var textBlock = stationPanel.Children.OfType<TextBlock>().FirstOrDefault();
+
+                if (textBlock != null)
+                {
+                    string stationName = textBlock.Text.ToLower();
+
+                    // Pokazujemy/ukrywamy stację na podstawie dopasowania
+                    if (string.IsNullOrEmpty(searchText) || stationName.Contains(searchText))
+                    {
+                        stationPanel.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        stationPanel.Visibility = Visibility.Collapsed;
+                    }
+                }
+            }
+        }
+    }
+    private void SearchAutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+    {
+        if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
+        {
+            string searchText = sender.Text.ToLower().Trim();
+
+            // Filtrowanie widocznych stacji
+            FilterVisibleStations(searchText);
+
+            // Opcjonalnie: tworzenie podpowiedzi
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                var suggestions = GetMatchingStationNames(searchText);
+                sender.ItemsSource = suggestions.Take(5); // Maksymalnie 5 podpowiedzi
+            }
+            else
+            {
+                sender.ItemsSource = null;
+            }
+        }
+    }
+
+    private List<string> GetMatchingStationNames(string searchText)
+    {
+        var matchingNames = new List<string>();
+        var categoryPanels = new List<StackPanel> { NajczesciejGranePanel, WlasnePanel };
+
+        foreach (var categoryPanel in categoryPanels)
+        {
+            foreach (var child in categoryPanel.Children)
+            {
+                if (child is StackPanel stationPanel && stationPanel.Name.StartsWith("Stacja_"))
+                {
+                    var textBlock = stationPanel.Children.OfType<TextBlock>().FirstOrDefault();
+                    if (textBlock != null)
+                    {
+                        string stationName = textBlock.Text;
+                        if (stationName.ToLower().Contains(searchText))
+                        {
+                            matchingNames.Add(stationName);
+                        }
+                    }
+                }
+            }
+        }
+
+        return matchingNames.Distinct().OrderBy(x => x).ToList();
     }
 
     private async Task AddStation(StorageFolder folder, Dictionary<string, SaveEntryData> entries, StackPanel category)
@@ -352,6 +443,6 @@ public sealed partial class MainPage : Page
             }
         }
     }
-    
+
 
 }
