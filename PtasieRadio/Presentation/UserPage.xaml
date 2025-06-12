@@ -109,11 +109,19 @@
                                 Spacing="8"
                                 VerticalAlignment="Center">
                         <TextBox Header="Nazwa profilu"
+                                 PlaceholderText="Wprowadź nazwę profilu"
+                                 Foreground="{StaticResource TextColor}"
                                  Text="{Binding ProfileName, Mode=TwoWay, UpdateSourceTrigger=Explicit}"
-                                 BorderBrush="{StaticResource SecondaryColor}"
-                                 Width="180"
+                                 BorderBrush="{StaticResource IconColor}"
+                                 Width="220"
                                  Height="40"
-                                 x:Name="NameTextBox"/>
+                                 x:Name="NameTextBox">
+                            <TextBox.PlaceholderForeground>
+                                <SolidColorBrush Color="{Binding Color, Source={StaticResource IconColor}}" Opacity="0.6"/>
+                            </TextBox.PlaceholderForeground>
+                        </TextBox>
+
+                                 
                     </StackPanel>
 
                     <!-- Przycisk zapisu -->
