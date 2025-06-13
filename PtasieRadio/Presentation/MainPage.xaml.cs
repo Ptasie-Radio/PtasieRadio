@@ -31,7 +31,6 @@ public sealed partial class MainPage : Page
         this.InitializeComponent();
         this.SizeChanged += MainPage_SizeChanged;
         _ = CreateOwnStationOnViewLoad();
-
     }
 
     private void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -193,6 +192,7 @@ public sealed partial class MainPage : Page
     public static async Task RemoveEntryById(StorageFolder folder, string id)
     {
         var localFileName = "radio.json";
+        var userFileName = "../users.json";
         try
         {
             var file = await folder.GetFileAsync(localFileName);
@@ -201,11 +201,32 @@ public sealed partial class MainPage : Page
             var entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
                           ?? new Dictionary<string, SaveEntryData>();
 
+            var fileUser = await folder.GetFileAsync(userFileName);
+            string jsonUser = await FileIO.ReadTextAsync(fileUser);
+            var userData = JsonConvert.DeserializeObject<Dictionary<string, User>>(jsonUser)
+                          ?? new Dictionary<string, User>();
+
             if (entries.ContainsKey(id))
             {
                 entries.Remove(id);
                 string newJson = JsonConvert.SerializeObject(entries, Formatting.Indented);
                 await FileIO.WriteTextAsync(file, newJson);
+            }
+            // dla czyszczenia profilu
+            bool changed = false;
+            foreach (var user in userData.Values)
+            {
+                // Jeśli chcesz też z UserRadioStationKeys:
+                if (user.UserRadioStationKeys.Contains(id))
+                {
+                    user.UserRadioStationKeys.Remove(id);
+                    changed = true;
+                }
+            }
+            if (changed)
+            {
+                string newJson = JsonConvert.SerializeObject(userData, Formatting.Indented);
+                await FileIO.WriteTextAsync(fileUser, newJson);
             }
         }
         catch (FileNotFoundException)
@@ -246,6 +267,8 @@ public sealed partial class MainPage : Page
                         entries = new Dictionary<string, SaveEntryData>();
                     }
                 }
+                // if(entries.Contains)
+                //     await AddStation(folder, entries, panel);
                 await AddStation(folder, entries, panel);
                 j++;
             }
@@ -275,7 +298,7 @@ public sealed partial class MainPage : Page
                     bitmap = new BitmapImage();
                     await bitmap.SetSourceAsync(stream);
                 }
-                
+
             }
             catch (FileNotFoundException)
             {
@@ -322,7 +345,7 @@ public sealed partial class MainPage : Page
                 ManipulationMode = ManipulationModes.TranslateX | ManipulationModes.System,
             };
 
-            var targetPanels = new HashSet<StackPanel> { NajczesciejGranePanel, WlasnePanel };
+            var targetPanels = new HashSet<StackPanel> { NajczesciejGranePanel, WlasnePanel, UlubionePanel };
             if (targetPanels.Contains(category))
             {
                 var menu = new MenuFlyoutItem { Text = "Usuń" };
