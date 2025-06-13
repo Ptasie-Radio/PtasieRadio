@@ -21,6 +21,8 @@ public class RadioPlayerService : IRadioPlayerService
     public string StationCountry { get; set; }
     public bool IsPlaying => isPlaying;
     public bool IsMuted => isMuted;
+
+    public bool wasDownloaded = false;
     public float Volume => currentVolume * 100f;
 
 
@@ -149,13 +151,13 @@ public class RadioPlayerService : IRadioPlayerService
                     response.EnsureSuccessStatusCode();
                     var json = await response.Content.ReadAsStringAsync();
                     var stations = JsonSerializer.Deserialize<List<StationInfo>>(json, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
-                    foreach (var station in stations)
-                        Console.WriteLine(station.Name);
 
-                    using (await AddRadioService.AddRadioService.jsonSemaphore.Lock())
-                    {
+                    
+
+
                         StorageFolder folder = await MainPage.OpenFolder();
                         var entries = await MainPage.LoadFromJson(folder);
+
                         int imageIndex = 1;
                         foreach (var station in stations)
                         {
@@ -186,6 +188,7 @@ public class RadioPlayerService : IRadioPlayerService
 
                             using (image)
                             using (stream)
+                            using (await AddRadioService.AddRadioService.jsonSemaphore.Lock())
                             {
 
                                 var saveFile = await folder.CreateFileAsync(fileName, CreationCollisionOption.OpenIfExists);
@@ -199,10 +202,19 @@ public class RadioPlayerService : IRadioPlayerService
                                     Country = station.CountryCode ?? "Unknown",
                                     Category = "POP",
                                     Description = String.Join(", ", station.Tags ?? new List<string>()),
+                                    NumberOfTimesPlayed = 0,
                                 };
 
                                 foreach (var item in entries.Where(kvp => kvp.Value.StreamUrl == s.StreamUrl && kvp.Value.Category == "POP").ToList())//Dodane kvp.Value.Category, aby tylko z POP brało i usuwało
                                 {
+                                    try
+                                    {
+                                        s.NumberOfTimesPlayed = item.Value.NumberOfTimesPlayed;
+                                    }
+                                    catch (Exception)
+                                    {
+                                        System.Diagnostics.Debug.WriteLine($"Exception: Nie udało się pozyskać NumberOfTimesPlayed");
+                                    }
                                     entries.Remove(item.Key);
                                 }
 
@@ -210,7 +222,7 @@ public class RadioPlayerService : IRadioPlayerService
                             }
                         }
                         await AddRadioService.AddRadioService.SaveToJson(folder, entries);
-                    }
+                    
                 }
             }
         }

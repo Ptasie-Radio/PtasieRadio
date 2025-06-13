@@ -57,7 +57,8 @@ public class AddRadioService : IAddRadioService
 				Description = description,
 				ImagePath = imagePath,
 				Country = "pl",
-				Category = "Własne"
+				Category = "Własne",
+				NumberOfTimesPlayed = 0,
 			};
 
 			int index = NextFreeIndex(entries);

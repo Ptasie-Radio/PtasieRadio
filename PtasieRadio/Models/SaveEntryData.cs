@@ -12,4 +12,5 @@ public class SaveEntryData
     public required string Country { get; set; } = string.Empty;
     public required string Category { get; set; } = string.Empty;
     public required string Description { get; set; } = string.Empty;
+    public required int NumberOfTimesPlayed { get; set; } = 0;
 }
