@@ -330,6 +330,7 @@
                   Grid.Row="3"
                   Background="{StaticResource SecondaryColor}"
                   Padding="10"
+                  Visibility="Collapsed"
                   Tapped="MiniPlayerTapped">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>

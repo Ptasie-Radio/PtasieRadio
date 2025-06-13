@@ -33,7 +33,7 @@ public class RadioPlayerService : IRadioPlayerService
 
     public async Task PlayOrPauseAsync()
     {
-        if (isBusy) return;//Jeśli mamy blokadę, to nie pozwalaj na zmianę
+        if (isBusy) return;
         isBusy = true;
         await WithMediaLock(async () =>
         {
@@ -152,76 +152,65 @@ public class RadioPlayerService : IRadioPlayerService
                     var json = await response.Content.ReadAsStringAsync();
                     var stations = JsonSerializer.Deserialize<List<StationInfo>>(json, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
 
-                    
+                    StorageFolder folder = await MainPage.OpenFolder();
+                    var entries = await MainPage.LoadFromJson(folder);
+                    int imageIndex = 1;
 
+                    foreach (var station in stations)
+                    {
+                        var fileFormat = station.Favicon?.Map(f => Path.GetExtension(f.AbsolutePath));
+                        string fileName = "stationIcon" + imageIndex + (string.IsNullOrEmpty(fileFormat) ? "" : ("." + fileFormat));
+                        int index = fileName.IndexOf('?');
+                        if (index >= 0) fileName = fileName.Substring(0, index);
+                        imageIndex++;
+                        if (index >= 0) fileName = fileName.Substring(0, index);
 
-                        StorageFolder folder = await MainPage.OpenFolder();
-                        var entries = await MainPage.LoadFromJson(folder);
-
-                        int imageIndex = 1;
-                        foreach (var station in stations)
+                        HttpResponseMessage? image = null;
+                        Stream stream;
+                        try
                         {
-                            var fileFormat = station.Favicon?.Map(f => Path.GetExtension(f.AbsolutePath));
-                            string fileName = "stationIcon" + imageIndex + (string.IsNullOrEmpty(fileFormat) ? "" : ("." + fileFormat));
-                            int index = fileName.IndexOf('?');
-                            if (index >= 0) fileName = fileName.Substring(0, index);
-
-                            imageIndex++;
-
-                            if (index >= 0) fileName = fileName.Substring(0, index);
-                            HttpResponseMessage? image = null;
-                            Stream stream;
-                            try
-                            {
-                                image = await httpClient.GetAsync(station.Favicon);
-                                image.EnsureSuccessStatusCode();
-                                stream = await image.Content.ReadAsStreamAsync();
-
-                            }
-                            catch
-                            {
-                                var uri = new Uri("ms-appx:///Assets/Images/placeholder.png");
-                                StorageFile f = await StorageFile.GetFileFromApplicationUriAsync(uri);
-                                stream = (await f.OpenReadAsync()).AsStream();
-
-                            }
-
-                            using (image)
-                            using (stream)
-                            using (await AddRadioService.AddRadioService.jsonSemaphore.Lock())
-                            {
-
-                                var saveFile = await folder.CreateFileAsync(fileName, CreationCollisionOption.OpenIfExists);
-                                File.WriteAllBytes(saveFile.Path, stream.ReadBytes());
-
-                                SaveEntryData s = new SaveEntryData
-                                {
-                                    Name = station.Name ?? "Brak Nazwy",
-                                    StreamUrl = station.Url?.ToString() ?? "Brak",
-                                    ImagePath = saveFile.Path,
-                                    Country = station.CountryCode ?? "Unknown",
-                                    Category = "POP",
-                                    Description = String.Join(", ", station.Tags ?? new List<string>()),
-                                    NumberOfTimesPlayed = 0,
-                                };
-
-                                foreach (var item in entries.Where(kvp => kvp.Value.StreamUrl == s.StreamUrl && kvp.Value.Category == "POP").ToList())//Dodane kvp.Value.Category, aby tylko z POP brało i usuwało
-                                {
-                                    try
-                                    {
-                                        s.NumberOfTimesPlayed = item.Value.NumberOfTimesPlayed;
-                                    }
-                                    catch (Exception)
-                                    {
-                                        System.Diagnostics.Debug.WriteLine($"Exception: Nie udało się pozyskać NumberOfTimesPlayed");
-                                    }
-                                    entries.Remove(item.Key);
-                                }
-
-                                entries.Add(AddRadioService.AddRadioService.NextFreeIndex(entries).ToString(), s);
-                            }
+                            image = await httpClient.GetAsync(station.Favicon);
+                            image.EnsureSuccessStatusCode();
+                            stream = await image.Content.ReadAsStreamAsync();
                         }
-                        await AddRadioService.AddRadioService.SaveToJson(folder, entries);
+                        catch(Exception)
+                        {
+                            var uri = new Uri("ms-appx:///Assets/Images/placeholder.png");
+                            StorageFile f = await StorageFile.GetFileFromApplicationUriAsync(uri);
+                            stream = (await f.OpenReadAsync()).AsStream();
+                        }
+                        using (image)
+                        using (stream)
+                        using (await AddRadioService.AddRadioService.jsonSemaphore.Lock())
+                        {
+                            var saveFile = await folder.CreateFileAsync(fileName, CreationCollisionOption.OpenIfExists);
+                            File.WriteAllBytes(saveFile.Path, stream.ReadBytes());
+                            SaveEntryData s = new SaveEntryData
+                            {
+                                Name = station.Name ?? "Brak Nazwy",
+                                StreamUrl = station.Url?.ToString() ?? "Brak",
+                                ImagePath = saveFile.Path,
+                                Country = station.CountryCode ?? "Unknown",
+                                Category = "POP",
+                                Description = String.Join(", ", station.Tags ?? new List<string>()),
+                                NumberOfTimesPlayed = 0,
+                            };
+                            foreach (var item in entries.Where(kvp => kvp.Value.StreamUrl == s.StreamUrl && kvp.Value.Category == "POP").ToList())//Dodane kvp.Value.Category, aby tylko z POP brało i usuwało
+                            {
+                                try
+                                {
+                                    s.NumberOfTimesPlayed = item.Value.NumberOfTimesPlayed;
+                                }
+                                catch (Exception)
+                                {
+                                    System.Diagnostics.Debug.WriteLine($"Exception: Nie udało się pozyskać NumberOfTimesPlayed");
+                                }
+                                entries.Remove(item.Key);
+                            }
+                            entries.Add(AddRadioService.AddRadioService.NextFreeIndex(entries).ToString(), s);
+                        }
+                    }
+                    await AddRadioService.AddRadioService.SaveToJson(folder, entries);
                     
                 }
             }

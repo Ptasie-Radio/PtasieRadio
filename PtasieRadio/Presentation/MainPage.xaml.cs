@@ -63,7 +63,6 @@ public sealed partial class MainPage : Page
         double windowHeight = Microsoft.UI.Xaml.Window.Current.Bounds.Height;
 
         double time = pageAnimationTime;
-        //Animacja przed zniknięciem
         var slideOutAnimation = new Microsoft.UI.Xaml.Media.Animation.DoubleAnimation
         {
             From = 0,
@@ -154,6 +153,7 @@ public sealed partial class MainPage : Page
     private void PlayPauseButtonTappedEvent(object sender, TappedRoutedEventArgs e)
     {
         e.Handled = true;
+        
     }
 
     private void HeartButtonTappedEvent(object sender, TappedRoutedEventArgs e)
@@ -363,6 +363,7 @@ public sealed partial class MainPage : Page
 
                 currentIndex = index;
                 viewModel.ToggleChangeUrlCommand.Execute(entry.StreamUrl);
+                MiniPlayer.Visibility = Visibility.Visible;
                 viewModel.ToggleChangeStationNameCommand.Execute(entry.Name);
                 viewModel.ToggleChangeCountryCommand.Execute(entry.Country);
                 viewModel.ToggleChangeImagePathCommand.Execute(entry.ImagePath);

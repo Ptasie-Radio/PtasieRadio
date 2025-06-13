@@ -200,13 +200,11 @@ public class MainModel : ObservableObject
 
     private void ScrollStart(PointerRoutedEventArgs? e)
     {
-        // Pobierz ScrollViewer z parametru (przekazanego przez XAML)
         if (e != null && e.OriginalSource is FrameworkElement element &&
             element.FindParent<ScrollViewer>() is ScrollViewer scrollViewer)
         {
             _currentScrollViewer = scrollViewer;
             _lastPointerPosition = e.GetCurrentPoint(scrollViewer).Position;
-            // Dodaj jawne przechwytywanie wskaźnika
             if (element is UIElement uiElement)
             {
                 uiElement.CapturePointer(e.Pointer);
