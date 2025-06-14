@@ -11,9 +11,8 @@
 
 
     <Grid Background="{StaticResource PrimaryColor}">
-        <Grid
-            x:Name="RadioMainPage"
-            Visibility="Visible">
+        <Grid x:Name="RadioMainPage"
+              Visibility="Visible">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <!-- Pasek wyszukiwania -->
@@ -123,8 +122,8 @@
                             <AutoSuggestBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding }"
-                                            FontWeight="SemiBold"
-                                            Foreground="{StaticResource TextColor}"/>
+                                               FontWeight="SemiBold"
+                                               Foreground="{StaticResource TextColor}"/>
                                 </DataTemplate>
                             </AutoSuggestBox.ItemTemplate>
                             <AutoSuggestBox.Resources>
@@ -515,10 +514,10 @@
                             Command="{Binding HeartButtonCommand}"
                             Tapped="HeartButtonTappedEvent">
                         <Path Width="24"
-                            Height="24"
-                            Stretch="Uniform"
-                            Fill="{StaticResource IconColor}"
-                            Data="{Binding HeartButtonImage}">
+                              Height="24"
+                              Stretch="Uniform"
+                              Fill="{StaticResource IconColor}"
+                              Data="{Binding HeartButtonImage}">
                             <Path.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform ScaleY="-1"
@@ -875,8 +874,9 @@
                 <!-- mute/unmute button -->
                 <Button Style="{StaticResource MaterialIconButtonStyle}"
                         x:Name="MuteUnmuteButton"
-                        Width="96"
-                        Height="96"
+                        Margin="0,20,0,0"
+                        Width="48"
+                        Height="48"
                         HorizontalAlignment="Center"
                         Command="{Binding ToggleMuteCommand}">
                     <Button.Content>
@@ -889,7 +889,7 @@
                             <Path.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform ScaleY="-1"
-                                                    CenterY="12"/>
+                                                    CenterY="18"/>
                                     <TranslateTransform Y="12"/>
                                 </TransformGroup>
                             </Path.RenderTransform>
@@ -936,22 +936,24 @@
                 <!-- Przycisk odtwarzania -->
                 <Button Style="{StaticResource MaterialIconButtonStyle}"
                         x:Name="PlayButton"
-                        Width="96"
-                        Height="96"
+                        Foreground="Transparent"
+                        Margin="0,0,0,24"
+                        Width="48"
+                        Height="48"
                         HorizontalAlignment="Center"
                         Command="{Binding PlayRadioCommand}"
                         Tapped="PlayPauseButtonTappedEvent">
                     <Button.Content>
-                        <Path  Data="{Binding PlayPauseButtonImage}"
-                               x:Name="PlayButtonImage"
-                               Fill="{StaticResource IconColor}"
-                               Width="48"
-                               Height="48"
-                               Stretch="Uniform">
+                        <Path Data="{Binding PlayPauseButtonImage}"
+                              x:Name="PlayButtonImage"
+                              Fill="{StaticResource IconColor}"
+                              Width="48"
+                              Height="48"
+                              Stretch="Uniform">
                             <Path.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform ScaleY="-1"
-                                                    CenterY="12"/>
+                                                    CenterY="14"/>
                                     <TranslateTransform Y="20"/>
                                 </TransformGroup>
                             </Path.RenderTransform>

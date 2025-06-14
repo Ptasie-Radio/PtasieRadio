@@ -42,7 +42,6 @@ C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-d
 C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Uno.Fonts.Roboto\Fonts\Roboto-Medium.ttf
 C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Uno.Fonts.Roboto\Fonts\Roboto-Regular.ttf
 C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\PtasieRadio.exe
-C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\animation.gif
 C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\arrow_down.png
 C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\brush.png
 C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\close.png
@@ -1638,3 +1637,9 @@ M:\projekty Visual Studio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Asset
 M:\projekty Visual Studio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\animation_white.gif
 M:\projekty Visual Studio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\no_animation_white.png
 >>>>>>> origin/radio_animations
+C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\animation_black.gif
+C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\animation_white.gif
+C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\loading_icon_black.gif
+C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\loading_icon_white.gif
+C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\no_animation_black.png
+C:\Users\Kornel\Documents\PtasieRadio\PtasieRadio\PtasieRadio\bin\Debug\net8.0-desktop\Assets\Images\no_animation_white.png
