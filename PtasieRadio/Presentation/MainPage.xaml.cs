@@ -33,11 +33,11 @@ public sealed partial class MainPage : Page
         _ = CreateOwnStationOnViewLoad();
 
     }
-    
+
     private void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
     {
         double windowHeight = this.ActualHeight;
-        
+
         // Parametry skalowania
         double minWindow = 400;  // Minimalna wysokość okna, od której zaczyna się skalowanie
         double maxWindow = 1000; // Maksymalna wysokość okna, powyżej której slider już nie rośnie

@@ -9,7 +9,6 @@
       xmlns:ic="using:Microsoft.Xaml.Interactions.Core"
       NavigationCacheMode="Required">
 
-
     <Grid Background="{StaticResource PrimaryColor}">
         <Grid
             x:Name="RadioMainPage"
@@ -330,7 +329,7 @@
                   Grid.Row="3"
                   Background="{StaticResource SecondaryColor}"
                   Padding="10"
-                  Visibility="Collapsed"
+                  Visibility="{Binding MiniPlayerVisibility}"
                   Tapped="MiniPlayerTapped">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>

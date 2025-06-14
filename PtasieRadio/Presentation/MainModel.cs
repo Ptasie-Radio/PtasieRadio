@@ -46,7 +46,7 @@ public class MainModel : ObservableObject
         set
         {
             _country = value;
-            _radioService.StationCountry= value;
+            _radioService.StationCountry = value;
             OnPropertyChanged();
             OnPropertyChanged(nameof(StationFlagUrl)); // Dodaj tę linię
         }
@@ -69,7 +69,19 @@ public class MainModel : ObservableObject
 
     private Point _lastPointerPosition;
     private ScrollViewer? _currentScrollViewer;
-
+    private bool _isMiniPlayerVisible = true;
+    public bool IsMiniPlayerVisible
+    {
+        get => _isMiniPlayerVisible;
+        set
+        {
+            if (SetProperty(ref _isMiniPlayerVisible, value))
+            {
+                OnPropertyChanged(nameof(MiniPlayerVisibility));
+            }
+        }
+    }
+    public Visibility MiniPlayerVisibility => string.IsNullOrEmpty(url) ? Visibility.Collapsed : Visibility.Visible;
     public IRelayCommand<PointerRoutedEventArgs> ScrollStartCommand { get; }
     public IRelayCommand<PointerRoutedEventArgs> ScrollMoveCommand { get; }
     public RelayCommand<PointerRoutedEventArgs> ScrollStopCommand { get; }
@@ -158,13 +170,14 @@ public class MainModel : ObservableObject
         _radioService = radioService;
         _promptService = promptService;
         url = _radioService.GetUrl();
-        if (url == null) url = "http://chi.cdn.eurozet.pl/chi-net.mp3";
-        if (_radioService.StationName!=null) _stationName = _radioService.StationName;
+        if (url == null) url = "";
+        if (_radioService.StationName != null) _stationName = _radioService.StationName;
         if (_radioService.StationImagePath != null) _imagePath = _radioService.StationImagePath;
-        else {
+        else
+        {
             _imagePath = "Assets\\Images\\radio_placeholder_square.png";
         }
-        if (_radioService.StationCountry!=null) _country = _radioService.StationCountry;
+        if (_radioService.StationCountry != null) _country = _radioService.StationCountry;
 
         ToggleMuteCommand = new RelayCommand(ToggleMute);
         ToggleChangeUrlCommand = new AsyncRelayCommand<string?>(ToggleChangeUrl);
@@ -296,6 +309,7 @@ public class MainModel : ObservableObject
     private void ToggleChangeName(string? name) { StationName = name; }
     private void ToggleChangeCountry(string? country) { Country = country; }
 
+    public string GetUrl() { return url;}
 }
 
 // Extension method do znajdowania ScrollViewera w drzewie wizualnym
