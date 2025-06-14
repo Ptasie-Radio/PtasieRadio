@@ -6,7 +6,11 @@ public interface IRadioPlayerService
     string? StationName { set; get; }
     string StationImagePath { get; set; }
     string StationCountry { get; set; }
-    Task PlayOrPauseAsync();
+	public event Action? Buffering;
+	public event Action? Playing;
+	public event Action? NotPlaying;
+
+	Task PlayOrPauseAsync();
     Task StopAsync();
     Task Reset();
     void SetVolume(double value);

@@ -13,11 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PtasieRadio.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11ec9b754a95c9b5fdb739ba43531df8f81db812")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3cd499f17ae0f4aab543f5bdc0c9f4d0507953c8")]
->>>>>>> SCRUM-51-wyszukiwanie-stacji
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+195358ec1aeb7d6bc557125884afb3a30eae70d3")]
 [assembly: System.Reflection.AssemblyProductAttribute("PtasieRadio.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PtasieRadio.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
