@@ -9,7 +9,7 @@ namespace PtasieRadio.Services;
 
 public static class ThemeService
 {
-    private const string ThemeKey = "AppTheme";
+    public const string ThemeKey = "AppTheme";
 
     public static Task SaveThemeAsync(string themeName)
     {

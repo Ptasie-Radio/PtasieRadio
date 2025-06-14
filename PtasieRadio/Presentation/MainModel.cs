@@ -1,14 +1,15 @@
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
+using Microsoft.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Input;
+using PtasieRadio.Services;
+using PtasieRadio.Services.RadioService;
+using System.Threading.Tasks;
 using Uno.Extensions.Navigation;
 using Uno.Extensions.Reactive;
-using PtasieRadio.Services.RadioService;
-using CommunityToolkit.Mvvm.ComponentModel;
-using Microsoft.UI.Xaml.Data;
 using Windows.Foundation;
-using Microsoft.UI.Xaml.Input;
-using System.Threading.Tasks;
 
 namespace PtasieRadio.Presentation;
 
@@ -24,7 +25,8 @@ public class MainModel : ObservableObject
     public ICommand ToggleChangeStationNameCommand { get; }
     public ICommand ToggleChangeCountryCommand { get; }
     public ICommand ToggleChangeImagePathCommand { get; }
-    private string? url;
+
+	private string? url;
     private bool isChangingUrl = false;
     private string _stationName;
 
@@ -63,8 +65,21 @@ public class MainModel : ObservableObject
         }
     }
 
+    private string _PlayAnimationGifPath;
+    public string PlayAnimationGifPath
+    {
+        get => _PlayAnimationGifPath;
+        set
+        {
+            _PlayAnimationGifPath = value;
+            OnPropertyChanged();
 
-    public IRelayCommand ToggleMuteCommand { get; }
+        }
+    }
+
+
+
+	public IRelayCommand ToggleMuteCommand { get; }
     public IAsyncRelayCommand<string?> ToggleChangeUrlCommand { get; }
 
     private Point _lastPointerPosition;
@@ -156,7 +171,10 @@ public class MainModel : ObservableObject
 
 
         _radioService = radioService;
-        _promptService = promptService;
+        _radioService.Buffering += OnBuffer;
+        _radioService.Playing += OnPlaying;
+        _radioService.NotPlaying += OnNotPlaying;
+		_promptService = promptService;
         url = _radioService.GetUrl();
         if (url == null) url = "http://chi.cdn.eurozet.pl/chi-net.mp3";
         if (_radioService.StationName!=null) _stationName = _radioService.StationName;
@@ -171,7 +189,7 @@ public class MainModel : ObservableObject
         ToggleChangeStationNameCommand = new RelayCommand<string?>(ToggleChangeName);
         ToggleChangeCountryCommand = new RelayCommand<string?>(ToggleChangeCountry);
         ToggleChangeImagePathCommand = new RelayCommand<string?>(ToggleChangeImagePath);
-        PlayRadioCommand = new AsyncRelayCommand(PlayRadio);
+		PlayRadioCommand = new AsyncRelayCommand(PlayRadio);
         Title = "Main";
         Title += $" - {localizer["ApplicationName"]}";
         Title += $" - {appInfo?.Value?.Environment}";
@@ -297,6 +315,51 @@ public class MainModel : ObservableObject
 
     private void ToggleChangeName(string? name) { StationName = name; }
     private void ToggleChangeCountry(string? country) { Country = country; }
+
+    private void OnBuffer()
+    {
+		var themeName = ApplicationData.Current.LocalSettings.Values[ThemeService.ThemeKey] as string;
+
+		if (themeName == "Light" || themeName == "BlueberryLight")
+        {
+            PlayAnimationGifPath = "ms-appx:///Assets/Images/loading_icon_black.gif";
+        }
+        else if (themeName == "Dark" || themeName == "BlueberryDark" || themeName == "LimeDark")
+        {
+			PlayAnimationGifPath = "ms-appx:///Assets/Images/loading_icon_white.gif";
+		}
+        
+    }
+    private void OnPlaying()
+    {
+		var themeName = ApplicationData.Current.LocalSettings.Values[ThemeService.ThemeKey] as string;
+
+		if (themeName == "Light" || themeName == "BlueberryLight")
+		{
+			PlayAnimationGifPath = "ms-appx:///Assets/Images/animation_black.gif";
+		}
+		else if (themeName == "Dark" || themeName == "BlueberryDark" || themeName == "LimeDark")
+		{
+			PlayAnimationGifPath = "ms-appx:///Assets/Images/animation_white.gif";
+		}
+
+		
+    }
+    private void OnNotPlaying()
+    {
+		var themeName = ApplicationData.Current.LocalSettings.Values[ThemeService.ThemeKey] as string;
+
+		if (themeName == "Light" || themeName == "BlueberryLight")
+		{
+			PlayAnimationGifPath = "ms-appx:///Assets/Images/no_animation_black.png";
+		}
+		else if (themeName == "Dark" || themeName == "BlueberryDark" || themeName == "LimeDark")
+		{
+			PlayAnimationGifPath = "ms-appx:///Assets/Images/no_animation_white.png";
+		}
+
+		
+    }
 
 }
 

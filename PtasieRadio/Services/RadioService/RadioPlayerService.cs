@@ -22,6 +22,9 @@ public class RadioPlayerService : IRadioPlayerService
     public bool IsPlaying => isPlaying;
     public bool IsMuted => isMuted;
     public float Volume => currentVolume * 100f;
+    public event Action? Buffering;
+    public event Action? Playing;
+    public event Action? NotPlaying;
 
 
     public RadioPlayerService()
@@ -41,11 +44,13 @@ public class RadioPlayerService : IRadioPlayerService
                 {
                     try
                     {
+                        Buffering.Invoke();
                         reader = new MediaFoundationReader(url);
                         waveOut = new WaveOutEvent();
                         waveOut.Init(reader);
                         waveOut.Volume = isMuted ? 0 : currentVolume;
                         isInitialized = true;
+                        Playing.Invoke();
                     }
                     catch (FileNotFoundException ex)
                     {
@@ -60,12 +65,15 @@ public class RadioPlayerService : IRadioPlayerService
                 {
                     try { waveOut?.Stop(); } catch (Exception ex) { System.Diagnostics.Debug.WriteLine($"Error:{ex}"); }
                     isPlaying = false;
+                    NotPlaying.Invoke();
+
                 }
                 else
                 {
                     waveOut?.Play();
                     isPlaying = true;
-                }
+					Playing.Invoke();
+				}
             }
             finally
             {

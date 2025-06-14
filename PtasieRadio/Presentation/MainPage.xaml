@@ -828,7 +828,7 @@
 
                 <!-- GIF -->
                 <Image x:Name="Gif"
-                       Source="ms-appx:///Assets/Images/animation.gif"
+                       Source="{Binding PlayAnimationGifPath}"
                        Width="50"
                        Height="50"
                        Stretch="Uniform"/>
