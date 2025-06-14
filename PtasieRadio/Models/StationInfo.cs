@@ -64,5 +64,6 @@ namespace PtasieRadio.Models
 		///     The codec of this stream recorded at the last check.
 		/// </summary>
 		public string? Codec { get; set; }
+
 	}
 }

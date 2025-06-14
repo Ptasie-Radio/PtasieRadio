@@ -103,7 +103,19 @@ public class MainModel : ObservableObject
 
     private Point _lastPointerPosition;
     private ScrollViewer? _currentScrollViewer;
-
+    private bool _isMiniPlayerVisible = true;
+    public bool IsMiniPlayerVisible
+    {
+        get => _isMiniPlayerVisible;
+        set
+        {
+            if (SetProperty(ref _isMiniPlayerVisible, value))
+            {
+                OnPropertyChanged(nameof(MiniPlayerVisibility));
+            }
+        }
+    }
+    public Visibility MiniPlayerVisibility => string.IsNullOrEmpty(url) ? Visibility.Collapsed : Visibility.Visible;
     public IRelayCommand<PointerRoutedEventArgs> ScrollStartCommand { get; }
     public IRelayCommand<PointerRoutedEventArgs> ScrollMoveCommand { get; }
     public RelayCommand<PointerRoutedEventArgs> ScrollStopCommand { get; }
@@ -196,10 +208,10 @@ public class MainModel : ObservableObject
         _radioService.NotPlaying += OnNotPlaying;
 		_promptService = promptService;
         url = _radioService.GetUrl();
+        if (url == null) url = "";
+        if (_radioService.StationName != null) _stationName = _radioService.StationName;
         _profileService = profileService;
 
-        if (url == null) url = "http://chi.cdn.eurozet.pl/chi-net.mp3";
-        if (_radioService.StationName != null) _stationName = _radioService.StationName;
         if (_radioService.StationImagePath != null) _imagePath = _radioService.StationImagePath;
         else
         {
@@ -261,13 +273,11 @@ public class MainModel : ObservableObject
 
     private void ScrollStart(PointerRoutedEventArgs? e)
     {
-        // Pobierz ScrollViewer z parametru (przekazanego przez XAML)
         if (e != null && e.OriginalSource is FrameworkElement element &&
             element.FindParent<ScrollViewer>() is ScrollViewer scrollViewer)
         {
             _currentScrollViewer = scrollViewer;
             _lastPointerPosition = e.GetCurrentPoint(scrollViewer).Position;
-            // Dodaj jawne przechwytywanie wskaźnika
             if (element is UIElement uiElement)
             {
                 uiElement.CapturePointer(e.Pointer);

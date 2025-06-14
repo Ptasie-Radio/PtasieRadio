@@ -79,13 +79,14 @@ public sealed partial class AddRadioPage : Page
             var viewModel = DataContext as AddRadioModel;
             if (viewModel == null) return;
             var data = new SaveEntryData
-            {
-                StreamUrl = url,
-                Name = name,
-                Description = description,
-                ImagePath = selectedFile,
-                Country = "PL",
-                Category="Własne"
+			{
+				StreamUrl = url,
+				Name = name,
+				Description = description,
+				ImagePath = selectedFile,
+				Country = "PL",
+				Category = "Własne",
+				NumberOfTimesPlayed = 0,
             };
             viewModel.OnSaveToFileCommand.Execute(data);
         }

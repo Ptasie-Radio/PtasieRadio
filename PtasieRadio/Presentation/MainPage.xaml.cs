@@ -13,14 +13,14 @@ using System.Net;
 using System.Threading.Tasks;
 using Uno;
 using Windows.Devices.Radios;
-
+using Microsoft.UI.Dispatching;
 
 namespace PtasieRadio.Presentation;
 
 public sealed partial class MainPage : Page
 {
     private double pageAnimationTime;
-
+    private Dictionary<string, StackPanel> stationPanels = new();
     private string? currentIndex;
     private const string folderName = "PtasieRadio";
 
@@ -31,7 +31,7 @@ public sealed partial class MainPage : Page
         this.SizeChanged += MainPage_SizeChanged;
         _ = CreateOwnStationOnViewLoad();
     }
-
+    
     private void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
     {
         double windowHeight = this.ActualHeight;
@@ -61,7 +61,6 @@ public sealed partial class MainPage : Page
         double windowHeight = Microsoft.UI.Xaml.Window.Current.Bounds.Height;
 
         double time = pageAnimationTime;
-        //Animacja przed zniknięciem
         var slideOutAnimation = new Microsoft.UI.Xaml.Media.Animation.DoubleAnimation
         {
             From = 0,
@@ -86,9 +85,6 @@ public sealed partial class MainPage : Page
 
         storyboard.Begin();
     }
-
-
-
 
     private void RackTappedEvent(object sender, TappedRoutedEventArgs e)
     {
@@ -137,17 +133,25 @@ public sealed partial class MainPage : Page
         }
     }
 
-
-    private void ShuffleButtonTappedEvent(object sender, TappedRoutedEventArgs e)
+    private async void ShuffleButtonTappedEvent(object sender, TappedRoutedEventArgs e)
     {
-        //TODO:
-        //Dodaj tutaj shuffl'a
         e.Handled = true;
+        var folder = await OpenFolder();
+        var entries = await LoadFromJson(folder, "GetRandomIndex");
+        var entry = entries.First();
+        System.Diagnostics.Debug.WriteLine($"Entries: {entry.Key}");
+
+        if (stationPanels.TryGetValue(entry.Key, out var targetPanel))
+        {
+        	OnPanelTapped(targetPanel, null);
+        }
+
     }
 
     private void PlayPauseButtonTappedEvent(object sender, TappedRoutedEventArgs e)
     {
         e.Handled = true;
+        
     }
 
     private void HeartButtonTappedEvent(object sender, TappedRoutedEventArgs e)
@@ -164,24 +168,44 @@ public sealed partial class MainPage : Page
         viewModel.Volume = e.NewValue;
     }
 
-    public static async Task<Dictionary<string, SaveEntryData>> LoadFromJson(StorageFolder folder, string text = "")
-    {
-        var localFileName = "radio.json";
-        Dictionary<string, SaveEntryData> entries;
-        Dictionary<string, SaveEntryData> filteredEntries;
-        try
-        {
-            var file = await folder.GetFileAsync(localFileName);
-            string json = await FileIO.ReadTextAsync(file);
-            entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
-                      ?? new Dictionary<string, SaveEntryData>();
-            if (text != "") filteredEntries = entries.Where(kv => kv.Value.Category == text).ToDictionary(kv => kv.Key, kv => kv.Value);
+    public static async Task<Dictionary<string, SaveEntryData>> LoadFromJson(StorageFolder folder, string text="")
+	{
+		var localFileName = "radio.json";
+		Dictionary<string, SaveEntryData> entries;
+		Dictionary<string, SaveEntryData> filteredEntries;
+		try
+		{
+
+			var file = await folder.GetFileAsync(localFileName);
+			string json = await FileIO.ReadTextAsync(file);
+			entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
+					  ?? new Dictionary<string, SaveEntryData>();
+            if (text == "GetRandomIndex")
+            {
+                var random = new Random();
+                int index = random.Next(entries.Count);
+                var randomEntry = entries.ElementAt(index);
+                filteredEntries = new Dictionary<string, SaveEntryData>
+                {
+                    { randomEntry.Key, randomEntry.Value }
+                };
+            }
+            else if (text == "NO")
+            {
+                filteredEntries = entries
+                .OrderByDescending(entry => entry.Value.NumberOfTimesPlayed)
+                .Where(entry => entry.Value.NumberOfTimesPlayed > 0)
+                .Take(10)
+                .ToDictionary(entry => entry.Key, entry => entry.Value);
+            }
+            else if (text != "") filteredEntries = entries.Where(kv => kv.Value.Category == text).ToDictionary(kv => kv.Key, kv => kv.Value);
             else filteredEntries = entries;
-        }
-        catch (FileNotFoundException)
-        {
-            filteredEntries = new Dictionary<string, SaveEntryData>();
-        }
+		}
+		catch (FileNotFoundException)
+		{
+			filteredEntries = new Dictionary<string, SaveEntryData>();
+		}
+
         return filteredEntries;
     }
 
@@ -381,95 +405,89 @@ public sealed partial class MainPage : Page
     private async Task AddStation(StorageFolder folder, Dictionary<string, SaveEntryData> entries, StackPanel category)
     {
         var files = await folder.GetFilesAsync();
+        var dispatcher = DispatcherQueue.GetForCurrentThread();
         foreach (var entry in entries)
         {
-            BitmapImage bitmap;
-            StorageFile? file;
+            BitmapImage bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/radio_placeholder_square"));
 
             try
             {
-                file = await StorageFile.GetFileFromPathAsync(entry.Value.ImagePath);
-            }
-            catch (FileNotFoundException)
-            {
-                file = null;
-            }
-            try
-            {
-                using (var stream = new MemoryStream(File.ReadAllBytes(file?.Path ?? "Brak")))
-                {
-                    bitmap = new BitmapImage();
-                    await bitmap.SetSourceAsync(stream);
-                }
+                var file = await StorageFile.GetFileFromPathAsync(entry.Value.ImagePath);
+                using var stream = await file.OpenAsync(FileAccessMode.Read);
 
+                bitmap = new BitmapImage();
+                await bitmap.SetSourceAsync(stream);
+
+                CreateStationPanel(entry, category, folder, bitmap);
             }
-            catch (FileNotFoundException)
+            catch (Exception)
             {
                 bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/radio_placeholder_square"));
+                CreateStationPanel(entry, category, folder, bitmap);
             }
-            catch (System.NullReferenceException)
-            {
-                bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/radio_placeholder_square"));
-            }
-
-            var image = new Image
-            {
-                Width = 120,
-                Height = 130,
-                Stretch = Stretch.Uniform,
-                HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center,
-                Source = bitmap
-            };
-
-            var border = new Border
-            {
-                Width = 100,
-                Height = 100,
-                Background = new SolidColorBrush(Windows.UI.ColorHelper.FromArgb(255, 224, 224, 224)),
-                CornerRadius = new CornerRadius(20),
-                Child = image
-            };
-
-            var textBlock = new TextBlock
-            {
-                Text = entry.Value.Name,
-                TextAlignment = TextAlignment.Center,
-                FontSize = 12,
-                Foreground = (Brush)Application.Current.Resources["TextColor"],
-            };
-
-            var stationPanel = new StackPanel
-            {
-                Width = 100,
-                Background = new SolidColorBrush(Microsoft.UI.Colors.Transparent),
-                Spacing = 5,
-                Name = $"Stacja_{entry.Key}",
-                ManipulationMode = ManipulationModes.TranslateX | ManipulationModes.System,
-            };
-
-            var targetPanels = new HashSet<StackPanel> { NajczesciejGranePanel, WlasnePanel, UlubionePanel };
-            if (targetPanels.Contains(category))
-            {
-                var menu = new MenuFlyoutItem { Text = "Usuń" };
-                menu.Click += async (s, e) =>
-                {
-                    string id = stationPanel.Name.Replace("Stacja_", "");
-                    await RemoveEntryById(folder, id);
-                    var parent = stationPanel.Parent as Panel;
-                    parent?.Children.Remove(stationPanel);//Usuwamy ten nasz station Panel
-                };
-                var menuFlyout = new MenuFlyout();
-                menuFlyout.Items.Add(menu);
-                stationPanel.ContextFlyout = menuFlyout;
-            }
-            stationPanel.Tapped += OnPanelTapped;
-            stationPanel.Children.Add(border);
-            stationPanel.Children.Add(textBlock);
-            category.Children.Add(stationPanel);
         }
     }
 
+    private void CreateStationPanel(KeyValuePair<string, SaveEntryData> entry, StackPanel category, StorageFolder folder, BitmapImage bitmap)
+    {
+        var image = new Image
+        {
+            Width = 120,
+            Height = 130,
+            Stretch = Stretch.Uniform,
+            HorizontalAlignment = HorizontalAlignment.Center,
+            VerticalAlignment = VerticalAlignment.Center,
+            Source = bitmap
+        };
+
+        var border = new Border
+        {
+            Width = 100,
+            Height = 100,
+            Background = new SolidColorBrush(Windows.UI.ColorHelper.FromArgb(255, 224, 224, 224)),
+            CornerRadius = new CornerRadius(20),
+            Child = image
+        };
+
+        var textBlock = new TextBlock
+        {
+            Text = entry.Value.Name,
+            TextAlignment = TextAlignment.Center,
+            FontSize = 12,
+            Foreground = (Brush)Application.Current.Resources["TextColor"],
+        };
+
+        var stationPanel = new StackPanel
+        {
+            Width = 100,
+            Background = new SolidColorBrush(Microsoft.UI.Colors.Transparent),
+            Spacing = 5,
+            Name = $"Stacja_{entry.Key}",
+            ManipulationMode = ManipulationModes.TranslateX | ManipulationModes.System,
+        };
+
+        var targetPanels = new HashSet<StackPanel> { NajczesciejGranePanel, WlasnePanel, UlubionePanel };
+        if (targetPanels.Contains(category))
+        {
+            var menu = new MenuFlyoutItem { Text = "Usuń" };
+            menu.Click += async (s, e) =>
+            {
+                string id = stationPanel.Name.Replace("Stacja_", "");
+                await RemoveEntryById(folder, id);
+                var parent = stationPanel.Parent as Panel;
+                parent?.Children.Remove(stationPanel);
+            };
+            var menuFlyout = new MenuFlyout();
+            menuFlyout.Items.Add(menu);
+            stationPanel.ContextFlyout = menuFlyout;
+        }
+
+        stationPanel.Tapped += OnPanelTapped;
+        stationPanel.Children.Add(border);
+        stationPanel.Children.Add(textBlock);
+        category.Children.Add(stationPanel);
+        stationPanels[entry.Key] = stationPanel;
+    }
     private async void OnPanelTapped(object sender, TappedRoutedEventArgs e)
     {
 
@@ -484,8 +502,14 @@ public sealed partial class MainPage : Page
             {
                 var viewModel = DataContext as MainModel;
                 if (viewModel == null) return;
+
+                entry.NumberOfTimesPlayed += 1;
+
+                await AddRadioService.SaveToJson(folder, entries);
+
                 currentIndex = index;
                 viewModel.ToggleChangeUrlCommand.Execute(entry.StreamUrl);
+                MiniPlayer.Visibility = Visibility.Visible;
                 viewModel.ToggleChangeStationNameCommand.Execute(entry.Name);
                 viewModel.ToggleChangeCountryCommand.Execute(entry.Country);
                 viewModel.ToggleChangeImagePathCommand.Execute(entry.ImagePath);
