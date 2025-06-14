@@ -81,7 +81,7 @@
                                      Height="72">
                                 <Ellipse.Fill>
                                     <ImageBrush ImageSource="{Binding ProfileImage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                                Stretch="UniformToFill"/>
+                                                Stretch="Uniform"/>
                                 </Ellipse.Fill>
                             </Ellipse>
                             <TextBlock Text="{Binding ProfileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
