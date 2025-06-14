@@ -11,6 +11,7 @@ public interface IUserProfileService
     Task RemoveProfileAsync(string? key);
     Task SelectProfileAsync(string key);
     Task AddRadioStationKeyToCurrentProfile(string stationKey);
+    Task FavouriteStationKeyToCurrentProfile(string stationKey);
     Task<string> ImageToBase64Async(string imagePath);
     Task<string> ImageFileToBase64(StorageFile file);
     Task<BitmapImage> Base64ToBitmapImage(string base64);

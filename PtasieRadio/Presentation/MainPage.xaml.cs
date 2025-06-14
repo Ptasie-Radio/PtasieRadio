@@ -158,7 +158,6 @@ public sealed partial class MainPage : Page
 
     private void OnSoundLevelSliderValueChanged(object sender, RangeBaseValueChangedEventArgs e)
     {
-
         var viewModel = DataContext as MainModel;
 
         if (viewModel == null) return;
@@ -241,11 +240,11 @@ public sealed partial class MainPage : Page
 
     private async Task CreateOwnStationOnViewLoad()
     {
-        var x = new List<string> { "NO", "POP", "Własne" };
+        var x = new List<string> { "NO", "POP", "Własne", "" }; // ulubione sa dla poprawnosci dzialania tego kodu nie znajdziemy tej opcji w radio.json
         int j = 0;
         using (await AddRadioService.jsonSemaphore.Lock())
         {
-            foreach (StackPanel panel in new List<StackPanel> { NajczesciejGranePanel, PopularnePanel, WlasnePanel })
+            foreach (StackPanel panel in new List<StackPanel> { NajczesciejGranePanel, PopularnePanel, WlasnePanel, UlubionePanel })
             {
                 var folder = await OpenFolder();
                 var entries = await LoadFromJson(folder, x[j]);
@@ -267,8 +266,25 @@ public sealed partial class MainPage : Page
                         entries = new Dictionary<string, SaveEntryData>();
                     }
                 }
-                // if(entries.Contains)
-                //     await AddStation(folder, entries, panel);
+                else if (x[j] == "")
+                {
+                    var viewModel = DataContext as MainModel;
+                    if (viewModel == null) return;
+                    // Pobierz aktualny profil użytkownika
+                    var currentProfileKey = viewModel._profileService.SelectedKey;
+                    if (currentProfileKey != null && viewModel._profileService.Profiles.TryGetValue(currentProfileKey, out var userProfile))
+                    {
+                        // Filtruj tylko stacje z kluczami użytkownika
+                        entries = entries
+                            .Where(entry => userProfile.FavoriteStationIds.Contains(entry.Key))
+                            .ToDictionary(kv => kv.Key, kv => kv.Value);
+
+                    }
+                    else
+                    {
+                        entries = new Dictionary<string, SaveEntryData>();
+                    }
+                }
                 await AddStation(folder, entries, panel);
                 j++;
             }

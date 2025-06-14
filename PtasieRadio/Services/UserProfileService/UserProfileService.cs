@@ -184,6 +184,22 @@ public class UserProfileService : IUserProfileService
             }
         }
     }
+    public async Task FavouriteStationKeyToCurrentProfile(string stationKey)
+    {
+        if (!string.IsNullOrEmpty(SelectedKey) && _profiles.TryGetValue(SelectedKey, out var profile))
+        {
+            if (!profile.FavoriteStationIds.Contains(stationKey))
+            {
+                profile.FavoriteStationIds.Add(stationKey);
+                await SaveProfilesAsync();
+            }
+            else
+            {
+                profile.FavoriteStationIds.Remove(stationKey);
+                await SaveProfilesAsync();
+            }
+        }
+    }
 
     public async Task<BitmapImage> Base64ToBitmapImage(string base64)
     {

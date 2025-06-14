@@ -221,7 +221,7 @@
                                FontWeight="Bold"
                                Foreground="{StaticResource TextColor}"
                                Margin="0,0,0,10"/>
-                    <ScrollViewer x:Name="Ulubione"
+                    <ScrollViewer x:Name="UlubioneScroll"
                                   HorizontalScrollBarVisibility="Hidden"
                                   VerticalScrollBarVisibility="Disabled"
                                   HorizontalScrollMode="Enabled"
@@ -453,21 +453,13 @@
 
                     <Button Background="Transparent"
                             x:Name="MiniHeartButton"
+                            Command="{Binding HeartButtonCommand}"
                             Tapped="HeartButtonTappedEvent">
                         <Path Width="24"
                             Height="24"
                             Stretch="Uniform"
                             Fill="{StaticResource IconColor}"
-                            Data="M636 2809 c-268 -66 -496 -284 -584 -559 -136 -425 -8 -802 417
-                        -1229 178 -179 885 -796 954 -833 43 -23 109 -22 155 1 38 20 463 382 753 642
-                        346 310 533 550 615 792 151 442 -33 933 -420 1125 -209 104 -472 111 -678 19
-                        -109 -49 -234 -148 -316 -252 l-32 -40 -32 40 c-117 147 -272 251 -443 296
-                        -96 26 -281 25 -389 -2z m391 -179 c126 -44 247 -141 339 -272 64 -91 86 -108
-                        134 -108 48 0 70 17 134 108 93 133 214 229 344 274 97 33 277 33 377 0 106
-                        -36 172 -77 261 -166 138 -137 204 -307 204 -527 0 -331 -162 -585 -645 -1014
-                        -250 -221 -666 -575 -676 -575 -10 0 -408 340 -674 575 -483 428 -645 683
-                        -645 1014 0 220 66 390 204 527 89 88 157 132 256 163 93 29 103 30 220 26 74
-                        -2 123 -10 167 -25z">
+                            Data="{Binding HeartButtonImage}">
                             <Path.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform ScaleY="-1" CenterY="12"/>

@@ -10,6 +10,7 @@ using Windows.Foundation;
 using Microsoft.UI.Xaml.Input;
 using PtasieRadio.Services.UserProfileService;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace PtasieRadio.Presentation;
 
@@ -20,6 +21,7 @@ public class MainModel : ObservableObject
     private INavigator _navigator;
     public IAsyncRelayCommand NavigateCommand { get; }//Tworzenie komendy nawigacyjnej
     public IAsyncRelayCommand PlayRadioCommand { get; }
+
     private readonly IRadioPlayerService _radioService;
     public readonly IUserProfileService _profileService;
     private readonly IShowPromptService _promptService;
@@ -28,6 +30,21 @@ public class MainModel : ObservableObject
     public ICommand ToggleChangeImagePathCommand { get; }
     private string? url;
     private bool isChangingUrl = false;
+    public IAsyncRelayCommand HeartButtonCommand { get; }
+    public string HeartButtonImage => _isFavourite ?
+    "M740 2789 c-272 -23 -514 -200 -645 -473 -65 -135 -89 -243 -89 -401 0 -146 18 -232 77 -372 153 -363 570 -794 1127 -1169 201 -134 253 -164 291 -164 84 0 594 367 864 621 343 323 531 595 606 879 34 127 32 309 -4 443 -47 172 -126 307 -248 422 -79 75 -106 94 -197 140 -155 77 -358 99 -526 56 -166 -43 -354 -175 -451 -315 -21 -31 -41 -56 -45 -56 -4 0 -24 25 -45 56 -65 94 -184 196 -294 252 -139 71 -263 95 -421 81z" :
+    "M636 2809 c-268 -66 -496 -284 -584 -559 -136 -425 -8 -802 417 -1229 178 -179 885 -796 954 -833 43 -23 109 -22 155 1 38 20 463 382 753 642 346 310 533 550 615 792 151 442 -33 933 -420 1125 -209 104 -472 111 -678 19 -109 -49 -234 -148 -316 -252 l-32 -40 -32 40 c-117 147 -272 251 -443 296 -96 26 -281 25 -389 -2z m391 -179 c126 -44 247 -141 339 -272 64 -91 86 -108 134 -108 48 0 70 17 134 108 93 133 214 229 344 274 97 33 277 33 377 0 106 -36 172 -77 261 -166 138 -137 204 -307 204 -527 0 -331 -162 -585 -645 -1014 -250 -221 -666 -575 -676 -575 -10 0 -408 340 -674 575 -483 428 -645 683 -645 1014 0 220 66 390 204 527 89 88 157 132 256 163 93 29 103 30 220 26 74 -2 123 -10 167 -25z";
+    private bool _isFavourite;
+    public bool isFavourite
+    {
+        get => _isFavourite;
+        set
+        {
+            _isFavourite = value;
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(HeartButtonImage));
+        }
+    }
     private string _stationName;
 
     public string StationName
@@ -48,7 +65,7 @@ public class MainModel : ObservableObject
         set
         {
             _country = value;
-            _radioService.StationCountry= value;
+            _radioService.StationCountry = value;
             OnPropertyChanged();
             OnPropertyChanged(nameof(StationFlagUrl)); // Dodaj tę linię
         }
@@ -161,16 +178,16 @@ public class MainModel : ObservableObject
         _radioService = radioService;
         _promptService = promptService;
         url = _radioService.GetUrl();
-        if(url == null)url = "http://chi.cdn.eurozet.pl/chi-net.mp3";
         _profileService = profileService;
-        
+
         if (url == null) url = "http://chi.cdn.eurozet.pl/chi-net.mp3";
-        if (_radioService.StationName!=null) _stationName = _radioService.StationName;
+        if (_radioService.StationName != null) _stationName = _radioService.StationName;
         if (_radioService.StationImagePath != null) _imagePath = _radioService.StationImagePath;
-        else {
+        else
+        {
             _imagePath = "Assets\\Images\\radio_placeholder_square.png";
         }
-        if (_radioService.StationCountry!=null) _country = _radioService.StationCountry;
+        if (_radioService.StationCountry != null) _country = _radioService.StationCountry;
 
         ToggleMuteCommand = new RelayCommand(ToggleMute);
         ToggleChangeUrlCommand = new AsyncRelayCommand<string?>(ToggleChangeUrl);
@@ -178,6 +195,8 @@ public class MainModel : ObservableObject
         ToggleChangeCountryCommand = new RelayCommand<string?>(ToggleChangeCountry);
         ToggleChangeImagePathCommand = new RelayCommand<string?>(ToggleChangeImagePath);
         PlayRadioCommand = new AsyncRelayCommand(PlayRadio);
+        HeartButtonCommand = new AsyncRelayCommand(HeartButton);
+
         Title = "Main";
         Title += $" - {localizer["ApplicationName"]}";
         Title += $" - {appInfo?.Value?.Environment}";
@@ -185,13 +204,31 @@ public class MainModel : ObservableObject
         IsMuted = _radioService.GetIsMuted();
         isPlaying = _radioService.GetIsPlaying();
         _Volume = _radioService.GetVolume();
+        isFavourite = _isFavourite;
 
         ScrollStartCommand = new RelayCommand<PointerRoutedEventArgs>(ScrollStart);
         ScrollMoveCommand = new RelayCommand<PointerRoutedEventArgs>(ScrollMove);
         ScrollStopCommand = new RelayCommand<PointerRoutedEventArgs>(ScrollStop);
     }
 
+    public static async Task<StorageFolder> OpenFolder() =>
+        await ApplicationData.Current.LocalFolder.CreateFolderAsync(
+            "PtasieRadio", CreationCollisionOption.OpenIfExists);
+    public async Task HeartButton()
+    {
+        isFavourite = !isFavourite;
+        System.Diagnostics.Debug.WriteLine(isFavourite);
 
+        var folder = await OpenFolder();
+        var file = await folder.GetFileAsync("radio.json");
+        string json = await FileIO.ReadTextAsync(file);
+
+        var entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
+                      ?? new Dictionary<string, SaveEntryData>();
+
+        _ = _profileService.FavouriteStationKeyToCurrentProfile(entries.FirstOrDefault(x => x.Value.StreamUrl == url).Key);
+        _ = Refresh();
+    }
     // Poczatek scrolli
     private void ScrollStop(PointerRoutedEventArgs? e)
     {
@@ -260,8 +297,11 @@ public class MainModel : ObservableObject
     }
     public async Task GoToSecond()
     {
-        var name = await Name;
         await _navigator.NavigateRouteAsync(this, "/Second");
+    }
+    public async Task Refresh()
+    {
+        await _navigator.NavigateRouteAsync(this, "/Main");
     }
 
     private void ToggleMute()
