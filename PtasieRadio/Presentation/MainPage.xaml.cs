@@ -466,7 +466,7 @@ public sealed partial class MainPage : Page
             ManipulationMode = ManipulationModes.TranslateX | ManipulationModes.System,
         };
 
-        var targetPanels = new HashSet<StackPanel> { NajczesciejGranePanel, WlasnePanel, UlubionePanel };
+        var targetPanels = new HashSet<StackPanel> { WlasnePanel };
         if (targetPanels.Contains(category))
         {
             var menu = new MenuFlyoutItem { Text = "Usuń" };

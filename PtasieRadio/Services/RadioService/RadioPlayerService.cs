@@ -167,10 +167,7 @@ public class RadioPlayerService : IRadioPlayerService
                     {
                         var fileFormat = station.Favicon?.Map(f => Path.GetExtension(f.AbsolutePath));
                         string fileName = "stationIcon" + imageIndex + (string.IsNullOrEmpty(fileFormat) ? "" : ("." + fileFormat));
-                        int index = fileName.IndexOf('?');
-                        if (index >= 0) fileName = fileName.Substring(0, index);
                         imageIndex++;
-                        if (index >= 0) fileName = fileName.Substring(0, index);
 
                         HttpResponseMessage? image = null;
                         Stream stream;

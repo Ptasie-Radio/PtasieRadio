@@ -52,10 +52,6 @@ public class AddRadioService : IAddRadioService
 			try
 			{
 				file = await folder.GetFileAsync(localFileName);
-
-#if DEBUG
-				System.Diagnostics.Process.Start("explorer.exe", file.Path);
-#endif
 				string existingJson = await FileIO.ReadTextAsync(file);
 				entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(existingJson) ?? new Dictionary<string, SaveEntryData>();
 			}
@@ -69,7 +65,7 @@ public class AddRadioService : IAddRadioService
 				Name = name,
 				Description = description,
 				ImagePath = imagePath,
-				Country = "PL",
+				Country = "UG",
 				Category = "Własne",
 				NumberOfTimesPlayed = 0,
 			};

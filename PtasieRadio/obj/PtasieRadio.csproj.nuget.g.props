@@ -5,12 +5,12 @@
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Fabian\.nuget\packages\</NuGetPackageFolders>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Kornel\.nuget\packages\</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.13.0</NuGetToolVersion>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.13.2</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <SourceRoot Include="C:\Users\Fabian\.nuget\packages\" />
+    <SourceRoot Include="C:\Users\Kornel\.nuget\packages\" />
   </ItemGroup>
   <ImportGroup Condition=" '$(TargetFramework)' == 'net8.0' AND '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)uno.fonts.fluent\2.6.1\buildTransitive\Uno.Fonts.Fluent.props" Condition="Exists('$(NuGetPackageRoot)uno.fonts.fluent\2.6.1\buildTransitive\Uno.Fonts.Fluent.props')" />
@@ -23,33 +23,6 @@
     <Import Project="$(NuGetPackageRoot)refit\7.2.22\buildTransitive\netstandard2.0\refit.props" Condition="Exists('$(NuGetPackageRoot)refit\7.2.22\buildTransitive\netstandard2.0\refit.props')" />
     <Import Project="$(NuGetPackageRoot)skiasharp.nativeassets.webassembly\2.88.9\buildTransitive\netstandard1.0\SkiaSharp.NativeAssets.WebAssembly.props" Condition="Exists('$(NuGetPackageRoot)skiasharp.nativeassets.webassembly\2.88.9\buildTransitive\netstandard1.0\SkiaSharp.NativeAssets.WebAssembly.props')" />
   </ImportGroup>
-<<<<<<< HEAD
-=======
-  <ImportGroup Condition=" '$(TargetFramework)' == 'net8.0-android' AND '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)uno.fonts.fluent\2.6.1\buildTransitive\Uno.Fonts.Fluent.props" Condition="Exists('$(NuGetPackageRoot)uno.fonts.fluent\2.6.1\buildTransitive\Uno.Fonts.Fluent.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.winui\5.6.81\buildTransitive\net8.0-android30.0\uno.winui.props" Condition="Exists('$(NuGetPackageRoot)uno.winui\5.6.81\buildTransitive\net8.0-android30.0\uno.winui.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.winui.devserver\5.6.81\buildTransitive\Uno.WinUI.DevServer.props" Condition="Exists('$(NuGetPackageRoot)uno.winui.devserver\5.6.81\buildTransitive\Uno.WinUI.DevServer.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.ui.hotdesign\1.6.4\build\Uno.UI.HotDesign.props" Condition="Exists('$(NuGetPackageRoot)uno.ui.hotdesign\1.6.4\build\Uno.UI.HotDesign.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.sdk.extras\5.6.3\buildTransitive\Uno.Sdk.Extras.props" Condition="Exists('$(NuGetPackageRoot)uno.sdk.extras\5.6.3\buildTransitive\Uno.Sdk.Extras.props')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.extensions.configuration.usersecrets\8.0.0\buildTransitive\net6.0\Microsoft.Extensions.Configuration.UserSecrets.props" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.configuration.usersecrets\8.0.0\buildTransitive\net6.0\Microsoft.Extensions.Configuration.UserSecrets.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.extensions.core\5.2.7\buildTransitive\Uno.Extensions.Core.props" Condition="Exists('$(NuGetPackageRoot)uno.extensions.core\5.2.7\buildTransitive\Uno.Extensions.Core.props')" />
-    <Import Project="$(NuGetPackageRoot)refit\7.2.22\buildTransitive\netstandard2.0\refit.props" Condition="Exists('$(NuGetPackageRoot)refit\7.2.22\buildTransitive\netstandard2.0\refit.props')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.net.illink.tasks\8.0.13\build\Microsoft.NET.ILLink.Tasks.props" Condition="Exists('$(NuGetPackageRoot)microsoft.net.illink.tasks\8.0.13\build\Microsoft.NET.ILLink.Tasks.props')" />
-  </ImportGroup>
-  <ImportGroup Condition=" '$(TargetFramework)' == 'net8.0-browserwasm' AND '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)uno.fonts.fluent\2.6.1\buildTransitive\Uno.Fonts.Fluent.props" Condition="Exists('$(NuGetPackageRoot)uno.fonts.fluent\2.6.1\buildTransitive\Uno.Fonts.Fluent.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.winui\5.6.81\buildTransitive\net8.0\uno.winui.props" Condition="Exists('$(NuGetPackageRoot)uno.winui\5.6.81\buildTransitive\net8.0\uno.winui.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.winui.runtime.webassembly\5.6.81\buildTransitive\Uno.WinUI.Runtime.WebAssembly.props" Condition="Exists('$(NuGetPackageRoot)uno.winui.runtime.webassembly\5.6.81\buildTransitive\Uno.WinUI.Runtime.WebAssembly.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.winui.devserver\5.6.81\buildTransitive\Uno.WinUI.DevServer.props" Condition="Exists('$(NuGetPackageRoot)uno.winui.devserver\5.6.81\buildTransitive\Uno.WinUI.DevServer.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.wasm.bootstrap\8.0.23\build\Uno.Wasm.Bootstrap.props" Condition="Exists('$(NuGetPackageRoot)uno.wasm.bootstrap\8.0.23\build\Uno.Wasm.Bootstrap.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.ui.hotdesign\1.6.4\build\Uno.UI.HotDesign.props" Condition="Exists('$(NuGetPackageRoot)uno.ui.hotdesign\1.6.4\build\Uno.UI.HotDesign.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.sdk.extras\5.6.3\buildTransitive\Uno.Sdk.Extras.props" Condition="Exists('$(NuGetPackageRoot)uno.sdk.extras\5.6.3\buildTransitive\Uno.Sdk.Extras.props')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.extensions.configuration.usersecrets\8.0.0\buildTransitive\net6.0\Microsoft.Extensions.Configuration.UserSecrets.props" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.configuration.usersecrets\8.0.0\buildTransitive\net6.0\Microsoft.Extensions.Configuration.UserSecrets.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.extensions.core\5.2.7\buildTransitive\Uno.Extensions.Core.props" Condition="Exists('$(NuGetPackageRoot)uno.extensions.core\5.2.7\buildTransitive\Uno.Extensions.Core.props')" />
-    <Import Project="$(NuGetPackageRoot)refit\7.2.22\buildTransitive\netstandard2.0\refit.props" Condition="Exists('$(NuGetPackageRoot)refit\7.2.22\buildTransitive\netstandard2.0\refit.props')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.net.illink.tasks\8.0.13\build\Microsoft.NET.ILLink.Tasks.props" Condition="Exists('$(NuGetPackageRoot)microsoft.net.illink.tasks\8.0.13\build\Microsoft.NET.ILLink.Tasks.props')" />
-  </ImportGroup>
->>>>>>> origin/Scrum50
   <ImportGroup Condition=" '$(TargetFramework)' == 'net8.0-desktop' AND '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)uno.fonts.fluent\2.6.1\buildTransitive\Uno.Fonts.Fluent.props" Condition="Exists('$(NuGetPackageRoot)uno.fonts.fluent\2.6.1\buildTransitive\Uno.Fonts.Fluent.props')" />
     <Import Project="$(NuGetPackageRoot)uno.winui\5.6.81\buildTransitive\net8.0\uno.winui.props" Condition="Exists('$(NuGetPackageRoot)uno.winui\5.6.81\buildTransitive\net8.0\uno.winui.props')" />
@@ -65,83 +38,18 @@
     <Import Project="$(NuGetPackageRoot)uno.extensions.core\5.2.7\buildTransitive\Uno.Extensions.Core.props" Condition="Exists('$(NuGetPackageRoot)uno.extensions.core\5.2.7\buildTransitive\Uno.Extensions.Core.props')" />
     <Import Project="$(NuGetPackageRoot)refit\7.2.22\buildTransitive\netstandard2.0\refit.props" Condition="Exists('$(NuGetPackageRoot)refit\7.2.22\buildTransitive\netstandard2.0\refit.props')" />
   </ImportGroup>
-<<<<<<< HEAD
-=======
-  <ImportGroup Condition=" '$(TargetFramework)' == 'net8.0-ios' AND '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)uno.fonts.fluent\2.6.1\buildTransitive\Uno.Fonts.Fluent.props" Condition="Exists('$(NuGetPackageRoot)uno.fonts.fluent\2.6.1\buildTransitive\Uno.Fonts.Fluent.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.winui\5.6.81\buildTransitive\net8.0-ios17.0\uno.winui.props" Condition="Exists('$(NuGetPackageRoot)uno.winui\5.6.81\buildTransitive\net8.0-ios17.0\uno.winui.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.winui.devserver\5.6.81\buildTransitive\Uno.WinUI.DevServer.props" Condition="Exists('$(NuGetPackageRoot)uno.winui.devserver\5.6.81\buildTransitive\Uno.WinUI.DevServer.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.ui.hotdesign\1.6.4\build\Uno.UI.HotDesign.props" Condition="Exists('$(NuGetPackageRoot)uno.ui.hotdesign\1.6.4\build\Uno.UI.HotDesign.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.sdk.extras\5.6.3\buildTransitive\Uno.Sdk.Extras.props" Condition="Exists('$(NuGetPackageRoot)uno.sdk.extras\5.6.3\buildTransitive\Uno.Sdk.Extras.props')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.extensions.configuration.usersecrets\8.0.0\buildTransitive\net6.0\Microsoft.Extensions.Configuration.UserSecrets.props" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.configuration.usersecrets\8.0.0\buildTransitive\net6.0\Microsoft.Extensions.Configuration.UserSecrets.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.extensions.core\5.2.7\buildTransitive\Uno.Extensions.Core.props" Condition="Exists('$(NuGetPackageRoot)uno.extensions.core\5.2.7\buildTransitive\Uno.Extensions.Core.props')" />
-    <Import Project="$(NuGetPackageRoot)refit\7.2.22\buildTransitive\netstandard2.0\refit.props" Condition="Exists('$(NuGetPackageRoot)refit\7.2.22\buildTransitive\netstandard2.0\refit.props')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.net.illink.tasks\8.0.13\build\Microsoft.NET.ILLink.Tasks.props" Condition="Exists('$(NuGetPackageRoot)microsoft.net.illink.tasks\8.0.13\build\Microsoft.NET.ILLink.Tasks.props')" />
-  </ImportGroup>
-  <ImportGroup Condition=" '$(TargetFramework)' == 'net8.0-maccatalyst' AND '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)uno.fonts.fluent\2.6.1\buildTransitive\Uno.Fonts.Fluent.props" Condition="Exists('$(NuGetPackageRoot)uno.fonts.fluent\2.6.1\buildTransitive\Uno.Fonts.Fluent.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.winui\5.6.81\buildTransitive\net8.0-maccatalyst17.0\uno.winui.props" Condition="Exists('$(NuGetPackageRoot)uno.winui\5.6.81\buildTransitive\net8.0-maccatalyst17.0\uno.winui.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.winui.devserver\5.6.81\buildTransitive\Uno.WinUI.DevServer.props" Condition="Exists('$(NuGetPackageRoot)uno.winui.devserver\5.6.81\buildTransitive\Uno.WinUI.DevServer.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.ui.hotdesign\1.6.4\build\Uno.UI.HotDesign.props" Condition="Exists('$(NuGetPackageRoot)uno.ui.hotdesign\1.6.4\build\Uno.UI.HotDesign.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.sdk.extras\5.6.3\buildTransitive\Uno.Sdk.Extras.props" Condition="Exists('$(NuGetPackageRoot)uno.sdk.extras\5.6.3\buildTransitive\Uno.Sdk.Extras.props')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.extensions.configuration.usersecrets\8.0.0\buildTransitive\net6.0\Microsoft.Extensions.Configuration.UserSecrets.props" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.configuration.usersecrets\8.0.0\buildTransitive\net6.0\Microsoft.Extensions.Configuration.UserSecrets.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.extensions.core\5.2.7\buildTransitive\Uno.Extensions.Core.props" Condition="Exists('$(NuGetPackageRoot)uno.extensions.core\5.2.7\buildTransitive\Uno.Extensions.Core.props')" />
-    <Import Project="$(NuGetPackageRoot)refit\7.2.22\buildTransitive\netstandard2.0\refit.props" Condition="Exists('$(NuGetPackageRoot)refit\7.2.22\buildTransitive\netstandard2.0\refit.props')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.net.illink.tasks\8.0.13\build\Microsoft.NET.ILLink.Tasks.props" Condition="Exists('$(NuGetPackageRoot)microsoft.net.illink.tasks\8.0.13\build\Microsoft.NET.ILLink.Tasks.props')" />
-  </ImportGroup>
->>>>>>> origin/Scrum50
   <PropertyGroup Condition=" '$(TargetFramework)' == 'net8.0' AND '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgUno_WinUI Condition=" '$(PkgUno_WinUI)' == '' ">C:\Users\Fabian\.nuget\packages\uno.winui\5.6.81</PkgUno_WinUI>
-    <PkgUno_WinUI_DevServer Condition=" '$(PkgUno_WinUI_DevServer)' == '' ">C:\Users\Fabian\.nuget\packages\uno.winui.devserver\5.6.81</PkgUno_WinUI_DevServer>
-    <PkgUno_UI_HotDesign Condition=" '$(PkgUno_UI_HotDesign)' == '' ">C:\Users\Fabian\.nuget\packages\uno.ui.hotdesign\1.6.4</PkgUno_UI_HotDesign>
-    <PkgUno_Settings_DevServer Condition=" '$(PkgUno_Settings_DevServer)' == '' ">C:\Users\Fabian\.nuget\packages\uno.settings.devserver\1.2.18</PkgUno_Settings_DevServer>
-    <PkgUno_Dsp_Tasks Condition=" '$(PkgUno_Dsp_Tasks)' == '' ">C:\Users\Fabian\.nuget\packages\uno.dsp.tasks\1.4.0</PkgUno_Dsp_Tasks>
+    <PkgUno_WinUI Condition=" '$(PkgUno_WinUI)' == '' ">C:\Users\Kornel\.nuget\packages\uno.winui\5.6.81</PkgUno_WinUI>
+    <PkgUno_WinUI_DevServer Condition=" '$(PkgUno_WinUI_DevServer)' == '' ">C:\Users\Kornel\.nuget\packages\uno.winui.devserver\5.6.81</PkgUno_WinUI_DevServer>
+    <PkgUno_UI_HotDesign Condition=" '$(PkgUno_UI_HotDesign)' == '' ">C:\Users\Kornel\.nuget\packages\uno.ui.hotdesign\1.6.4</PkgUno_UI_HotDesign>
+    <PkgUno_Settings_DevServer Condition=" '$(PkgUno_Settings_DevServer)' == '' ">C:\Users\Kornel\.nuget\packages\uno.settings.devserver\1.2.18</PkgUno_Settings_DevServer>
+    <PkgUno_Dsp_Tasks Condition=" '$(PkgUno_Dsp_Tasks)' == '' ">C:\Users\Kornel\.nuget\packages\uno.dsp.tasks\1.4.0</PkgUno_Dsp_Tasks>
   </PropertyGroup>
-<<<<<<< HEAD
-=======
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net8.0-android' AND '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgUno_WinUI Condition=" '$(PkgUno_WinUI)' == '' ">C:\Users\Fabian\.nuget\packages\uno.winui\5.6.81</PkgUno_WinUI>
-    <PkgUno_WinUI_DevServer Condition=" '$(PkgUno_WinUI_DevServer)' == '' ">C:\Users\Fabian\.nuget\packages\uno.winui.devserver\5.6.81</PkgUno_WinUI_DevServer>
-    <PkgUno_UI_HotDesign Condition=" '$(PkgUno_UI_HotDesign)' == '' ">C:\Users\Fabian\.nuget\packages\uno.ui.hotdesign\1.6.4</PkgUno_UI_HotDesign>
-    <PkgUno_Settings_DevServer Condition=" '$(PkgUno_Settings_DevServer)' == '' ">C:\Users\Fabian\.nuget\packages\uno.settings.devserver\1.2.18</PkgUno_Settings_DevServer>
-    <PkgUno_Dsp_Tasks Condition=" '$(PkgUno_Dsp_Tasks)' == '' ">C:\Users\Fabian\.nuget\packages\uno.dsp.tasks\1.4.0</PkgUno_Dsp_Tasks>
-    <PkgMicrosoft_NET_ILLink_Tasks Condition=" '$(PkgMicrosoft_NET_ILLink_Tasks)' == '' ">C:\Users\Fabian\.nuget\packages\microsoft.net.illink.tasks\8.0.13</PkgMicrosoft_NET_ILLink_Tasks>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net8.0-browserwasm' AND '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgUno_WinUI Condition=" '$(PkgUno_WinUI)' == '' ">C:\Users\Fabian\.nuget\packages\uno.winui\5.6.81</PkgUno_WinUI>
-    <PkgUno_WinUI_DevServer Condition=" '$(PkgUno_WinUI_DevServer)' == '' ">C:\Users\Fabian\.nuget\packages\uno.winui.devserver\5.6.81</PkgUno_WinUI_DevServer>
-    <PkgUno_Wasm_Bootstrap_DevServer Condition=" '$(PkgUno_Wasm_Bootstrap_DevServer)' == '' ">C:\Users\Fabian\.nuget\packages\uno.wasm.bootstrap.devserver\8.0.23</PkgUno_Wasm_Bootstrap_DevServer>
-    <PkgUno_Wasm_Bootstrap Condition=" '$(PkgUno_Wasm_Bootstrap)' == '' ">C:\Users\Fabian\.nuget\packages\uno.wasm.bootstrap\8.0.23</PkgUno_Wasm_Bootstrap>
-    <PkgUno_UI_HotDesign Condition=" '$(PkgUno_UI_HotDesign)' == '' ">C:\Users\Fabian\.nuget\packages\uno.ui.hotdesign\1.6.4</PkgUno_UI_HotDesign>
-    <PkgUno_Settings_DevServer Condition=" '$(PkgUno_Settings_DevServer)' == '' ">C:\Users\Fabian\.nuget\packages\uno.settings.devserver\1.2.18</PkgUno_Settings_DevServer>
-    <PkgUno_Dsp_Tasks Condition=" '$(PkgUno_Dsp_Tasks)' == '' ">C:\Users\Fabian\.nuget\packages\uno.dsp.tasks\1.4.0</PkgUno_Dsp_Tasks>
-    <PkgMicrosoft_NET_ILLink_Tasks Condition=" '$(PkgMicrosoft_NET_ILLink_Tasks)' == '' ">C:\Users\Fabian\.nuget\packages\microsoft.net.illink.tasks\8.0.13</PkgMicrosoft_NET_ILLink_Tasks>
-  </PropertyGroup>
->>>>>>> origin/Scrum50
   <PropertyGroup Condition=" '$(TargetFramework)' == 'net8.0-desktop' AND '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgUno_WinUI Condition=" '$(PkgUno_WinUI)' == '' ">C:\Users\Fabian\.nuget\packages\uno.winui\5.6.81</PkgUno_WinUI>
-    <PkgUno_WinUI_DevServer Condition=" '$(PkgUno_WinUI_DevServer)' == '' ">C:\Users\Fabian\.nuget\packages\uno.winui.devserver\5.6.81</PkgUno_WinUI_DevServer>
-    <PkgUno_UI_HotDesign Condition=" '$(PkgUno_UI_HotDesign)' == '' ">C:\Users\Fabian\.nuget\packages\uno.ui.hotdesign\1.6.4</PkgUno_UI_HotDesign>
-    <PkgUno_Settings_DevServer Condition=" '$(PkgUno_Settings_DevServer)' == '' ">C:\Users\Fabian\.nuget\packages\uno.settings.devserver\1.2.18</PkgUno_Settings_DevServer>
-    <PkgUno_Dsp_Tasks Condition=" '$(PkgUno_Dsp_Tasks)' == '' ">C:\Users\Fabian\.nuget\packages\uno.dsp.tasks\1.4.0</PkgUno_Dsp_Tasks>
+    <PkgUno_WinUI Condition=" '$(PkgUno_WinUI)' == '' ">C:\Users\Kornel\.nuget\packages\uno.winui\5.6.81</PkgUno_WinUI>
+    <PkgUno_WinUI_DevServer Condition=" '$(PkgUno_WinUI_DevServer)' == '' ">C:\Users\Kornel\.nuget\packages\uno.winui.devserver\5.6.81</PkgUno_WinUI_DevServer>
+    <PkgUno_UI_HotDesign Condition=" '$(PkgUno_UI_HotDesign)' == '' ">C:\Users\Kornel\.nuget\packages\uno.ui.hotdesign\1.6.4</PkgUno_UI_HotDesign>
+    <PkgUno_Settings_DevServer Condition=" '$(PkgUno_Settings_DevServer)' == '' ">C:\Users\Kornel\.nuget\packages\uno.settings.devserver\1.2.18</PkgUno_Settings_DevServer>
+    <PkgUno_Dsp_Tasks Condition=" '$(PkgUno_Dsp_Tasks)' == '' ">C:\Users\Kornel\.nuget\packages\uno.dsp.tasks\1.4.0</PkgUno_Dsp_Tasks>
   </PropertyGroup>
-<<<<<<< HEAD
-=======
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net8.0-ios' AND '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgUno_WinUI Condition=" '$(PkgUno_WinUI)' == '' ">C:\Users\Fabian\.nuget\packages\uno.winui\5.6.81</PkgUno_WinUI>
-    <PkgUno_WinUI_DevServer Condition=" '$(PkgUno_WinUI_DevServer)' == '' ">C:\Users\Fabian\.nuget\packages\uno.winui.devserver\5.6.81</PkgUno_WinUI_DevServer>
-    <PkgUno_UI_HotDesign Condition=" '$(PkgUno_UI_HotDesign)' == '' ">C:\Users\Fabian\.nuget\packages\uno.ui.hotdesign\1.6.4</PkgUno_UI_HotDesign>
-    <PkgUno_Settings_DevServer Condition=" '$(PkgUno_Settings_DevServer)' == '' ">C:\Users\Fabian\.nuget\packages\uno.settings.devserver\1.2.18</PkgUno_Settings_DevServer>
-    <PkgUno_Dsp_Tasks Condition=" '$(PkgUno_Dsp_Tasks)' == '' ">C:\Users\Fabian\.nuget\packages\uno.dsp.tasks\1.4.0</PkgUno_Dsp_Tasks>
-    <PkgMicrosoft_NET_ILLink_Tasks Condition=" '$(PkgMicrosoft_NET_ILLink_Tasks)' == '' ">C:\Users\Fabian\.nuget\packages\microsoft.net.illink.tasks\8.0.13</PkgMicrosoft_NET_ILLink_Tasks>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net8.0-maccatalyst' AND '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgUno_WinUI Condition=" '$(PkgUno_WinUI)' == '' ">C:\Users\Fabian\.nuget\packages\uno.winui\5.6.81</PkgUno_WinUI>
-    <PkgUno_WinUI_DevServer Condition=" '$(PkgUno_WinUI_DevServer)' == '' ">C:\Users\Fabian\.nuget\packages\uno.winui.devserver\5.6.81</PkgUno_WinUI_DevServer>
-    <PkgUno_UI_HotDesign Condition=" '$(PkgUno_UI_HotDesign)' == '' ">C:\Users\Fabian\.nuget\packages\uno.ui.hotdesign\1.6.4</PkgUno_UI_HotDesign>
-    <PkgUno_Settings_DevServer Condition=" '$(PkgUno_Settings_DevServer)' == '' ">C:\Users\Fabian\.nuget\packages\uno.settings.devserver\1.2.18</PkgUno_Settings_DevServer>
-    <PkgUno_Dsp_Tasks Condition=" '$(PkgUno_Dsp_Tasks)' == '' ">C:\Users\Fabian\.nuget\packages\uno.dsp.tasks\1.4.0</PkgUno_Dsp_Tasks>
-    <PkgMicrosoft_NET_ILLink_Tasks Condition=" '$(PkgMicrosoft_NET_ILLink_Tasks)' == '' ">C:\Users\Fabian\.nuget\packages\microsoft.net.illink.tasks\8.0.13</PkgMicrosoft_NET_ILLink_Tasks>
-  </PropertyGroup>
->>>>>>> origin/Scrum50
 </Project>

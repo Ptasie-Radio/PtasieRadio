@@ -210,14 +210,11 @@ public class MainModel : ObservableObject
         url = _radioService.GetUrl();
         if (url == null) url = "";
         if (_radioService.StationName != null) _stationName = _radioService.StationName;
-        _profileService = profileService;
-
         if (_radioService.StationImagePath != null) _imagePath = _radioService.StationImagePath;
-        else
-        {
-            _imagePath = "Assets\\Images\\radio_placeholder_square.png";
-        }
+        else _imagePath = "Assets\\Images\\radio_placeholder_square.png";
         if (_radioService.StationCountry != null) _country = _radioService.StationCountry;
+
+        _profileService = profileService;
 
         ToggleMuteCommand = new RelayCommand(ToggleMute);
         ToggleChangeUrlCommand = new AsyncRelayCommand<string?>(ToggleChangeUrl);
