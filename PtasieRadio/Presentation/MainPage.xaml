@@ -35,7 +35,7 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- Hamburger Menu z podświetleniem -->
-                <Button Width="40"
+                <!-- <Button Width="40"
                         Height="40"
                         Background="Transparent">
                     <Button.Template>
@@ -58,7 +58,7 @@
                                         </TransformGroup>
                                     </Path.RenderTransform>
                                 </Path>
-                                <!-- hamburger.svg -->
+                                
                             </Grid>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsPointerOver"
@@ -70,8 +70,11 @@
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
                     </Button.Template>
-                </Button>
+                </Button> -->
+                <!-- hamburger.svg -->
 
+
+                
                 <!-- Wyszukiwarka -->
                 <Grid Grid.Column="1"
                       HorizontalAlignment="Center"
@@ -254,11 +257,11 @@
                                    HorizontalAlignment="Center"/>
                     </StackPanel>
 
-                    <TextBlock Text="Gatunek"
+                    <TextBlock Text="Gatunek (Coming Soon)"
                                Foreground="{StaticResource TextColor}"
                                Opacity="0.6"
                                FontSize="16"/>
-                    <TextBlock Text="Kraj"
+                    <TextBlock Text="Kraj (Coming Soon)"
                                Foreground="{StaticResource TextColor}"
                                Opacity="0.6"
                                FontSize="16"/>

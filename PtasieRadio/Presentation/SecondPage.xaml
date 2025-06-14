@@ -210,7 +210,7 @@
                                     </Path>
                                     <!-- lang.svg -->
 
-                                    <TextBlock Text="Język"
+                                    <TextBlock Text="Język (Coming Soon)"
                                                Grid.Column="1"
                                                VerticalAlignment="Center"
                                                Foreground="{StaticResource TextColor}"/>
@@ -258,7 +258,7 @@
                                     </Path>
                                     <!-- folder.svg -->
 
-                                    <TextBlock Text="Backup"
+                                    <TextBlock Text="Backup (Coming Soon)"
                                                Grid.Column="1"
                                                VerticalAlignment="Center"
                                                Foreground="{StaticResource TextColor}"/>
@@ -305,7 +305,7 @@
                                         </Path.RenderTransform>
                                     </Path>
                                     <!-- eq.svg -->
-                                    <TextBlock Text="Equalizer (Coming Future)"
+                                    <TextBlock Text="Equalizer (Coming Soon)"
                                                Grid.Column="1"
                                                VerticalAlignment="Center"
                                                Foreground="{StaticResource TextColor}"/>

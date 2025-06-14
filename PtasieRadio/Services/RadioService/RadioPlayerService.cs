@@ -179,7 +179,7 @@ public class RadioPlayerService : IRadioPlayerService
                         }
                         catch(Exception)
                         {
-                            var uri = new Uri("ms-appx:///Assets/Images/placeholder.png");
+                            var uri = new Uri("ms-appx:///Assets/Images/radio_placeholder_square.png");
                             StorageFile f = await StorageFile.GetFileFromApplicationUriAsync(uri);
                             stream = (await f.OpenReadAsync()).AsStream();
                         }

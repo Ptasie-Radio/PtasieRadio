@@ -52,11 +52,11 @@ public sealed partial class AddRadioPage : Page
 			}
 			catch (FileNotFoundException)
 			{
-				bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
+				bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/radio_placeholder_square.png"));
 			}
 			catch (System.NullReferenceException)
 			{
-				bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/placeholder.png"));
+				bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/radio_placeholder_square.png"));
 			}
 
 			var image = SelectedImageButton.GetTemplateChild("SelectedImage") as Image;
