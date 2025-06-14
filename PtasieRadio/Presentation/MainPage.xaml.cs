@@ -33,6 +33,7 @@ public sealed partial class MainPage : Page
         _ = CreateOwnStationOnViewLoad();
     }
 
+
     private void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
     {
         double windowHeight = this.ActualHeight;
@@ -137,278 +138,390 @@ public sealed partial class MainPage : Page
             System.Diagnostics.Debug.WriteLine($"Kliknięto: {selected}");
         }
     }
+    {
+        if (sender is StackPanel panel && panel.Tag is string selected)
+        {
+            System.Diagnostics.Debug.WriteLine($"Kliknięto: {selected}");
+        }
+    }
 
 
     private void ShuffleButtonTappedEvent(object sender, TappedRoutedEventArgs e)
+{
+    //TODO:
+    //Dodaj tutaj shuffl'a
+    e.Handled = true;
+}
+
+private void PlayPauseButtonTappedEvent(object sender, TappedRoutedEventArgs e)
+{
+    e.Handled = true;
+}
+
+private void HeartButtonTappedEvent(object sender, TappedRoutedEventArgs e)
+{
+    e.Handled = true;
+}
+
+private void OnSoundLevelSliderValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+{
+    var viewModel = DataContext as MainModel;
+
+    if (viewModel == null) return;
+
+    viewModel.Volume = e.NewValue;
+}
+
+public static async Task<Dictionary<string, SaveEntryData>> LoadFromJson(StorageFolder folder, string text = "")
+{
+    var localFileName = "radio.json";
+    Dictionary<string, SaveEntryData> entries;
+    Dictionary<string, SaveEntryData> filteredEntries;
+    try
     {
-        //TODO:
-        //Dodaj tutaj shuffl'a
-        e.Handled = true;
-    }
-
-    private void PlayPauseButtonTappedEvent(object sender, TappedRoutedEventArgs e)
-    {
-        e.Handled = true;
-    }
-
-    private void HeartButtonTappedEvent(object sender, TappedRoutedEventArgs e)
-    {
-        e.Handled = true;
-    }
-
-    private void OnSoundLevelSliderValueChanged(object sender, RangeBaseValueChangedEventArgs e)
-    {
-        var viewModel = DataContext as MainModel;
-
-        if (viewModel == null) return;
-
-        viewModel.Volume = e.NewValue;
-    }
-
     public static async Task<Dictionary<string, SaveEntryData>> LoadFromJson(StorageFolder folder, string text = "")
+{
+    var localFileName = "radio.json";
+    Dictionary<string, SaveEntryData> entries;
+    Dictionary<string, SaveEntryData> filteredEntries;
+    try
     {
-        var localFileName = "radio.json";
-        Dictionary<string, SaveEntryData> entries;
-        Dictionary<string, SaveEntryData> filteredEntries;
-        try
-        {
 
-            var file = await folder.GetFileAsync(localFileName);
-            string json = await FileIO.ReadTextAsync(file);
-            entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
-                      ?? new Dictionary<string, SaveEntryData>();
-            if (text != "") filteredEntries = entries.Where(kv => kv.Value.Category == text).ToDictionary(kv => kv.Key, kv => kv.Value);
-            else filteredEntries = entries;
-        }
+        var file = await folder.GetFileAsync(localFileName);
+        string json = await FileIO.ReadTextAsync(file);
+        entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
+                  ?? new Dictionary<string, SaveEntryData>();
+        if (text != "") filteredEntries = entries.Where(kv => kv.Value.Category == text).ToDictionary(kv => kv.Key, kv => kv.Value);
+        else filteredEntries = entries;
+    }
+    catch (FileNotFoundException)
+    {
+        filteredEntries = new Dictionary<string, SaveEntryData>();
+    }
+    var file = await folder.GetFileAsync(localFileName);
+    string json = await FileIO.ReadTextAsync(file);
+    entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
+              ?? new Dictionary<string, SaveEntryData>();
+    if (text != "") filteredEntries = entries.Where(kv => kv.Value.Category == text).ToDictionary(kv => kv.Key, kv => kv.Value);
+    else filteredEntries = entries;
+}
         catch (FileNotFoundException)
         {
-            filteredEntries = new Dictionary<string, SaveEntryData>();
-        }
+    filteredEntries = new Dictionary<string, SaveEntryData>();
+}
 
-        return filteredEntries;
+return filteredEntries;
     }
 
     public static async Task RemoveEntryById(StorageFolder folder, string id)
+{
+    var localFileName = "radio.json";
+    var userFileName = "../users.json";
+    try
     {
-        var localFileName = "radio.json";
-        var userFileName = "../users.json";
-        try
+        var file = await folder.GetFileAsync(localFileName);
+        string json = await FileIO.ReadTextAsync(file);
+
+        var entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
+                      ?? new Dictionary<string, SaveEntryData>();
+
+        var fileUser = await folder.GetFileAsync(userFileName);
+        string jsonUser = await FileIO.ReadTextAsync(fileUser);
+        var userData = JsonConvert.DeserializeObject<Dictionary<string, User>>(jsonUser)
+                      ?? new Dictionary<string, User>();
+
+        if (entries.ContainsKey(id))
         {
-            var file = await folder.GetFileAsync(localFileName);
-            string json = await FileIO.ReadTextAsync(file);
-
-            var entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
-                          ?? new Dictionary<string, SaveEntryData>();
-
-            var fileUser = await folder.GetFileAsync(userFileName);
-            string jsonUser = await FileIO.ReadTextAsync(fileUser);
-            var userData = JsonConvert.DeserializeObject<Dictionary<string, User>>(jsonUser)
-                          ?? new Dictionary<string, User>();
-
-            if (entries.ContainsKey(id))
+            entries.Remove(id);
+            string newJson = JsonConvert.SerializeObject(entries, Formatting.Indented);
+            await FileIO.WriteTextAsync(file, newJson);
+        }
+        // dla czyszczenia profilu
+        bool changed = false;
+        foreach (var user in userData.Values)
+        {
+            // Jeśli chcesz też z UserRadioStationKeys:
+            if (user.UserRadioStationKeys.Contains(id))
             {
-                entries.Remove(id);
-                string newJson = JsonConvert.SerializeObject(entries, Formatting.Indented);
-                await FileIO.WriteTextAsync(file, newJson);
-            }
-            // dla czyszczenia profilu
-            bool changed = false;
-            foreach (var user in userData.Values)
-            {
-                // Jeśli chcesz też z UserRadioStationKeys:
-                if (user.UserRadioStationKeys.Contains(id))
-                {
-                    user.UserRadioStationKeys.Remove(id);
-                    changed = true;
-                }
-            }
-            if (changed)
-            {
-                string newJson = JsonConvert.SerializeObject(userData, Formatting.Indented);
-                await FileIO.WriteTextAsync(fileUser, newJson);
+                user.UserRadioStationKeys.Remove(id);
+                changed = true;
             }
         }
-        catch (FileNotFoundException)
+        if (changed)
         {
-            System.Diagnostics.Debug.WriteLine($"Exception: Nie udało się znaleźć pliku");
+            string newJson = JsonConvert.SerializeObject(userData, Formatting.Indented);
+            await FileIO.WriteTextAsync(fileUser, newJson);
         }
     }
-
-    public static async Task<StorageFolder> OpenFolder() =>
-        await ApplicationData.Current.LocalFolder.CreateFolderAsync(
-            folderName, CreationCollisionOption.OpenIfExists);
-
-    private async Task CreateOwnStationOnViewLoad()
+    catch (FileNotFoundException)
     {
-        var x = new List<string> { "NO", "POP", "Własne", "" }; // ulubione sa dla poprawnosci dzialania tego kodu nie znajdziemy tej opcji w radio.json
-        int j = 0;
-        using (await AddRadioService.jsonSemaphore.Lock())
-        {
-            foreach (StackPanel panel in new List<StackPanel> { NajczesciejGranePanel, PopularnePanel, WlasnePanel, UlubionePanel })
-            {
-                var folder = await OpenFolder();
-                var entries = await LoadFromJson(folder, x[j]);
-                if (x[j] == "Własne")
-                {
-                    var viewModel = DataContext as MainModel;
-                    if (viewModel == null) return;
-                    // Pobierz aktualny profil użytkownika
-                    var currentProfileKey = viewModel._profileService.SelectedKey;
-                    if (currentProfileKey != null && viewModel._profileService.Profiles.TryGetValue(currentProfileKey, out var userProfile))
-                    {
-                        // Filtruj tylko stacje z kluczami użytkownika
-                        entries = entries
-                            .Where(entry => userProfile.UserRadioStationKeys.Contains(entry.Key))
-                            .ToDictionary(kv => kv.Key, kv => kv.Value);
-                    }
-                    else
-                    {
-                        entries = new Dictionary<string, SaveEntryData>();
-                    }
-                }
-                else if (x[j] == "")
-                {
-                    var viewModel = DataContext as MainModel;
-                    if (viewModel == null) return;
-                    // Pobierz aktualny profil użytkownika
-                    var currentProfileKey = viewModel._profileService.SelectedKey;
-                    if (currentProfileKey != null && viewModel._profileService.Profiles.TryGetValue(currentProfileKey, out var userProfile))
-                    {
-                        // Filtruj tylko stacje z kluczami użytkownika
-                        entries = entries
-                            .Where(entry => userProfile.FavoriteStationIds.Contains(entry.Key))
-                            .ToDictionary(kv => kv.Key, kv => kv.Value);
-
-                    }
-                    else
-                    {
-                        entries = new Dictionary<string, SaveEntryData>();
-                    }
-                }
-                await AddStation(folder, entries, panel);
-                j++;
-            }
-        }
+        System.Diagnostics.Debug.WriteLine($"Exception: Nie udało się znaleźć pliku");
     }
+}
 
-    private async Task AddStation(StorageFolder folder, Dictionary<string, SaveEntryData> entries, StackPanel category)
+public static async Task<StorageFolder> OpenFolder() =>
+    await ApplicationData.Current.LocalFolder.CreateFolderAsync(
+        folderName, CreationCollisionOption.OpenIfExists);
+
+private async Task CreateOwnStationOnViewLoad()
+{
+    var x = new List<string> { "NO", "POP", "Własne", "" }; // ulubione sa dla poprawnosci dzialania tego kodu nie znajdziemy tej opcji w radio.json
+    int j = 0;
+    using (await AddRadioService.jsonSemaphore.Lock())
     {
-        var files = await folder.GetFilesAsync();
-        foreach (var entry in entries)
+        foreach (StackPanel panel in new List<StackPanel> { NajczesciejGranePanel, PopularnePanel, WlasnePanel, UlubionePanel })
         {
-            BitmapImage bitmap;
-            StorageFile? file;
-
-            try
-            {
-                file = await StorageFile.GetFileFromPathAsync(entry.Value.ImagePath);
-            }
-            catch (FileNotFoundException)
-            {
-                file = null;
-            }
-            try
-            {
-                using (var stream = new MemoryStream(File.ReadAllBytes(file?.Path ?? "Brak")))
-                {
-                    bitmap = new BitmapImage();
-                    await bitmap.SetSourceAsync(stream);
-                }
-
-            }
-            catch (FileNotFoundException)
-            {
-                bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/radio_placeholder_square"));
-            }
-            catch (System.NullReferenceException)
-            {
-                bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/radio_placeholder_square"));
-            }
-
-            var image = new Image
-            {
-                Width = 120,
-                Height = 130,
-                Stretch = Stretch.Uniform,
-                HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center,
-                Source = bitmap
-            };
-
-            var border = new Border
-            {
-                Width = 100,
-                Height = 100,
-                Background = new SolidColorBrush(Windows.UI.ColorHelper.FromArgb(255, 224, 224, 224)),
-                CornerRadius = new CornerRadius(20),
-                Child = image
-            };
-
-            var textBlock = new TextBlock
-            {
-                Text = entry.Value.Name,
-                TextAlignment = TextAlignment.Center,
-                FontSize = 12,
-                Foreground = (Brush)Application.Current.Resources["TextColor"],
-            };
-
-            var stationPanel = new StackPanel
-            {
-                Width = 100,
-                Background = new SolidColorBrush(Microsoft.UI.Colors.Transparent),
-                Spacing = 5,
-                Name = $"Stacja_{entry.Key}",
-                ManipulationMode = ManipulationModes.TranslateX | ManipulationModes.System,
-            };
-
-            var targetPanels = new HashSet<StackPanel> { NajczesciejGranePanel, WlasnePanel, UlubionePanel };
-            if (targetPanels.Contains(category))
-            {
-                var menu = new MenuFlyoutItem { Text = "Usuń" };
-                menu.Click += async (s, e) =>
-                {
-                    string id = stationPanel.Name.Replace("Stacja_", "");
-                    await RemoveEntryById(folder, id);
-                    var parent = stationPanel.Parent as Panel;
-                    parent?.Children.Remove(stationPanel);//Usuwamy ten nasz station Panel
-                };
-                var menuFlyout = new MenuFlyout();
-                menuFlyout.Items.Add(menu);
-                stationPanel.ContextFlyout = menuFlyout;
-            }
-            stationPanel.Tapped += OnPanelTapped;
-            stationPanel.Children.Add(border);
-            stationPanel.Children.Add(textBlock);
-            category.Children.Add(stationPanel);
-        }
-    }
-
-    private async void OnPanelTapped(object sender, TappedRoutedEventArgs e)
-    {
-
-        if (sender is StackPanel panel)
-        {
-            string index = panel.Name.Replace("Stacja_", "");
-            if (currentIndex == index) return;//Nie pozwalamy na to, aby użytkownik spamował na ten sam przycisk.
             var folder = await OpenFolder();
-            var entries = await LoadFromJson(folder);
-
-            if (entries.TryGetValue(index, out var entry))
+            var entries = await LoadFromJson(folder, x[j]);
+            if (x[j] == "Własne")
             {
                 var viewModel = DataContext as MainModel;
                 if (viewModel == null) return;
-                currentIndex = index;
-                viewModel.ToggleChangeUrlCommand.Execute(entry.StreamUrl);
-                viewModel.ToggleChangeStationNameCommand.Execute(entry.Name);
-                viewModel.ToggleChangeCountryCommand.Execute(entry.Country);
-                viewModel.ToggleChangeImagePathCommand.Execute(entry.ImagePath);
+                // Pobierz aktualny profil użytkownika
+                var currentProfileKey = viewModel._profileService.SelectedKey;
+                if (currentProfileKey != null && viewModel._profileService.Profiles.TryGetValue(currentProfileKey, out var userProfile))
+                {
+                    // Filtruj tylko stacje z kluczami użytkownika
+                    entries = entries
+                        .Where(entry => userProfile.UserRadioStationKeys.Contains(entry.Key))
+                        .ToDictionary(kv => kv.Key, kv => kv.Value);
+                }
+                else
+                {
+                    entries = new Dictionary<string, SaveEntryData>();
+                }
             }
-            else
+            else if (x[j] == "")
             {
-                System.Diagnostics.Debug.WriteLine($"Nie udało się");
+                var viewModel = DataContext as MainModel;
+                if (viewModel == null) return;
+                // Pobierz aktualny profil użytkownika
+                var currentProfileKey = viewModel._profileService.SelectedKey;
+                if (currentProfileKey != null && viewModel._profileService.Profiles.TryGetValue(currentProfileKey, out var userProfile))
+                {
+                    // Filtruj tylko stacje z kluczami użytkownika
+                    entries = entries
+                        .Where(entry => userProfile.FavoriteStationIds.Contains(entry.Key))
+                        .ToDictionary(kv => kv.Key, kv => kv.Value);
+
+                }
+                else
+                {
+                    entries = new Dictionary<string, SaveEntryData>();
+                }
+            }
+            await AddStation(folder, entries, panel);
+            j++;
+        }
+    }
+}
+private void FilterVisibleStations(string searchText)
+{
+    var categoryPanels = new List<StackPanel>
+    {
+        NajczesciejGranePanel,
+        PopularnePanel,
+        WlasnePanel
+    };
+
+    foreach (var categoryPanel in categoryPanels)
+    {
+        FilterStationsInCategory(categoryPanel, searchText);
+    }
+}
+
+private void FilterStationsInCategory(StackPanel categoryPanel, string searchText)
+{
+    foreach (var child in categoryPanel.Children)
+    {
+        if (child is StackPanel stationPanel && stationPanel.Name.StartsWith("Stacja_"))
+        {
+            // Znajdujemy TextBlock z nazwą stacji (drugi element w StackPanel)
+            var textBlock = stationPanel.Children.OfType<TextBlock>().FirstOrDefault();
+
+            if (textBlock != null)
+            {
+                string stationName = textBlock.Text.ToLower();
+
+                // Pokazujemy/ukrywamy stację na podstawie dopasowania
+                bool isMatch = string.IsNullOrEmpty(searchText) ||
+                          stationName.Contains(searchText) ||
+                          FuzzySearch.CalculateSimilarity(stationName, searchText) >= 0.4;
+
+                if (isMatch)
+                    stationPanel.Visibility = Visibility.Visible;
+                else
+                    stationPanel.Visibility = Visibility.Collapsed;
             }
         }
     }
 }
+private void SearchAutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+{
+    if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
+    {
+        string searchText = sender.Text.ToLower().Trim();
 
+        // Filtrowanie widocznych stacji
+        FilterVisibleStations(searchText);
 
+        // Opcjonalnie: tworzenie podpowiedzi
+        if (!string.IsNullOrEmpty(searchText))
+        {
+            var suggestions = GetMatchingStationNames(searchText);
+            sender.ItemsSource = suggestions.Take(5); // Maksymalnie 5 podpowiedzi
+        }
+        else
+        {
+            sender.ItemsSource = null;
+        }
+    }
+}
+
+private List<string> GetMatchingStationNames(string searchText)
+{
+    var matchingNames = new List<string>();
+    var categoryPanels = new List<StackPanel> { NajczesciejGranePanel, PopularnePanel, WlasnePanel };
+
+    foreach (var categoryPanel in categoryPanels)
+    {
+        foreach (var child in categoryPanel.Children)
+        {
+            if (child is StackPanel stationPanel && stationPanel.Name.StartsWith("Stacja_"))
+            {
+                var textBlock = stationPanel.Children.OfType<TextBlock>().FirstOrDefault();
+                if (textBlock != null)
+                {
+                    string stationName = textBlock.Text;
+                    if (stationName.ToLower().Contains(searchText))
+                    {
+                        matchingNames.Add(stationName);
+                    }
+                }
+            }
+        }
+    }
+
+    return matchingNames.Distinct().OrderBy(x => x).ToList();
+}
+
+private async Task AddStation(StorageFolder folder, Dictionary<string, SaveEntryData> entries, StackPanel category)
+{
+    var files = await folder.GetFilesAsync();
+    foreach (var entry in entries)
+    {
+        BitmapImage bitmap;
+        StorageFile? file;
+
+        try
+        {
+            file = await StorageFile.GetFileFromPathAsync(entry.Value.ImagePath);
+        }
+        catch (FileNotFoundException)
+        {
+            file = null;
+        }
+        try
+        {
+            using (var stream = new MemoryStream(File.ReadAllBytes(file?.Path ?? "Brak")))
+            {
+                bitmap = new BitmapImage();
+                await bitmap.SetSourceAsync(stream);
+            }
+
+        }
+        catch (FileNotFoundException)
+        {
+            bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/radio_placeholder_square"));
+        }
+        catch (System.NullReferenceException)
+        {
+            bitmap = new BitmapImage(new Uri("ms-appx:///Assets/Images/radio_placeholder_square"));
+        }
+
+        var image = new Image
+        {
+            Width = 120,
+            Height = 130,
+            Stretch = Stretch.Uniform,
+            HorizontalAlignment = HorizontalAlignment.Center,
+            VerticalAlignment = VerticalAlignment.Center,
+            Source = bitmap
+        };
+
+        var border = new Border
+        {
+            Width = 100,
+            Height = 100,
+            Background = new SolidColorBrush(Windows.UI.ColorHelper.FromArgb(255, 224, 224, 224)),
+            CornerRadius = new CornerRadius(20),
+            Child = image
+        };
+
+        var textBlock = new TextBlock
+        {
+            Text = entry.Value.Name,
+            TextAlignment = TextAlignment.Center,
+            FontSize = 12,
+            Foreground = (Brush)Application.Current.Resources["TextColor"],
+        };
+
+        var stationPanel = new StackPanel
+        {
+            Width = 100,
+            Background = new SolidColorBrush(Microsoft.UI.Colors.Transparent),
+            Spacing = 5,
+            Name = $"Stacja_{entry.Key}",
+            ManipulationMode = ManipulationModes.TranslateX | ManipulationModes.System,
+        };
+
+        var targetPanels = new HashSet<StackPanel> { NajczesciejGranePanel, WlasnePanel, UlubionePanel };
+        if (targetPanels.Contains(category))
+        {
+            var menu = new MenuFlyoutItem { Text = "Usuń" };
+            menu.Click += async (s, e) =>
+            {
+                string id = stationPanel.Name.Replace("Stacja_", "");
+                await RemoveEntryById(folder, id);
+                var parent = stationPanel.Parent as Panel;
+                parent?.Children.Remove(stationPanel);//Usuwamy ten nasz station Panel
+            };
+            var menuFlyout = new MenuFlyout();
+            menuFlyout.Items.Add(menu);
+            stationPanel.ContextFlyout = menuFlyout;
+        }
+        stationPanel.Tapped += OnPanelTapped;
+        stationPanel.Children.Add(border);
+        stationPanel.Children.Add(textBlock);
+        category.Children.Add(stationPanel);
+    }
+}
+
+private async void OnPanelTapped(object sender, TappedRoutedEventArgs e)
+{
+
+    if (sender is StackPanel panel)
+    {
+        string index = panel.Name.Replace("Stacja_", "");
+        if (currentIndex == index) return;//Nie pozwalamy na to, aby użytkownik spamował na ten sam przycisk.
+        var folder = await OpenFolder();
+        var entries = await LoadFromJson(folder);
+
+        if (entries.TryGetValue(index, out var entry))
+        {
+            var viewModel = DataContext as MainModel;
+            if (viewModel == null) return;
+            currentIndex = index;
+            viewModel.ToggleChangeUrlCommand.Execute(entry.StreamUrl);
+            viewModel.ToggleChangeStationNameCommand.Execute(entry.Name);
+            viewModel.ToggleChangeCountryCommand.Execute(entry.Country);
+            viewModel.ToggleChangeImagePathCommand.Execute(entry.ImagePath);
+        }
+        else
+        {
+            System.Diagnostics.Debug.WriteLine($"Nie udało się");
+        }
+    }
+}
+}
+}

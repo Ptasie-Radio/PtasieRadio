@@ -200,7 +200,7 @@ public class RadioPlayerService : IRadioPlayerService
                                     Description = String.Join(", ", station.Tags ?? new List<string>()),
                                 };
 
-                                foreach (var item in entries.Where(kvp => kvp.Value.StreamUrl == s.StreamUrl && kvp.Value.Category == "POP").ToList())//Dodane kvp.Value.Category, aby tylko z POP brało i usuwało
+                                foreach (var item in entries.Where(kvp => (kvp.Value.StreamUrl == s.StreamUrl || kvp.Value.Name == s.Name) &&  kvp.Value.Category == "POP" && kvp.Value.Name!="Brak Nazwy").ToList())//Dodane kvp.Value.Category, aby tylko z POP brało i usuwało
                                 {
                                     entries.Remove(item.Key);
                                 }
