@@ -213,7 +213,7 @@ public sealed partial class MainPage : Page
     public static async Task RemoveEntryById(StorageFolder folder, string id)
     {
         var localFileName = "radio.json";
-        var userFileName = "../users.json";
+        var userFileName = "users.json";
         try
         {
             var file = await folder.GetFileAsync(localFileName);
@@ -222,7 +222,7 @@ public sealed partial class MainPage : Page
             var entries = JsonConvert.DeserializeObject<Dictionary<string, SaveEntryData>>(json)
                           ?? new Dictionary<string, SaveEntryData>();
 
-            var fileUser = await folder.GetFileAsync(userFileName);
+            var fileUser = await Windows.Storage.ApplicationData.Current.LocalFolder.GetFileAsync(userFileName);
             string jsonUser = await FileIO.ReadTextAsync(fileUser);
             var userData = JsonConvert.DeserializeObject<Dictionary<string, User>>(jsonUser)
                           ?? new Dictionary<string, User>();

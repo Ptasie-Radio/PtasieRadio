@@ -1,2 +1,0 @@
-values\strings;values\Strings
-values\styles;values\Styles

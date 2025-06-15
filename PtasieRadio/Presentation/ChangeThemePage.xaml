@@ -50,7 +50,7 @@
                     <StackPanel Orientation="Horizontal"
                                 Grid.Column="0"
                                 VerticalAlignment="Center">
-                        <Image Source="Assets/Images/theme_img/standard.png"
+                        <Image Source="ms-appx:///Assets/Images/theme_img/standard.png"
                                Width="36" Height="36"
                                VerticalAlignment="Center"/>
                         <TextBlock Text="Light"
@@ -109,7 +109,7 @@
                     <StackPanel Orientation="Horizontal"
                                 Grid.Column="0"
                                 VerticalAlignment="Center">
-                        <Image Source="Assets/Images/theme_img/standard.png"
+                        <Image Source="ms-appx:///Assets/Images/theme_img/standard.png"
                                Width="36" Height="36"
                                VerticalAlignment="Center"/>
                         <TextBlock Text="Dark"
@@ -174,7 +174,7 @@
                     <StackPanel Orientation="Horizontal"
                                 Grid.Column="0"
                                 VerticalAlignment="Center">
-                        <Image Source="Assets/Images/theme_img/blueberry.png"
+                        <Image Source="ms-appx:///Assets/Images/theme_img/blueberry.png"
                                Width="36" Height="36"
                                VerticalAlignment="Center"/>
                         <TextBlock Text="Blueberry Light"
@@ -230,7 +230,7 @@
                     <StackPanel Orientation="Horizontal"
                                 Grid.Column="0"
                                 VerticalAlignment="Center">
-                        <Image Source="Assets/Images/theme_img/blueberry.png"
+                        <Image Source="ms-appx:///Assets/Images/theme_img/blueberry.png"
                                Width="36" Height="36"
                                VerticalAlignment="Center"/>
                         <TextBlock Text="Blueberry Dark"
@@ -288,7 +288,7 @@
                     <StackPanel Orientation="Horizontal"
                                 Grid.Column="0"
                                 VerticalAlignment="Center">
-                        <Image Source="Assets/Images/theme_img/lime.png"
+                        <Image Source="ms-appx:///Assets/Images/theme_img/lime.png"
                                Width="36" Height="36"
                                VerticalAlignment="Center"/>
                         <TextBlock Text="LimeDark"

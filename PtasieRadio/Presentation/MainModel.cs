@@ -211,7 +211,7 @@ public class MainModel : ObservableObject
         if (url == null) url = "";
         if (_radioService.StationName != null) _stationName = _radioService.StationName;
         if (_radioService.StationImagePath != null) _imagePath = _radioService.StationImagePath;
-        else _imagePath = "Assets\\Images\\radio_placeholder_square.png";
+        else _imagePath = "ms-appx:///Assets/Images/radio_placeholder_square.png";
         if (_radioService.StationCountry != null) _country = _radioService.StationCountry;
 
         _profileService = profileService;

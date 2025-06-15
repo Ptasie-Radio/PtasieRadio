@@ -97,6 +97,11 @@ public partial class App : Application
         MainWindow.UseStudio();
 #endif
         MainWindow.SetWindowIcon();
+        if (MainWindow.Content is null)
+        {
+            MainWindow.Content = new Frame(); // lub Twój rootowy element UI
+        }
+        MainWindow.Activate();
         // 🔁 dynamiczne zastosowanie motywu
         ThemeService.ApplyTheme(ThemeService.LoadTheme());
         Host = await builder.NavigateAsync<Shell>();

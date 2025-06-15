@@ -79,7 +79,6 @@ private void NavigateToChangeTheme(object sender, TappedRoutedEventArgs e)
         var folderName = "PtasieRadio";
         var folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync(
 		folderName, CreationCollisionOption.OpenIfExists);
-			System.Diagnostics.Process.Start("explorer.exe", folder.Path);
     }
         //PRZYCISK USTAWIENIA - > INNE
     private async void OnOpiniaTapped(object sender, TappedRoutedEventArgs e)

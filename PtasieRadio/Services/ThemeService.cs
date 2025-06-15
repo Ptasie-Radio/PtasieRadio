@@ -24,7 +24,8 @@ public static class ThemeService
     
     public static void ApplyTheme(string? theme)
     {
-        if (string.IsNullOrWhiteSpace(theme)) return;
+        if (string.IsNullOrWhiteSpace(theme))
+            theme = "Dark";
 
         var res = Application.Current.Resources;
 
