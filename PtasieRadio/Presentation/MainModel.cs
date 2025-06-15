@@ -30,7 +30,7 @@ public class MainModel : ObservableObject
     public ICommand ToggleChangeCountryCommand { get; }
     public ICommand ToggleChangeImagePathCommand { get; }
 
-	private string? url;
+    private string? url;
     private bool isChangingUrl = false;
     public IAsyncRelayCommand HeartButtonCommand { get; }
     public string HeartButtonImage => _isFavourite ?
@@ -98,7 +98,7 @@ public class MainModel : ObservableObject
 
 
 
-	public IRelayCommand ToggleMuteCommand { get; }
+    public IRelayCommand ToggleMuteCommand { get; }
     public IAsyncRelayCommand<string?> ToggleChangeUrlCommand { get; }
 
     private Point _lastPointerPosition;
@@ -206,7 +206,7 @@ public class MainModel : ObservableObject
         _radioService.Buffering += OnBuffer;
         _radioService.Playing += OnPlaying;
         _radioService.NotPlaying += OnNotPlaying;
-		_promptService = promptService;
+        _promptService = promptService;
         url = _radioService.GetUrl();
         if (url == null) url = "";
         if (_radioService.StationName != null) _stationName = _radioService.StationName;
@@ -371,47 +371,59 @@ public class MainModel : ObservableObject
 
     private void OnBuffer()
     {
-		var themeName = ApplicationData.Current.LocalSettings.Values[ThemeService.ThemeKey] as string;
+        var themeName = ApplicationData.Current.LocalSettings.Values[ThemeService.ThemeKey] as string;
 
-		if (themeName == "Light" || themeName == "BlueberryLight")
+        if (themeName == "Light" || themeName == "BlueberryLight")
         {
             PlayAnimationGifPath = "ms-appx:///Assets/Images/loading_icon_black.gif";
         }
         else if (themeName == "Dark" || themeName == "BlueberryDark" || themeName == "LimeDark")
         {
-			PlayAnimationGifPath = "ms-appx:///Assets/Images/loading_icon_white.gif";
-		}
-        
+            PlayAnimationGifPath = "ms-appx:///Assets/Images/loading_icon_white.gif";
+        }
+        else
+        {
+            PlayAnimationGifPath = "ms-appx:///Assets/Images/loading_icon_white.gif";
+        }
+
     }
     private void OnPlaying()
     {
-		var themeName = ApplicationData.Current.LocalSettings.Values[ThemeService.ThemeKey] as string;
+        var themeName = ApplicationData.Current.LocalSettings.Values[ThemeService.ThemeKey] as string;
 
-		if (themeName == "Light" || themeName == "BlueberryLight")
-		{
-			PlayAnimationGifPath = "ms-appx:///Assets/Images/animation_black.gif";
-		}
-		else if (themeName == "Dark" || themeName == "BlueberryDark" || themeName == "LimeDark")
-		{
-			PlayAnimationGifPath = "ms-appx:///Assets/Images/animation_white.gif";
-		}
+        if (themeName == "Light" || themeName == "BlueberryLight")
+        {
+            PlayAnimationGifPath = "ms-appx:///Assets/Images/animation_black.gif";
+        }
+        else if (themeName == "Dark" || themeName == "BlueberryDark" || themeName == "LimeDark")
+        {
+            PlayAnimationGifPath = "ms-appx:///Assets/Images/animation_white.gif";
+        }
+        else
+        {
+            PlayAnimationGifPath = "ms-appx:///Assets/Images/animation_white.gif";
+        }
 
-		
+
     }
     private void OnNotPlaying()
     {
-		var themeName = ApplicationData.Current.LocalSettings.Values[ThemeService.ThemeKey] as string;
+        var themeName = ApplicationData.Current.LocalSettings.Values[ThemeService.ThemeKey] as string;
 
-		if (themeName == "Light" || themeName == "BlueberryLight")
-		{
-			PlayAnimationGifPath = "ms-appx:///Assets/Images/no_animation_black.png";
-		}
-		else if (themeName == "Dark" || themeName == "BlueberryDark" || themeName == "LimeDark")
-		{
-			PlayAnimationGifPath = "ms-appx:///Assets/Images/no_animation_white.png";
-		}
+        if (themeName == "Light" || themeName == "BlueberryLight")
+        {
+            PlayAnimationGifPath = "ms-appx:///Assets/Images/no_animation_black.png";
+        }
+        else if (themeName == "Dark" || themeName == "BlueberryDark" || themeName == "LimeDark")
+        {
+            PlayAnimationGifPath = "ms-appx:///Assets/Images/no_animation_white.png";
+        }
+        else
+        {
+            PlayAnimationGifPath = "ms-appx:///Assets/Images/no_animation_white.png";
+        }
 
-		
+
     }
 
 }

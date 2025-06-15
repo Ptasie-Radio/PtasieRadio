@@ -125,15 +125,15 @@
                     </StackPanel>
 
                     <!-- Przycisk zapisu -->
-                    <StackPanel Grid.Column="0"
+                    <!-- <StackPanel Grid.Column="0"
                                 Grid.Row="2"
                                 Spacing="8"
                                 VerticalAlignment="Center">
-                        <!-- hover powinien byc red -->
-                        <!-- <Button Content="Usuń profil"
+                        hover powinien byc red
+                        <Button Content="Usuń profil"
                                 Width="160"
                                 Height="40"
-                                HorizontalAlignment="Center"/> -->
+                                HorizontalAlignment="Center"/>
                         <Button Content="Usuń profil"
                                 Width="160"
                                 Height="40"
@@ -141,7 +141,7 @@
                                 Foreground="{StaticResource TextColor}"
                                 HorizontalAlignment="Center"
                                 Tapped="OnDeleteButtonTapped"/>
-                    </StackPanel>
+                    </StackPanel> -->
                     <StackPanel Grid.Column="2"
                                 Grid.Row="2"
                                 Spacing="8"
