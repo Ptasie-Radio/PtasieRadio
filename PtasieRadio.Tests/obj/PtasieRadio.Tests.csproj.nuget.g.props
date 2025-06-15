@@ -15,7 +15,6 @@
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)uno.fonts.fluent\2.6.1\buildTransitive\Uno.Fonts.Fluent.props" Condition="Exists('$(NuGetPackageRoot)uno.fonts.fluent\2.6.1\buildTransitive\Uno.Fonts.Fluent.props')" />
     <Import Project="$(NuGetPackageRoot)uno.winui\5.6.81\buildTransitive\net8.0\uno.winui.props" Condition="Exists('$(NuGetPackageRoot)uno.winui\5.6.81\buildTransitive\net8.0\uno.winui.props')" />
-    <Import Project="$(NuGetPackageRoot)uno.winui.devserver\5.6.81\buildTransitive\Uno.WinUI.DevServer.props" Condition="Exists('$(NuGetPackageRoot)uno.winui.devserver\5.6.81\buildTransitive\Uno.WinUI.DevServer.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.extensions.configuration.usersecrets\8.0.0\buildTransitive\net6.0\Microsoft.Extensions.Configuration.UserSecrets.props" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.configuration.usersecrets\8.0.0\buildTransitive\net6.0\Microsoft.Extensions.Configuration.UserSecrets.props')" />
     <Import Project="$(NuGetPackageRoot)uno.extensions.core\5.2.7\buildTransitive\Uno.Extensions.Core.props" Condition="Exists('$(NuGetPackageRoot)uno.extensions.core\5.2.7\buildTransitive\Uno.Extensions.Core.props')" />
     <Import Project="$(NuGetPackageRoot)refit\7.2.22\buildTransitive\netstandard2.0\refit.props" Condition="Exists('$(NuGetPackageRoot)refit\7.2.22\buildTransitive\netstandard2.0\refit.props')" />
